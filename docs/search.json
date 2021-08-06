@@ -2,11 +2,19 @@
   "articles": [
     {
       "path": "about.html",
-      "title": "About this site",
+      "title": "About Me",
       "description": "Some additional details about the website",
       "author": [],
-      "contents": "\n\n\n\n",
-      "last_modified": "2021-08-06T10:47:35-07:00"
+      "contents": "\nResearch: urban salamander microclimates\n\n\n\n",
+      "last_modified": "2021-08-06T11:09:15-07:00"
+    },
+    {
+      "path": "CV.html",
+      "title": "Mia Forsline Resume",
+      "description": "CV 2021 ",
+      "author": [],
+      "contents": "\nContact\nEducation\nWork Experience\nResearch\nFunding\nLeadership\nAwards\nSkills\n\n\nggplot(data = diamonds, aes(x = carat, y = price))+ \n  geom_point(aes(color = price))+ \n  theme_classic()\n\n\n\n\n\n\n\n",
+      "last_modified": "2021-08-06T11:09:18-07:00"
     },
     {
       "path": "index.html",
@@ -14,7 +22,7 @@
       "description": "Welcome to my website. I hope you enjoy it!\n",
       "author": [],
       "contents": "\n\n\n\n",
-      "last_modified": "2021-08-06T10:48:06-07:00"
+      "last_modified": "2021-08-06T11:09:18-07:00"
     }
   ],
   "collections": []
