@@ -1,5 +1,5 @@
 ---
-title: "My Website"
+title: "Mia Forsline"
 description: |
   Welcome to my website. I hope you enjoy it!
 site: distill::distill_website

@@ -1,0 +1,21 @@
+{
+  "articles": [
+    {
+      "path": "about.html",
+      "title": "About this site",
+      "description": "Some additional details about the website",
+      "author": [],
+      "contents": "\n\n\n\n",
+      "last_modified": "2021-08-06T10:47:35-07:00"
+    },
+    {
+      "path": "index.html",
+      "title": "Mia Forsline",
+      "description": "Welcome to my website. I hope you enjoy it!\n",
+      "author": [],
+      "contents": "\n\n\n\n",
+      "last_modified": "2021-08-06T10:48:06-07:00"
+    }
+  ],
+  "collections": []
+}
