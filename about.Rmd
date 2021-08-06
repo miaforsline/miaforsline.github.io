@@ -4,6 +4,7 @@ description: |
   Some additional details about the website
 ---
 - Research: urban salamander microclimates 
+- Picture
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 ```
