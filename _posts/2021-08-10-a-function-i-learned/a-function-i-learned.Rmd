@@ -1,0 +1,38 @@
+---
+title: "a function I learned"
+description: |
+  A short description of the post.
+author:
+  - name: Mia Forsline
+    url: {}
+date: 08-10-2021
+output:
+  distill::distill_article:
+    self_contained: false
+preview: images/test2.jpg
+---
+
+
+```{r setup, include=FALSE}
+#must manually knit blog posts to render the html 
+knitr::opts_chunk$set(echo = FALSE)
+library(tidyverse)
+library(palmerpenguins)
+```
+
+Distill is a publication format for scientific and technical writing, native to the web.
+
+Learn more about using Distill at <https://rstudio.github.io/distill>.
+
+```{r}
+ggplot(data = penguins, aes(x = flipper_length_mm, y = body_mass_g))+
+  geom_point()+
+  theme_classic()
+```
+
+```{r}
+ggplot(data = penguins, aes(x = body_mass_g, y = flipper_length_mm))+
+  geom_point()+
+  theme_classic()
+```
+

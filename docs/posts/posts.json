@@ -1,0 +1,36 @@
+[
+  {
+    "path": "posts/2021-08-10-a-function-i-learned/",
+    "title": "a function I learned",
+    "description": "A short description of the post.",
+    "author": [
+      {
+        "name": "Mia Forsline",
+        "url": {}
+      }
+    ],
+    "date": "2021-08-10",
+    "categories": [],
+    "contents": "\nDistill is a publication format for scientific and technical writing, native to the web.\nLearn more about using Distill at https://rstudio.github.io/distill.\n\n\n\n\n\n\n\n\n\n",
+    "preview": "posts/2021-08-10-a-function-i-learned/images/test2.jpg",
+    "last_modified": "2021-08-10T10:46:19-07:00",
+    "input_file": {}
+  },
+  {
+    "path": "posts/2021-08-10-hello/",
+    "title": "My first blog post",
+    "description": "Description",
+    "author": [
+      {
+        "name": "Mia Forsline",
+        "url": {}
+      }
+    ],
+    "date": "2021-08-10",
+    "categories": [],
+    "contents": "\nDistill is a publication format for scientific and technical writing, native to the web.\nLearn more about using Distill at https://rstudio.github.io/distill.\n\n\n\n",
+    "preview": {},
+    "last_modified": "2021-08-10T10:23:51-07:00",
+    "input_file": {}
+  }
+]
