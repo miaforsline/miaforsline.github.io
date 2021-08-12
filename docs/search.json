@@ -6,14 +6,14 @@
       "description": "Some additional details about the website",
       "author": [],
       "contents": "\nResearch: urban salamander microclimates\nPicture\n\n\n\n",
-      "last_modified": "2021-08-10T11:04:03-07:00"
+      "last_modified": "2021-08-12T15:12:51-07:00"
     },
     {
       "path": "blog.html",
       "title": "Blog Posts",
       "author": [],
       "contents": "\n\n\n\n",
-      "last_modified": "2021-08-10T11:04:04-07:00"
+      "last_modified": "2021-08-12T15:12:51-07:00"
     },
     {
       "path": "CV.html",
@@ -21,14 +21,14 @@
       "description": "CV 2021 ",
       "author": [],
       "contents": "\nContact\nEducation\nWork Experience\nResearch\nFunding\nLeadership\nAwards\nSkills\n\n\nggplot(data = diamonds, aes(x = carat, y = price))+ \n  geom_point(aes(color = price))+ \n  theme_classic()\n\n\n\n\n\n\n\n",
-      "last_modified": "2021-08-10T11:04:06-07:00"
+      "last_modified": "2021-08-12T15:12:54-07:00"
     },
     {
       "path": "index.html",
       "title": "Mia Forsline",
       "author": [],
       "contents": "\n\n          \n          \n          Mia Forsline\n          \n          \n          Home\n          About\n          CV\n          Blog\n          ☰\n          \n          \n      \n        \n          \n            Mia Forsline\n          \n          \n            \n              I am a Master of Environmental Data Science candidate at UCSB.\n            \n            \n              I am a Master of Environmental Data Science candidate at UCSB.\n            \n          \n\n          \n            \n              \n                  \n                    \n                      LinkedIn\n                    \n                  \n                \n                                \n                  \n                    \n                      Twitter\n                    \n                  \n                \n                                \n                  \n                    \n                      GitHub\n                    \n                  \n                \n                                \n                  \n                    \n                      Email\n                    \n                  \n                \n                              \n          \n\n          \n            \n              \n                                \n                  \n                    LinkedIn\n                  \n                \n                                \n                  \n                    Twitter\n                  \n                \n                                \n                  \n                    GitHub\n                  \n                \n                                \n                  \n                    Email\n                  \n                \n                              \n            \n          \n        \n      \n    \n\n    \n    \n    ",
-      "last_modified": "2021-08-10T11:04:06-07:00"
+      "last_modified": "2021-08-12T15:12:54-07:00"
     }
   ],
   "collections": ["posts/posts.json"]
