@@ -15,8 +15,4 @@ output:
 site: distill::distill_website
 ---
  
-As a Buddhist, I was raised to respect and be curious about the natural world. As a result, I studied Biology at Occidental College in Los Angeles, CA and graduated in 2021. 
-
-At Occidental, I conducted undergraduate research for three years. During that time, I completed an honor’s thesis that investigated how the urban heat island impacts local salamander populations as well as explored urban connectivity of salamander habitats. To do this, I used computational methods in R and Julia such as remote sensing, linear mixed-effects models, and circuit theory. Furthermore, I was a Biostatistics Teaching Assistant and taught first-time users R and basic file management, both in-person and remotely. In addition to my computational biology experience, I worked in the Campus Dining department and promoted food sustainability on campus by leading a bi-annual budget analysis and supporting educational events for students interested in local food systems. 
-
-To continue to pursue both my environmental and computational interests, I am currently a candidate for a Master of Environmental Data Science at the Bren School of Environmental Science and Management at UC Santa Barbara. In the future, I hope to continue working in urban environmental spaces such as food sustainability. 
+As a Buddhist raised to respect and be curious about the natural world, I earned a B.A. of Biology at Occidental College in Los Angeles, CA and graduated in 2021. For three years at Occidental, I conducted undergraduate research to investigate how the urban heat island impacts local salamander populations. To continue to pursue my environmental and computational interests, I am currently pursuing a Master of Environmental Data Science at the Bren School of Environmental Science and Management at UC Santa Barbara. 

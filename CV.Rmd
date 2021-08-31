@@ -1,26 +1,10 @@
 ---
-title: "Mia Forsline Resume"
+title: "Mia Forsline"
 description: |
   CV 2021 
 ---
 
--   Contact
--   Education
--   Work Experience
--   Research
--   Funding
--   Leadership
--   Awards
--   Skills
-
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-
-library(tidyverse)
-```
 ```{r}
-ggplot(data = diamonds, aes(x = carat, y = price))+ 
-  geom_point(aes(color = price))+ 
-  theme_classic()
+
 ```
 
