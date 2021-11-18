@@ -1,0 +1,22 @@
+---
+title: "CalEnviroScreen"
+description: |
+  EDS 222: Statistics for Environmental Data Science
+  Fall 2021 
+author:
+  - name: Mia Forsline
+    url: {}
+date: 2021-11-18
+output:
+  distill::distill_article:
+    self_contained: false
+    toc: true
+    toc_float: true
+preview: octocat.png
+base_url: miaforsline.github.io
+---
+
+# CalEnviroScreen Title 
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
