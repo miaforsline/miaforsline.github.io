@@ -2,7 +2,7 @@
 title: "CalEnviroScreen"
 description: |
   EDS 222: Statistics for Environmental Data Science
-  Fall 2021 
+  Fall 2021 Final Project 
 author:
   - name: Mia Forsline
     url: {}
@@ -13,10 +13,17 @@ output:
     toc: true
     toc_float: true
 preview: octocat.png
-base_url: miaforsline.github.io
 ---
 
-# CalEnviroScreen Title 
+# Research Question 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 ```
+
+# Background
+
+# Methods
+
+# Results
+
+# Conclusions 

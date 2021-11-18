@@ -1,5 +1,22 @@
 [
   {
+    "path": "posts/2021-11-18-calenviroscreen/",
+    "title": "CalEnviroScreen",
+    "description": "EDS 222: Statistics for Environmental Data Science\nFall 2021 Final Project",
+    "author": [
+      {
+        "name": "Mia Forsline",
+        "url": {}
+      }
+    ],
+    "date": "2021-11-18",
+    "categories": [],
+    "contents": "\n\nContents\nResearch Question\nBackground\nMethods\nResults\nConclusions\n\nResearch Question\nBackground\nMethods\nResults\nConclusions\n\n\n\n",
+    "preview": {},
+    "last_modified": "2021-11-18T12:26:19-08:00",
+    "input_file": {}
+  },
+  {
     "path": "posts/2021-08-10-a-function-i-learned/",
     "title": "a function I learned",
     "description": "A short description of the post.",
