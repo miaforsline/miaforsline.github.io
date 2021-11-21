@@ -16,14 +16,31 @@ preview: octocat.png
 ---
 
 # Research Question 
+
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-# Background
+# Background / Motivation 
+Why is this important? Is there existing evidence on this question? If so, why is it inconclusive? If not, why not?
 
 # Methods
 
+## Data Description 
+Where did you access it? What are its spatial and temporal features? What are its limitations? What do you know about the sampling strategy and what biases that may introduce? If helpful, you can use a histogram, scatterplot, or summary statistics table to describe your data.
+
+## Data Collection 
+Where did you access it? What are its spatial and temporal features? What are its limitations? What do you know about the sampling strategy and what biases that may introduce? If helpful, you can use a histogram, scatterplot, or summary statistics table to describe your data.
+
+## Statistical Analysis 
+What is your analysis plan? Why did you choose this analysis, given your data and question? What are the limitations?
+
 # Results
+Show us your results in figure(s) and/or table(s) that are carefully labeled and captioned. Describe in the text (and orally when presenting) what you found, and how these results either do or do not help you answer your question.
+
+## Figures 
 
 # Conclusions 
+
+# Future Directions 
+One short analysis cannot fully answer an interesting scientific question. If you had time to collect more data or conduct more analysis, what would help you answer this question better?
