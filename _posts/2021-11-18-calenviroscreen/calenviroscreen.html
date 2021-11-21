@@ -117,7 +117,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["calenviroscreen_files/anchor-4.2.2/anchor.min.js","calenviroscreen_files/bowser-1.9.3/bowser.min.js","calenviroscreen_files/distill-2.2.21/template.v2.js","calenviroscreen_files/header-attrs-2.11/header-attrs.js","calenviroscreen_files/jquery-3.6.0/jquery-3.6.0.js","calenviroscreen_files/jquery-3.6.0/jquery-3.6.0.min.js","calenviroscreen_files/jquery-3.6.0/jquery-3.6.0.min.map","calenviroscreen_files/popper-2.6.0/popper.min.js","calenviroscreen_files/tippy-6.2.7/tippy-bundle.umd.min.js","calenviroscreen_files/tippy-6.2.7/tippy-light-border.css","calenviroscreen_files/tippy-6.2.7/tippy.css","calenviroscreen_files/tippy-6.2.7/tippy.umd.min.js","calenviroscreen_files/webcomponents-2.0.0/webcomponents.js","CES/CES_data/ces1_2013.xls","CES/CES_data/ces2_2014.xlsx","CES/CES_data/ces3_2018.csv","CES/CES_data/ces4_21.xlsx","CES/CES_images/components.png"]}
+  {"type":"character","attributes":{},"value":["calenviroscreen_files/anchor-4.2.2/anchor.min.js","calenviroscreen_files/bowser-1.9.3/bowser.min.js","calenviroscreen_files/distill-2.2.21/template.v2.js","calenviroscreen_files/header-attrs-2.11/header-attrs.js","calenviroscreen_files/jquery-3.6.0/jquery-3.6.0.js","calenviroscreen_files/jquery-3.6.0/jquery-3.6.0.min.js","calenviroscreen_files/jquery-3.6.0/jquery-3.6.0.min.map","calenviroscreen_files/popper-2.6.0/popper.min.js","calenviroscreen_files/tippy-6.2.7/tippy-bundle.umd.min.js","calenviroscreen_files/tippy-6.2.7/tippy-light-border.css","calenviroscreen_files/tippy-6.2.7/tippy.css","calenviroscreen_files/tippy-6.2.7/tippy.umd.min.js","calenviroscreen_files/webcomponents-2.0.0/webcomponents.js","CES/CES_data/ces1_2013.xls","CES/CES_data/ces2_2014.xlsx","CES/CES_data/ces3_2018.csv","CES/CES_data/ces4_21.xlsx","CES/CES_images/components.png","CES/CES_images/poverty.png"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
   <!--/radix_placeholder_navigation_in_header-->
@@ -1503,13 +1503,13 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </nav>
 </div>
 <h1 id="research-question">Research Question</h1>
-<p>In California from</p>
+<p>In California from 2013 - 2021, does air quality (as measured by PM 2.5 concentrations) vary with poverty rates (as measured by the percent of the population living below two times the federal poverty level)?</p>
 <h1 id="background-motivation">Background / Motivation</h1>
 <p>Why is this important? Is there existing evidence on this question? If so, why is it inconclusive? If not, why not?</p>
 <h1 id="methods">Methods</h1>
 <h2 id="data-description-collection">Data Description / Collection</h2>
 <p>Where did you access it? What are its spatial and temporal features? What are its limitations? What do you know about the sampling strategy and what biases that may introduce? If helpful, you can use a histogram, scatterplot, or summary statistics table to describe your data.</p>
-<p>I downloaded several years’ worth of CalEnviroScreen data from the <a href="https://oehha.ca.gov/">California Office of Environmental Health Hazard Assessment (OEHHA)</a> and the <a href="https://data.ca.gov/">California Open Data Portal</a> :</p>
+<p>I downloaded 2013 - 2021 CalEnviroScreen data from the <a href="https://oehha.ca.gov/">California Office of Environmental Health Hazard Assessment (OEHHA)</a> and the <a href="https://data.ca.gov/">California Open Data Portal</a> :</p>
 <ul>
 <li><a href="https://oehha.ca.gov/calenviroscreen/report-general-info/calenviroscreen-11">Versions 1.1 (Sept 2013)</a></li>
 <li><a href="https://oehha.ca.gov/calenviroscreen/report/calenviroscreen-version-20">Versions 2.0 (Oct 2014)</a></li>
@@ -1534,10 +1534,17 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </figure>
 <p>Each dataset also contains one row per census tract for a total of X rows, meaning each census tract in California is assigned a value per environmental indicator or population characteristic.</p>
 <p>In particular, I am interested in:</p>
-<ul>
-<li><strong>PM2.5:</strong> the annual mean concentration of PM2.5, which CalEnviroScreen calculates based on a weighted average of measured monitor concentrations and satellite observations (ug/m3) over 3 years</li>
-<li><strong>Poverty:</strong> the percent of the population living below two times the federal poverty level, which CalEnviroScreen calculates using a 5-year estimate</li>
-</ul>
+<ol type="1">
+<li><p><strong>PM2.5:</strong> the annual mean concentration of PM2.5, which CalEnviroScreen calculates based on a weighted average of measured monitor concentrations and satellite observations (ug/m3) over 3 years</p></li>
+<li><p><strong>Poverty:</strong> the percent of the population living below two times the federal poverty level, which CalEnviroScreen calculates using a 5-year estimate. For example, for the CES 1.1 report, they used a 5-year estimate from 2007 - 2011 data while in the CES 4.0 report, they used a 5-year estimate from 2015 - 2019 data. Multiple years of data are used to calculate more reliable results for geographic areas with small populations.</p></li>
+</ol>
+<p>CalEnviroScreen defined poverty as twice below the federal poverty line to account for California’s high cost of living relative to other states and because the federal poverty threshold has not changed since the 1980s despite the cost of living increasing over time.</p>
+<p>The percent per census tract was calculated by individuals living below 200% the poverty level per census tract / total individuals living below 200% of the poverty level.</p>
+<p>Standard error and relative standard error were calculated to determine the reliability of the calculated poverty rate. Census tracts with unreliable estimates were assigned no value for poverty rate (NULL).</p>
+<figure>
+<img src="CES/CES_images/poverty.png" alt="CalEnviroScreen Poverty Map (Source: https://oehha.ca.gov/media/downloads/calenviroscreen/report/calenviroscreen40reportf2021.pdf)" /><figcaption aria-hidden="true">CalEnviroScreen Poverty Map (Source: <a href="https://oehha.ca.gov/media/downloads/calenviroscreen/report/calenviroscreen40reportf2021.pdf" class="uri">https://oehha.ca.gov/media/downloads/calenviroscreen/report/calenviroscreen40reportf2021.pdf</a>)</figcaption>
+</figure>
+<p>CalEnviroScreen used poverty data collected annually by the US Census Bureau’s American Community Survey (ACS)</p>
 <p>Therefore, we can use this data to explore how PM2.5 and poverty rates</p>
 <h2 id="statistical-analysis">Statistical Analysis</h2>
 <p>What is your analysis plan? Why did you choose this analysis, given your data and question? What are the limitations?</p>
