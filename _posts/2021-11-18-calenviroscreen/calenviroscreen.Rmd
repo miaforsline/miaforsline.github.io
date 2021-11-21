@@ -45,7 +45,7 @@ Each CalEnviroScreen dataset contains X columns of:
   - sensitive population indicators such as rates of asthma
   - socioeconomic factor indicators such as rates of poverty 
   
-!
+![CalEnviroScreen Components (Source: https://oehha.ca.gov/media/downloads/calenviroscreen/report/calenviroscreen40reportf2021.pdf)](CES/CES_images/components.png)
 
 Each dataset also contains one row per census tract for a total of X rows, meaning each census tract in California is assigned a value per environmental indicator or population characteristic. 
 
