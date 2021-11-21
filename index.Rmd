@@ -1,6 +1,6 @@
 ---
 title: "Mia Forsline"
-image: "octocat.png"
+image: "mia.jpg"
 links:
   - label: LinkedIn
     url: "https://linkedin.com/in/mia-forsline-b53797159/"
@@ -15,4 +15,4 @@ output:
 site: distill::distill_website
 ---
  
-As a Buddhist raised to respect and be curious about the natural world, I earned a B.A. of Biology at Occidental College in Los Angeles, CA and graduated in 2021. For three years at Occidental, I conducted undergraduate research to investigate how the urban heat island impacts local salamander populations. To continue to pursue my environmental and computational interests, I am currently pursuing a Master of Environmental Data Science at the Bren School of Environmental Science and Management at UC Santa Barbara. 
+As a Buddhist raised to respect and be curious about the natural world, I earned a B.A. of Biology (with an Environmental Science emphasis) at Occidental College in Los Angeles, CA and graduated in 2021. For three years at Occidental, I conducted undergraduate research to investigate how the urban heat island impacts local salamander populations. To pursue my environmental and computational interests, I am currently completing a Master of Environmental Data Science at the Bren School of Environmental Science and Management at UC Santa Barbara. 
