@@ -16,7 +16,7 @@ preview: octocat.png
 ---
 
 # Research Question 
-
+In California from 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 ```
@@ -26,11 +26,35 @@ Why is this important? Is there existing evidence on this question? If so, why i
 
 # Methods
 
-## Data Description 
+## Data Description / Collection 
 Where did you access it? What are its spatial and temporal features? What are its limitations? What do you know about the sampling strategy and what biases that may introduce? If helpful, you can use a histogram, scatterplot, or summary statistics table to describe your data.
 
-## Data Collection 
-Where did you access it? What are its spatial and temporal features? What are its limitations? What do you know about the sampling strategy and what biases that may introduce? If helpful, you can use a histogram, scatterplot, or summary statistics table to describe your data.
+I downloaded several years' worth of CalEnviroScreen data from the [California Office of Environmental Health Hazard Assessment (OEHHA)](https://oehha.ca.gov/) and the [California Open Data Portal](https://data.ca.gov/) : 
+
+- [Versions 1.1 (Sept 2013)](https://oehha.ca.gov/calenviroscreen/report-general-info/calenviroscreen-11)
+- [Versions 2.0 (Oct 2014)](https://oehha.ca.gov/calenviroscreen/report/calenviroscreen-version-20)
+- [Versions 3.0 (June 2018)](https://data.ca.gov/dataset/calenviroscreen-3-0-results)
+- [Versions 4.0 (Oct 2021)](https://oehha.ca.gov/calenviroscreen/report/calenviroscreen-40)
+
+Each CalEnviroScreen dataset contains X columns of: 
+
+- environmental pollution burden indicators
+  - exposure indicators such as PM2.5
+  - environmental effects indicators such as groundwater threats
+- population characteristics: 
+  - sensitive population indicators such as rates of asthma
+  - socioeconomic factor indicators such as rates of poverty 
+  
+!
+
+Each dataset also contains one row per census tract for a total of X rows, meaning each census tract in California is assigned a value per environmental indicator or population characteristic. 
+
+In particular, I am interested in: 
+
+- **PM2.5:** the annual mean concentration of PM2.5, which CalEnviroScreen calculates based on a weighted average of measured monitor concentrations and satellite observations (ug/m3) over 3 years
+- **Poverty:** the percent of the population living below two times the federal poverty level, which CalEnviroScreen calculates using a 5-year estimate 
+
+Therefore, we can use this data to explore how PM2.5 and poverty rates
 
 ## Statistical Analysis 
 What is your analysis plan? Why did you choose this analysis, given your data and question? What are the limitations?
