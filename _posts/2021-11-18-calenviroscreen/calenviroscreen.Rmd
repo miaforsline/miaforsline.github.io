@@ -21,7 +21,7 @@ knitr::opts_chunk$set(echo = FALSE,
                       message = FALSE)
 library(tidyverse)
 library(here)
-library(patchwork)
+#library(patchwork)
 ```
 
 # Research Question
@@ -61,14 +61,31 @@ c4 <- read_csv(file = here("_posts",
                            "ces4_2021.csv"))
 
 c1_clean <- c1 %>% 
-  select(c("ZIP Code","Poverty", "PM2.5"))
+  select(c("ZIP Code","Poverty", "PM2.5")) %>% 
+  mutate("Census Tract" = "NA",
+         "California County" = "NA",
+         "Longitude" = "NA",
+         "Latitude" = "NA") %>% 
+  rename("ZIP" = "ZIP Code") %>% 
+  select(c("Census Tract", "California County", "ZIP", "Longitude", "Latitude", "Poverty", "PM2.5")) %>% 
+  mutate(Year = "2013")
 c2_clean <- c2 %>% 
-  select(c("Census Tract", "California County", "ZIP", "Longitude", "Latitude", "Poverty", "PM2.5"))
+  select(c("Census Tract", "California County", "ZIP", "Longitude", "Latitude", "Poverty", "PM2.5")) %>% 
+  mutate(Year = "2014")
 c3_clean <- c3 %>% 
-  select(c("Census Tract", "California County", "ZIP", "Longitude", "Latitude", "Poverty", "PM2.5"))
+  select(c("Census Tract", "California County", "ZIP", "Longitude", "Latitude", "Poverty", "PM2.5")) %>% 
+  mutate(Year = "2018")
 c4_clean <- c4 %>% 
-  select(c("Census Tract", "California County", "ZIP", "Longitude", "Latitude", "Poverty", "PM2.5"))
+  select(c("Census Tract", "California County", "ZIP", "Longitude", "Latitude", "Poverty", "PM2.5")) %>% 
+  mutate(Year = "2021")
 ```
+
+```{r}
+joined <- rbind(c4_clean, c3_clean, c2_clean, c1_clean) %>% 
+  mutate(Year = as.factor(Year),
+         Year = factor(x = Year, levels = c("2013", "2014", "2018", "2021"))) 
+```
+
 
 
 I downloaded 2013 - 2021 CalEnviroScreen data from the [California Office of Environmental Health Hazard Assessment (OEHHA)](https://oehha.ca.gov/) and the [California Open Data Portal](https://data.ca.gov/) :
