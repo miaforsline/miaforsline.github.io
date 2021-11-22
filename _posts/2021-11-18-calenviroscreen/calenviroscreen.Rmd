@@ -130,7 +130,9 @@ Each dataset also contains one row per census tract, meaning each census tract i
 
 In particular, I am interested in:
 
-1.  **PM2.5:** the annual mean concentration of PM2.5, which CalEnviroScreen calculates based on a weighted average of measured monitor concentrations and satellite observations (ug/m^3^) over 3 years. For example, the CES 1.1. report used data from 2007 - 2009 while the CES 4.0 report used 2015 - 2017. All reports used data from the [California Air Resources Board's](https://ww2.arb.ca.gov/homepage) Air Monitoring Network. In addition to the Air Monitoring Network, CES 3.0 and 4.0 incorporated [Satellite Remote Sensing Data](https://ww2.arb.ca.gov/resources/documents/air-quality-research-using-satellite-remote-sensing). 
+### 1.  **PM2.5:** 
+
+The annual mean concentration of PM2.5, which CalEnviroScreen calculates based on a weighted average of measured monitor concentrations and satellite observations (ug/m^3^) over 3 years. For example, the CES 1.1. report used data from 2007 - 2009 while the CES 4.0 report used 2015 - 2017. All reports used data from the [California Air Resources Board's](https://ww2.arb.ca.gov/homepage) Air Monitoring Network. In addition to the Air Monitoring Network, CES 3.0 and 4.0 incorporated [Satellite Remote Sensing Data](https://ww2.arb.ca.gov/resources/documents/air-quality-research-using-satellite-remote-sensing). 
 
 ```{r}
 ggplot(data = joined, aes(x = PM2.5)) + 
@@ -169,7 +171,9 @@ The quarterly estimates were then averaged to calculate annual means. The annual
 ![CalEnviroScreen 4.0 PM2.5 Map (Source: <https://oehha.ca.gov/media/downloads/calenviroscreen/report/calenviroscreen40reportf2021.pdf>)](CES/CES_images/pm.png)
 
 
-2.  **Poverty:** the percent of the population living below two times the federal poverty level, which CalEnviroScreen calculates using a 5-year estimate. For example, the CES 1.1 report used a 5-year estimate from 2007 - 2011 data while the CES 4.0 report used a 5-year estimate from 2015 - 2019 data. Poverty data came from the [American Community Survey](https://www.census.gov/programs-surveys/acs). Multiple years of data are used to calculate more reliable results for geographic areas with small populations.
+### 2.  **Poverty:** 
+
+The percent of the population living below two times the federal poverty level, which CalEnviroScreen calculates using a 5-year estimate. For example, the CES 1.1 report used a 5-year estimate from 2007 - 2011 data while the CES 4.0 report used a 5-year estimate from 2015 - 2019 data. Poverty data came from the [American Community Survey](https://www.census.gov/programs-surveys/acs). Multiple years of data are used to calculate more reliable results for geographic areas with small populations.
 
 ```{r}
 ggplot(data = joined, aes(x = Poverty)) + 
@@ -207,15 +211,15 @@ Standard error and relative standard error were calculated to determine the reli
 
 Using this data, we can answer the research question...
 
-## Statistical Analysis
+# Statistical Analysis
 
 What is your analysis plan? Why did you choose this analysis, given your data and question? What are the limitations?
 
 ## Q-Q Plot (2021 PM2.5)
 ```{r}
-c1 <- subset(joined, Year == "2021")
+c4 <- subset(joined, Year == "2021")
 
-ggplot(data = c1, aes(sample = PM2.5)) + 
+ggplot(data = c4, aes(sample = PM2.5)) + 
   geom_qq() + 
   geom_qq_line()+ 
   theme_classic() + 
@@ -232,7 +236,7 @@ ggplot(data = c1, aes(sample = PM2.5)) +
   plot.title = element_blank(),
   legend.position = "none")
 
-ggplot(data = c1, aes(x = PM2.5)) + 
+ggplot(data = c4, aes(x = PM2.5)) + 
   geom_histogram(binwidth = 1) + 
   theme_classic() + 
   labs(title = "2021 mean concentration of PM2.5 in California", 
@@ -240,15 +244,35 @@ ggplot(data = c1, aes(x = PM2.5)) +
        y = "Frequency")
 ```
 ```{r}
-levene.test(c1$PM2.5, c1$Poverty)
+levene.test(c4$PM2.5, c4$Poverty)
 ```
+
+
 
 
 # Results
 
 Show us your results in figure(s) and/or table(s) that are carefully labeled and captioned. Describe in the text (and orally when presenting) what you found, and how these results either do or do not help you answer your question.
 
+```{r}
+mod <- lm(PM2.5 ~ Poverty, data = c4)
+mod <- lm(PM2.5 ~ Poverty + Year, data = joined)
+summary(mod)
+```
+
 ## Figures
+
+```{r}
+sub <- joined %>% 
+  drop_na(Poverty, PM2.5)
+
+ggplot(data = sub, aes(x = Poverty, y = PM2.5)) +
+  geom_point(aes(color = Year), alpha = 0.1) + 
+  geom_smooth(method='lm', 
+              formula= y~x,
+              size=1.5) + 
+  theme_classic()
+```
 
 # Conclusions
 

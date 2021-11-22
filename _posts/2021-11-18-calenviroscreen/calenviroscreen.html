@@ -117,7 +117,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["calenviroscreen_files/anchor-4.2.2/anchor.min.js","calenviroscreen_files/bowser-1.9.3/bowser.min.js","calenviroscreen_files/distill-2.2.21/template.v2.js","calenviroscreen_files/figure-html5/unnamed-chunk-2-1.png","calenviroscreen_files/figure-html5/unnamed-chunk-3-1.png","calenviroscreen_files/figure-html5/unnamed-chunk-4-1.png","calenviroscreen_files/figure-html5/unnamed-chunk-5-1.png","calenviroscreen_files/figure-html5/unnamed-chunk-6-1.png","calenviroscreen_files/figure-html5/unnamed-chunk-8-1.png","calenviroscreen_files/figure-html5/unnamed-chunk-8-2.png","calenviroscreen_files/header-attrs-2.11/header-attrs.js","calenviroscreen_files/jquery-3.6.0/jquery-3.6.0.js","calenviroscreen_files/jquery-3.6.0/jquery-3.6.0.min.js","calenviroscreen_files/jquery-3.6.0/jquery-3.6.0.min.map","calenviroscreen_files/popper-2.6.0/popper.min.js","calenviroscreen_files/tippy-6.2.7/tippy-bundle.umd.min.js","calenviroscreen_files/tippy-6.2.7/tippy-light-border.css","calenviroscreen_files/tippy-6.2.7/tippy.css","calenviroscreen_files/tippy-6.2.7/tippy.umd.min.js","calenviroscreen_files/webcomponents-2.0.0/webcomponents.js","CES/CES_data/ces1_2013.csv","CES/CES_data/ces1_2013.xls","CES/CES_data/ces2_2014.csv","CES/CES_data/ces2_2014.xlsx","CES/CES_data/ces3_2018.csv","CES/CES_data/ces4_2021.csv","CES/CES_data/ces4_2021.xlsx","CES/CES_images/components.png","CES/CES_images/pm.png","CES/CES_images/poverty.png"]}
+  {"type":"character","attributes":{},"value":["calenviroscreen_files/anchor-4.2.2/anchor.min.js","calenviroscreen_files/bowser-1.9.3/bowser.min.js","calenviroscreen_files/distill-2.2.21/template.v2.js","calenviroscreen_files/figure-html5/unnamed-chunk-11-1.png","calenviroscreen_files/figure-html5/unnamed-chunk-2-1.png","calenviroscreen_files/figure-html5/unnamed-chunk-3-1.png","calenviroscreen_files/figure-html5/unnamed-chunk-4-1.png","calenviroscreen_files/figure-html5/unnamed-chunk-5-1.png","calenviroscreen_files/figure-html5/unnamed-chunk-6-1.png","calenviroscreen_files/figure-html5/unnamed-chunk-8-1.png","calenviroscreen_files/figure-html5/unnamed-chunk-8-2.png","calenviroscreen_files/header-attrs-2.11/header-attrs.js","calenviroscreen_files/jquery-3.6.0/jquery-3.6.0.js","calenviroscreen_files/jquery-3.6.0/jquery-3.6.0.min.js","calenviroscreen_files/jquery-3.6.0/jquery-3.6.0.min.map","calenviroscreen_files/popper-2.6.0/popper.min.js","calenviroscreen_files/tippy-6.2.7/tippy-bundle.umd.min.js","calenviroscreen_files/tippy-6.2.7/tippy-light-border.css","calenviroscreen_files/tippy-6.2.7/tippy.css","calenviroscreen_files/tippy-6.2.7/tippy.umd.min.js","calenviroscreen_files/webcomponents-2.0.0/webcomponents.js","CES/CES_data/ces1_2013.csv","CES/CES_data/ces1_2013.xls","CES/CES_data/ces2_2014.csv","CES/CES_data/ces2_2014.xlsx","CES/CES_data/ces3_2018.csv","CES/CES_data/ces4_2021.csv","CES/CES_data/ces4_2021.xlsx","CES/CES_images/components.png","CES/CES_images/pm.png","CES/CES_images/poverty.png"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
   <!--/radix_placeholder_navigation_in_header-->
@@ -1490,8 +1490,14 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <li><a href="#background-motivation">Background / Motivation</a></li>
 <li><a href="#methods">Methods</a>
 <ul>
-<li><a href="#data-description-collection">Data Description / Collection</a></li>
-<li><a href="#statistical-analysis">Statistical Analysis</a></li>
+<li><a href="#data-description-collection">Data Description / Collection</a>
+<ul>
+<li><a href="#pm2.5">1. <strong>PM2.5:</strong></a></li>
+<li><a href="#poverty">2. <strong>Poverty:</strong></a></li>
+</ul></li>
+</ul></li>
+<li><a href="#statistical-analysis">Statistical Analysis</a>
+<ul>
 <li><a href="#q-q-plot-2021-pm2.5">Q-Q Plot (2021 PM2.5)</a></li>
 </ul></li>
 <li><a href="#results">Results</a>
@@ -1544,19 +1550,18 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </figure>
 <p>Each dataset also contains one row per census tract, meaning each census tract in California is assigned a value per environmental indicator or population characteristic.</p>
 <p>In particular, I am interested in:</p>
-<ol type="1">
-<li><strong>PM2.5:</strong> the annual mean concentration of PM2.5, which CalEnviroScreen calculates based on a weighted average of measured monitor concentrations and satellite observations (ug/m<sup>3</sup>) over 3 years. For example, the CES 1.1. report used data from 2007 - 2009 while the CES 4.0 report used 2015 - 2017. All reports used data from the <a href="https://ww2.arb.ca.gov/homepage">California Air Resources Board’s</a> Air Monitoring Network. In addition to the Air Monitoring Network, CES 3.0 and 4.0 incorporated <a href="https://ww2.arb.ca.gov/resources/documents/air-quality-research-using-satellite-remote-sensing">Satellite Remote Sensing Data</a>.</li>
-</ol>
+<h3 id="pm2.5">1. <strong>PM2.5:</strong></h3>
+<p>The annual mean concentration of PM2.5, which CalEnviroScreen calculates based on a weighted average of measured monitor concentrations and satellite observations (ug/m<sup>3</sup>) over 3 years. For example, the CES 1.1. report used data from 2007 - 2009 while the CES 4.0 report used 2015 - 2017. All reports used data from the <a href="https://ww2.arb.ca.gov/homepage">California Air Resources Board’s</a> Air Monitoring Network. In addition to the Air Monitoring Network, CES 3.0 and 4.0 incorporated <a href="https://ww2.arb.ca.gov/resources/documents/air-quality-research-using-satellite-remote-sensing">Satellite Remote Sensing Data</a>.</p>
 <div class="layout-chunk" data-layout="l-body">
 <p><img src="calenviroscreen_files/figure-html5/unnamed-chunk-4-1.png" width="624" /></p>
 </div>
 <div class="layout-chunk" data-layout="l-body">
-<div id="npavdnkrlv" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="cgghbepzge" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#npavdnkrlv .gt_table {
+#cgghbepzge .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -1581,7 +1586,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   border-left-color: #D3D3D3;
 }
 
-#npavdnkrlv .gt_heading {
+#cgghbepzge .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1593,7 +1598,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   border-right-color: #D3D3D3;
 }
 
-#npavdnkrlv .gt_title {
+#cgghbepzge .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1603,7 +1608,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   border-bottom-width: 0;
 }
 
-#npavdnkrlv .gt_subtitle {
+#cgghbepzge .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1613,13 +1618,13 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   border-top-width: 0;
 }
 
-#npavdnkrlv .gt_bottom_border {
+#cgghbepzge .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#npavdnkrlv .gt_col_headings {
+#cgghbepzge .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1634,7 +1639,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   border-right-color: #D3D3D3;
 }
 
-#npavdnkrlv .gt_col_heading {
+#cgghbepzge .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1654,7 +1659,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   overflow-x: hidden;
 }
 
-#npavdnkrlv .gt_column_spanner_outer {
+#cgghbepzge .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1666,15 +1671,15 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   padding-right: 4px;
 }
 
-#npavdnkrlv .gt_column_spanner_outer:first-child {
+#cgghbepzge .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#npavdnkrlv .gt_column_spanner_outer:last-child {
+#cgghbepzge .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#npavdnkrlv .gt_column_spanner {
+#cgghbepzge .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1686,7 +1691,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   width: 100%;
 }
 
-#npavdnkrlv .gt_group_heading {
+#cgghbepzge .gt_group_heading {
   padding: 8px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1708,7 +1713,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   vertical-align: middle;
 }
 
-#npavdnkrlv .gt_empty_group_heading {
+#cgghbepzge .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1723,15 +1728,15 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   vertical-align: middle;
 }
 
-#npavdnkrlv .gt_from_md > :first-child {
+#cgghbepzge .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#npavdnkrlv .gt_from_md > :last-child {
+#cgghbepzge .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#npavdnkrlv .gt_row {
+#cgghbepzge .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1750,7 +1755,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   overflow-x: hidden;
 }
 
-#npavdnkrlv .gt_stub {
+#cgghbepzge .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1762,7 +1767,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   padding-left: 12px;
 }
 
-#npavdnkrlv .gt_summary_row {
+#cgghbepzge .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1772,7 +1777,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   padding-right: 5px;
 }
 
-#npavdnkrlv .gt_first_summary_row {
+#cgghbepzge .gt_first_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1782,7 +1787,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   border-top-color: #D3D3D3;
 }
 
-#npavdnkrlv .gt_grand_summary_row {
+#cgghbepzge .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1792,7 +1797,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   padding-right: 5px;
 }
 
-#npavdnkrlv .gt_first_grand_summary_row {
+#cgghbepzge .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1802,11 +1807,11 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   border-top-color: #D3D3D3;
 }
 
-#npavdnkrlv .gt_striped {
+#cgghbepzge .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#npavdnkrlv .gt_table_body {
+#cgghbepzge .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1815,7 +1820,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   border-bottom-color: #D3D3D3;
 }
 
-#npavdnkrlv .gt_footnotes {
+#cgghbepzge .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1829,13 +1834,13 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   border-right-color: #D3D3D3;
 }
 
-#npavdnkrlv .gt_footnote {
+#cgghbepzge .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding: 4px;
 }
 
-#npavdnkrlv .gt_sourcenotes {
+#cgghbepzge .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1849,41 +1854,41 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   border-right-color: #D3D3D3;
 }
 
-#npavdnkrlv .gt_sourcenote {
+#cgghbepzge .gt_sourcenote {
   font-size: 90%;
   padding: 4px;
 }
 
-#npavdnkrlv .gt_left {
+#cgghbepzge .gt_left {
   text-align: left;
 }
 
-#npavdnkrlv .gt_center {
+#cgghbepzge .gt_center {
   text-align: center;
 }
 
-#npavdnkrlv .gt_right {
+#cgghbepzge .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#npavdnkrlv .gt_font_normal {
+#cgghbepzge .gt_font_normal {
   font-weight: normal;
 }
 
-#npavdnkrlv .gt_font_bold {
+#cgghbepzge .gt_font_bold {
   font-weight: bold;
 }
 
-#npavdnkrlv .gt_font_italic {
+#cgghbepzge .gt_font_italic {
   font-style: italic;
 }
 
-#npavdnkrlv .gt_super {
+#cgghbepzge .gt_super {
   font-size: 65%;
 }
 
-#npavdnkrlv .gt_footnote_marks {
+#cgghbepzge .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 65%;
@@ -1931,19 +1936,18 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <figure>
 <img src="CES/CES_images/pm.png" alt="CalEnviroScreen 4.0 PM2.5 Map (Source: https://oehha.ca.gov/media/downloads/calenviroscreen/report/calenviroscreen40reportf2021.pdf)" /><figcaption aria-hidden="true">CalEnviroScreen 4.0 PM2.5 Map (Source: <a href="https://oehha.ca.gov/media/downloads/calenviroscreen/report/calenviroscreen40reportf2021.pdf" class="uri">https://oehha.ca.gov/media/downloads/calenviroscreen/report/calenviroscreen40reportf2021.pdf</a>)</figcaption>
 </figure>
-<ol start="2" type="1">
-<li><strong>Poverty:</strong> the percent of the population living below two times the federal poverty level, which CalEnviroScreen calculates using a 5-year estimate. For example, the CES 1.1 report used a 5-year estimate from 2007 - 2011 data while the CES 4.0 report used a 5-year estimate from 2015 - 2019 data. Poverty data came from the <a href="https://www.census.gov/programs-surveys/acs">American Community Survey</a>. Multiple years of data are used to calculate more reliable results for geographic areas with small populations.</li>
-</ol>
+<h3 id="poverty">2. <strong>Poverty:</strong></h3>
+<p>The percent of the population living below two times the federal poverty level, which CalEnviroScreen calculates using a 5-year estimate. For example, the CES 1.1 report used a 5-year estimate from 2007 - 2011 data while the CES 4.0 report used a 5-year estimate from 2015 - 2019 data. Poverty data came from the <a href="https://www.census.gov/programs-surveys/acs">American Community Survey</a>. Multiple years of data are used to calculate more reliable results for geographic areas with small populations.</p>
 <div class="layout-chunk" data-layout="l-body">
 <p><img src="calenviroscreen_files/figure-html5/unnamed-chunk-6-1.png" width="624" /></p>
 </div>
 <div class="layout-chunk" data-layout="l-body">
-<div id="fjmcpnvfpn" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="jpwvhudokb" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#fjmcpnvfpn .gt_table {
+#jpwvhudokb .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -1968,7 +1972,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   border-left-color: #D3D3D3;
 }
 
-#fjmcpnvfpn .gt_heading {
+#jpwvhudokb .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1980,7 +1984,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   border-right-color: #D3D3D3;
 }
 
-#fjmcpnvfpn .gt_title {
+#jpwvhudokb .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1990,7 +1994,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   border-bottom-width: 0;
 }
 
-#fjmcpnvfpn .gt_subtitle {
+#jpwvhudokb .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -2000,13 +2004,13 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   border-top-width: 0;
 }
 
-#fjmcpnvfpn .gt_bottom_border {
+#jpwvhudokb .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#fjmcpnvfpn .gt_col_headings {
+#jpwvhudokb .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2021,7 +2025,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   border-right-color: #D3D3D3;
 }
 
-#fjmcpnvfpn .gt_col_heading {
+#jpwvhudokb .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2041,7 +2045,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   overflow-x: hidden;
 }
 
-#fjmcpnvfpn .gt_column_spanner_outer {
+#jpwvhudokb .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2053,15 +2057,15 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   padding-right: 4px;
 }
 
-#fjmcpnvfpn .gt_column_spanner_outer:first-child {
+#jpwvhudokb .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#fjmcpnvfpn .gt_column_spanner_outer:last-child {
+#jpwvhudokb .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#fjmcpnvfpn .gt_column_spanner {
+#jpwvhudokb .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -2073,7 +2077,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   width: 100%;
 }
 
-#fjmcpnvfpn .gt_group_heading {
+#jpwvhudokb .gt_group_heading {
   padding: 8px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2095,7 +2099,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   vertical-align: middle;
 }
 
-#fjmcpnvfpn .gt_empty_group_heading {
+#jpwvhudokb .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2110,15 +2114,15 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   vertical-align: middle;
 }
 
-#fjmcpnvfpn .gt_from_md > :first-child {
+#jpwvhudokb .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#fjmcpnvfpn .gt_from_md > :last-child {
+#jpwvhudokb .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#fjmcpnvfpn .gt_row {
+#jpwvhudokb .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2137,7 +2141,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   overflow-x: hidden;
 }
 
-#fjmcpnvfpn .gt_stub {
+#jpwvhudokb .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2149,7 +2153,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   padding-left: 12px;
 }
 
-#fjmcpnvfpn .gt_summary_row {
+#jpwvhudokb .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2159,7 +2163,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   padding-right: 5px;
 }
 
-#fjmcpnvfpn .gt_first_summary_row {
+#jpwvhudokb .gt_first_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2169,7 +2173,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   border-top-color: #D3D3D3;
 }
 
-#fjmcpnvfpn .gt_grand_summary_row {
+#jpwvhudokb .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2179,7 +2183,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   padding-right: 5px;
 }
 
-#fjmcpnvfpn .gt_first_grand_summary_row {
+#jpwvhudokb .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2189,11 +2193,11 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   border-top-color: #D3D3D3;
 }
 
-#fjmcpnvfpn .gt_striped {
+#jpwvhudokb .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#fjmcpnvfpn .gt_table_body {
+#jpwvhudokb .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2202,7 +2206,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   border-bottom-color: #D3D3D3;
 }
 
-#fjmcpnvfpn .gt_footnotes {
+#jpwvhudokb .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2216,13 +2220,13 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   border-right-color: #D3D3D3;
 }
 
-#fjmcpnvfpn .gt_footnote {
+#jpwvhudokb .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding: 4px;
 }
 
-#fjmcpnvfpn .gt_sourcenotes {
+#jpwvhudokb .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2236,41 +2240,41 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   border-right-color: #D3D3D3;
 }
 
-#fjmcpnvfpn .gt_sourcenote {
+#jpwvhudokb .gt_sourcenote {
   font-size: 90%;
   padding: 4px;
 }
 
-#fjmcpnvfpn .gt_left {
+#jpwvhudokb .gt_left {
   text-align: left;
 }
 
-#fjmcpnvfpn .gt_center {
+#jpwvhudokb .gt_center {
   text-align: center;
 }
 
-#fjmcpnvfpn .gt_right {
+#jpwvhudokb .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#fjmcpnvfpn .gt_font_normal {
+#jpwvhudokb .gt_font_normal {
   font-weight: normal;
 }
 
-#fjmcpnvfpn .gt_font_bold {
+#jpwvhudokb .gt_font_bold {
   font-weight: bold;
 }
 
-#fjmcpnvfpn .gt_font_italic {
+#jpwvhudokb .gt_font_italic {
   font-style: italic;
 }
 
-#fjmcpnvfpn .gt_super {
+#jpwvhudokb .gt_super {
   font-size: 65%;
 }
 
-#fjmcpnvfpn .gt_footnote_marks {
+#jpwvhudokb .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 65%;
@@ -2318,7 +2322,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <img src="CES/CES_images/poverty.png" alt="CalEnviroScreen 4.0 Poverty Map (Source: https://oehha.ca.gov/media/downloads/calenviroscreen/report/calenviroscreen40reportf2021.pdf)" /><figcaption aria-hidden="true">CalEnviroScreen 4.0 Poverty Map (Source: <a href="https://oehha.ca.gov/media/downloads/calenviroscreen/report/calenviroscreen40reportf2021.pdf" class="uri">https://oehha.ca.gov/media/downloads/calenviroscreen/report/calenviroscreen40reportf2021.pdf</a>)</figcaption>
 </figure>
 <p>Using this data, we can answer the research question…</p>
-<h2 id="statistical-analysis">Statistical Analysis</h2>
+<h1 id="statistical-analysis">Statistical Analysis</h1>
 <p>What is your analysis plan? Why did you choose this analysis, given your data and question? What are the limitations?</p>
 <h2 id="q-q-plot-2021-pm2.5">Q-Q Plot (2021 PM2.5)</h2>
 <div class="layout-chunk" data-layout="l-body">
@@ -2329,16 +2333,43 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     Modified robust Brown-Forsythe Levene-type test based on the
     absolute deviations from the median
 
-data:  c1$PM2.5
+data:  c4$PM2.5
 Test Statistic = 1.0618, p-value = 0.1239</code></pre>
 </div>
 <h1 id="results">Results</h1>
 <p>Show us your results in figure(s) and/or table(s) that are carefully labeled and captioned. Describe in the text (and orally when presenting) what you found, and how these results either do or do not help you answer your question.</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre><code>
+Call:
+lm(formula = PM2.5 ~ Poverty + Year, data = joined)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-8.6099 -1.6112  0.1387  1.8028  9.5130 
+
+Coefficients:
+              Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept) 10.4158077  0.0375626  277.29   &lt;2e-16 ***
+Poverty      0.0334956  0.0007441   45.02   &lt;2e-16 ***
+Year2014    -1.5785654  0.0396229  -39.84   &lt;2e-16 ***
+Year2018    -1.2579399  0.0395365  -31.82   &lt;2e-16 ***
+Year2021    -1.3132657  0.0395205  -33.23   &lt;2e-16 ***
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+
+Residual standard error: 2.505 on 31891 degrees of freedom
+  (674 observations deleted due to missingness)
+Multiple R-squared:  0.1098,    Adjusted R-squared:  0.1097 
+F-statistic: 983.4 on 4 and 31891 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
 <h2 id="figures">Figures</h2>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="calenviroscreen_files/figure-html5/unnamed-chunk-11-1.png" width="624" /></p>
+</div>
 <h1 id="conclusions">Conclusions</h1>
 <h1 id="future-directions">Future Directions</h1>
 <p>One short analysis cannot fully answer an interesting scientific question. If you had time to collect more data or conduct more analysis, what would help you answer this question better?</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
