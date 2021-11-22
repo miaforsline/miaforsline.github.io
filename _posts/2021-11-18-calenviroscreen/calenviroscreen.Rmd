@@ -16,12 +16,13 @@ preview: octocat.png
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE,
-                      warnings = FALSE,
-                      message = FALSE)
+knitr::opts_chunk$set(echo = TRUE,
+                      message = FALSE, 
+                      warning = FALSE, 
+                      include = TRUE)
 library(tidyverse)
 library(here)
-#library(patchwork)
+library(gt)
 ```
 
 # Research Question
@@ -36,7 +37,7 @@ Why is this important? Is there existing evidence on this question? If so, why i
 
 ## Data Description / Collection
 
-Where did you access it? What are its spatial and temporal features? What are its limitations? What do you know about the sampling strategy and what biases that may introduce? If helpful, you can use a histogram, scatterplot, or summary statistics table to describe your data.
+*Where did you access it? What are its spatial and temporal features? What are its limitations? What do you know about the sampling strategy and what biases that may introduce? If helpful, you can use a histogram, scatterplot, or summary statistics table to describe your data.*
 
 ```{r}
 c1 <- read_csv(file = here("_posts", 
@@ -62,13 +63,8 @@ c4 <- read_csv(file = here("_posts",
 
 c1_clean <- c1 %>% 
   select(c("ZIP Code","Poverty", "PM2.5")) %>% 
-  mutate("Census Tract" = "NA",
-         "California County" = "NA",
-         "Longitude" = "NA",
-         "Latitude" = "NA") %>% 
-  rename("ZIP" = "ZIP Code") %>% 
-  select(c("Census Tract", "California County", "ZIP", "Longitude", "Latitude", "Poverty", "PM2.5")) %>% 
-  mutate(Year = "2013")
+  mutate(Year = "2013") %>% 
+  dplyr::rename(ZIP = "ZIP Code")
 c2_clean <- c2 %>% 
   select(c("Census Tract", "California County", "ZIP", "Longitude", "Latitude", "Poverty", "PM2.5")) %>% 
   mutate(Year = "2014")
@@ -81,12 +77,18 @@ c4_clean <- c4 %>%
 ```
 
 ```{r}
-joined <- rbind(c4_clean, c3_clean, c2_clean, c1_clean) %>% 
-  mutate(Year = as.factor(Year),
-         Year = factor(x = Year, levels = c("2013", "2014", "2018", "2021"))) 
+c1_fill <- left_join(x = c2_clean, y = c1_clean, by = "ZIP") %>% 
+  select(c("Census Tract", "California County", "ZIP", "Longitude", "Latitude", "Poverty", "PM2.5"))
+  
 ```
 
 
+```{r}
+joined <- rbind(c4_clean, c3_clean, c2_clean, c1_clean) %>% 
+  mutate(Year = as.factor(Year),
+         Year = factor(x = Year, levels = c("2013", "2014", "2018", "2021"))) 
+min(joined$PM2.5)
+```
 
 I downloaded 2013 - 2021 CalEnviroScreen data from the [California Office of Environmental Health Hazard Assessment (OEHHA)](https://oehha.ca.gov/) and the [California Open Data Portal](https://data.ca.gov/) :
 
@@ -116,32 +118,27 @@ In particular, I am interested in:
 1.  **PM2.5:** the annual mean concentration of PM2.5, which CalEnviroScreen calculates based on a weighted average of measured monitor concentrations and satellite observations (ug/m^3^) over 3 years. For example, the CES 1.1. report used data from 2007 - 2009 while the CES 4.0 report used 2015 - 2017. All reports used data from the [California Air Resources Board's](https://ww2.arb.ca.gov/homepage) Air Monitoring Network. In addition to the Air Monitoring Network, CES 3.0 and 4.0 incorporated [Satellite Remote Sensing Data](https://ww2.arb.ca.gov/resources/documents/air-quality-research-using-satellite-remote-sensing). 
 
 ```{r}
-a <- ggplot(data = c1_clean, aes(x = PM2.5)) +
-  geom_histogram() + 
+ggplot(data = joined, aes(x = PM2.5)) + 
+  geom_histogram(aes(fill = Year)) + 
   theme_classic() + 
-  labs(x = "2013 mean concentration of PM2.5 ",
+  facet_wrap(~Year, ncol = 1) + 
+  labs(title = "2013 - 2021 mean concentration of PM2.5 in California", 
+       x = "Annual mean concentration of PM2.5 per census tract (ug/m3)", 
        y = "Frequency")
-
-b <- ggplot(data = c2_clean, aes(x = PM2.5)) +
-  geom_histogram() + 
-  theme_classic() + 
-  labs(x = "2014 mean concentration of PM2.5 ",
-       y = "Frequency")
-
-c <- ggplot(data = c3_clean, aes(x = PM2.5)) +
-  geom_histogram() + 
-  theme_classic() + 
-  labs(x = "2018 mean concentration of PM2.5 ",
-       y = "Frequency")
-
-d <- ggplot(data = c4_clean, aes(x = PM2.5)) +
-  geom_histogram() + 
-  theme_classic() + 
-  labs(x = "2021 mean concentration of PM2.5 ",
-       y = "Frequency")
-
-a + b + c + d + plot_layout(ncol=1)
 ```
+
+```{r}
+joined %>% 
+  group_by(Year) %>% 
+  summarize("Mean PM2.5" = round(mean(PM2.5), digits = 2),
+            "SD PM2.5" = round(sd(PM2.5), digits = 2)) %>%
+  gt() %>%  
+  tab_header(
+    title = "Mean and standard deviation of annual mean concentrations of PM2.5 (ug/m3) in California", 
+    subtitle = "Data from CalEnviroScreen"
+  )
+```
+
 
 Data were more likely to be high resolution around certain cities or localized areas, but not all cities have air monitoring stations. Depending on the year, locales with little to no data were either omitted or estimated using nearby locations' data. For example, in CES 1.1, census tracts with centers > 50km away from the nearest air monitor were omitted from the analysis. In CES 4.0, missing data was estimated using regression relationships with nearby sites. 
 
@@ -154,7 +151,19 @@ The quarterly estimates were then averaged to calculate annual means. The annual
 ![CalEnviroScreen 4.0 PM2.5 Map (Source: <https://oehha.ca.gov/media/downloads/calenviroscreen/report/calenviroscreen40reportf2021.pdf>)](CES/CES_images/pm.png)
 
 
-2.  **Poverty:** the percent of the population living below two times the federal poverty level, which CalEnviroScreen calculates using a 5-year estimate. For example, the CES 1.1 report used a 5-year estimate from 2007 - 2011 data while the CES 4.0 report used a 5-year estimate from 2015 - 2019 data. Poverty data came from the [American Community Survey](https://www.census.gov/programs-surveys/acs). Multiple years of data are used to calculate more reliable results for geographic areas with small populations. Data
+2.  **Poverty:** the percent of the population living below two times the federal poverty level, which CalEnviroScreen calculates using a 5-year estimate. For example, the CES 1.1 report used a 5-year estimate from 2007 - 2011 data while the CES 4.0 report used a 5-year estimate from 2015 - 2019 data. Poverty data came from the [American Community Survey](https://www.census.gov/programs-surveys/acs). Multiple years of data are used to calculate more reliable results for geographic areas with small populations.
+
+```{r}
+ggplot(data = joined, aes(x = Poverty)) + 
+  geom_histogram(aes(fill = Year)) + 
+  theme_classic() + 
+  facet_wrap(~Year, ncol = 1) + 
+  labs(title = "2013 - 2021 mean concentration of PM2.5 in California", 
+       x = "% of population per census tract living below two times the federal poverty
+level", 
+       y = "Frequency")
+```
+
 
 CalEnviroScreen defined poverty as twice below the federal poverty line to account for California's high cost of living relative to other states and because the federal poverty threshold has not changed since the 1980s despite the cost of living increasing over time.
 
