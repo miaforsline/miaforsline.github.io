@@ -16,13 +16,14 @@ preview: octocat.png
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE,
+knitr::opts_chunk$set(echo = FALSE,
                       message = FALSE, 
                       warning = FALSE, 
                       include = TRUE)
 library(tidyverse)
 library(here)
 library(gt)
+library(lawstat)
 ```
 
 # Research Question
@@ -64,30 +65,44 @@ c4 <- read_csv(file = here("_posts",
 c1_clean <- c1 %>% 
   select(c("ZIP Code","Poverty", "PM2.5")) %>% 
   mutate(Year = "2013") %>% 
-  dplyr::rename(ZIP = "ZIP Code")
+  dplyr::rename(ZIP = "ZIP Code") %>% 
+  mutate(ZIP = as.numeric(ZIP))
 c2_clean <- c2 %>% 
   select(c("Census Tract", "California County", "ZIP", "Longitude", "Latitude", "Poverty", "PM2.5")) %>% 
-  mutate(Year = "2014")
+  mutate(Year = "2014",
+         ZIP = as.numeric(ZIP))
 c3_clean <- c3 %>% 
   select(c("Census Tract", "California County", "ZIP", "Longitude", "Latitude", "Poverty", "PM2.5")) %>% 
-  mutate(Year = "2018")
+  mutate(Year = "2018",
+         ZIP = as.numeric(ZIP))
 c4_clean <- c4 %>% 
   select(c("Census Tract", "California County", "ZIP", "Longitude", "Latitude", "Poverty", "PM2.5")) %>% 
-  mutate(Year = "2021")
+  mutate(Year = "2021",
+         ZIP = as.numeric(ZIP))
 ```
 
 ```{r}
-c1_fill <- left_join(x = c2_clean, y = c1_clean, by = "ZIP") %>% 
-  select(c("Census Tract", "California County", "ZIP", "Longitude", "Latitude", "Poverty", "PM2.5"))
-  
+c1_fill <- full_join(x = c2_clean, y = c1_clean, 
+                     by = "ZIP", 
+                     suffix = c(".c2", ".c1")) %>%
+  select(c("Census Tract", 
+           "California County", 
+           "ZIP", 
+           "Longitude", 
+           "Latitude", 
+           "Poverty.c1", 
+           "PM2.5.c1", 
+           "Year.c1")) %>%
+  dplyr::rename(Poverty = "Poverty.c1",
+                PM2.5 = "PM2.5.c1",
+                Year = "Year.c1")
 ```
 
 
 ```{r}
-joined <- rbind(c4_clean, c3_clean, c2_clean, c1_clean) %>% 
+joined <- rbind(c4_clean, c3_clean, c2_clean, c1_fill) %>% 
   mutate(Year = as.factor(Year),
          Year = factor(x = Year, levels = c("2013", "2014", "2018", "2021"))) 
-min(joined$PM2.5)
 ```
 
 I downloaded 2013 - 2021 CalEnviroScreen data from the [California Office of Environmental Health Hazard Assessment (OEHHA)](https://oehha.ca.gov/) and the [California Open Data Portal](https://data.ca.gov/) :
@@ -128,7 +143,10 @@ ggplot(data = joined, aes(x = PM2.5)) +
 ```
 
 ```{r}
-joined %>% 
+sub <- joined %>% 
+  drop_na(PM2.5)
+
+sub %>% 
   group_by(Year) %>% 
   summarize("Mean PM2.5" = round(mean(PM2.5), digits = 2),
             "SD PM2.5" = round(sd(PM2.5), digits = 2)) %>%
@@ -164,6 +182,20 @@ level",
        y = "Frequency")
 ```
 
+```{r}
+sub <- joined %>% 
+  drop_na(Poverty)
+
+sub %>% 
+  group_by(Year) %>% 
+  summarize("Mean Poverty Rate (%)" = round(mean(Poverty), digits = 2),
+            "SD Poverty Rate (%)" = round(sd(Poverty), digits = 2)) %>%
+  gt() %>%  
+  tab_header(
+    title = "Percent of census tract population living below two times the federal poverty level in California", 
+    subtitle = "Data from CalEnviroScreen"
+  )
+```
 
 CalEnviroScreen defined poverty as twice below the federal poverty line to account for California's high cost of living relative to other states and because the federal poverty threshold has not changed since the 1980s despite the cost of living increasing over time.
 
@@ -179,6 +211,37 @@ Using this data, we can answer the research question...
 
 What is your analysis plan? Why did you choose this analysis, given your data and question? What are the limitations?
 
+## Q-Q Plot (2021 PM2.5)
+```{r}
+c1 <- subset(joined, Year == "2021")
+
+ggplot(data = c1, aes(sample = PM2.5)) + 
+  geom_qq() + 
+  geom_qq_line()+ 
+  theme_classic() + 
+  xlab("Normal distribution quantiles") +
+  ylab("Sample quantiles") + theme_bw() + 
+  theme(
+    line = element_blank(),
+  panel.grid = element_blank(),
+  rect = element_blank(),
+  strip.text = element_blank(),
+  axis.text.x = element_text(size = 10),
+  axis.text.y = element_text(size = 10),
+  axis.title = element_text(size=10,face="bold"),
+  plot.title = element_blank(),
+  legend.position = "none")
+
+ggplot(data = c1, aes(x = PM2.5)) + 
+  geom_histogram(binwidth = 1) + 
+  theme_classic() + 
+  labs(title = "2021 mean concentration of PM2.5 in California", 
+       x = "Annual mean concentration of PM2.5 per census tract (ug/m3)", 
+       y = "Frequency")
+```
+```{r}
+levene.test(c1$PM2.5, c1$Poverty)
+```
 
 
 # Results
