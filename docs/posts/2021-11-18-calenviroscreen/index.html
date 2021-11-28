@@ -93,8 +93,8 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 
 <!--  https://schema.org/Article -->
-<meta property="article:published" itemprop="datePublished" content="2021-11-18"/>
-<meta property="article:created" itemprop="dateCreated" content="2021-11-18"/>
+<meta property="article:published" itemprop="datePublished" content="2021-12-02"/>
+<meta property="article:created" itemprop="dateCreated" content="2021-12-02"/>
 <meta name="article:author" content="Mia Forsline"/>
 
 <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
@@ -113,7 +113,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--radix_placeholder_rmarkdown_metadata-->
 
 <script type="text/json" id="radix-rmarkdown-metadata">
-{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output","preview"]}},"value":[{"type":"character","attributes":{},"value":["CalEnviroScreen"]},{"type":"character","attributes":{},"value":["EDS 222: Statistics for Environmental Data Science\nFall 2021 Final Project"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Mia Forsline"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":[]}},"value":[]}]}]},{"type":"character","attributes":{},"value":["2021-11-18"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained","toc","toc_float"]}},"value":[{"type":"logical","attributes":{},"value":[false]},{"type":"logical","attributes":{},"value":[true]},{"type":"logical","attributes":{},"value":[true]}]}]},{"type":"character","attributes":{},"value":["octocat.png"]}]}
+{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output","preview"]}},"value":[{"type":"character","attributes":{},"value":["CalEnviroScreen"]},{"type":"character","attributes":{},"value":["EDS 222: Statistics for Environmental Data Science\nFall 2021 Final Project"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Mia Forsline"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":[]}},"value":[]}]}]},{"type":"character","attributes":{},"value":["2021-12-02"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained","toc","toc_float"]}},"value":[{"type":"logical","attributes":{},"value":[false]},{"type":"logical","attributes":{},"value":[true]},{"type":"logical","attributes":{},"value":[true]}]}]},{"type":"character","attributes":{},"value":["octocat.png"]}]}
 </script>
 <!--/radix_placeholder_rmarkdown_metadata-->
   
@@ -2378,7 +2378,7 @@ d-appendix d-footnote-list a.footnote-backlink {
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"CalEnviroScreen","description":"EDS 222: Statistics for Environmental Data Science\nFall 2021 Final Project","authors":[{"author":"Mia Forsline","authorURL":{},"affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2021-11-18T00:00:00.000-08:00","citationText":"Forsline, 2021"}
+{"title":"CalEnviroScreen","description":"EDS 222: Statistics for Environmental Data Science\nFall 2021 Final Project","authors":[{"author":"Mia Forsline","authorURL":{},"affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2021-12-02T00:00:00.000-08:00","citationText":"Forsline, 2021"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2412,7 +2412,7 @@ d-appendix d-footnote-list a.footnote-backlink {
 <div class="d-byline">
   Mia Forsline true 
   
-<br/>2021-11-18
+<br/>2021-12-02
 </div>
 
 <div class="d-article">
@@ -2422,20 +2422,18 @@ d-appendix d-footnote-list a.footnote-backlink {
 <ul>
 <li><a href="#research-question">Research Question</a></li>
 <li><a href="#background-motivation">Background / Motivation</a></li>
-<li><a href="#methods">Methods</a>
-<ul>
 <li><a href="#data-description-collection">Data Description / Collection</a>
 <ul>
 <li><a href="#pm2.5">1. <strong>PM2.5:</strong></a></li>
 <li><a href="#poverty">2. <strong>Poverty:</strong></a></li>
 </ul></li>
-</ul></li>
-<li><a href="#statistical-analysis">Statistical Analysis</a>
-<ul>
-<li><a href="#q-q-plot-2021-pm2.5">Q-Q Plot (2021 PM2.5)</a></li>
-</ul></li>
+<li><a href="#methods---statistical-analysis-plan">Methods - Statistical Analysis Plan</a></li>
 <li><a href="#results">Results</a>
 <ul>
+<li><a href="#exploring-the-data">Exploring the data</a>
+<ul>
+<li><a href="#pm2.5-1">2021 PM2.5</a></li>
+</ul></li>
 <li><a href="#figures">Figures</a></li>
 </ul></li>
 <li><a href="#conclusions">Conclusions</a></li>
@@ -2447,8 +2445,7 @@ d-appendix d-footnote-list a.footnote-backlink {
 <p>In California from 2013 - 2021, does air quality (as measured by PM 2.5 concentrations) vary with poverty rates (as measured by the percent of the population living below two times the federal poverty level)?</p>
 <h1 id="background-motivation">Background / Motivation</h1>
 <p>Why is this important? Is there existing evidence on this question? If so, why is it inconclusive? If not, why not?</p>
-<h1 id="methods">Methods</h1>
-<h2 id="data-description-collection">Data Description / Collection</h2>
+<h1 id="data-description-collection">Data Description / Collection</h1>
 <p><em>Where did you access it? What are its spatial and temporal features? What are its limitations? What do you know about the sampling strategy and what biases that may introduce? If helpful, you can use a histogram, scatterplot, or summary statistics table to describe your data.</em></p>
 <div class="layout-chunk" data-layout="l-body">
 
@@ -2490,12 +2487,12 @@ d-appendix d-footnote-list a.footnote-backlink {
 <p><img src="calenviroscreen_files/figure-html5/unnamed-chunk-4-1.png" width="624" /></p>
 </div>
 <div class="layout-chunk" data-layout="l-body">
-<div id="cgghbepzge" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="tskkygpbyc" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#cgghbepzge .gt_table {
+#tskkygpbyc .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -2520,7 +2517,7 @@ d-appendix d-footnote-list a.footnote-backlink {
   border-left-color: #D3D3D3;
 }
 
-#cgghbepzge .gt_heading {
+#tskkygpbyc .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -2532,7 +2529,7 @@ d-appendix d-footnote-list a.footnote-backlink {
   border-right-color: #D3D3D3;
 }
 
-#cgghbepzge .gt_title {
+#tskkygpbyc .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -2542,7 +2539,7 @@ d-appendix d-footnote-list a.footnote-backlink {
   border-bottom-width: 0;
 }
 
-#cgghbepzge .gt_subtitle {
+#tskkygpbyc .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -2552,13 +2549,13 @@ d-appendix d-footnote-list a.footnote-backlink {
   border-top-width: 0;
 }
 
-#cgghbepzge .gt_bottom_border {
+#tskkygpbyc .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#cgghbepzge .gt_col_headings {
+#tskkygpbyc .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2573,7 +2570,7 @@ d-appendix d-footnote-list a.footnote-backlink {
   border-right-color: #D3D3D3;
 }
 
-#cgghbepzge .gt_col_heading {
+#tskkygpbyc .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2593,7 +2590,7 @@ d-appendix d-footnote-list a.footnote-backlink {
   overflow-x: hidden;
 }
 
-#cgghbepzge .gt_column_spanner_outer {
+#tskkygpbyc .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2605,15 +2602,15 @@ d-appendix d-footnote-list a.footnote-backlink {
   padding-right: 4px;
 }
 
-#cgghbepzge .gt_column_spanner_outer:first-child {
+#tskkygpbyc .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#cgghbepzge .gt_column_spanner_outer:last-child {
+#tskkygpbyc .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#cgghbepzge .gt_column_spanner {
+#tskkygpbyc .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -2625,7 +2622,7 @@ d-appendix d-footnote-list a.footnote-backlink {
   width: 100%;
 }
 
-#cgghbepzge .gt_group_heading {
+#tskkygpbyc .gt_group_heading {
   padding: 8px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2647,7 +2644,7 @@ d-appendix d-footnote-list a.footnote-backlink {
   vertical-align: middle;
 }
 
-#cgghbepzge .gt_empty_group_heading {
+#tskkygpbyc .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2662,15 +2659,15 @@ d-appendix d-footnote-list a.footnote-backlink {
   vertical-align: middle;
 }
 
-#cgghbepzge .gt_from_md > :first-child {
+#tskkygpbyc .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#cgghbepzge .gt_from_md > :last-child {
+#tskkygpbyc .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#cgghbepzge .gt_row {
+#tskkygpbyc .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2689,7 +2686,7 @@ d-appendix d-footnote-list a.footnote-backlink {
   overflow-x: hidden;
 }
 
-#cgghbepzge .gt_stub {
+#tskkygpbyc .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2701,7 +2698,7 @@ d-appendix d-footnote-list a.footnote-backlink {
   padding-left: 12px;
 }
 
-#cgghbepzge .gt_summary_row {
+#tskkygpbyc .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2711,7 +2708,7 @@ d-appendix d-footnote-list a.footnote-backlink {
   padding-right: 5px;
 }
 
-#cgghbepzge .gt_first_summary_row {
+#tskkygpbyc .gt_first_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2721,7 +2718,7 @@ d-appendix d-footnote-list a.footnote-backlink {
   border-top-color: #D3D3D3;
 }
 
-#cgghbepzge .gt_grand_summary_row {
+#tskkygpbyc .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2731,7 +2728,7 @@ d-appendix d-footnote-list a.footnote-backlink {
   padding-right: 5px;
 }
 
-#cgghbepzge .gt_first_grand_summary_row {
+#tskkygpbyc .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2741,11 +2738,11 @@ d-appendix d-footnote-list a.footnote-backlink {
   border-top-color: #D3D3D3;
 }
 
-#cgghbepzge .gt_striped {
+#tskkygpbyc .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#cgghbepzge .gt_table_body {
+#tskkygpbyc .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2754,7 +2751,7 @@ d-appendix d-footnote-list a.footnote-backlink {
   border-bottom-color: #D3D3D3;
 }
 
-#cgghbepzge .gt_footnotes {
+#tskkygpbyc .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2768,13 +2765,13 @@ d-appendix d-footnote-list a.footnote-backlink {
   border-right-color: #D3D3D3;
 }
 
-#cgghbepzge .gt_footnote {
+#tskkygpbyc .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding: 4px;
 }
 
-#cgghbepzge .gt_sourcenotes {
+#tskkygpbyc .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2788,41 +2785,41 @@ d-appendix d-footnote-list a.footnote-backlink {
   border-right-color: #D3D3D3;
 }
 
-#cgghbepzge .gt_sourcenote {
+#tskkygpbyc .gt_sourcenote {
   font-size: 90%;
   padding: 4px;
 }
 
-#cgghbepzge .gt_left {
+#tskkygpbyc .gt_left {
   text-align: left;
 }
 
-#cgghbepzge .gt_center {
+#tskkygpbyc .gt_center {
   text-align: center;
 }
 
-#cgghbepzge .gt_right {
+#tskkygpbyc .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#cgghbepzge .gt_font_normal {
+#tskkygpbyc .gt_font_normal {
   font-weight: normal;
 }
 
-#cgghbepzge .gt_font_bold {
+#tskkygpbyc .gt_font_bold {
   font-weight: bold;
 }
 
-#cgghbepzge .gt_font_italic {
+#tskkygpbyc .gt_font_italic {
   font-style: italic;
 }
 
-#cgghbepzge .gt_super {
+#tskkygpbyc .gt_super {
   font-size: 65%;
 }
 
-#cgghbepzge .gt_footnote_marks {
+#tskkygpbyc .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 65%;
@@ -2876,12 +2873,12 @@ d-appendix d-footnote-list a.footnote-backlink {
 <p><img src="calenviroscreen_files/figure-html5/unnamed-chunk-6-1.png" width="624" /></p>
 </div>
 <div class="layout-chunk" data-layout="l-body">
-<div id="jpwvhudokb" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="lwvoornbux" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#jpwvhudokb .gt_table {
+#lwvoornbux .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -2906,7 +2903,7 @@ d-appendix d-footnote-list a.footnote-backlink {
   border-left-color: #D3D3D3;
 }
 
-#jpwvhudokb .gt_heading {
+#lwvoornbux .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -2918,7 +2915,7 @@ d-appendix d-footnote-list a.footnote-backlink {
   border-right-color: #D3D3D3;
 }
 
-#jpwvhudokb .gt_title {
+#lwvoornbux .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -2928,7 +2925,7 @@ d-appendix d-footnote-list a.footnote-backlink {
   border-bottom-width: 0;
 }
 
-#jpwvhudokb .gt_subtitle {
+#lwvoornbux .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -2938,13 +2935,13 @@ d-appendix d-footnote-list a.footnote-backlink {
   border-top-width: 0;
 }
 
-#jpwvhudokb .gt_bottom_border {
+#lwvoornbux .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#jpwvhudokb .gt_col_headings {
+#lwvoornbux .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2959,7 +2956,7 @@ d-appendix d-footnote-list a.footnote-backlink {
   border-right-color: #D3D3D3;
 }
 
-#jpwvhudokb .gt_col_heading {
+#lwvoornbux .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2979,7 +2976,7 @@ d-appendix d-footnote-list a.footnote-backlink {
   overflow-x: hidden;
 }
 
-#jpwvhudokb .gt_column_spanner_outer {
+#lwvoornbux .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2991,15 +2988,15 @@ d-appendix d-footnote-list a.footnote-backlink {
   padding-right: 4px;
 }
 
-#jpwvhudokb .gt_column_spanner_outer:first-child {
+#lwvoornbux .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#jpwvhudokb .gt_column_spanner_outer:last-child {
+#lwvoornbux .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#jpwvhudokb .gt_column_spanner {
+#lwvoornbux .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -3011,7 +3008,7 @@ d-appendix d-footnote-list a.footnote-backlink {
   width: 100%;
 }
 
-#jpwvhudokb .gt_group_heading {
+#lwvoornbux .gt_group_heading {
   padding: 8px;
   color: #333333;
   background-color: #FFFFFF;
@@ -3033,7 +3030,7 @@ d-appendix d-footnote-list a.footnote-backlink {
   vertical-align: middle;
 }
 
-#jpwvhudokb .gt_empty_group_heading {
+#lwvoornbux .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -3048,15 +3045,15 @@ d-appendix d-footnote-list a.footnote-backlink {
   vertical-align: middle;
 }
 
-#jpwvhudokb .gt_from_md > :first-child {
+#lwvoornbux .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#jpwvhudokb .gt_from_md > :last-child {
+#lwvoornbux .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#jpwvhudokb .gt_row {
+#lwvoornbux .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3075,7 +3072,7 @@ d-appendix d-footnote-list a.footnote-backlink {
   overflow-x: hidden;
 }
 
-#jpwvhudokb .gt_stub {
+#lwvoornbux .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3087,7 +3084,7 @@ d-appendix d-footnote-list a.footnote-backlink {
   padding-left: 12px;
 }
 
-#jpwvhudokb .gt_summary_row {
+#lwvoornbux .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -3097,7 +3094,7 @@ d-appendix d-footnote-list a.footnote-backlink {
   padding-right: 5px;
 }
 
-#jpwvhudokb .gt_first_summary_row {
+#lwvoornbux .gt_first_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3107,7 +3104,7 @@ d-appendix d-footnote-list a.footnote-backlink {
   border-top-color: #D3D3D3;
 }
 
-#jpwvhudokb .gt_grand_summary_row {
+#lwvoornbux .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -3117,7 +3114,7 @@ d-appendix d-footnote-list a.footnote-backlink {
   padding-right: 5px;
 }
 
-#jpwvhudokb .gt_first_grand_summary_row {
+#lwvoornbux .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3127,11 +3124,11 @@ d-appendix d-footnote-list a.footnote-backlink {
   border-top-color: #D3D3D3;
 }
 
-#jpwvhudokb .gt_striped {
+#lwvoornbux .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#jpwvhudokb .gt_table_body {
+#lwvoornbux .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -3140,7 +3137,7 @@ d-appendix d-footnote-list a.footnote-backlink {
   border-bottom-color: #D3D3D3;
 }
 
-#jpwvhudokb .gt_footnotes {
+#lwvoornbux .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -3154,13 +3151,13 @@ d-appendix d-footnote-list a.footnote-backlink {
   border-right-color: #D3D3D3;
 }
 
-#jpwvhudokb .gt_footnote {
+#lwvoornbux .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding: 4px;
 }
 
-#jpwvhudokb .gt_sourcenotes {
+#lwvoornbux .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -3174,41 +3171,41 @@ d-appendix d-footnote-list a.footnote-backlink {
   border-right-color: #D3D3D3;
 }
 
-#jpwvhudokb .gt_sourcenote {
+#lwvoornbux .gt_sourcenote {
   font-size: 90%;
   padding: 4px;
 }
 
-#jpwvhudokb .gt_left {
+#lwvoornbux .gt_left {
   text-align: left;
 }
 
-#jpwvhudokb .gt_center {
+#lwvoornbux .gt_center {
   text-align: center;
 }
 
-#jpwvhudokb .gt_right {
+#lwvoornbux .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#jpwvhudokb .gt_font_normal {
+#lwvoornbux .gt_font_normal {
   font-weight: normal;
 }
 
-#jpwvhudokb .gt_font_bold {
+#lwvoornbux .gt_font_bold {
   font-weight: bold;
 }
 
-#jpwvhudokb .gt_font_italic {
+#lwvoornbux .gt_font_italic {
   font-style: italic;
 }
 
-#jpwvhudokb .gt_super {
+#lwvoornbux .gt_super {
   font-size: 65%;
 }
 
-#jpwvhudokb .gt_footnote_marks {
+#lwvoornbux .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 65%;
@@ -3256,22 +3253,20 @@ d-appendix d-footnote-list a.footnote-backlink {
 <img src="CES/CES_images/poverty.png" alt="CalEnviroScreen 4.0 Poverty Map (Source: https://oehha.ca.gov/media/downloads/calenviroscreen/report/calenviroscreen40reportf2021.pdf)" /><figcaption aria-hidden="true">CalEnviroScreen 4.0 Poverty Map (Source: <a href="https://oehha.ca.gov/media/downloads/calenviroscreen/report/calenviroscreen40reportf2021.pdf" class="uri">https://oehha.ca.gov/media/downloads/calenviroscreen/report/calenviroscreen40reportf2021.pdf</a>)</figcaption>
 </figure>
 <p>Using this data, we can answer the research question…</p>
-<h1 id="statistical-analysis">Statistical Analysis</h1>
+<h1 id="methods---statistical-analysis-plan">Methods - Statistical Analysis Plan</h1>
 <p>What is your analysis plan? Why did you choose this analysis, given your data and question? What are the limitations?</p>
-<h2 id="q-q-plot-2021-pm2.5">Q-Q Plot (2021 PM2.5)</h2>
+<h1 id="results">Results</h1>
+<p>Show us your results in figure(s) and/or table(s) that are carefully labeled and captioned. Describe in the text (and orally when presenting) what you found, and how these results either do or do not help you answer your question.</p>
+<h2 id="exploring-the-data">Exploring the data</h2>
+<h3 id="pm2.5-1">2021 PM2.5</h3>
+<h4 id="q-q-plot">Q-Q Plot</h4>
 <div class="layout-chunk" data-layout="l-body">
 <p><img src="calenviroscreen_files/figure-html5/unnamed-chunk-8-1.png" width="624" /><img src="calenviroscreen_files/figure-html5/unnamed-chunk-8-2.png" width="624" /></p>
 </div>
 <div class="layout-chunk" data-layout="l-body">
-<pre><code>
-    Modified robust Brown-Forsythe Levene-type test based on the
-    absolute deviations from the median
 
-data:  c4$PM2.5
-Test Statistic = 1.0618, p-value = 0.1239</code></pre>
 </div>
-<h1 id="results">Results</h1>
-<p>Show us your results in figure(s) and/or table(s) that are carefully labeled and captioned. Describe in the text (and orally when presenting) what you found, and how these results either do or do not help you answer your question.</p>
+<h4 id="linear-regression">Linear Regression</h4>
 <div class="layout-chunk" data-layout="l-body">
 <pre><code>
 Call:
@@ -3303,7 +3298,7 @@ F-statistic: 983.4 on 4 and 31891 DF,  p-value: &lt; 2.2e-16</code></pre>
 <h1 id="conclusions">Conclusions</h1>
 <h1 id="future-directions">Future Directions</h1>
 <p>One short analysis cannot fully answer an interesting scientific question. If you had time to collect more data or conduct more analysis, what would help you answer this question better?</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>

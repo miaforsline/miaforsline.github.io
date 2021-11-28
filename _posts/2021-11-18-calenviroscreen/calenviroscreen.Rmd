@@ -6,7 +6,7 @@ description: |
 author:
   - name: Mia Forsline
     url: {}
-date: 2021-11-18
+date: 2021-12-02
 output:
   distill::distill_article:
     self_contained: false
@@ -34,9 +34,7 @@ In California from 2013 - 2021, does air quality (as measured by PM 2.5 concentr
 
 Why is this important? Is there existing evidence on this question? If so, why is it inconclusive? If not, why not?
 
-# Methods
-
-## Data Description / Collection
+# Data Description / Collection
 
 *Where did you access it? What are its spatial and temporal features? What are its limitations? What do you know about the sampling strategy and what biases that may introduce? If helpful, you can use a histogram, scatterplot, or summary statistics table to describe your data.*
 
@@ -97,7 +95,6 @@ c1_fill <- full_join(x = c2_clean, y = c1_clean,
                 PM2.5 = "PM2.5.c1",
                 Year = "Year.c1")
 ```
-
 
 ```{r}
 joined <- rbind(c4_clean, c3_clean, c2_clean, c1_fill) %>% 
@@ -211,11 +208,17 @@ Standard error and relative standard error were calculated to determine the reli
 
 Using this data, we can answer the research question...
 
-# Statistical Analysis
+# Methods - Statistical Analysis Plan 
 
 What is your analysis plan? Why did you choose this analysis, given your data and question? What are the limitations?
 
-## Q-Q Plot (2021 PM2.5)
+# Results 
+Show us your results in figure(s) and/or table(s) that are carefully labeled and captioned. Describe in the text (and orally when presenting) what you found, and how these results either do or do not help you answer your question.
+
+## Exploring the data 
+
+### 2021 PM2.5
+#### Q-Q Plot 
 ```{r}
 c4 <- subset(joined, Year == "2021")
 
@@ -244,21 +247,17 @@ ggplot(data = c4, aes(x = PM2.5)) +
        y = "Frequency")
 ```
 ```{r}
-levene.test(c4$PM2.5, c4$Poverty)
+#levene.test(c4$PM2.5, c4$Poverty)
 ```
 
-
-
-
-# Results
-
-Show us your results in figure(s) and/or table(s) that are carefully labeled and captioned. Describe in the text (and orally when presenting) what you found, and how these results either do or do not help you answer your question.
-
+#### Linear Regression 
 ```{r}
 mod <- lm(PM2.5 ~ Poverty, data = c4)
 mod <- lm(PM2.5 ~ Poverty + Year, data = joined)
 summary(mod)
 ```
+
+
 
 ## Figures
 
