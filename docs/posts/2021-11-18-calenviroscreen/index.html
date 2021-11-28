@@ -118,7 +118,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["calenviroscreen_files/anchor-4.2.2/anchor.min.js","calenviroscreen_files/bowser-1.9.3/bowser.min.js","calenviroscreen_files/distill-2.2.21/template.v2.js","calenviroscreen_files/figure-html5/unnamed-chunk-11-1.png","calenviroscreen_files/figure-html5/unnamed-chunk-2-1.png","calenviroscreen_files/figure-html5/unnamed-chunk-3-1.png","calenviroscreen_files/figure-html5/unnamed-chunk-4-1.png","calenviroscreen_files/figure-html5/unnamed-chunk-5-1.png","calenviroscreen_files/figure-html5/unnamed-chunk-6-1.png","calenviroscreen_files/figure-html5/unnamed-chunk-8-1.png","calenviroscreen_files/figure-html5/unnamed-chunk-8-2.png","calenviroscreen_files/header-attrs-2.11/header-attrs.js","calenviroscreen_files/jquery-3.6.0/jquery-3.6.0.js","calenviroscreen_files/jquery-3.6.0/jquery-3.6.0.min.js","calenviroscreen_files/jquery-3.6.0/jquery-3.6.0.min.map","calenviroscreen_files/popper-2.6.0/popper.min.js","calenviroscreen_files/tippy-6.2.7/tippy-bundle.umd.min.js","calenviroscreen_files/tippy-6.2.7/tippy-light-border.css","calenviroscreen_files/tippy-6.2.7/tippy.css","calenviroscreen_files/tippy-6.2.7/tippy.umd.min.js","calenviroscreen_files/webcomponents-2.0.0/webcomponents.js","CES/CES_data/ces1_2013.csv","CES/CES_data/ces1_2013.xls","CES/CES_data/ces2_2014.csv","CES/CES_data/ces2_2014.xlsx","CES/CES_data/ces3_2018.csv","CES/CES_data/ces4_2021.csv","CES/CES_data/ces4_2021.xlsx","CES/CES_images/components.png","CES/CES_images/pm.png","CES/CES_images/poverty.png"]}
+  {"type":"character","attributes":{},"value":["calenviroscreen_files/anchor-4.2.2/anchor.min.js","calenviroscreen_files/bowser-1.9.3/bowser.min.js","calenviroscreen_files/distill-2.2.21/template.v2.js","calenviroscreen_files/figure-html5/unnamed-chunk-11-1.png","calenviroscreen_files/figure-html5/unnamed-chunk-2-1.png","calenviroscreen_files/figure-html5/unnamed-chunk-3-1.png","calenviroscreen_files/figure-html5/unnamed-chunk-4-1.png","calenviroscreen_files/figure-html5/unnamed-chunk-5-1.png","calenviroscreen_files/figure-html5/unnamed-chunk-6-1.png","calenviroscreen_files/figure-html5/unnamed-chunk-8-1.png","calenviroscreen_files/figure-html5/unnamed-chunk-8-2.png","calenviroscreen_files/figure-html5/unnamed-chunk-9-1.png","calenviroscreen_files/header-attrs-2.11/header-attrs.js","calenviroscreen_files/jquery-3.6.0/jquery-3.6.0.js","calenviroscreen_files/jquery-3.6.0/jquery-3.6.0.min.js","calenviroscreen_files/jquery-3.6.0/jquery-3.6.0.min.map","calenviroscreen_files/popper-2.6.0/popper.min.js","calenviroscreen_files/tippy-6.2.7/tippy-bundle.umd.min.js","calenviroscreen_files/tippy-6.2.7/tippy-light-border.css","calenviroscreen_files/tippy-6.2.7/tippy.css","calenviroscreen_files/tippy-6.2.7/tippy.umd.min.js","calenviroscreen_files/webcomponents-2.0.0/webcomponents.js","CES/CES_data/ces1_2013.csv","CES/CES_data/ces1_2013.xls","CES/CES_data/ces2_2014.csv","CES/CES_data/ces2_2014.xlsx","CES/CES_data/ces3_2018.csv","CES/CES_data/ces4_2021.csv","CES/CES_data/ces4_2021.xlsx","CES/CES_images/components.png","CES/CES_images/pm.png","CES/CES_images/poverty.png"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
 <meta name="distill:offset" content="../.."/>
@@ -2430,11 +2430,7 @@ d-appendix d-footnote-list a.footnote-backlink {
 <li><a href="#methods---statistical-analysis-plan">Methods - Statistical Analysis Plan</a></li>
 <li><a href="#results">Results</a>
 <ul>
-<li><a href="#exploring-the-data">Exploring the data</a>
-<ul>
-<li><a href="#pm2.5-1">2021 PM2.5</a></li>
-</ul></li>
-<li><a href="#figures">Figures</a></li>
+<li><a href="#section">2021</a></li>
 </ul></li>
 <li><a href="#conclusions">Conclusions</a></li>
 <li><a href="#future-directions">Future Directions</a></li>
@@ -2442,7 +2438,7 @@ d-appendix d-footnote-list a.footnote-backlink {
 </nav>
 </div>
 <h1 id="research-question">Research Question</h1>
-<p>In California from 2013 - 2021, does air quality (as measured by PM 2.5 concentrations) vary with poverty rates (as measured by the percent of the population living below two times the federal poverty level)?</p>
+<p>In California from 2013 - 2021, does air quality (as measured by PM2.5 concentrations) vary with poverty rates (as measured by the percent of the population living below two times the federal poverty level)?</p>
 <h1 id="background-motivation">Background / Motivation</h1>
 <p>Why is this important? Is there existing evidence on this question? If so, why is it inconclusive? If not, why not?</p>
 <h1 id="data-description-collection">Data Description / Collection</h1>
@@ -2482,17 +2478,17 @@ d-appendix d-footnote-list a.footnote-backlink {
 <p>Each dataset also contains one row per census tract, meaning each census tract in California is assigned a value per environmental indicator or population characteristic.</p>
 <p>In particular, I am interested in:</p>
 <h3 id="pm2.5">1. <strong>PM2.5:</strong></h3>
-<p>The annual mean concentration of PM2.5, which CalEnviroScreen calculates based on a weighted average of measured monitor concentrations and satellite observations (ug/m<sup>3</sup>) over 3 years. For example, the CES 1.1. report used data from 2007 - 2009 while the CES 4.0 report used 2015 - 2017. All reports used data from the <a href="https://ww2.arb.ca.gov/homepage">California Air Resources Board’s</a> Air Monitoring Network. In addition to the Air Monitoring Network, CES 3.0 and 4.0 incorporated <a href="https://ww2.arb.ca.gov/resources/documents/air-quality-research-using-satellite-remote-sensing">Satellite Remote Sensing Data</a>.</p>
+<p>The annual mean concentration of PM2.5, which CalEnviroScreen (CES) calculates based on a weighted average of measured monitor concentrations and satellite observations (ug/m<sup>3</sup>) over 3 years. For example, the CES 1.1. report used data from 2007 - 2009 while the CES 4.0 report used 2015 - 2017. All reports used data from the <a href="https://ww2.arb.ca.gov/homepage">California Air Resources Board’s</a> Air Monitoring Network. In addition to the Air Monitoring Network, CES 3.0 and CES 4.0 incorporated <a href="https://ww2.arb.ca.gov/resources/documents/air-quality-research-using-satellite-remote-sensing">Satellite Remote Sensing Data</a>.</p>
 <div class="layout-chunk" data-layout="l-body">
 <p><img src="calenviroscreen_files/figure-html5/unnamed-chunk-4-1.png" width="624" /></p>
 </div>
 <div class="layout-chunk" data-layout="l-body">
-<div id="tskkygpbyc" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="mrmylihflg" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#tskkygpbyc .gt_table {
+#mrmylihflg .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -2517,7 +2513,7 @@ d-appendix d-footnote-list a.footnote-backlink {
   border-left-color: #D3D3D3;
 }
 
-#tskkygpbyc .gt_heading {
+#mrmylihflg .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -2529,7 +2525,7 @@ d-appendix d-footnote-list a.footnote-backlink {
   border-right-color: #D3D3D3;
 }
 
-#tskkygpbyc .gt_title {
+#mrmylihflg .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -2539,7 +2535,7 @@ d-appendix d-footnote-list a.footnote-backlink {
   border-bottom-width: 0;
 }
 
-#tskkygpbyc .gt_subtitle {
+#mrmylihflg .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -2549,13 +2545,13 @@ d-appendix d-footnote-list a.footnote-backlink {
   border-top-width: 0;
 }
 
-#tskkygpbyc .gt_bottom_border {
+#mrmylihflg .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#tskkygpbyc .gt_col_headings {
+#mrmylihflg .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2570,7 +2566,7 @@ d-appendix d-footnote-list a.footnote-backlink {
   border-right-color: #D3D3D3;
 }
 
-#tskkygpbyc .gt_col_heading {
+#mrmylihflg .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2590,7 +2586,7 @@ d-appendix d-footnote-list a.footnote-backlink {
   overflow-x: hidden;
 }
 
-#tskkygpbyc .gt_column_spanner_outer {
+#mrmylihflg .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2602,15 +2598,15 @@ d-appendix d-footnote-list a.footnote-backlink {
   padding-right: 4px;
 }
 
-#tskkygpbyc .gt_column_spanner_outer:first-child {
+#mrmylihflg .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#tskkygpbyc .gt_column_spanner_outer:last-child {
+#mrmylihflg .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#tskkygpbyc .gt_column_spanner {
+#mrmylihflg .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -2622,7 +2618,7 @@ d-appendix d-footnote-list a.footnote-backlink {
   width: 100%;
 }
 
-#tskkygpbyc .gt_group_heading {
+#mrmylihflg .gt_group_heading {
   padding: 8px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2644,7 +2640,7 @@ d-appendix d-footnote-list a.footnote-backlink {
   vertical-align: middle;
 }
 
-#tskkygpbyc .gt_empty_group_heading {
+#mrmylihflg .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2659,15 +2655,15 @@ d-appendix d-footnote-list a.footnote-backlink {
   vertical-align: middle;
 }
 
-#tskkygpbyc .gt_from_md > :first-child {
+#mrmylihflg .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#tskkygpbyc .gt_from_md > :last-child {
+#mrmylihflg .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#tskkygpbyc .gt_row {
+#mrmylihflg .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2686,7 +2682,7 @@ d-appendix d-footnote-list a.footnote-backlink {
   overflow-x: hidden;
 }
 
-#tskkygpbyc .gt_stub {
+#mrmylihflg .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2698,7 +2694,7 @@ d-appendix d-footnote-list a.footnote-backlink {
   padding-left: 12px;
 }
 
-#tskkygpbyc .gt_summary_row {
+#mrmylihflg .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2708,7 +2704,7 @@ d-appendix d-footnote-list a.footnote-backlink {
   padding-right: 5px;
 }
 
-#tskkygpbyc .gt_first_summary_row {
+#mrmylihflg .gt_first_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2718,7 +2714,7 @@ d-appendix d-footnote-list a.footnote-backlink {
   border-top-color: #D3D3D3;
 }
 
-#tskkygpbyc .gt_grand_summary_row {
+#mrmylihflg .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2728,7 +2724,7 @@ d-appendix d-footnote-list a.footnote-backlink {
   padding-right: 5px;
 }
 
-#tskkygpbyc .gt_first_grand_summary_row {
+#mrmylihflg .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2738,11 +2734,11 @@ d-appendix d-footnote-list a.footnote-backlink {
   border-top-color: #D3D3D3;
 }
 
-#tskkygpbyc .gt_striped {
+#mrmylihflg .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#tskkygpbyc .gt_table_body {
+#mrmylihflg .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2751,7 +2747,7 @@ d-appendix d-footnote-list a.footnote-backlink {
   border-bottom-color: #D3D3D3;
 }
 
-#tskkygpbyc .gt_footnotes {
+#mrmylihflg .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2765,13 +2761,13 @@ d-appendix d-footnote-list a.footnote-backlink {
   border-right-color: #D3D3D3;
 }
 
-#tskkygpbyc .gt_footnote {
+#mrmylihflg .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding: 4px;
 }
 
-#tskkygpbyc .gt_sourcenotes {
+#mrmylihflg .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2785,41 +2781,41 @@ d-appendix d-footnote-list a.footnote-backlink {
   border-right-color: #D3D3D3;
 }
 
-#tskkygpbyc .gt_sourcenote {
+#mrmylihflg .gt_sourcenote {
   font-size: 90%;
   padding: 4px;
 }
 
-#tskkygpbyc .gt_left {
+#mrmylihflg .gt_left {
   text-align: left;
 }
 
-#tskkygpbyc .gt_center {
+#mrmylihflg .gt_center {
   text-align: center;
 }
 
-#tskkygpbyc .gt_right {
+#mrmylihflg .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#tskkygpbyc .gt_font_normal {
+#mrmylihflg .gt_font_normal {
   font-weight: normal;
 }
 
-#tskkygpbyc .gt_font_bold {
+#mrmylihflg .gt_font_bold {
   font-weight: bold;
 }
 
-#tskkygpbyc .gt_font_italic {
+#mrmylihflg .gt_font_italic {
   font-style: italic;
 }
 
-#tskkygpbyc .gt_super {
+#mrmylihflg .gt_super {
   font-size: 65%;
 }
 
-#tskkygpbyc .gt_footnote_marks {
+#mrmylihflg .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 65%;
@@ -2831,7 +2827,7 @@ d-appendix d-footnote-list a.footnote-backlink {
       <th colspan="3" class="gt_heading gt_title gt_font_normal" style>Mean and standard deviation of annual mean concentrations of PM2.5 (ug/m3) in California</th>
     </tr>
     <tr>
-      <th colspan="3" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border" style>Data from CalEnviroScreen</th>
+      <th colspan="3" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border" style>Data from CalEnviroScreen (https://oehha.ca.gov/).</th>
     </tr>
   </thead>
   <thead class="gt_col_headings">
@@ -2873,12 +2869,12 @@ d-appendix d-footnote-list a.footnote-backlink {
 <p><img src="calenviroscreen_files/figure-html5/unnamed-chunk-6-1.png" width="624" /></p>
 </div>
 <div class="layout-chunk" data-layout="l-body">
-<div id="lwvoornbux" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="pysffaxsqs" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#lwvoornbux .gt_table {
+#pysffaxsqs .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -2903,7 +2899,7 @@ d-appendix d-footnote-list a.footnote-backlink {
   border-left-color: #D3D3D3;
 }
 
-#lwvoornbux .gt_heading {
+#pysffaxsqs .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -2915,7 +2911,7 @@ d-appendix d-footnote-list a.footnote-backlink {
   border-right-color: #D3D3D3;
 }
 
-#lwvoornbux .gt_title {
+#pysffaxsqs .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -2925,7 +2921,7 @@ d-appendix d-footnote-list a.footnote-backlink {
   border-bottom-width: 0;
 }
 
-#lwvoornbux .gt_subtitle {
+#pysffaxsqs .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -2935,13 +2931,13 @@ d-appendix d-footnote-list a.footnote-backlink {
   border-top-width: 0;
 }
 
-#lwvoornbux .gt_bottom_border {
+#pysffaxsqs .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#lwvoornbux .gt_col_headings {
+#pysffaxsqs .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2956,7 +2952,7 @@ d-appendix d-footnote-list a.footnote-backlink {
   border-right-color: #D3D3D3;
 }
 
-#lwvoornbux .gt_col_heading {
+#pysffaxsqs .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2976,7 +2972,7 @@ d-appendix d-footnote-list a.footnote-backlink {
   overflow-x: hidden;
 }
 
-#lwvoornbux .gt_column_spanner_outer {
+#pysffaxsqs .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2988,15 +2984,15 @@ d-appendix d-footnote-list a.footnote-backlink {
   padding-right: 4px;
 }
 
-#lwvoornbux .gt_column_spanner_outer:first-child {
+#pysffaxsqs .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#lwvoornbux .gt_column_spanner_outer:last-child {
+#pysffaxsqs .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#lwvoornbux .gt_column_spanner {
+#pysffaxsqs .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -3008,7 +3004,7 @@ d-appendix d-footnote-list a.footnote-backlink {
   width: 100%;
 }
 
-#lwvoornbux .gt_group_heading {
+#pysffaxsqs .gt_group_heading {
   padding: 8px;
   color: #333333;
   background-color: #FFFFFF;
@@ -3030,7 +3026,7 @@ d-appendix d-footnote-list a.footnote-backlink {
   vertical-align: middle;
 }
 
-#lwvoornbux .gt_empty_group_heading {
+#pysffaxsqs .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -3045,15 +3041,15 @@ d-appendix d-footnote-list a.footnote-backlink {
   vertical-align: middle;
 }
 
-#lwvoornbux .gt_from_md > :first-child {
+#pysffaxsqs .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#lwvoornbux .gt_from_md > :last-child {
+#pysffaxsqs .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#lwvoornbux .gt_row {
+#pysffaxsqs .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3072,7 +3068,7 @@ d-appendix d-footnote-list a.footnote-backlink {
   overflow-x: hidden;
 }
 
-#lwvoornbux .gt_stub {
+#pysffaxsqs .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3084,7 +3080,7 @@ d-appendix d-footnote-list a.footnote-backlink {
   padding-left: 12px;
 }
 
-#lwvoornbux .gt_summary_row {
+#pysffaxsqs .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -3094,7 +3090,7 @@ d-appendix d-footnote-list a.footnote-backlink {
   padding-right: 5px;
 }
 
-#lwvoornbux .gt_first_summary_row {
+#pysffaxsqs .gt_first_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3104,7 +3100,7 @@ d-appendix d-footnote-list a.footnote-backlink {
   border-top-color: #D3D3D3;
 }
 
-#lwvoornbux .gt_grand_summary_row {
+#pysffaxsqs .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -3114,7 +3110,7 @@ d-appendix d-footnote-list a.footnote-backlink {
   padding-right: 5px;
 }
 
-#lwvoornbux .gt_first_grand_summary_row {
+#pysffaxsqs .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3124,11 +3120,11 @@ d-appendix d-footnote-list a.footnote-backlink {
   border-top-color: #D3D3D3;
 }
 
-#lwvoornbux .gt_striped {
+#pysffaxsqs .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#lwvoornbux .gt_table_body {
+#pysffaxsqs .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -3137,7 +3133,7 @@ d-appendix d-footnote-list a.footnote-backlink {
   border-bottom-color: #D3D3D3;
 }
 
-#lwvoornbux .gt_footnotes {
+#pysffaxsqs .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -3151,13 +3147,13 @@ d-appendix d-footnote-list a.footnote-backlink {
   border-right-color: #D3D3D3;
 }
 
-#lwvoornbux .gt_footnote {
+#pysffaxsqs .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding: 4px;
 }
 
-#lwvoornbux .gt_sourcenotes {
+#pysffaxsqs .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -3171,41 +3167,41 @@ d-appendix d-footnote-list a.footnote-backlink {
   border-right-color: #D3D3D3;
 }
 
-#lwvoornbux .gt_sourcenote {
+#pysffaxsqs .gt_sourcenote {
   font-size: 90%;
   padding: 4px;
 }
 
-#lwvoornbux .gt_left {
+#pysffaxsqs .gt_left {
   text-align: left;
 }
 
-#lwvoornbux .gt_center {
+#pysffaxsqs .gt_center {
   text-align: center;
 }
 
-#lwvoornbux .gt_right {
+#pysffaxsqs .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#lwvoornbux .gt_font_normal {
+#pysffaxsqs .gt_font_normal {
   font-weight: normal;
 }
 
-#lwvoornbux .gt_font_bold {
+#pysffaxsqs .gt_font_bold {
   font-weight: bold;
 }
 
-#lwvoornbux .gt_font_italic {
+#pysffaxsqs .gt_font_italic {
   font-style: italic;
 }
 
-#lwvoornbux .gt_super {
+#pysffaxsqs .gt_super {
   font-size: 65%;
 }
 
-#lwvoornbux .gt_footnote_marks {
+#pysffaxsqs .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 65%;
@@ -3214,10 +3210,10 @@ d-appendix d-footnote-list a.footnote-backlink {
 <table class="gt_table">
   <thead class="gt_header">
     <tr>
-      <th colspan="3" class="gt_heading gt_title gt_font_normal" style>Percent of census tract population living below two times the federal poverty level in California</th>
+      <th colspan="3" class="gt_heading gt_title gt_font_normal" style>% of census tract population living below two times the federal poverty level in California</th>
     </tr>
     <tr>
-      <th colspan="3" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border" style>Data from CalEnviroScreen</th>
+      <th colspan="3" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border" style>Data from CalEnviroScreen (https://oehha.ca.gov/).</th>
     </tr>
   </thead>
   <thead class="gt_col_headings">
@@ -3252,48 +3248,36 @@ d-appendix d-footnote-list a.footnote-backlink {
 <figure>
 <img src="CES/CES_images/poverty.png" alt="CalEnviroScreen 4.0 Poverty Map (Source: https://oehha.ca.gov/media/downloads/calenviroscreen/report/calenviroscreen40reportf2021.pdf)" /><figcaption aria-hidden="true">CalEnviroScreen 4.0 Poverty Map (Source: <a href="https://oehha.ca.gov/media/downloads/calenviroscreen/report/calenviroscreen40reportf2021.pdf" class="uri">https://oehha.ca.gov/media/downloads/calenviroscreen/report/calenviroscreen40reportf2021.pdf</a>)</figcaption>
 </figure>
-<p>Using this data, we can answer the research question…</p>
 <h1 id="methods---statistical-analysis-plan">Methods - Statistical Analysis Plan</h1>
 <p>What is your analysis plan? Why did you choose this analysis, given your data and question? What are the limitations?</p>
+<p>To assess if, in California from 2013 - 2021, air quality varies with poverty rates, I plan to run linear regressions of PM2.5 ~ Poverty for each year (2013, 2014, 2018, 2021). This analysis is appropriate to describe how air quality might be changing with respect to poverty rates. Running multiple regressions over the different years can help us understand how this relationship might be changing over time.</p>
+<p>This method is limited by the fact that I am only including one independent variable (Poverty) in the model. It is likely that there are many different factors in addition to poverty influencing air quality, but this analysis is a strong starting point for detangling those complex relationships.</p>
 <h1 id="results">Results</h1>
 <p>Show us your results in figure(s) and/or table(s) that are carefully labeled and captioned. Describe in the text (and orally when presenting) what you found, and how these results either do or do not help you answer your question.</p>
-<h2 id="exploring-the-data">Exploring the data</h2>
-<h3 id="pm2.5-1">2021 PM2.5</h3>
-<h4 id="q-q-plot">Q-Q Plot</h4>
-<div class="layout-chunk" data-layout="l-body">
-<p><img src="calenviroscreen_files/figure-html5/unnamed-chunk-8-1.png" width="624" /><img src="calenviroscreen_files/figure-html5/unnamed-chunk-8-2.png" width="624" /></p>
-</div>
-<div class="layout-chunk" data-layout="l-body">
-
-</div>
-<h4 id="linear-regression">Linear Regression</h4>
+<h2 id="section">2021</h2>
 <div class="layout-chunk" data-layout="l-body">
 <pre><code>
 Call:
-lm(formula = PM2.5 ~ Poverty + Year, data = joined)
+lm(formula = PM2.5 ~ Poverty, data = c4)
 
 Residuals:
     Min      1Q  Median      3Q     Max 
--8.6099 -1.6112  0.1387  1.8028  9.5130 
+-8.4876 -1.3974  0.0417  1.6576  5.7422 
 
 Coefficients:
-              Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept) 10.4158077  0.0375626  277.29   &lt;2e-16 ***
-Poverty      0.0334956  0.0007441   45.02   &lt;2e-16 ***
-Year2014    -1.5785654  0.0396229  -39.84   &lt;2e-16 ***
-Year2018    -1.2579399  0.0395365  -31.82   &lt;2e-16 ***
-Year2021    -1.3132657  0.0395205  -33.23   &lt;2e-16 ***
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)  9.25660    0.04682  197.73   &lt;2e-16 ***
+Poverty      0.02858    0.00129   22.15   &lt;2e-16 ***
 ---
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 
-Residual standard error: 2.505 on 31891 degrees of freedom
-  (674 observations deleted due to missingness)
-Multiple R-squared:  0.1098,    Adjusted R-squared:  0.1097 
-F-statistic: 983.4 on 4 and 31891 DF,  p-value: &lt; 2.2e-16</code></pre>
+Residual standard error: 2.103 on 7958 degrees of freedom
+  (75 observations deleted due to missingness)
+Multiple R-squared:  0.05806,   Adjusted R-squared:  0.05794 
+F-statistic: 490.5 on 1 and 7958 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
-<h2 id="figures">Figures</h2>
 <div class="layout-chunk" data-layout="l-body">
-<p><img src="calenviroscreen_files/figure-html5/unnamed-chunk-11-1.png" width="624" /></p>
+<p><img src="calenviroscreen_files/figure-html5/unnamed-chunk-9-1.png" width="624" /></p>
 </div>
 <h1 id="conclusions">Conclusions</h1>
 <h1 id="future-directions">Future Directions</h1>
