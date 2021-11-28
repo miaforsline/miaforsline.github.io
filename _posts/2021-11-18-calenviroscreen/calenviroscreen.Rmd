@@ -12,6 +12,7 @@ output:
     self_contained: false
     toc: true
     toc_float: true
+    
 preview: octocat.png
 ---
 
@@ -23,7 +24,9 @@ knitr::opts_chunk$set(echo = FALSE,
 library(tidyverse)
 library(here)
 library(gt)
-library(lawstat)
+library(xtable)
+library(kableExtra)
+
 ```
 
 # Research Question
@@ -163,7 +166,6 @@ sub %>%
     subtitle = "Data from CalEnviroScreen (https://oehha.ca.gov/).")
 ```
 
-
 Data were more likely to be high resolution around certain cities or localized areas, but not all cities have air monitoring stations. Depending on the year, locales with little to no data were either omitted or estimated using nearby locations' data. For example, in CES 1.1, census tracts with centers > 50km away from the nearest air monitor were omitted from the analysis. In CES 4.0, missing data was estimated using regression relationships with nearby sites. 
 
 PM2.5 annual mean monitoring data were extracted from all monitoring sites where possible. For CES 4.0, PM2.5 annual mean concentrations were also calculated using Aerosol Optical Depth measurements as well as land use and meteorology data via regression on ground monitor data.
@@ -217,62 +219,67 @@ Standard error and relative standard error were calculated to determine the reli
 
 # Methods - Statistical Analysis Plan 
 
-What is your analysis plan? Why did you choose this analysis, given your data and question? What are the limitations?
+*What is your analysis plan? Why did you choose this analysis, given your data and question? What are the limitations?*
 
 To assess if, in California from 2013 - 2021, air quality varies with poverty rates, I plan to run linear regressions of PM2.5 ~ Poverty for each year (2013, 2014, 2018, 2021). This analysis is appropriate to describe how air quality might be changing with respect to poverty rates. Running multiple regressions over the different years can help us understand how this relationship might be changing over time. 
 
 This method is limited by the fact that I am only including one independent variable (Poverty) in the model. It is likely that there are many different factors in addition to poverty influencing air quality, but this analysis is a strong starting point for detangling those complex relationships. 
 
 # Results 
-Show us your results in figure(s) and/or table(s) that are carefully labeled and captioned. Describe in the text (and orally when presenting) what you found, and how these results either do or do not help you answer your question.
+*Show us your results in figure(s) and/or table(s) that are carefully labeled and captioned. Describe in the text (and orally when presenting) what you found, and how these results either do or do not help you answer your question.*
 
-## 2021 
 ```{r}
-mod <- lm(PM2.5 ~ Poverty, data = c4)
-summary(mod)
+mod1 <- lm(PM2.5 ~ Poverty, data = c1)
+mod1 %>%
+  summary() %>%
+  xtable() %>%
+  kable(caption = "2013 Poverty Rate Positively Influences Air Quality",
+        digits = 3) %>% 
+  kable_styling(latex_options = "HOLD_position")
+
+mod2 <- lm(PM2.5 ~ Poverty, data = c2)
+mod2 %>%
+  summary() %>%
+  xtable() %>%
+  kable(caption = "2014 Poverty Rate Positively Influences Air Quality", 
+        digits = 3) %>% 
+  kable_styling(latex_options = "HOLD_position")
+
+mod3 <- lm(PM2.5 ~ Poverty, data = c3)
+mod3 %>%
+  summary() %>%
+  xtable() %>%
+  kable(caption = "2018 Poverty Rate Positively Influences Air Quality",
+        digits = 3) %>% 
+  kable_styling(latex_options = "HOLD_position")
+
+
+mod4 <- lm(PM2.5 ~ Poverty, data = c4)
+mod4 %>%
+  summary() %>% 
+  xtable() %>% 
+  kable(caption = "2021 Poverty Rate Positively Influences Air Quality",
+        digits = 3) %>% 
+  kable_styling(latex_options = "HOLD_position")
 ```
 
 ```{r}
 joined <- joined %>% 
   drop_na(Poverty, PM2.5)
-sub_c4 <- subset(joined, Year == "2021")
-sub_c3 <- subset(joined, Year == "2018")
-sub_c2 <- subset(joined, Year == "2014")
-sub_c1 <- subset(joined, Year == "2013")
-
-# ggplot(data = sub_c4, aes(x = Poverty, y = PM2.5)) +
-#   geom_point(alpha = 0.1) + 
-#   geom_smooth(method='lm', 
-#               formula= y~x,
-#               size=1.5) + 
-#   theme_classic()+ 
-#   labs(x = "Poverty Rate Per Census Tract (%)",
-#        y = expression(paste
-#                        ("Mean PM2.5 per census tract (µg/m"^3~")")))
 
 ggplot(data = joined, aes(x = Poverty, y = PM2.5)) +
   geom_point(aes(color = Year), alpha = 0.05) + 
   geom_smooth(method='lm', 
               formula= y~x,
-              size=1.5) + 
+              size=1, 
+              color = "black") + 
   theme_classic()+ 
   labs(x = "Poverty Rate Per Census Tract (%)",
        y = expression(paste
-                       ("Mean PM2.5 per census tract (µg/m"^3~")")))+
-  facet_wrap(.~Year, ncol = 2)
-
-# ggplot(data = joined, aes(x = Poverty, y = PM2.5)) +
-#   geom_point(aes(color = Year), alpha = 0.1) + 
-#   geom_smooth(method='lm', 
-#               formula= y~x,
-#               size=1.5, 
-#               aes(color = Year)) + 
-#   theme_classic()+ 
-#   labs(x = "% of population per census tract living below two times the federal poverty level", 
-#        y = expression(paste
-#                       ("Annual mean concentration of PM2.5 per census tract (µg/m"^3~")")
-#                       )
-#        )
+                       ("Mean PM2.5 Per Census Tract (µg/m"^3~")")),
+       caption = "Caption") +
+  facet_wrap(.~Year, ncol = 2) + 
+  theme(legend.position = "none")
 ```
 
 # Conclusions
