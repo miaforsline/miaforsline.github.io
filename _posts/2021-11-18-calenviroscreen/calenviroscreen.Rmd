@@ -10,8 +10,9 @@ output:
     self_contained: false
     toc: true
     toc_float: true
-bibliography: bibliography.bib
 csl: apa.csl
+bibliography: bibliography.bib
+zotero: true
 base_url: miaforsline.github.io
 slug: forsline_ces
 ---
@@ -36,9 +37,9 @@ In California from 2013 - 2021, does air quality (as measured by annual mean PM2
 
 *Why is this important? Is there existing evidence on this question? If so, why is it inconclusive? If not, why not?*
 
-In California, events like wildfires can significantly decrease air quality by releasing fine particles such as particulate matter, or PM2.5 ( @shi2019. PM2.5 refers to particles with diameters ≤ 2.5 µm, which are known to be hazardous for human health. They are especially detrimental for our respiratory and cardiovascular health (@cleland2021). As California's wildfires continue to worsen over time, it is becoming increasingly important to monitor air quality, PM2.5 concentrations, and their impacts on populations (@gupta2018).
+In California, events like wildfires can significantly decrease air quality by releasing fine particles such as particulate matter, or PM2.5 [@shi2019]. PM2.5 refers to particles with diameters ≤ 2.5 µm, which are known to be hazardous for human health. They are especially detrimental for our respiratory and cardiovascular health [@cleland2021]. As California's wildfires continue to worsen over time, it is becoming increasingly important to monitor air quality, PM2.5 concentrations, and their impacts on populations [@gupta2018].
 
-The environmental burden of poor air quality is not shared equally across the state. For example, the San Joaquin Valley's economically disadvantaged and ethnically diverse communities breathe some of the most polluted air in the nation (@cisneros2017. As a result, vulnerable communities such as Mexican American immigrant farm workers and their families experience disproportionately high rates of asthma attacks, hospital admissions, and other medical issues (@schwartz2009). This inequitable pattern is well recognized in other states (@qian2019), the United States overall (@tessum2021), and even other countries (@li2018).
+The environmental burden of poor air quality is not shared equally across the state. For example, the San Joaquin Valley's economically disadvantaged and ethnically diverse communities breathe some of the most polluted air in the nation [@cisneros2017]. As a result, vulnerable communities such as Mexican American immigrant farm workers and their families experience disproportionately high rates of asthma attacks, hospital admissions, and other medical issues [@schwartz2009]. This inequitable pattern is well recognized in other states [@qian2019], the United States overall [@tessum2021], and even other countries [@li2018].
 
 While there are many possible ways to explore the inequity of air pollution in California, I specifically use annual mean PM2.5 to measure of air quality and poverty rate to quantify socioeconomic disparities.
 
@@ -251,7 +252,7 @@ These findings supported my hypothesis and corroborated prior research that has 
 
 *One short analysis cannot fully answer an interesting scientific question. If you had time to collect more data or conduct more analysis, what would help you answer this question better?*
 
-While my analysis focused on four specific years of comprehensive data based on years that the CalEnviroScreen was carried out, it could be interesting to expand that time frame to before 2013. Exploring air quality and poverty before and after 2013 is especially interesting because 2013 was the year that California's cap-and-trade program was initiated. During this time, there is evidence that while greenhouse gases were overall reduced in California, socioeconomically disadvantaged communities actually experienced emission increases (Cushing et al. 2018).
+While my analysis focused on four specific years of comprehensive data based on years that the CalEnviroScreen was carried out, it could be interesting to expand that time frame to before 2013. Exploring air quality and poverty before and after 2013 is especially interesting because 2013 was the year that California's cap-and-trade program was initiated. During this time, there is evidence that while greenhouse gases were overall reduced in California, socioeconomically disadvantaged communities actually experienced emission increases [@cushing2018].
 
 # References
 
