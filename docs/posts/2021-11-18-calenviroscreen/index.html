@@ -2460,10 +2460,8 @@ d-appendix d-footnote-list a.footnote-backlink {
 <h3>Contents</h3>
 <ul>
 <li><a href="#research-question">Research Question</a></li>
-<li><a href="#background">Background</a>
-<ul>
+<li><a href="#introduction">Introduction</a></li>
 <li><a href="#hypotheses">Hypotheses</a></li>
-</ul></li>
 <li><a href="#data-description-and-collection">Data Description and Collection</a>
 <ul>
 <li><a href="#pm2.5">1. <strong>PM2.5</strong></a></li>
@@ -2471,7 +2469,7 @@ d-appendix d-footnote-list a.footnote-backlink {
 </ul></li>
 <li><a href="#methods---statistical-analysis-plan">Methods - Statistical Analysis Plan</a></li>
 <li><a href="#results">Results</a></li>
-<li><a href="#conclusions">Conclusions</a></li>
+<li><a href="#conclusion">Conclusion</a></li>
 <li><a href="#future-directions">Future Directions</a></li>
 <li><a href="#github">GitHub</a></li>
 </ul>
@@ -2479,11 +2477,11 @@ d-appendix d-footnote-list a.footnote-backlink {
 </div>
 <h1 id="research-question">Research Question</h1>
 <p>In California from 2013 - 2021, does air quality (as measured by annual mean PM2.5 concentrations per census tract) vary with poverty rates (as measured by the percent of the population living below two times the federal poverty level per census tract)?</p>
-<h1 id="background">Background</h1>
+<h1 id="introduction">Introduction</h1>
 <p>In California, events like wildfires can significantly decrease air quality by releasing fine particles such as particulate matter, or PM2.5 <span class="citation" data-cites="shi2019">(<a href="#ref-shi2019" role="doc-biblioref">Shi et al., 2019</a>)</span>. PM2.5 refers to particles with diameters ≤ 2.5 µm, which are known to be hazardous for human health. They are especially detrimental for our respiratory and cardiovascular health <span class="citation" data-cites="cleland2021">(<a href="#ref-cleland2021" role="doc-biblioref">Cleland et al., 2021</a>)</span>. As California’s wildfires continue to worsen over time, it is becoming increasingly important to monitor air quality, PM2.5 concentrations, and their impacts on populations <span class="citation" data-cites="gupta2018">(<a href="#ref-gupta2018" role="doc-biblioref">Gupta et al., 2018</a>)</span>.</p>
 <p>The environmental burden of poor air quality is not shared equally across the state. For example, the San Joaquin Valley’s economically disadvantaged and ethnically diverse communities breathe some of the most polluted air in the nation <span class="citation" data-cites="cisneros2017">(<a href="#ref-cisneros2017" role="doc-biblioref">Cisneros et al., 2017</a>)</span>. As a result, vulnerable communities such as Mexican American immigrant farm workers and their families experience disproportionately high rates of asthma attacks, hospital admissions, and other medical issues <span class="citation" data-cites="schwartz2009">(<a href="#ref-schwartz2009" role="doc-biblioref">Schwartz &amp; Pepper, 2009</a>)</span>. This inequitable pattern is well recognized in other states <span class="citation" data-cites="qian2019">(<a href="#ref-qian2019" role="doc-biblioref">Qian &amp; Wu, 2019</a>)</span>, the United States overall <span class="citation" data-cites="tessum2021">(<a href="#ref-tessum2021" role="doc-biblioref">Tessum et al., 2021</a>)</span>, and even other countries <span class="citation" data-cites="li2018">(<a href="#ref-li2018" role="doc-biblioref">Li et al., 2018</a>)</span>.</p>
 <p>While there are many possible ways to explore the inequity of air pollution in California, I specifically use annual mean PM2.5 to measure of air quality and poverty rate to quantify socioeconomic disparities.</p>
-<h2 id="hypotheses">Hypotheses</h2>
+<h1 id="hypotheses">Hypotheses</h1>
 <p>My null hypothesis (H<sub>0</sub>) is that, in California, there is no relationship between annual mean PM2.5 concentrations per census tract and percent of the population living below twice the federal poverty line per census tract.</p>
 <p>My alternative hypothesis (H<sub>A</sub>) is that, in California, there is a relationship between annual mean PM2.5 concentrations per census tract and percent of the population living below twice the federal poverty line per census tract</p>
 <h1 id="data-description-and-collection">Data Description and Collection</h1>
@@ -2537,17 +2535,16 @@ Figure 2: 2013 - 2021 poverty rates in California were not normally distributed.
 <div class="layout-chunk" data-layout="l-body">
 
 </div>
-<p>For all time periods, annual mean PM2.5 concentrations were significantly influenced by the percent of people living below twice the federal poverty level. In 2013, PM2.5 increased by 0.035 µg/m3 as the poverty rate increased by 1% (p-value = 0, sd = 0.0044, slope = 0.0352). In 2014, PM2.5 increased by 0.028 µg/m3 as the poverty rate increased by 1% (p-value = 0, sd = 0.0014, slope = 0.0279). In 2018, PM2.5 increased by 0.030 µg/m3 as the poverty rate increased by 1% (p-value = 0, sd = 0.0014, slope = 0.0299). In 2021, PM2.5 increased by 0.029 µg/m3 as the poverty rate increased by 1% (p-value = 0, sd = 0.0013, slope = 0.0286).</p>
-<p>These results support my hypothesis that mean PM2.5 and poverty in California are significantly related (Figure <a href="#fig:final">3</a>).</p>
+<p>For all time periods, annual mean PM2.5 concentrations were significantly influenced by the percent of people living below twice the federal poverty level. In 2013, PM2.5 increased by 0.035 µg/m3 as the poverty rate increased by 1% (p-value &lt; 0.001, sd = 0.0044). In 2014, PM2.5 increased by 0.028 µg/m3 as the poverty rate increased by 1% (p-value &lt; 0.001, sd = 0.0014). In 2018, PM2.5 increased by 0.030 µg/m3 as the poverty rate increased by 1% (p-value &lt; 0.001, sd = 0.0014). In 2021, PM2.5 increased by 0.029 µg/m3 as the poverty rate increased by 1% (p-value &lt; 0.001, sd = 0.0013). These results support my hypothesis that mean PM2.5 and poverty in California are significantly related (Figure <a href="#fig:final">3</a>).</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="figure"><span style="display:block;" id="fig:final"></span>
-<img src="calenviroscreen_files/figure-html5/final-1.png" alt="Air quality significantly associates poverty in California. For each sampled time period, as poverty rates increase in California, mean PM2.5 increases and air quality deteriorates (p-value &lt;&lt;&lt; 0.05)." width="624" />
+<img src="calenviroscreen_files/figure-html5/final-1.png" alt="Air quality significantly associates poverty in California. For each sampled time period, as poverty rates increase in California, mean PM2.5 increases and air quality deteriorates (p-value &lt;&lt;&lt; 0.001)." width="624" />
 <p class="caption">
-Figure 3: Air quality significantly associates poverty in California. For each sampled time period, as poverty rates increase in California, mean PM2.5 increases and air quality deteriorates (p-value &lt;&lt;&lt; 0.05).
+Figure 3: Air quality significantly associates poverty in California. For each sampled time period, as poverty rates increase in California, mean PM2.5 increases and air quality deteriorates (p-value &lt;&lt;&lt; 0.001).
 </p>
 </div>
 </div>
-<h1 id="conclusions">Conclusions</h1>
+<h1 id="conclusion">Conclusion</h1>
 <p>As expected, I found—in California during 2013, 2014, 2018, and 2021—a statistically significant relationship between air quality and poverty rates. For all four years, annual mean concentrations of PM2.5 (µg/m<sup>3</sup>) increased as the percent of people living below twice the federal poverty level increased (Figure <a href="#fig:final">3</a>). In other words, air quality was lower in census tracts with higher poverty rates. These findings supported my hypothesis and corroborated prior research that has identified PM2.5 disparities based on socioeconomic factors in California (Mousavi et al. 2021). This further emphasizes the importance of an environmental justice lens when investigating issues such as air quality.</p>
 <h1 id="future-directions">Future Directions</h1>
 <p>While my analysis focused on four specific years of comprehensive data based on years that the CalEnviroScreen was carried out, it could be interesting to expand that time frame to before 2013. Exploring air quality and poverty before and after 2013 is especially interesting because 2013 was the year that California’s cap-and-trade program was initiated. During this time, there is evidence that while greenhouse gases were overall reduced in California, socioeconomically disadvantaged communities actually experienced emission increases <span class="citation" data-cites="cushing2018">(<a href="#ref-cushing2018" role="doc-biblioref">Cushing et al., 2018</a>)</span>.</p>

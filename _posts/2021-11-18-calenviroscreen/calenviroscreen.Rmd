@@ -44,7 +44,7 @@ library(kableExtra)
 
 In California from 2013 - 2021, does air quality (as measured by annual mean PM2.5 concentrations per census tract) vary with poverty rates (as measured by the percent of the population living below two times the federal poverty level per census tract)?
 
-# Background
+# Introduction
 
 In California, events like wildfires can significantly decrease air quality by releasing fine particles such as particulate matter, or PM2.5 [@shi2019]. PM2.5 refers to particles with diameters ≤ 2.5 µm, which are known to be hazardous for human health. They are especially detrimental for our respiratory and cardiovascular health [@cleland2021]. As California's wildfires continue to worsen over time, it is becoming increasingly important to monitor air quality, PM2.5 concentrations, and their impacts on populations [@gupta2018].
 
@@ -52,7 +52,7 @@ The environmental burden of poor air quality is not shared equally across the st
 
 While there are many possible ways to explore the inequity of air pollution in California, I specifically use annual mean PM2.5 to measure of air quality and poverty rate to quantify socioeconomic disparities.
 
-## Hypotheses
+# Hypotheses
 
 My null hypothesis (H~0~) is that, in California, there is no relationship between annual mean PM2.5 concentrations per census tract and percent of the population living below twice the federal poverty line per census tract.
 
@@ -200,11 +200,9 @@ mod4 <- lm(PM2.5 ~ Poverty, data = c4)
 sum4 <- summary(mod4)
 ```
 
-For all time periods, annual mean PM2.5 concentrations were significantly influenced by the percent of people living below twice the federal poverty level. In 2013, PM2.5 increased by 0.035 µg/m3 as the poverty rate increased by 1% (p-value = `r sum1$coefficients[8]`, sd = `r sum1$coefficients[4]`, slope = `r sum1$coefficients[2]`). In 2014, PM2.5 increased by 0.028 µg/m3 as the poverty rate increased by 1% (p-value = `r sum2$coefficients[8]`, sd = `r sum2$coefficients[4]`, slope = `r sum2$coefficients[2]`). In 2018, PM2.5 increased by 0.030 µg/m3 as the poverty rate increased by 1% (p-value = `r sum3$coefficients[8]`, sd = `r sum3$coefficients[4]`, slope = `r sum3$coefficients[2]`). In 2021, PM2.5 increased by 0.029 µg/m3 as the poverty rate increased by 1% (p-value = `r sum4$coefficients[8]`, sd = `r sum4$coefficients[4]`, slope = `r sum4$coefficients[2]`).
+For all time periods, annual mean PM2.5 concentrations were significantly influenced by the percent of people living below twice the federal poverty level. In 2013, PM2.5 increased by 0.035 µg/m3 as the poverty rate increased by 1% (p-value < 0.001, sd = `r sum1$coefficients[4]`). In 2014, PM2.5 increased by 0.028 µg/m3 as the poverty rate increased by 1% (p-value < 0.001, sd = `r sum2$coefficients[4]`). In 2018, PM2.5 increased by 0.030 µg/m3 as the poverty rate increased by 1% (p-value < 0.001, sd = `r sum3$coefficients[4]`). In 2021, PM2.5 increased by 0.029 µg/m3 as the poverty rate increased by 1% (p-value < 0.001, sd = `r sum4$coefficients[4]`). These results support my hypothesis that mean PM2.5 and poverty in California are significantly related (Figure \@ref(fig:final)).
 
-These results support my hypothesis that mean PM2.5 and poverty in California are significantly related (Figure \@ref(fig:final)).
-
-```{r final, fig.cap = 'Air quality significantly associates poverty in California. For each sampled time period, as poverty rates increase in California, mean PM2.5 increases and air quality deteriorates (p-value <<< 0.05).'}
+```{r final, fig.cap = 'Air quality significantly associates poverty in California. For each sampled time period, as poverty rates increase in California, mean PM2.5 increases and air quality deteriorates (p-value <<< 0.001).'}
 joined <- joined %>% 
   drop_na(Poverty, PM2.5)
 
@@ -222,7 +220,7 @@ ggplot(data = joined, aes(x = Poverty, y = PM2.5)) +
   theme(legend.position = "none")
 ```
 
-# Conclusions
+# Conclusion
 
 As expected, I found---in California during 2013, 2014, 2018, and 2021---a statistically significant relationship between air quality and poverty rates. For all four years, annual mean concentrations of PM2.5 (µg/m^3^) increased as the percent of people living below twice the federal poverty level increased (Figure \@ref(fig:final)). In other words, air quality was lower in census tracts with higher poverty rates. These findings supported my hypothesis and corroborated prior research that has identified PM2.5 disparities based on socioeconomic factors in California (Mousavi et al. 2021). This further emphasizes the importance of an environmental justice lens when investigating issues such as air quality.
 
