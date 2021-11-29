@@ -1489,8 +1489,8 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <h3>Contents</h3>
 <ul>
 <li><a href="#research-question">Research Question</a></li>
-<li><a href="#background-motivation">Background / Motivation</a></li>
-<li><a href="#data-description-collection">Data Description / Collection</a>
+<li><a href="#background">Background</a></li>
+<li><a href="#data-description-and-collection">Data Description and Collection</a>
 <ul>
 <li><a href="#pm2.5">1. <strong>PM2.5:</strong></a></li>
 <li><a href="#poverty">2. <strong>Poverty:</strong></a></li>
@@ -1504,9 +1504,9 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </div>
 <h1 id="research-question">Research Question</h1>
 <p>In California from 2013 - 2021, does air quality (as measured by PM2.5 concentrations) vary with poverty rates (as measured by the percent of the population living below two times the federal poverty level)?</p>
-<h1 id="background-motivation">Background / Motivation</h1>
+<h1 id="background">Background</h1>
 <p>Why is this important? Is there existing evidence on this question? If so, why is it inconclusive? If not, why not?</p>
-<h1 id="data-description-collection">Data Description / Collection</h1>
+<h1 id="data-description-and-collection">Data Description and Collection</h1>
 <p><em>Where did you access it? What are its spatial and temporal features? What are its limitations? What do you know about the sampling strategy and what biases that may introduce? If helpful, you can use a histogram, scatterplot, or summary statistics table to describe your data.</em></p>
 <div class="layout-chunk" data-layout="l-body">
 
@@ -1545,15 +1545,20 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <h3 id="pm2.5">1. <strong>PM2.5:</strong></h3>
 <p>The annual mean concentration of PM2.5, which CalEnviroScreen (CES) calculates based on a weighted average of measured monitor concentrations and satellite observations (ug/m<sup>3</sup>) over 3 years. For example, the CES 1.1. report used data from 2007 - 2009 while the CES 4.0 report used 2015 - 2017. All reports used data from the <a href="https://ww2.arb.ca.gov/homepage">California Air Resources Board’s</a> Air Monitoring Network. In addition to the Air Monitoring Network, CES 3.0 and CES 4.0 incorporated <a href="https://ww2.arb.ca.gov/resources/documents/air-quality-research-using-satellite-remote-sensing">Satellite Remote Sensing Data</a>.</p>
 <div class="layout-chunk" data-layout="l-body">
-<p><img src="calenviroscreen_files/figure-html5/unnamed-chunk-4-1.png" width="624" /></p>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-4"></span>
+<img src="calenviroscreen_files/figure-html5/unnamed-chunk-4-1.png" alt="2013 - 2021 mean PM2.5 in California was not normally distributed. Annual mean concentrations of PM2.5 (µg/m3) per census tract ranged from 1.65 to 21.2. Data was sourced from CalEnviroScreen 1.1 - 4.0 (https://oehha.ca.gov/)." width="624" />
+<p class="caption">
+Figure 1: 2013 - 2021 mean PM2.5 in California was not normally distributed. Annual mean concentrations of PM2.5 (µg/m3) per census tract ranged from 1.65 to 21.2. Data was sourced from CalEnviroScreen 1.1 - 4.0 (<a href="https://oehha.ca.gov/" class="uri">https://oehha.ca.gov/</a>).
+</p>
+</div>
 </div>
 <div class="layout-chunk" data-layout="l-body">
-<div id="szgsfmxgbh" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="anjdvhjptt" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#szgsfmxgbh .gt_table {
+#anjdvhjptt .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -1578,7 +1583,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   border-left-color: #D3D3D3;
 }
 
-#szgsfmxgbh .gt_heading {
+#anjdvhjptt .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1590,7 +1595,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   border-right-color: #D3D3D3;
 }
 
-#szgsfmxgbh .gt_title {
+#anjdvhjptt .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1600,7 +1605,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   border-bottom-width: 0;
 }
 
-#szgsfmxgbh .gt_subtitle {
+#anjdvhjptt .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1610,13 +1615,13 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   border-top-width: 0;
 }
 
-#szgsfmxgbh .gt_bottom_border {
+#anjdvhjptt .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#szgsfmxgbh .gt_col_headings {
+#anjdvhjptt .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1631,7 +1636,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   border-right-color: #D3D3D3;
 }
 
-#szgsfmxgbh .gt_col_heading {
+#anjdvhjptt .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1651,7 +1656,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   overflow-x: hidden;
 }
 
-#szgsfmxgbh .gt_column_spanner_outer {
+#anjdvhjptt .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1663,15 +1668,15 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   padding-right: 4px;
 }
 
-#szgsfmxgbh .gt_column_spanner_outer:first-child {
+#anjdvhjptt .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#szgsfmxgbh .gt_column_spanner_outer:last-child {
+#anjdvhjptt .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#szgsfmxgbh .gt_column_spanner {
+#anjdvhjptt .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1683,7 +1688,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   width: 100%;
 }
 
-#szgsfmxgbh .gt_group_heading {
+#anjdvhjptt .gt_group_heading {
   padding: 8px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1705,7 +1710,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   vertical-align: middle;
 }
 
-#szgsfmxgbh .gt_empty_group_heading {
+#anjdvhjptt .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1720,15 +1725,15 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   vertical-align: middle;
 }
 
-#szgsfmxgbh .gt_from_md > :first-child {
+#anjdvhjptt .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#szgsfmxgbh .gt_from_md > :last-child {
+#anjdvhjptt .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#szgsfmxgbh .gt_row {
+#anjdvhjptt .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1747,7 +1752,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   overflow-x: hidden;
 }
 
-#szgsfmxgbh .gt_stub {
+#anjdvhjptt .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1759,7 +1764,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   padding-left: 12px;
 }
 
-#szgsfmxgbh .gt_summary_row {
+#anjdvhjptt .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1769,7 +1774,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   padding-right: 5px;
 }
 
-#szgsfmxgbh .gt_first_summary_row {
+#anjdvhjptt .gt_first_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1779,7 +1784,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   border-top-color: #D3D3D3;
 }
 
-#szgsfmxgbh .gt_grand_summary_row {
+#anjdvhjptt .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1789,7 +1794,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   padding-right: 5px;
 }
 
-#szgsfmxgbh .gt_first_grand_summary_row {
+#anjdvhjptt .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1799,11 +1804,11 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   border-top-color: #D3D3D3;
 }
 
-#szgsfmxgbh .gt_striped {
+#anjdvhjptt .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#szgsfmxgbh .gt_table_body {
+#anjdvhjptt .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1812,7 +1817,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   border-bottom-color: #D3D3D3;
 }
 
-#szgsfmxgbh .gt_footnotes {
+#anjdvhjptt .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1826,13 +1831,13 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   border-right-color: #D3D3D3;
 }
 
-#szgsfmxgbh .gt_footnote {
+#anjdvhjptt .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding: 4px;
 }
 
-#szgsfmxgbh .gt_sourcenotes {
+#anjdvhjptt .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1846,41 +1851,41 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   border-right-color: #D3D3D3;
 }
 
-#szgsfmxgbh .gt_sourcenote {
+#anjdvhjptt .gt_sourcenote {
   font-size: 90%;
   padding: 4px;
 }
 
-#szgsfmxgbh .gt_left {
+#anjdvhjptt .gt_left {
   text-align: left;
 }
 
-#szgsfmxgbh .gt_center {
+#anjdvhjptt .gt_center {
   text-align: center;
 }
 
-#szgsfmxgbh .gt_right {
+#anjdvhjptt .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#szgsfmxgbh .gt_font_normal {
+#anjdvhjptt .gt_font_normal {
   font-weight: normal;
 }
 
-#szgsfmxgbh .gt_font_bold {
+#anjdvhjptt .gt_font_bold {
   font-weight: bold;
 }
 
-#szgsfmxgbh .gt_font_italic {
+#anjdvhjptt .gt_font_italic {
   font-style: italic;
 }
 
-#szgsfmxgbh .gt_super {
+#anjdvhjptt .gt_super {
   font-size: 65%;
 }
 
-#szgsfmxgbh .gt_footnote_marks {
+#anjdvhjptt .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 65%;
@@ -1889,7 +1894,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <table class="gt_table">
   <thead class="gt_header">
     <tr>
-      <th colspan="3" class="gt_heading gt_title gt_font_normal" style>Mean and standard deviation of annual mean concentrations of PM2.5 (ug/m3) in California</th>
+      <th colspan="3" class="gt_heading gt_title gt_font_normal" style>Table 1. Mean and standard deviation of mean PM2.5 (ug/m3) in California</th>
     </tr>
     <tr>
       <th colspan="3" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border" style>Data from CalEnviroScreen (https://oehha.ca.gov/).</th>
@@ -1931,15 +1936,20 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <h3 id="poverty">2. <strong>Poverty:</strong></h3>
 <p>The percent of the population living below two times the federal poverty level, which CalEnviroScreen calculates using a 5-year estimate. For example, the CES 1.1 report used a 5-year estimate from 2007 - 2011 data while the CES 4.0 report used a 5-year estimate from 2015 - 2019 data. Poverty data came from the <a href="https://www.census.gov/programs-surveys/acs">American Community Survey</a>. Multiple years of data are used to calculate more reliable results for geographic areas with small populations.</p>
 <div class="layout-chunk" data-layout="l-body">
-<p><img src="calenviroscreen_files/figure-html5/unnamed-chunk-6-1.png" width="624" /></p>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-6"></span>
+<img src="calenviroscreen_files/figure-html5/unnamed-chunk-6-1.png" alt="2013 - 2021 poverty rates in California were not normally distributed. The percent of the population per census tract living below two times the federal poverty level ranged from 0% to 99%. Data was sourced from CalEnviroScreen 1.1 - 4.0 (https://oehha.ca.gov/)." width="624" />
+<p class="caption">
+Figure 2: 2013 - 2021 poverty rates in California were not normally distributed. The percent of the population per census tract living below two times the federal poverty level ranged from 0% to 99%. Data was sourced from CalEnviroScreen 1.1 - 4.0 (<a href="https://oehha.ca.gov/" class="uri">https://oehha.ca.gov/</a>).
+</p>
+</div>
 </div>
 <div class="layout-chunk" data-layout="l-body">
-<div id="zqflmvgycw" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="gxytsqjmqf" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#zqflmvgycw .gt_table {
+#gxytsqjmqf .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -1964,7 +1974,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   border-left-color: #D3D3D3;
 }
 
-#zqflmvgycw .gt_heading {
+#gxytsqjmqf .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1976,7 +1986,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   border-right-color: #D3D3D3;
 }
 
-#zqflmvgycw .gt_title {
+#gxytsqjmqf .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1986,7 +1996,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   border-bottom-width: 0;
 }
 
-#zqflmvgycw .gt_subtitle {
+#gxytsqjmqf .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1996,13 +2006,13 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   border-top-width: 0;
 }
 
-#zqflmvgycw .gt_bottom_border {
+#gxytsqjmqf .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#zqflmvgycw .gt_col_headings {
+#gxytsqjmqf .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2017,7 +2027,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   border-right-color: #D3D3D3;
 }
 
-#zqflmvgycw .gt_col_heading {
+#gxytsqjmqf .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2037,7 +2047,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   overflow-x: hidden;
 }
 
-#zqflmvgycw .gt_column_spanner_outer {
+#gxytsqjmqf .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2049,15 +2059,15 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   padding-right: 4px;
 }
 
-#zqflmvgycw .gt_column_spanner_outer:first-child {
+#gxytsqjmqf .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#zqflmvgycw .gt_column_spanner_outer:last-child {
+#gxytsqjmqf .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#zqflmvgycw .gt_column_spanner {
+#gxytsqjmqf .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -2069,7 +2079,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   width: 100%;
 }
 
-#zqflmvgycw .gt_group_heading {
+#gxytsqjmqf .gt_group_heading {
   padding: 8px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2091,7 +2101,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   vertical-align: middle;
 }
 
-#zqflmvgycw .gt_empty_group_heading {
+#gxytsqjmqf .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2106,15 +2116,15 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   vertical-align: middle;
 }
 
-#zqflmvgycw .gt_from_md > :first-child {
+#gxytsqjmqf .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#zqflmvgycw .gt_from_md > :last-child {
+#gxytsqjmqf .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#zqflmvgycw .gt_row {
+#gxytsqjmqf .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2133,7 +2143,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   overflow-x: hidden;
 }
 
-#zqflmvgycw .gt_stub {
+#gxytsqjmqf .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2145,7 +2155,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   padding-left: 12px;
 }
 
-#zqflmvgycw .gt_summary_row {
+#gxytsqjmqf .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2155,7 +2165,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   padding-right: 5px;
 }
 
-#zqflmvgycw .gt_first_summary_row {
+#gxytsqjmqf .gt_first_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2165,7 +2175,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   border-top-color: #D3D3D3;
 }
 
-#zqflmvgycw .gt_grand_summary_row {
+#gxytsqjmqf .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2175,7 +2185,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   padding-right: 5px;
 }
 
-#zqflmvgycw .gt_first_grand_summary_row {
+#gxytsqjmqf .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2185,11 +2195,11 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   border-top-color: #D3D3D3;
 }
 
-#zqflmvgycw .gt_striped {
+#gxytsqjmqf .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#zqflmvgycw .gt_table_body {
+#gxytsqjmqf .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2198,7 +2208,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   border-bottom-color: #D3D3D3;
 }
 
-#zqflmvgycw .gt_footnotes {
+#gxytsqjmqf .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2212,13 +2222,13 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   border-right-color: #D3D3D3;
 }
 
-#zqflmvgycw .gt_footnote {
+#gxytsqjmqf .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding: 4px;
 }
 
-#zqflmvgycw .gt_sourcenotes {
+#gxytsqjmqf .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2232,41 +2242,41 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   border-right-color: #D3D3D3;
 }
 
-#zqflmvgycw .gt_sourcenote {
+#gxytsqjmqf .gt_sourcenote {
   font-size: 90%;
   padding: 4px;
 }
 
-#zqflmvgycw .gt_left {
+#gxytsqjmqf .gt_left {
   text-align: left;
 }
 
-#zqflmvgycw .gt_center {
+#gxytsqjmqf .gt_center {
   text-align: center;
 }
 
-#zqflmvgycw .gt_right {
+#gxytsqjmqf .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#zqflmvgycw .gt_font_normal {
+#gxytsqjmqf .gt_font_normal {
   font-weight: normal;
 }
 
-#zqflmvgycw .gt_font_bold {
+#gxytsqjmqf .gt_font_bold {
   font-weight: bold;
 }
 
-#zqflmvgycw .gt_font_italic {
+#gxytsqjmqf .gt_font_italic {
   font-style: italic;
 }
 
-#zqflmvgycw .gt_super {
+#gxytsqjmqf .gt_super {
   font-size: 65%;
 }
 
-#zqflmvgycw .gt_footnote_marks {
+#gxytsqjmqf .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 65%;
@@ -2275,7 +2285,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <table class="gt_table">
   <thead class="gt_header">
     <tr>
-      <th colspan="3" class="gt_heading gt_title gt_font_normal" style>% of census tract population living below two times the federal poverty level in California</th>
+      <th colspan="3" class="gt_heading gt_title gt_font_normal" style>Table 2. Mean and standard deviation of poverty rates in California (%)</th>
     </tr>
     <tr>
       <th colspan="3" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border" style>Data from CalEnviroScreen (https://oehha.ca.gov/).</th>
