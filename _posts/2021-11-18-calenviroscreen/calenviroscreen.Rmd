@@ -1,18 +1,27 @@
 ---
 title: "CalEnviroScreen"
-description: |
-  EDS 222: Statistics for Environmental Data Science
-  | Fall 2021 Final Project 
 author: "Mia Forsline"
-date: 2021-12-02
+date: '2021-12-02'
 output:
+  pdf_document:
+    latex_engine: xelatex
+    fig_width: 5
+    fig_height: 4
+    fig_caption: yes
   distill::distill_article:
-    self_contained: false
-    toc: true
-    toc_float: true
+    self_contained: no
+    toc: yes
+    toc_float: yes
+  html_document:
+    toc: yes
+    df_print: paged
+description: "| Fall 2021 Final Project \nEDS 222: Statistics for Environmental Data
+  Science\n"
+fontsize: 11pt
+geometry: margin=0.5in
 csl: apa.csl
 bibliography: bibliography.bib
-zotero: true
+zotero: yes
 base_url: miaforsline.github.io
 slug: forsline_ces
 ---
@@ -254,6 +263,6 @@ These findings supported my hypothesis and corroborated prior research that has 
 
 While my analysis focused on four specific years of comprehensive data based on years that the CalEnviroScreen was carried out, it could be interesting to expand that time frame to before 2013. Exploring air quality and poverty before and after 2013 is especially interesting because 2013 was the year that California's cap-and-trade program was initiated. During this time, there is evidence that while greenhouse gases were overall reduced in California, socioeconomically disadvantaged communities actually experienced emission increases [@cushing2018].
 
-# References
+# GitHub
 
 Full code can be found [here](https://github.com/miaforsline/miaforsline.github.io/tree/main/_posts/2021-11-18-calenviroscreen).
