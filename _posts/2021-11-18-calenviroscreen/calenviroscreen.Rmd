@@ -134,7 +134,7 @@ Each dataset also contains one row per census tract, meaning each census tract i
 
 In particular, I am interested in:
 
-### 1. **PM2.5:**
+### 1. **PM2.5**
 
 The annual mean concentration of PM2.5, which CalEnviroScreen (CES) calculates based on a weighted average of measured monitor concentrations and satellite observations (ug/m^3^) over 3 years. For example, the CES 1.1. report used data from 2007 - 2009 while the CES 4.0 report used 2015 - 2017. All reports used data from the [California Air Resources Board's](https://ww2.arb.ca.gov/homepage) Air Monitoring Network. In addition to the Air Monitoring Network, CES 3.0 and CES 4.0 incorporated [Satellite Remote Sensing Data](https://ww2.arb.ca.gov/resources/documents/air-quality-research-using-satellite-remote-sensing).
 
@@ -172,7 +172,7 @@ The quarterly estimates were then averaged to calculate annual means. The annual
 
 ![CalEnviroScreen 4.0 PM2.5 Map (Source: <https://oehha.ca.gov/media/downloads/calenviroscreen/report/calenviroscreen40reportf2021.pdf>)](CES/CES_images/pm.png)
 
-### 2. **Poverty:**
+### 2. **Poverty**
 
 The percent of the population living below two times the federal poverty level, which CalEnviroScreen calculates using a 5-year estimate. For example, the CES 1.1 report used a 5-year estimate from 2007 - 2011 data while the CES 4.0 report used a 5-year estimate from 2015 - 2019 data. Poverty data came from the [American Community Survey](https://www.census.gov/programs-surveys/acs). Multiple years of data are used to calculate more reliable results for geographic areas with small populations.
 
@@ -236,55 +236,56 @@ sum4 <- summary(mod4)
 ```
 
 
-For all time periods, annual mean PM2.5 concentrations were significantly influenced by the percent of people living below twice the federal poverty level. In 2013, PM2.5 increased by 0.035 µg/m3 as the poverty rate increased by 1% (p-value = `r sum1$coefficients[8]`, Table \@ref(tab:2013)). 
+For all time periods, annual mean PM2.5 concentrations were significantly influenced by the percent of people living below twice the federal poverty level. In 2013, PM2.5 increased by 0.035 µg/m3 as the poverty rate increased by 1% (p-value = `r sum1$coefficients[8]`, sd = `r sum1$coefficients[4]`). 
 
 ```{r 2013}
-mod1 <- lm(PM2.5 ~ Poverty, data = c1)
-mod1 %>%
-  summary() %>%
-  xtable() %>%
-  kable(caption = "2013 Poverty rate significantly influences air quality",
-        digits = 3) %>% 
-  kable_styling(latex_options = "HOLD_position")
+# mod1 <- lm(PM2.5 ~ Poverty, data = c1)
+# mod1 %>%
+#   summary() %>%
+#   xtable() %>%
+#   kable(caption = "2013 Poverty rate significantly influences air quality",
+#         digits = 3) %>% 
+#   kable_styling(latex_options = "HOLD_position")
 ```
 
 In 2014, PM2.5 increased by 0.028 µg/m3 as the poverty rate increased by 1% (p-value = `r sum2$coefficients[8]`, Table \@ref(tab:2014)). 
 
 ```{r 2014}
-mod2 <- lm(PM2.5 ~ Poverty, data = c2)
-mod2 %>%
-  summary() %>%
-  xtable() %>%
-  kable(caption = "2014 Poverty rate significantly influences air quality", 
-        digits = 3) %>% 
-  kable_styling(latex_options = "HOLD_position")
+# mod2 <- lm(PM2.5 ~ Poverty, data = c2)
+# mod2 %>%
+#   summary() %>%
+#   xtable() %>%
+#   kable(caption = "2014 Poverty rate significantly influences air quality", 
+#         digits = 3) %>% 
+#   kable_styling(latex_options = "HOLD_position")
 ```
 
 In 2018, PM2.5 increased by 0.030 µg/m3 as the poverty rate increased by 1% (p-value = `r sum3$coefficients[8]`, Table \@ref(tab:2018)).
 
 ```{r 2018}
-mod3 <- lm(PM2.5 ~ Poverty, data = c3)
-mod3 %>%
-  summary() %>%
-  xtable() %>%
-  kable(caption = "2018 Poverty rate significantly influences air quality",
-        digits = 3) %>% 
-  kable_styling(latex_options = "HOLD_position")
+# mod3 <- lm(PM2.5 ~ Poverty, data = c3)
+# mod3 %>%
+#   summary() %>%
+#   xtable() %>%
+#   kable(caption = "2018 Poverty rate significantly influences air quality",
+#         digits = 3) %>% 
+#   kable_styling(latex_options = "HOLD_position")
 ```
 
 In 2021, PM2.5 increased by 0.029 µg/m3 as the poverty rate increased by 1% (p-value = `r sum4$coefficients[8]`, Table \@ref(tab:2021)).
 
 ```{r 2021}
-mod4 <- lm(PM2.5 ~ Poverty, data = c4)
-mod4 %>%
-  summary() %>% 
-  xtable() %>% 
-  kable(caption = "2021 Poverty rate significantly influences air quality",
-        digits = 3) %>% 
-  kable_styling(latex_options = "HOLD_position")
+# mod4 <- lm(PM2.5 ~ Poverty, data = c4)
+# mod4 %>%
+#   summary() %>% 
+#   xtable() %>% 
+#   kable(caption = "2021 Poverty rate significantly influences air quality",
+#         digits = 3) %>% 
+#   kable_styling(latex_options = "HOLD_position")
 ```
 
-Figure 
+
+Every year's results supported my hypothesis that mean PM2.5 and poverty in California are significantly related (Figure \@ref(fig:final)).
 ```{r final, fig.cap = 'Air quality significantly associates poverty in California. For each sampled time period, as poverty rates increase in California, mean PM2.5 increases and air quality deteriorates (p-value <<< 0.05).'}
 joined <- joined %>% 
   drop_na(Poverty, PM2.5)
@@ -308,8 +309,8 @@ ggplot(data = joined, aes(x = Poverty, y = PM2.5)) +
 
 Ultimately, I found that---in California during 2013, 2014, 2018, and 2021---air quality significantly associated with poverty rates. Specifically, for all four years, annual mean concentrations of PM2.5 (µg/m^3^) increased as the percent of people living below twice the federal poverty level increased (Figure \@ref(fig:final)). In other words, air quality was lower in census tracts with higher poverty rates.
 
-These findings support my hypothesis that mean PM2.5 and poverty in California are related.
-
 # Future Directions
 
 *One short analysis cannot fully answer an interesting scientific question. If you had time to collect more data or conduct more analysis, what would help you answer this question better?*
+
+While my analysis focused on four specific years of comprehensive data based on years that the CalEnviroScreen was carried out, it could be interesting to expand that time frame to before 2013. Exploring air quality and poverty before and after 2013 is especially interesting because 2013 was the year that California's cap-and-trade program was initiated. During this time, there is evidence that while greenhouse gases were overall reduced in California, socioeconomically disadvantaged communities actually experienced emission increases (Cushing et al. 2018). 
