@@ -9,7 +9,7 @@ output:
     toc_float: yes
   pdf_document:
     latex_engine: xelatex
-    fig_width: 8
+    fig_width: 7
     fig_height: 3
     fig_caption: yes
   html_document:
@@ -20,7 +20,7 @@ fontsize: 11pt
 geometry: margin=0.5in
 csl: apa.csl
 bibliography: bibliography.bib
-zotero: yes
+zotero: true
 base_url: miaforsline.github.io
 slug: forsline_ces
 ---
@@ -136,21 +136,19 @@ I downloaded 2013 - 2021 CalEnviroScreen (CES) data from the [California Office 
 -   [Versions 3.0 (June 2018)](https://data.ca.gov/dataset/calenviroscreen-3-0-results)
 -   [Versions 4.0 (Oct 2021)](https://oehha.ca.gov/calenviroscreen/report/calenviroscreen-40)
 
-Each CES data set contains columns of environmental pollution burden indicators, including exposure indicators such as PM2.5, and population characteristics, including socioeconomic factor indicators such as rates of poverty. Each data set contains one row per census tract, meaning each census tract in California is assigned a value per environmental indicator or population characteristic.
+Each CES data set contains columns of environmental pollution burden indicators, including exposure indicators such as PM2.5, and population characteristics, including socioeconomic factor indicators such as rates of poverty. Each census tract in California is represented as a row and assigned a value per environmental indicator and population characteristic.
 
-Out of all these components, I am interested in:
+Out of the myriad components, I am interested in:
 
 ### 1. **PM2.5**
 
-The annual mean concentration of PM2.5, which CES calculates based on a weighted average of measured monitor concentrations and satellite observations (ug/m^3^) over 3 years. For example, the CES 1.1. report used data from 2007 - 2009 while the CES 4.0 report used 2015 - 2017. All reports used data from the [California Air Resources Board's](https://ww2.arb.ca.gov/homepage) Air Monitoring Network. In addition to the Air Monitoring Network, CES 3.0 and CES 4.0 incorporated [Satellite Remote Sensing Data](https://ww2.arb.ca.gov/resources/documents/air-quality-research-using-satellite-remote-sensing).
+The annual mean concentration of PM2.5 is a weighted average of measured monitor concentrations and satellite observations (ug/m^3^) over 3 years to avoid account for uneven sampling frequency. For example, the CES 1.1. report used data from 2007 - 2009 while the CES 4.0 report used 2015 - 2017. All reports used data from the [California Air Resources Board's](https://ww2.arb.ca.gov/homepage) Air Monitoring Network (AMN). In addition to the AMN, CES 3.0 and CES 4.0 incorporated [Satellite Remote Sensing Data](https://ww2.arb.ca.gov/resources/documents/air-quality-research-using-satellite-remote-sensing).
 
-Data were more likely to be high resolution around certain cities or localized areas, but not all cities have air monitoring stations. Locales with little to no data were either omitted or estimated using nearby locations' data. For example, in CES 1.1, census tracts with centers \> 50km away from the nearest air monitor were omitted from the analysis. In CES 4.0, missing data was estimated using regression relationships with nearby sites.
+Data were more likely to be high resolution around certain cities or localized areas, and not all cities have air monitoring stations. Locales with little to no data were either omitted or estimated using nearby locations' data. For example, in CES 1.1, census tracts with centers \> 50km away from the nearest air monitor were omitted. In CES 4.0, missing data was estimated using regression relationships with nearby sites.
 
-PM2.5 annual mean monitoring data were extracted from all monitoring sites where possible. For CES 4.0, PM2.5 annual mean concentrations were also calculated using Aerosol Optical Depth measurements in addition to land use and meteorology data via regression on ground monitor data.
+For CES 1.1 - 3.0, the quarterly mean PM2.5 concentrations were estimated using ordinary kriging. For CES 4.0, overall PM2.5 annual mean concentrations were estimated for the center of each 1km x 1km grid cell using both the monitoring and satellite data in a weighted average. An inverse-distance weighting method was used, so grid cells close to monitors relied more heavily on monitor estimates while grid cells further from monitors relied more heavily on satellite data. Grid cells with monitors \> 50km away relied solely on satellite data.
 
-For CES 1.1 - 3.0, the geographic center of each census tract, quarterly mean PM2.5 concentrations were estimated using ordinary kriging. For CES 4.0, overall PM2.5 annual mean concentrations were estimated for each 1km x 1km grid cell using both the monitoring and satellite data in a weighted average. An inverse-distance weighting method was used, so grid cells close to monitors relied more heavily on monitor estimates while grid cells further from monitors relied more heavily on satellite data. Grid cells with monitors \> 50km away relied solely on satellite data. Concentrations were estimated at the center of each 1km x 1km grid cell.
-
-The quarterly estimates were then averaged to calculate annual means (Figure \@ref(fig:pm)). The annual means were estimated over 3 years to avoid account for uneven sampling frequency.
+The quarterly estimates were then averaged to calculate annual means (Figure \@ref(fig:pm)).
 
 ```{r pm, fig.cap = '2013 - 2021 mean PM2.5 in California was not normally distributed. In 2013, 2014, 2018, and 2021, the annual mean concentrations of PM2.5 (µg/m3) per census tract were 11.52, 10.01, 10.38, and 10.15 respectively. Data was sourced from CalEnviroScreen 1.1 - 4.0 (https://oehha.ca.gov/).'}
 
@@ -165,9 +163,9 @@ ggplot(data = joined, aes(x = PM2.5)) +
 
 ### 2. **Poverty**
 
-The percent of the population living below two times the federal poverty level, which CES calculates using a 5-year estimate. For example, the CES 1.1 report used a 5-year estimate from 2007 - 2011 data while the CES 4.0 report used a 5-year estimate from 2015 - 2019 data. Poverty data came from the [American Community Survey](https://www.census.gov/programs-surveys/acs). Multiple years of data are used to calculate more reliable results for geographic areas with small populations.
+The percent of the population living below two times the federal poverty level was calculated using a 5-year estimate to produce more reliable results for geographic areas with small populations. For example, the CES 1.1 report used a 5-year estimate from 2007 - 2011 data while the CES 4.0 report used a 5-year estimate from 2015 - 2019 data. Poverty data came from the [American Community Survey](https://www.census.gov/programs-surveys/acs).
 
-CES defined poverty as twice below the federal poverty line to account for California's high cost of living relative to other states and because the federal poverty threshold has not changed since the 1980s despite the cost of living increasing over time. The percent per census tract was calculated by individuals living below 200% the poverty level per census tract / total individuals living below 200% of the poverty level (Figure \@ref(fig:poverty)). Standard error and relative standard error were calculated to determine the reliability of the calculated poverty rate. Census tracts with unreliable estimates were assigned no value for poverty rate (NULL).
+CES defined poverty as twice below the federal poverty line to account for California's high cost of living relative to other states and because the federal poverty threshold has not changed since the 1980s despite the cost of living increasing over time. The percent per census tract was calculated by individuals living below 200% the poverty level per census tract / total individuals living below 200% of the poverty level (Figure \@ref(fig:poverty)). Standard error and relative standard error were calculated to determine the reliability of the calculated poverty rate. Census tracts with unreliable estimates were assigned no value for poverty rate.
 
 ```{r poverty, fig.cap = '2013 - 2021 poverty rates in California were not normally distributed. In 2013, 2014, 2018, and 2021, the mean percentages of the population per census tract living below two times the federal poverty level were 34.24%, 35.28%, 36.39%, and 31.34% respectively. Data was sourced from CalEnviroScreen 1.1 - 4.0 (https://oehha.ca.gov/).'}
 
@@ -181,7 +179,7 @@ ggplot(data = joined, aes(x = Poverty)) +
 
 # Methods - Statistical Analysis Plan
 
-To assess if, in California from 2013 - 2021, air quality varies with poverty rates, I plan to run linear regressions of `PM2.5 ~ Poverty` for each year (e.g., 2013, 2014, 2018, 2021). This analysis is appropriate to describe how air quality might be changing with respect to poverty rates. Running multiple regressions over the different years can help us understand how this relationship might be changing over time.
+To assess if, in California from 2013 - 2021, air quality varied with poverty rates, I ran one linear regression of `PM2.5 ~ Poverty` for each year (e.g., 2013, 2014, 2018, 2021). This analysis is appropriate to describe how air quality might be changing with respect to poverty rates. Running multiple regressions over the different years can help us understand how this relationship might be changing over time.
 
 This method is limited by the fact that I am only including one independent variable (`Poverty`) in the model. It is likely that there are many different factors in addition to poverty influencing air quality, but this analysis is a strong starting point for unraveling those complex relationships.
 
@@ -201,7 +199,7 @@ mod4 <- lm(PM2.5 ~ Poverty, data = c4)
 sum4 <- summary(mod4)
 ```
 
-For all time periods, annual mean PM2.5 concentrations were significantly influenced by the percent of people living below twice the federal poverty level. In 2013, PM2.5 increased by 0.035 µg/m3 as the poverty rate increased by 1% (p-value \< 0.001, sd = `r sum1$coefficients[4]`). In 2014, PM2.5 increased by 0.028 µg/m3 as the poverty rate increased by 1% (p-value \< 0.001, sd = `r sum2$coefficients[4]`). In 2018, PM2.5 increased by 0.030 µg/m3 as the poverty rate increased by 1% (p-value \< 0.001, sd = `r sum3$coefficients[4]`). In 2021, PM2.5 increased by 0.029 µg/m3 as the poverty rate increased by 1% (p-value \< 0.001, sd = `r sum4$coefficients[4]`). These results support my hypothesis that mean PM2.5 and poverty in California are significantly related (Figure \@ref(fig:final)).
+For all time periods, annual mean PM2.5 concentrations were significantly influenced by the percent of people living below twice the federal poverty level. In 2013, PM2.5 increased by 0.035 µg/m3 as the poverty rate increased by 1% (p-value \< 0.001, sd = `r sum1$coefficients[4]`). In 2014, PM2.5 increased by 0.028 µg/m3 as the poverty rate increased by 1% (p-value \< 0.001, sd = `r sum2$coefficients[4]`). In 2018, PM2.5 increased by 0.030 µg/m3 as the poverty rate increased by 1% (p-value \< 0.001, sd = `r sum3$coefficients[4]`). In 2021, PM2.5 increased by 0.029 µg/m3 as the poverty rate increased by 1% (p-value \< 0.001, sd = `r sum4$coefficients[4]`). These results support my hypothesis that mean PM2.5 and poverty in California are significantly related (Figure \@ref(fig:final)). More specifically, over time, the relationship between mean PM2.5 and poverty rate has slightly changed but remained fairly similar.
 
 ```{r final, fig.cap = 'Air quality significantly associates poverty in California. For each sampled time period, as poverty rates increase in California, mean PM2.5 increases and air quality deteriorates (p-value <<< 0.001).'}
 joined <- joined %>% 
@@ -223,7 +221,7 @@ ggplot(data = joined, aes(x = Poverty, y = PM2.5)) +
 
 # Conclusion
 
-As expected, I found---in California during 2013, 2014, 2018, and 2021---a statistically significant relationship between air quality and poverty rates. For all four years, annual mean concentrations of PM2.5 (µg/m^3^) increased as the percent of people living below twice the federal poverty level increased (Figure \@ref(fig:final)). In other words, air quality was lower in census tracts with higher poverty rates. These findings supported my hypothesis and corroborated prior research that has identified PM2.5 disparities based on socioeconomic factors in California (Mousavi et al. 2021). This further emphasizes the importance of an environmental justice lens when investigating issues such as air quality.
+As expected, I found---in California during 2013, 2014, 2018, and 2021---a statistically significant relationship between air quality and poverty rates. For all four years, annual mean concentrations of PM2.5 (µg/m^3^) increased as the percent of people living below twice the federal poverty level increased (Figure \@ref(fig:final)). In other words, air quality was lower in census tracts with higher poverty rates. These findings supported my hypothesis and corroborated prior research that has identified PM2.5 disparities based on socioeconomic factors in California [@mousavi2021]. This further emphasizes the importance of an environmental justice lens when investigating issues such as air quality.
 
 # Future Directions
 
