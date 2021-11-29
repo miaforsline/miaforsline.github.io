@@ -223,40 +223,69 @@ This method is limited by the fact that I am only including one independent vari
 
 ```{r}
 mod1 <- lm(PM2.5 ~ Poverty, data = c1)
+sum1 <- summary(mod1)
+
+mod2 <- lm(PM2.5 ~ Poverty, data = c2)
+sum2 <- summary(mod2)
+
+mod3 <- lm(PM2.5 ~ Poverty, data = c3)
+sum3 <- summary(mod3)
+
+mod4 <- lm(PM2.5 ~ Poverty, data = c4)
+sum4 <- summary(mod4)
+```
+
+
+For all time periods, annual mean PM2.5 concentrations were significantly influenced by the percent of people living below twice the federal poverty level. In 2013, PM2.5 increased by 0.035 µg/m3 as the poverty rate increased by 1% (p-value = `r sum1$coefficients[8]`, Table \@ref(tab:2013)). 
+
+```{r 2013}
+mod1 <- lm(PM2.5 ~ Poverty, data = c1)
 mod1 %>%
   summary() %>%
   xtable() %>%
-  kable(caption = "2013 Poverty Rate Positively Influences Air Quality",
-        digits = 3) %>% 
-  kable_styling(latex_options = "HOLD_position")
-
-mod2 <- lm(PM2.5 ~ Poverty, data = c2)
-mod2 %>%
-  summary() %>%
-  xtable() %>%
-  kable(caption = "2014 Poverty Rate Positively Influences Air Quality", 
-        digits = 3) %>% 
-  kable_styling(latex_options = "HOLD_position")
-
-mod3 <- lm(PM2.5 ~ Poverty, data = c3)
-mod3 %>%
-  summary() %>%
-  xtable() %>%
-  kable(caption = "2018 Poverty Rate Positively Influences Air Quality",
-        digits = 3) %>% 
-  kable_styling(latex_options = "HOLD_position")
-
-
-mod4 <- lm(PM2.5 ~ Poverty, data = c4)
-mod4 %>%
-  summary() %>% 
-  xtable() %>% 
-  kable(caption = "2021 Poverty Rate Positively Influences Air Quality",
+  kable(caption = "2013 Poverty rate significantly influences air quality",
         digits = 3) %>% 
   kable_styling(latex_options = "HOLD_position")
 ```
 
-```{r}
+In 2014, PM2.5 increased by 0.028 µg/m3 as the poverty rate increased by 1% (p-value = `r sum2$coefficients[8]`, Table \@ref(tab:2014)). 
+
+```{r 2014}
+mod2 <- lm(PM2.5 ~ Poverty, data = c2)
+mod2 %>%
+  summary() %>%
+  xtable() %>%
+  kable(caption = "2014 Poverty rate significantly influences air quality", 
+        digits = 3) %>% 
+  kable_styling(latex_options = "HOLD_position")
+```
+
+In 2018, PM2.5 increased by 0.030 µg/m3 as the poverty rate increased by 1% (p-value = `r sum3$coefficients[8]`, Table \@ref(tab:2018)).
+
+```{r 2018}
+mod3 <- lm(PM2.5 ~ Poverty, data = c3)
+mod3 %>%
+  summary() %>%
+  xtable() %>%
+  kable(caption = "2018 Poverty rate significantly influences air quality",
+        digits = 3) %>% 
+  kable_styling(latex_options = "HOLD_position")
+```
+
+In 2021, PM2.5 increased by 0.029 µg/m3 as the poverty rate increased by 1% (p-value = `r sum4$coefficients[8]`, Table \@ref(tab:2021)).
+
+```{r 2021}
+mod4 <- lm(PM2.5 ~ Poverty, data = c4)
+mod4 %>%
+  summary() %>% 
+  xtable() %>% 
+  kable(caption = "2021 Poverty rate significantly influences air quality",
+        digits = 3) %>% 
+  kable_styling(latex_options = "HOLD_position")
+```
+
+Figure 
+```{r final, fig.cap = 'Air quality significantly associates poverty in California. For each sampled time period, as poverty rates increase in California, mean PM2.5 increases and air quality deteriorates (p-value <<< 0.05).'}
 joined <- joined %>% 
   drop_na(Poverty, PM2.5)
 
@@ -267,9 +296,9 @@ ggplot(data = joined, aes(x = Poverty, y = PM2.5)) +
               size=1, 
               color = "black") + 
   theme_classic()+ 
-  labs(x = "Poverty Rate Per Census Tract (%)",
+  labs(x = "Poverty rate (%)",
        y = expression(paste
-                       ("Mean PM2.5 Per Census Tract (µg/m"^3~")")),
+                       ("Mean PM2.5 (µg/m"^3~")")),
        caption = "Caption") +
   facet_wrap(.~Year, ncol = 2) + 
   theme(legend.position = "none")
@@ -277,6 +306,10 @@ ggplot(data = joined, aes(x = Poverty, y = PM2.5)) +
 
 # Conclusions
 
+Ultimately, I found that---in California during 2013, 2014, 2018, and 2021---air quality significantly associated with poverty rates. Specifically, for all four years, annual mean concentrations of PM2.5 (µg/m^3^) increased as the percent of people living below twice the federal poverty level increased (Figure \@ref(fig:final)). In other words, air quality was lower in census tracts with higher poverty rates.
+
+These findings support my hypothesis that mean PM2.5 and poverty in California are related.
+
 # Future Directions
 
-One short analysis cannot fully answer an interesting scientific question. If you had time to collect more data or conduct more analysis, what would help you answer this question better?
+*One short analysis cannot fully answer an interesting scientific question. If you had time to collect more data or conduct more analysis, what would help you answer this question better?*
