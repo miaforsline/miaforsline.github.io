@@ -2538,14 +2538,36 @@ Figure 3: Air quality significantly associates poverty in California. For each s
 </div>
 </div>
 <h1 id="conclusions">Conclusions</h1>
-<p>As expected, I found that—in California during 2013, 2014, 2018, and 2021—air quality significantly associated with poverty rates. Specifically, for all four years, annual mean concentrations of PM2.5 (µg/m<sup>3</sup>) increased as the percent of people living below twice the federal poverty level increased (Figure <a href="#fig:final">3</a>). In other words, air quality was lower in census tracts with higher poverty rates.</p>
-<p>These findings supported my hypothesis</p>
+<p>As expected, I found—in California during 2013, 2014, 2018, and 2021—a statistically significant relationship between air quality and poverty rates. Specifically, for all four years, annual mean concentrations of PM2.5 (µg/m<sup>3</sup>) increased as the percent of people living below twice the federal poverty level increased (Figure <a href="#fig:final">3</a>). In other words, air quality was lower in census tracts with higher poverty rates.</p>
+<p>These findings supported my hypothesis and corroborated prior research that has identified PM2.5 disparities based on socioeconomic factors in California (Mousavi et al. 2021)</p>
 <h1 id="future-directions">Future Directions</h1>
 <p><em>One short analysis cannot fully answer an interesting scientific question. If you had time to collect more data or conduct more analysis, what would help you answer this question better?</em></p>
+<p>A crucial next step is to explore the biological significance of these findings. While the models returned statistically significant results, it is important to determine if a 0.0352378 µg/m<sup><sub>3</sub></sup>, 0.027878 µg/m<sup><sub>3</sub></sup>, 0.0298694µg/m<sup><sub>3</sub></sup>, or 0.0285803 µg/m<sup><sub>3</sub></sup> change in PM2.5 per 1% increase in poverty is a large change enough to actually harm communities.</p>
 <p>While my analysis focused on four specific years of comprehensive data based on years that the CalEnviroScreen was carried out, it could be interesting to expand that time frame to before 2013. Exploring air quality and poverty before and after 2013 is especially interesting because 2013 was the year that California’s cap-and-trade program was initiated. During this time, there is evidence that while greenhouse gases were overall reduced in California, socioeconomically disadvantaged communities actually experienced emission increases (Cushing et al. 2018).</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre><code>
+Call:
+lm(formula = PM2.5 ~ Poverty, data = c1)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-7.7870 -2.2206 -0.2746  2.4534  9.6924 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept) 9.441305   0.164661  57.338  &lt; 2e-16 ***
+Poverty     0.035238   0.004408   7.993 2.57e-15 ***
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+
+Residual standard error: 3.009 on 1520 degrees of freedom
+  (247 observations deleted due to missingness)
+Multiple R-squared:  0.04034,   Adjusted R-squared:  0.03971 
+F-statistic: 63.89 on 1 and 1520 DF,  p-value: 2.574e-15</code></pre>
+</div>
 <h1 id="references">References</h1>
 <p>Full code can be found <a href="https://github.com/miaforsline/miaforsline.github.io/tree/main/_posts/2021-11-18-calenviroscreen">here</a>.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
