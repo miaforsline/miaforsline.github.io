@@ -10,6 +10,10 @@ output:
     self_contained: false
     toc: true
     toc_float: true
+bibliography: bibliography.bib
+csl: apa.csl
+base_url: miaforsline.github.io
+slug: forsline_ces
 ---
 
 ```{r setup, include=FALSE}
@@ -32,9 +36,9 @@ In California from 2013 - 2021, does air quality (as measured by annual mean PM2
 
 *Why is this important? Is there existing evidence on this question? If so, why is it inconclusive? If not, why not?*
 
-In California, events like wildfires can significantly decrease air quality by releasing fine particles such as particulate matter, or PM2.5 (Shi et al. 2019). PM2.5 refers to particles with diameters ≤ 2.5 µm, which are known to be hazardous for human health. They are especially detrimental for our respiratory and cardiovascular health (Cleland et al. 2021). As California's wildfires continue to worsen over time, it is becoming increasingly important to monitor air quality, PM2.5 concentrations, and their impacts on populations (Gupta et al. 2018).
+In California, events like wildfires can significantly decrease air quality by releasing fine particles such as particulate matter, or PM2.5 ( @shi2019. PM2.5 refers to particles with diameters ≤ 2.5 µm, which are known to be hazardous for human health. They are especially detrimental for our respiratory and cardiovascular health (@cleland2021). As California's wildfires continue to worsen over time, it is becoming increasingly important to monitor air quality, PM2.5 concentrations, and their impacts on populations (@gupta2018).
 
-The environmental burden of poor air quality is not shared equally across the state. For example, the San Joaquin Valley's economically disadvantaged and ethnically diverse communities breathe some of the most polluted air in the nation (Buckley 2017). As a result, vulnerable communities such as Mexican American immigrant farm workers and their families experience disproportionately high rates of asthma attacks, hospital admissions, and other medical issues (Schwartz and Pepper 2009). This inequitable pattern is well recognized in other states (Qian and Wu 2019), the United States overall (Tessum et al. 2021), and even other countries (Li et al. 2018).
+The environmental burden of poor air quality is not shared equally across the state. For example, the San Joaquin Valley's economically disadvantaged and ethnically diverse communities breathe some of the most polluted air in the nation (@cisneros2017. As a result, vulnerable communities such as Mexican American immigrant farm workers and their families experience disproportionately high rates of asthma attacks, hospital admissions, and other medical issues (@schwartz2009). This inequitable pattern is well recognized in other states (@qian2019), the United States overall (@tessum2021), and even other countries (@li2018).
 
 While there are many possible ways to explore the inequity of air pollution in California, I specifically use annual mean PM2.5 to measure of air quality and poverty rate to quantify socioeconomic disparities.
 
@@ -241,19 +245,13 @@ ggplot(data = joined, aes(x = Poverty, y = PM2.5)) +
 
 As expected, I found---in California during 2013, 2014, 2018, and 2021---a statistically significant relationship between air quality and poverty rates. Specifically, for all four years, annual mean concentrations of PM2.5 (µg/m^3^) increased as the percent of people living below twice the federal poverty level increased (Figure \@ref(fig:final)). In other words, air quality was lower in census tracts with higher poverty rates.
 
-These findings supported my hypothesis and corroborated prior research that has identified PM2.5 disparities based on socioeconomic factors in California (Mousavi et al. 2021)
+These findings supported my hypothesis and corroborated prior research that has identified PM2.5 disparities based on socioeconomic factors in California (Mousavi et al. 2021). This further emphasizes the importance of an environmental justice lens when investigating issues such as air quality.
 
 # Future Directions
 
 *One short analysis cannot fully answer an interesting scientific question. If you had time to collect more data or conduct more analysis, what would help you answer this question better?*
 
-A crucial next step is to explore the biological significance of these findings. While the models returned statistically significant results, it is important to determine if a `r sum1$coefficients[2]` µg/m^~3~^, `r sum2$coefficients[2]` µg/m^~3~^, `r sum3$coefficients[2]` µg/m^~3~^, or `r sum4$coefficients[2]` µg/m^~3~^ change in PM2.5 per 1% increase in poverty is a large change enough to actually harm communities.
-
 While my analysis focused on four specific years of comprehensive data based on years that the CalEnviroScreen was carried out, it could be interesting to expand that time frame to before 2013. Exploring air quality and poverty before and after 2013 is especially interesting because 2013 was the year that California's cap-and-trade program was initiated. During this time, there is evidence that while greenhouse gases were overall reduced in California, socioeconomically disadvantaged communities actually experienced emission increases (Cushing et al. 2018).
-
-```{r}
-sum1
-```
 
 # References
 
