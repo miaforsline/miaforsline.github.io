@@ -1488,7 +1488,10 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <h3>Contents</h3>
 <ul>
 <li><a href="#research-question">Research Question</a></li>
-<li><a href="#background">Background</a></li>
+<li><a href="#background">Background</a>
+<ul>
+<li><a href="#hypotheses">Hypotheses</a></li>
+</ul></li>
 <li><a href="#data-description-and-collection">Data Description and Collection</a>
 <ul>
 <li><a href="#pm2.5">1. <strong>PM2.5</strong></a></li>
@@ -1498,16 +1501,20 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <li><a href="#results">Results</a></li>
 <li><a href="#conclusions">Conclusions</a></li>
 <li><a href="#future-directions">Future Directions</a></li>
+<li><a href="#references">References</a></li>
 </ul>
 </nav>
 </div>
 <h1 id="research-question">Research Question</h1>
-<p>In California from 2013 - 2021, does air quality (as measured by PM2.5 concentrations) vary with poverty rates (as measured by the percent of the population living below two times the federal poverty level)?</p>
+<p>In California from 2013 - 2021, does air quality (as measured by annual mean PM2.5 concentrations per census tract) vary with poverty rates (as measured by the percent of the population living below two times the federal poverty level per census tract)?</p>
 <h1 id="background">Background</h1>
 <p><em>Why is this important? Is there existing evidence on this question? If so, why is it inconclusive? If not, why not?</em></p>
 <p>In California, events like wildfires can significantly decrease air quality by releasing fine particles such as particulate matter, or PM2.5 (Shi et al. 2019). PM2.5 refers to particles with diameters ≤ 2.5 µm, which are known to be hazardous for human health. They are especially detrimental for our respiratory and cardiovascular health (Cleland et al. 2021). As California’s wildfires continue to worsen over time, it is becoming increasingly important to monitor air quality, PM2.5 concentrations, and their impacts on populations (Gupta et al. 2018).</p>
 <p>The environmental burden of poor air quality is not shared equally across the state. For example, the San Joaquin Valley’s economically disadvantaged and ethnically diverse communities breathe some of the most polluted air in the nation (Buckley 2017). As a result, vulnerable communities such as Mexican American immigrant farm workers and their families experience disproportionately high rates of asthma attacks, hospital admissions, and other medical issues (Schwartz and Pepper 2009). This inequitable pattern is well recognized in other states (Qian and Wu 2019), the United States overall (Tessum et al. 2021), and even other countries (Li et al. 2018).</p>
-<p>While there are many possible ways to explore the inequity of air pollution in California, I specifically usePM2.5 to measure of air quality and poverty rate to quantify socioeconomic disparities.</p>
+<p>While there are many possible ways to explore the inequity of air pollution in California, I specifically use annual mean PM2.5 to measure of air quality and poverty rate to quantify socioeconomic disparities.</p>
+<h2 id="hypotheses">Hypotheses</h2>
+<p>My null hypothesis (H<sub>0</sub>) is that, in California, there is no relationship between annual mean PM2.5 concentrations per census tract and percent of the population living below twice the federal poverty line per census tract.</p>
+<p>My alternative hypothesis (H<sub>A</sub>) is that, in California, there is a relationship between annual mean PM2.5 concentrations per census tract and percent of the population living below twice the federal poverty line per census tract</p>
 <h1 id="data-description-and-collection">Data Description and Collection</h1>
 <p><em>Where did you access it? What are its spatial and temporal features? What are its limitations? What do you know about the sampling strategy and what biases that may introduce? If helpful, you can use a histogram, scatterplot, or summary statistics table to describe your data.</em></p>
 <div class="layout-chunk" data-layout="l-body">
@@ -1597,10 +1604,13 @@ Figure 3: Air quality significantly associates poverty in California. For each s
 </div>
 </div>
 <h1 id="conclusions">Conclusions</h1>
-<p>Ultimately, I found that—in California during 2013, 2014, 2018, and 2021—air quality significantly associated with poverty rates. Specifically, for all four years, annual mean concentrations of PM2.5 (µg/m<sup>3</sup>) increased as the percent of people living below twice the federal poverty level increased (Figure <a href="#fig:final">3</a>). In other words, air quality was lower in census tracts with higher poverty rates.</p>
+<p>As expected, I found that—in California during 2013, 2014, 2018, and 2021—air quality significantly associated with poverty rates. Specifically, for all four years, annual mean concentrations of PM2.5 (µg/m<sup>3</sup>) increased as the percent of people living below twice the federal poverty level increased (Figure <a href="#fig:final">3</a>). In other words, air quality was lower in census tracts with higher poverty rates.</p>
+<p>These findings supported my hypothesis</p>
 <h1 id="future-directions">Future Directions</h1>
 <p><em>One short analysis cannot fully answer an interesting scientific question. If you had time to collect more data or conduct more analysis, what would help you answer this question better?</em></p>
 <p>While my analysis focused on four specific years of comprehensive data based on years that the CalEnviroScreen was carried out, it could be interesting to expand that time frame to before 2013. Exploring air quality and poverty before and after 2013 is especially interesting because 2013 was the year that California’s cap-and-trade program was initiated. During this time, there is evidence that while greenhouse gases were overall reduced in California, socioeconomically disadvantaged communities actually experienced emission increases (Cushing et al. 2018).</p>
+<h1 id="references">References</h1>
+<p>Full code can be found <a href="https://github.com/miaforsline/miaforsline.github.io/tree/main/_posts/2021-11-18-calenviroscreen">here</a>.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->

@@ -26,7 +26,7 @@ library(kableExtra)
 
 # Research Question
 
-In California from 2013 - 2021, does air quality (as measured by PM2.5 concentrations) vary with poverty rates (as measured by the percent of the population living below two times the federal poverty level)?
+In California from 2013 - 2021, does air quality (as measured by annual mean PM2.5 concentrations per census tract) vary with poverty rates (as measured by the percent of the population living below two times the federal poverty level per census tract)?
 
 # Background
 
@@ -36,7 +36,13 @@ In California, events like wildfires can significantly decrease air quality by r
 
 The environmental burden of poor air quality is not shared equally across the state. For example, the San Joaquin Valley's economically disadvantaged and ethnically diverse communities breathe some of the most polluted air in the nation (Buckley 2017). As a result, vulnerable communities such as Mexican American immigrant farm workers and their families experience disproportionately high rates of asthma attacks, hospital admissions, and other medical issues (Schwartz and Pepper 2009). This inequitable pattern is well recognized in other states (Qian and Wu 2019), the United States overall (Tessum et al. 2021), and even other countries (Li et al. 2018).
 
-While there are many possible ways to explore the inequity of air pollution in California, I specifically usePM2.5 to measure of air quality and poverty rate to quantify socioeconomic disparities.
+While there are many possible ways to explore the inequity of air pollution in California, I specifically use annual mean PM2.5 to measure of air quality and poverty rate to quantify socioeconomic disparities.
+
+## Hypotheses
+
+My null hypothesis (H~0~) is that, in California, there is no relationship between annual mean PM2.5 concentrations per census tract and percent of the population living below twice the federal poverty line per census tract.
+
+My alternative hypothesis (H~A~) is that, in California, there is a relationship between annual mean PM2.5 concentrations per census tract and percent of the population living below twice the federal poverty line per census tract
 
 # Data Description and Collection
 
@@ -233,10 +239,16 @@ ggplot(data = joined, aes(x = Poverty, y = PM2.5)) +
 
 # Conclusions
 
-Ultimately, I found that---in California during 2013, 2014, 2018, and 2021---air quality significantly associated with poverty rates. Specifically, for all four years, annual mean concentrations of PM2.5 (µg/m^3^) increased as the percent of people living below twice the federal poverty level increased (Figure \@ref(fig:final)). In other words, air quality was lower in census tracts with higher poverty rates.
+As expected, I found that---in California during 2013, 2014, 2018, and 2021---air quality significantly associated with poverty rates. Specifically, for all four years, annual mean concentrations of PM2.5 (µg/m^3^) increased as the percent of people living below twice the federal poverty level increased (Figure \@ref(fig:final)). In other words, air quality was lower in census tracts with higher poverty rates.
+
+These findings supported my hypothesis
 
 # Future Directions
 
 *One short analysis cannot fully answer an interesting scientific question. If you had time to collect more data or conduct more analysis, what would help you answer this question better?*
 
 While my analysis focused on four specific years of comprehensive data based on years that the CalEnviroScreen was carried out, it could be interesting to expand that time frame to before 2013. Exploring air quality and poverty before and after 2013 is especially interesting because 2013 was the year that California's cap-and-trade program was initiated. During this time, there is evidence that while greenhouse gases were overall reduced in California, socioeconomically disadvantaged communities actually experienced emission increases (Cushing et al. 2018).
+
+# References
+
+Full code can be found [here](https://github.com/miaforsline/miaforsline.github.io/tree/main/_posts/2021-11-18-calenviroscreen). 
