@@ -23,6 +23,7 @@ bibliography: bibliography.bib
 zotero: true
 base_url: miaforsline.github.io
 slug: forsline_ces
+preview: logo.png
 ---
 
 ```{r setup, include=FALSE}
