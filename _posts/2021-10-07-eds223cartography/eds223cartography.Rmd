@@ -14,7 +14,7 @@ output:
     code_folding: show
 base_url: miaforsline.github.io
 slug: forsline_cartography
-preview: logo.png
+preview: asiamap.jpg
 ---
 # Learning Goals: 
 - Learn the (very) basics of map design
