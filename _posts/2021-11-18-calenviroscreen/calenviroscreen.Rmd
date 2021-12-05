@@ -7,6 +7,7 @@ output:
     self_contained: no
     toc: yes
     toc_float: yes
+    code_folding: show
   pdf_document:
     latex_engine: xelatex
     fig_width: 6
@@ -25,22 +26,6 @@ base_url: miaforsline.github.io
 slug: forsline_ces
 preview: logo.png
 ---
-
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE,
-                      message = FALSE, 
-                      warning = FALSE, 
-                      include = TRUE)
-#turn off scientific notation and select how many digits to round outputs to 
-options("scipen" = 999, "digits" = 4)
-
-library(tidyverse)
-library(here)
-library(gt)
-library(xtable)
-library(kableExtra)
-```
-
 # Research Question
 
 From 2013 to 2021, does air quality (as measured by annual mean PM2.5 concentrations per census tract) vary with poverty rates (as measured by the percent of the population living below two times the federal poverty level per census tract) in California?
@@ -60,6 +45,22 @@ My null hypothesis ($H_0$) is that, in California, there is no relationship betw
 My alternative hypothesis ($H_A$) is that, in California, there is a relationship between annual mean PM2.5 concentrations per census tract and percent of the population living below twice the federal poverty line per census tract.
 
 # Data Description and Collection
+
+```{r setup, include=TRUE}
+knitr::opts_chunk$set(echo = FALSE,
+                      message = FALSE, 
+                      warning = FALSE, 
+                      include = TRUE)
+#turn off scientific notation and select how many digits to round outputs to 
+options("scipen" = 999, "digits" = 4)
+
+#import necessary libraries 
+library(tidyverse)
+library(here)
+library(gt)
+library(xtable)
+library(kableExtra)
+```
 
 ```{r}
 #read in data
@@ -83,7 +84,9 @@ c4 <- read_csv(file = here("_posts",
                            "CES", 
                            "CES_data", 
                            "ces4_2021.csv"))
-#clean data 
+#clean data
+##select and rename necessary columns 
+##add Year column 
 c1_clean <- c1 %>% 
   select(c("ZIP Code","Poverty", "PM2.5")) %>% 
   mutate(Year = "2013") %>% 
@@ -104,7 +107,7 @@ c4_clean <- c4 %>%
 ```
 
 ```{r}
-#fill in missing column data for c1 dataset so all datasets match 
+#fill in missing column data for c1 dataset so all datasets have the same columns 
 c1_fill <- full_join(x = c2_clean, y = c1_clean, 
                      by = "ZIP", 
                      suffix = c(".c2", ".c1")) %>%
@@ -122,12 +125,11 @@ c1_fill <- full_join(x = c2_clean, y = c1_clean,
 ```
 
 ```{r}
-#rbind datasets (which need to have the same columns)
+#rbind datasets to create a single combined dataset with all 4 years of CalEnviroScreen data
 joined <- rbind(c4_clean, c3_clean, c2_clean, c1_fill) %>% 
   mutate(Year = as.factor(Year),
          Year = factor(x = Year, levels = c("2013", "2014", "2018", "2021"))) %>% 
   drop_na(Year) 
-#we end up with 32,554 rows of data 
 ```
 
 I downloaded 2013 - 2021 CalEnviroScreen (CES) data from the California [Office of Environmental Health Hazard Assessment (OEHHA)](https://oehha.ca.gov/) and the [California Open Data Portal](https://data.ca.gov/):
