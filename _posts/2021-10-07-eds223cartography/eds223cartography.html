@@ -89,7 +89,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--radix_placeholder_meta_tags-->
   <title>Exploring basic cartography using `sf` and `tmap`</title>
 
-  <meta property="description" itemprop="description" content="EDS 223: Spatial Analysis"/>
+  <meta property="description" itemprop="description" content="EDS 223: Spatial Analysis - Assignment 1"/>
 
 
   <!--  https://schema.org/Article -->
@@ -100,26 +100,26 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
   <meta property="og:title" content="Exploring basic cartography using `sf` and `tmap`"/>
   <meta property="og:type" content="article"/>
-  <meta property="og:description" content="EDS 223: Spatial Analysis"/>
+  <meta property="og:description" content="EDS 223: Spatial Analysis - Assignment 1"/>
   <meta property="og:image" content="miaforsline.github.io/asiamap.jpg"/>
   <meta property="og:locale" content="en_US"/>
 
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary_large_image"/>
   <meta property="twitter:title" content="Exploring basic cartography using `sf` and `tmap`"/>
-  <meta property="twitter:description" content="EDS 223: Spatial Analysis"/>
+  <meta property="twitter:description" content="EDS 223: Spatial Analysis - Assignment 1"/>
   <meta property="twitter:image" content="miaforsline.github.io/asiamap.jpg"/>
 
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output","base_url","slug","preview"]}},"value":[{"type":"character","attributes":{},"value":["Exploring basic cartography using `sf` and `tmap`"]},{"type":"character","attributes":{},"value":["EDS 223: Spatial Analysis \n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Mia Forsline"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":[]}},"value":[]}]}]},{"type":"character","attributes":{},"value":["2021-10-07"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained","toc","toc_float","code_folding"]}},"value":[{"type":"logical","attributes":{},"value":[false]},{"type":"logical","attributes":{},"value":[true]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["show"]}]}]},{"type":"character","attributes":{},"value":["miaforsline.github.io"]},{"type":"character","attributes":{},"value":["forsline_cartography"]},{"type":"character","attributes":{},"value":["asiamap.jpg"]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output","base_url","slug","preview"]}},"value":[{"type":"character","attributes":{},"value":["Exploring basic cartography using `sf` and `tmap`"]},{"type":"character","attributes":{},"value":["EDS 223: Spatial Analysis - Assignment 1 \n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Mia Forsline"]}]}]},{"type":"character","attributes":{},"value":["2021-10-07"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained","toc","toc_float","code_folding"]}},"value":[{"type":"logical","attributes":{},"value":[false]},{"type":"logical","attributes":{},"value":[true]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["show"]}]}]},{"type":"character","attributes":{},"value":["miaforsline.github.io"]},{"type":"character","attributes":{},"value":["forsline_cartography"]},{"type":"character","attributes":{},"value":["asiamap.jpg"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["asiamap.jpg","eds223cartography_files/figure-html5/unnamed-chunk-2-1.png","eds223cartography_files/figure-html5/unnamed-chunk-2-2.png","eds223cartography_files/figure-html5/unnamed-chunk-2-3.png","eds223cartography_files/figure-html5/unnamed-chunk-3-1.png","eds223cartography_files/figure-html5/unnamed-chunk-3-2.png","eds223cartography_files/figure-html5/unnamed-chunk-4-1.png","eds223cartography_files/figure-html5/unnamed-chunk-5-1.png","eds223cartography_files/figure-html5/unnamed-chunk-6-1.png","eds223cartography_files/figure-html5/unnamed-chunk-6-2.png","eds223cartography_files/figure-html5/unnamed-chunk-9-1.png"]}
+  {"type":"character","attributes":{},"value":["asiamap.jpg","eds223cartography_files/anchor-4.2.2/anchor.min.js","eds223cartography_files/bowser-1.9.3/bowser.min.js","eds223cartography_files/distill-2.2.21/template.v2.js","eds223cartography_files/figure-html5/asia-1.png","eds223cartography_files/figure-html5/unnamed-chunk-1-1.png","eds223cartography_files/figure-html5/unnamed-chunk-1-2.png","eds223cartography_files/figure-html5/unnamed-chunk-1-3.png","eds223cartography_files/figure-html5/unnamed-chunk-2-1.png","eds223cartography_files/figure-html5/unnamed-chunk-2-2.png","eds223cartography_files/figure-html5/unnamed-chunk-2-3.png","eds223cartography_files/figure-html5/unnamed-chunk-3-1.png","eds223cartography_files/figure-html5/unnamed-chunk-3-2.png","eds223cartography_files/figure-html5/unnamed-chunk-4-1.png","eds223cartography_files/figure-html5/unnamed-chunk-5-1.png","eds223cartography_files/figure-html5/unnamed-chunk-6-1.png","eds223cartography_files/figure-html5/unnamed-chunk-6-2.png","eds223cartography_files/figure-html5/unnamed-chunk-9-1.png","eds223cartography_files/header-attrs-2.11/header-attrs.js","eds223cartography_files/jquery-3.6.0/jquery-3.6.0.js","eds223cartography_files/jquery-3.6.0/jquery-3.6.0.min.js","eds223cartography_files/jquery-3.6.0/jquery-3.6.0.min.map","eds223cartography_files/popper-2.6.0/popper.min.js","eds223cartography_files/tippy-6.2.7/tippy-bundle.umd.min.js","eds223cartography_files/tippy-6.2.7/tippy-light-border.css","eds223cartography_files/tippy-6.2.7/tippy.css","eds223cartography_files/tippy-6.2.7/tippy.umd.min.js","eds223cartography_files/webcomponents-2.0.0/webcomponents.js"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
   <!--/radix_placeholder_navigation_in_header-->
@@ -1461,7 +1461,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Exploring basic cartography using `sf` and `tmap`","description":"EDS 223: Spatial Analysis","authors":[{"author":"Mia Forsline","authorURL":{},"affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2021-10-07T00:00:00.000-07:00","citationText":"Forsline, 2021"}
+{"title":"Exploring basic cartography using `sf` and `tmap`","description":"EDS 223: Spatial Analysis - Assignment 1","authors":[{"author":"Mia Forsline","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2021-10-07T00:00:00.000-07:00","citationText":"Forsline, 2021"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -1474,11 +1474,12 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <h1>Exploring basic cartography using sf and tmap</h1>
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
-<p><p>EDS 223: Spatial Analysis</p></p>
+<p><p>EDS 223: Spatial Analysis - Assignment 1</p></p>
 </div>
 
 <div class="d-byline">
-  Mia Forsline true 
+  
+  Mia Forsline
   
 <br/>2021-10-07
 </div>
@@ -1490,21 +1491,17 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <ul>
 <li><a href="#learning-goals">Learning Goals:</a></li>
 <li><a href="#load-necessary-packages">Load necessary packages</a></li>
-<li><a href="#load-and-subset-asia-data-from-spdata-world-data">Load and subset Asia data from <span><code>spData</code> world data</span></a></li>
-<li><a href="#explore-the-asia-data-using-plot">Explore the Asia data using <code>plot</code></a></li>
+<li><a href="#load-subset-and-explore-asia-data-from-spdata-world-data">Load, subset, and explore Asia data from <span><code>spData</code> world data</span></a></li>
 <li><a href="#specify-class-intervals">Specify class intervals</a></li>
 <li><a href="#add-a-graticule-if-necessary">Add a graticule if necessary</a></li>
-<li><a href="#create-a-more-formal-visuzalizations-using-tmap">Create a more formal visuzalizations using <code>tmap</code></a></li>
 <li><a href="#histogram-of-gdppercap-to-choose-breaks-style">Histogram of gdpPercap to choose breaks style</a></li>
-<li><a href="#calculate-mean-min-max-standard-deviation-and-standard-error">Calculate mean, min, max, standard deviation, and standard error</a></li>
-<li><a href="#create-a-new-bounding-box-for-the-main-asia-map">Create a new bounding box for the main Asia map</a></li>
-<li><a href="#final-asia-map">Final Asia map</a></li>
+<li><a href="#plot-finished-asia-map">Plot finished Asia map</a></li>
 </ul>
 </nav>
 </div>
 <h1 id="learning-goals">Learning Goals:</h1>
 <ul>
-<li>Learn the (very) basics of map design</li>
+<li>Learn the basics of map design</li>
 <li>Learn how to load geospatial data</li>
 <li>Learn how to inspect geospatial data</li>
 <li>Plot geospatial data</li>
@@ -1516,7 +1513,10 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 show
 </summary>
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>knitr</span><span class='fu'>::</span><span class='va'><a href='https://rdrr.io/pkg/knitr/man/opts_chunk.html'>opts_chunk</a></span><span class='op'>$</span><span class='fu'>set</span><span class='op'>(</span>echo <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>knitr</span><span class='fu'>::</span><span class='va'><a href='https://rdrr.io/pkg/knitr/man/opts_chunk.html'>opts_chunk</a></span><span class='op'>$</span><span class='fu'>set</span><span class='op'>(</span>echo <span class='op'>=</span> <span class='cn'>TRUE</span>, 
+                      message <span class='op'>=</span> <span class='cn'>FALSE</span>,
+                      warning <span class='op'>=</span> <span class='cn'>FALSE</span>,
+                      include <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
 
 <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'>RColorBrewer</span><span class='op'>)</span>
 <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://r-spatial.github.io/sf/'>sf</a></span><span class='op'>)</span>
@@ -1531,7 +1531,7 @@ show
 </div>
 </details>
 </div>
-<h1 id="load-and-subset-asia-data-from-spdata-world-data">Load and subset Asia data from <a href="https://nowosad.github.io/spData/"><code>spData</code> world data</a></h1>
+<h1 id="load-subset-and-explore-asia-data-from-spdata-world-data">Load, subset, and explore Asia data from <a href="https://nowosad.github.io/spData/"><code>spData</code> world data</a></h1>
 <div class="layout-chunk" data-layout="l-body">
 <details>
 <summary>
@@ -1540,23 +1540,11 @@ show
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>world_asia</span> <span class='op'>&lt;-</span> <span class='va'>world</span><span class='op'>[</span><span class='va'>world</span><span class='op'>[[</span><span class='st'>"continent"</span><span class='op'>]</span><span class='op'>]</span> <span class='op'>==</span> <span class='st'>"Asia"</span>, <span class='op'>]</span>
 
-<span class='co'>#sf::st_transform(your_object, new_crs) transform coordinate system if necessary </span>
+<span class='fu'><a href='https://r-spatial.github.io/sf/reference/plot.html'>plot</a></span><span class='op'>(</span><span class='va'>world_asia</span>, max.plot <span class='op'>=</span> <span class='fl'>10</span><span class='op'>)</span> <span class='co'>#multi-plot of all attributes</span>
 </code></pre>
 </div>
 </details>
-</div>
-<h1 id="explore-the-asia-data-using-plot">Explore the Asia data using <code>plot</code></h1>
-<div class="layout-chunk" data-layout="l-body">
-<details>
-<summary>
-show
-</summary>
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://r-spatial.github.io/sf/reference/plot.html'>plot</a></span><span class='op'>(</span><span class='va'>world_asia</span>, max.plot <span class='op'>=</span> <span class='fl'>10</span><span class='op'>)</span> <span class='co'>#multi-plot of all attributes</span>
-</code></pre>
-</div>
-</details>
-<img src="eds223cartography_files/figure-html5/unnamed-chunk-2-1.png" width="624" />
+<img src="eds223cartography_files/figure-html5/unnamed-chunk-1-1.png" width="624" />
 <details>
 <summary>
 show
@@ -1567,7 +1555,7 @@ show
 </code></pre>
 </div>
 </details>
-<img src="eds223cartography_files/figure-html5/unnamed-chunk-2-2.png" width="624" />
+<img src="eds223cartography_files/figure-html5/unnamed-chunk-1-2.png" width="624" />
 <details>
 <summary>
 show
@@ -1581,7 +1569,7 @@ show
 </code></pre>
 </div>
 </details>
-<p><img src="eds223cartography_files/figure-html5/unnamed-chunk-2-3.png" width="624" /></p>
+<p><img src="eds223cartography_files/figure-html5/unnamed-chunk-1-3.png" width="624" /></p>
 </div>
 <h1 id="specify-class-intervals">Specify class intervals</h1>
 <div class="layout-chunk" data-layout="l-body">
@@ -1594,7 +1582,7 @@ show
 </code></pre>
 </div>
 </details>
-<img src="eds223cartography_files/figure-html5/unnamed-chunk-3-1.png" width="624" />
+<img src="eds223cartography_files/figure-html5/unnamed-chunk-2-1.png" width="624" />
 <details>
 <summary>
 show
@@ -1606,7 +1594,7 @@ show
 </code></pre>
 </div>
 </details>
-<p><img src="eds223cartography_files/figure-html5/unnamed-chunk-3-2.png" width="624" /></p>
+<p><img src="eds223cartography_files/figure-html5/unnamed-chunk-2-2.png" width="624" /></p>
 </div>
 <h1 id="add-a-graticule-if-necessary">Add a graticule if necessary</h1>
 <div class="layout-chunk" data-layout="l-body">
@@ -1619,45 +1607,7 @@ show
 </code></pre>
 </div>
 </details>
-<p><img src="eds223cartography_files/figure-html5/unnamed-chunk-4-1.png" width="624" /></p>
-</div>
-<h1 id="create-a-more-formal-visuzalizations-using-tmap">Create a more formal visuzalizations using <code>tmap</code></h1>
-<ul>
-<li>create a new bounding box</li>
-<li>create a map inset</li>
-</ul>
-<div class="layout-chunk" data-layout="l-body">
-<details>
-<summary>
-show
-</summary>
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='co'>#shrink original world data bounding box for the inset map</span>
-<span class='co'>#Note: I did not end up using the inset map </span>
-<span class='va'>bbox_new</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://r-spatial.github.io/sf/reference/st_bbox.html'>st_bbox</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span>xmin <span class='op'>=</span> <span class='fl'>0</span>, xmax <span class='op'>=</span> <span class='fl'>179.99999</span>,
-                      ymin <span class='op'>=</span> <span class='op'>-</span><span class='fl'>85</span>, ymax <span class='op'>=</span> <span class='fl'>83.64513</span> <span class='op'>)</span><span class='op'>)</span>
-<span class='va'>xrange</span> <span class='op'>&lt;-</span> <span class='va'>bbox_new</span><span class='op'>$</span><span class='va'>xmax</span> <span class='op'>-</span> <span class='va'>bbox_new</span><span class='op'>$</span><span class='va'>xmin</span> <span class='co'># range of x values</span>
-<span class='va'>yrange</span> <span class='op'>&lt;-</span> <span class='va'>bbox_new</span><span class='op'>$</span><span class='va'>ymax</span> <span class='op'>-</span> <span class='va'>bbox_new</span><span class='op'>$</span><span class='va'>ymin</span> <span class='co'># range of y values</span>
-<span class='va'>bbox_new</span> <span class='op'>&lt;-</span> <span class='va'>bbox_new</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span>  
-  <span class='fu'><a href='https://r-spatial.github.io/sf/reference/st_as_sfc.html'>st_as_sfc</a></span><span class='op'>(</span><span class='op'>)</span>
-
-<span class='co'>#world map with Asia GDP per capita colored red using a sequential color palette</span>
-<span class='va'>inset</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/tmap/man/tm_shape.html'>tm_shape</a></span><span class='op'>(</span><span class='va'>world</span>, bbox <span class='op'>=</span> <span class='va'>bbox_new</span><span class='op'>)</span><span class='op'>+</span>
-  <span class='fu'><a href='https://rdrr.io/pkg/tmap/man/tm_polygons.html'>tm_fill</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span> 
-  <span class='fu'><a href='https://rdrr.io/pkg/tmap/man/tm_polygons.html'>tm_borders</a></span><span class='op'>(</span>lwd <span class='op'>=</span> <span class='fl'>0.1</span><span class='op'>)</span> <span class='op'>+</span> 
-<span class='fu'><a href='https://rdrr.io/pkg/tmap/man/tm_shape.html'>tm_shape</a></span><span class='op'>(</span><span class='va'>world_asia</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'><a href='https://rdrr.io/pkg/tmap/man/tm_polygons.html'>tm_fill</a></span><span class='op'>(</span>col <span class='op'>=</span> <span class='st'>"gdpPercap"</span>, 
-          palette <span class='op'>=</span> <span class='st'>"Reds"</span>, 
-          style <span class='op'>=</span> <span class='st'>"order"</span>,
-          colorNA <span class='op'>=</span> <span class='st'>"gray"</span>,
-          legend.show <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'><a href='https://rdrr.io/pkg/tmap/man/tm_polygons.html'>tm_borders</a></span><span class='op'>(</span>lwd <span class='op'>=</span> <span class='fl'>0.5</span><span class='op'>)</span> <span class='op'>+</span> 
-  <span class='fu'><a href='https://rdrr.io/pkg/tmap/man/tmap_options.html'>tmap_options</a></span><span class='op'>(</span>bg.color <span class='op'>=</span> <span class='st'>"lightblue1"</span><span class='op'>)</span>
-<span class='va'>inset</span>
-</code></pre>
-</div>
-</details>
-<p><img src="eds223cartography_files/figure-html5/unnamed-chunk-5-1.png" width="624" /></p>
+<p><img src="eds223cartography_files/figure-html5/unnamed-chunk-3-1.png" width="624" /></p>
 </div>
 <h1 id="histogram-of-gdppercap-to-choose-breaks-style">Histogram of gdpPercap to choose breaks style</h1>
 <ul>
@@ -1685,129 +1635,25 @@ show
 </code></pre>
 </div>
 </details>
-<img src="eds223cartography_files/figure-html5/unnamed-chunk-6-1.png" width="624" />
-<details>
-<summary>
-show
-</summary>
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='co'>#create a boxplot to see that most of the data &lt; $50,000 </span>
-<span class='fu'><a href='https://rdrr.io/r/graphics/boxplot.html'>boxplot</a></span><span class='op'>(</span><span class='va'>world_asia</span><span class='op'>$</span><span class='va'>gdpPercap</span><span class='op'>)</span>
-</code></pre>
+<p><img src="eds223cartography_files/figure-html5/unnamed-chunk-4-1.png" width="624" /></p>
 </div>
-</details>
-<p><img src="eds223cartography_files/figure-html5/unnamed-chunk-6-2.png" width="624" /></p>
-</div>
-<h1 id="calculate-mean-min-max-standard-deviation-and-standard-error">Calculate mean, min, max, standard deviation, and standard error</h1>
+<h1 id="plot-finished-asia-map">Plot finished Asia map</h1>
 <div class="layout-chunk" data-layout="l-body">
 <details>
 <summary>
 show
 </summary>
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='co'>#what is the max, mean, min, standard deviation, and standard error ?  </span>
-<span class='va'>world_asia2</span> <span class='op'>&lt;-</span> <span class='va'>world_asia</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> 
-  <span class='fu'><a href='https://tidyr.tidyverse.org/reference/drop_na.html'>drop_na</a></span><span class='op'>(</span><span class='va'>gdpPercap</span><span class='op'>)</span> <span class='co'>#remove NA values </span>
-
-<span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>max</a></span><span class='op'>(</span><span class='va'>world_asia2</span><span class='op'>$</span><span class='va'>gdpPercap</span><span class='op'>)</span>
-</code></pre>
-</div>
-</details>
-<pre><code>[1] 120860.1</code></pre>
-<details>
-<summary>
-show
-</summary>
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>world_asia2</span><span class='op'>$</span><span class='va'>gdpPercap</span><span class='op'>)</span>
-</code></pre>
-</div>
-</details>
-<pre><code>[1] 20026.08</code></pre>
-<details>
-<summary>
-show
-</summary>
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>min</a></span><span class='op'>(</span><span class='va'>world_asia2</span><span class='op'>$</span><span class='va'>gdpPercap</span><span class='op'>)</span>
-</code></pre>
-</div>
-</details>
-<pre><code>[1] 1838.96</code></pre>
-<details>
-<summary>
-show
-</summary>
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/stats/sd.html'>sd</a></span><span class='op'>(</span><span class='va'>world_asia2</span><span class='op'>$</span><span class='va'>gdpPercap</span><span class='op'>)</span>
-</code></pre>
-</div>
-</details>
-<pre><code>[1] 24361.07</code></pre>
-<details>
-<summary>
-show
-</summary>
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>std_mean</span> <span class='op'>&lt;-</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='fu'><a href='https://rdrr.io/r/stats/sd.html'>sd</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span><span class='op'>/</span><span class='fu'><a href='https://rdrr.io/r/base/MathFun.html'>sqrt</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span><span class='op'>)</span>
-<span class='fu'>std_mean</span><span class='op'>(</span><span class='va'>world_asia2</span><span class='op'>$</span><span class='va'>gdpPercap</span><span class='op'>)</span> <span class='co'>#standard error </span>
-</code></pre>
-</div>
-</details>
-<pre><code>[1] 3715.029</code></pre>
-<details>
-<summary>
-show
-</summary>
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='co'>#what country has the highest GDP per capita ? Qatar</span>
-<span class='va'>high</span> <span class='op'>&lt;-</span> <span class='va'>world_asia</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> 
-  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>gdpPercap</span> <span class='op'>&gt;</span> <span class='fl'>120000</span><span class='op'>)</span>
-<span class='va'>high</span><span class='op'>$</span><span class='va'>name_long</span>
-</code></pre>
-</div>
-</details>
-<pre><code>[1] &quot;Qatar&quot;</code></pre>
-<details>
-<summary>
-show
-</summary>
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='co'>#what country has the lowest GDP per capita ? Afghanistan </span>
-<span class='va'>low</span> <span class='op'>&lt;-</span> <span class='va'>world_asia</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> 
-  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>gdpPercap</span> <span class='op'>&lt;</span> <span class='fl'>2000</span><span class='op'>)</span>
-<span class='va'>low</span><span class='op'>$</span><span class='va'>name_long</span>
-</code></pre>
-</div>
-</details>
-<pre><code>[1] &quot;Afghanistan&quot;</code></pre>
-</div>
-<h1 id="create-a-new-bounding-box-for-the-main-asia-map">Create a new bounding box for the main Asia map</h1>
-<div class="layout-chunk" data-layout="l-body">
-<details>
-<summary>
-show
-</summary>
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>bbox_new</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://r-spatial.github.io/sf/reference/st_bbox.html'>st_bbox</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span>xmin <span class='op'>=</span> <span class='fl'>26.04335</span>, xmax <span class='op'>=</span> <span class='fl'>145.5431</span>,
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'>#create new bounding box </span>
+<span class='va'>bbox_new</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://r-spatial.github.io/sf/reference/st_bbox.html'>st_bbox</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span>xmin <span class='op'>=</span> <span class='fl'>26.04335</span>, xmax <span class='op'>=</span> <span class='fl'>145.5431</span>,
                       ymin <span class='op'>=</span> <span class='op'>-</span><span class='fl'>15</span>, ymax <span class='op'>=</span> <span class='fl'>55.38525</span> <span class='op'>)</span><span class='op'>)</span> <span class='co'># current bounding box</span>
 <span class='va'>xrange</span> <span class='op'>&lt;-</span> <span class='va'>bbox_new</span><span class='op'>$</span><span class='va'>xmax</span> <span class='op'>-</span> <span class='va'>bbox_new</span><span class='op'>$</span><span class='va'>xmin</span> <span class='co'># range of x values</span>
 <span class='va'>yrange</span> <span class='op'>&lt;-</span> <span class='va'>bbox_new</span><span class='op'>$</span><span class='va'>ymax</span> <span class='op'>-</span> <span class='va'>bbox_new</span><span class='op'>$</span><span class='va'>ymin</span> <span class='co'># range of y values</span>
 <span class='va'>bbox_new</span> <span class='op'>&lt;-</span> <span class='va'>bbox_new</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span>  
   <span class='fu'><a href='https://r-spatial.github.io/sf/reference/st_as_sfc.html'>st_as_sfc</a></span><span class='op'>(</span><span class='op'>)</span>
-</code></pre>
-</div>
-</details>
-</div>
-<h1 id="final-asia-map">Final Asia map</h1>
-<p>This map displays 2014 GDP per capita for 43 countries in Asia. 4 countries were omitted due to mising data: the Democratic People’s Republic of Korea, Northern Cyprus, Syria, and Taiwan. The maximum per-capita GDP is $120,860 in Qatar, and the minimum per-capita GDP is $1,839 in Afghanistan. The mean per-capita GDP is $20,026, and the median per-capita GDP is $10,650 (SD = 24,361; SE = 3,715). Only 4 countries measured per-capita GDP above $50,000. Per-capita GDP is rounded to the nearest whole number. Original world country polygon data is plotted in WGS84 and sourced from ‘spData’ (<a href="https://nowosad.github.io/spData/" class="uri">https://nowosad.github.io/spData/</a>).</p>
-<div class="layout-chunk" data-layout="l-body">
-<details>
-<summary>
-show
-</summary>
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>asia_map</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/tmap/man/tm_shape.html'>tm_shape</a></span><span class='op'>(</span><span class='va'>world</span>, bbox <span class='op'>=</span> <span class='va'>bbox_new</span><span class='op'>)</span><span class='op'>+</span>
+
+<span class='co'>#plot </span>
+<span class='va'>asia_map</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/tmap/man/tm_shape.html'>tm_shape</a></span><span class='op'>(</span><span class='va'>world</span>, bbox <span class='op'>=</span> <span class='va'>bbox_new</span><span class='op'>)</span><span class='op'>+</span>
   <span class='fu'><a href='https://rdrr.io/pkg/tmap/man/tm_polygons.html'>tm_fill</a></span><span class='op'>(</span>col <span class='op'>=</span> <span class='st'>"white"</span><span class='op'>)</span> <span class='op'>+</span> 
   <span class='fu'><a href='https://rdrr.io/pkg/tmap/man/tm_polygons.html'>tm_borders</a></span><span class='op'>(</span>lwd <span class='op'>=</span> <span class='fl'>0.1</span><span class='op'>)</span> <span class='op'>+</span> 
 <span class='fu'><a href='https://rdrr.io/pkg/tmap/man/tm_shape.html'>tm_shape</a></span><span class='op'>(</span><span class='va'>world_asia</span><span class='op'>)</span> <span class='op'>+</span>
@@ -1850,7 +1696,12 @@ show
 </code></pre>
 </div>
 </details>
-<img src="eds223cartography_files/figure-html5/unnamed-chunk-9-1.png" width="624" />
+<div class="figure"><span style="display:block;" id="fig:asia"></span>
+<img src="eds223cartography_files/figure-html5/asia-1.png" alt="This map displays 2014 GDP per capita for 43 countries in Asia. 4 countries were omitted due to mising data: the Democratic People's Republic of Korea, Northern Cyprus, Syria, and Taiwan. The maximum per-capita GDP is $120,860 in Qatar, and the minimum per-capita GDP is $1,839 in Afghanistan. The mean per-capita GDP is $20,026, and the median per-capita GDP is $10,650 (SD = 24,361; SE = 3,715). Only 4 countries measured per-capita GDP above $50,000. Per-capita GDP is rounded to the nearest whole number. Original world country polygon data is plotted in WGS84 and sourced from [spData](&lt;https://nowosad.github.io/spData/&gt;)." width="624" />
+<p class="caption">
+Figure 1: This map displays 2014 GDP per capita for 43 countries in Asia. 4 countries were omitted due to mising data: the Democratic People’s Republic of Korea, Northern Cyprus, Syria, and Taiwan. The maximum per-capita GDP is $120,860 in Qatar, and the minimum per-capita GDP is $1,839 in Afghanistan. The mean per-capita GDP is $20,026, and the median per-capita GDP is $10,650 (SD = 24,361; SE = 3,715). Only 4 countries measured per-capita GDP above $50,000. Per-capita GDP is rounded to the nearest whole number. Original world country polygon data is plotted in WGS84 and sourced from <a href="https://nowosad.github.io/spData/">spData</a>.
+</p>
+</div>
 <details>
 <summary>
 show
@@ -1861,7 +1712,7 @@ show
 </div>
 </details>
 </div>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>

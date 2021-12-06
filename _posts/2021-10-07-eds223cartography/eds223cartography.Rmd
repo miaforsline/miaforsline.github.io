@@ -1,10 +1,8 @@
 ---
 title: "Exploring basic cartography using `sf` and `tmap`"
 description: |
-  EDS 223: Spatial Analysis 
-author:
-  - name: Mia Forsline
-    url: {}
+  EDS 223: Spatial Analysis - Assignment 1 
+author: "Mia Forsline"
 date: 2021-10-07
 output:
   distill::distill_article:
@@ -17,7 +15,7 @@ slug: forsline_cartography
 preview: asiamap.jpg
 ---
 # Learning Goals: 
-- Learn the (very) basics of map design
+- Learn the basics of map design
 - Learn how to load geospatial data
 - Learn how to inspect geospatial data
 - Plot geospatial data
@@ -25,7 +23,10 @@ preview: asiamap.jpg
 # Load necessary packages
 
 ```{r setup, include=TRUE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = TRUE, 
+                      message = FALSE,
+                      warning = FALSE,
+                      include = TRUE)
 
 library(RColorBrewer)
 library(sf)
@@ -38,18 +39,13 @@ library(dplyr)
 #display.brewer.all(colorblindFriendly = T) to view color-blind friendly palettes 
 ```
 
-# Load and subset Asia data from [`spData` world data](<https://nowosad.github.io/spData/>)
+# Load, subset, and explore Asia data from [`spData` world data](<https://nowosad.github.io/spData/>)
 
 ```{r}
 world_asia <- world[world[["continent"]] == "Asia", ]
 
-#sf::st_transform(your_object, new_crs) transform coordinate system if necessary 
-```
-
-# Explore the Asia data using `plot`
-
-```{r}
 plot(world_asia, max.plot = 10) #multi-plot of all attributes
+
 plot(world_asia["gdpPercap"], #plot a specific attribute 
      key.pos = 4) #set the color key position (1=below, 2=left, 3=above and 4=right):
 
@@ -75,35 +71,6 @@ plot(world_asia["gdpPercap"], breaks = "jenks")
 plot(world_asia["gdpPercap"], graticule = TRUE, key.pos = NULL, axes = TRUE)
 ```
 
-# Create a more formal visuzalizations using `tmap`
--   create a new bounding box
--   create a map inset
-
-```{r}
-#shrink original world data bounding box for the inset map
-#Note: I did not end up using the inset map 
-bbox_new <- st_bbox(c(xmin = 0, xmax = 179.99999,
-                      ymin = -85, ymax = 83.64513 ))
-xrange <- bbox_new$xmax - bbox_new$xmin # range of x values
-yrange <- bbox_new$ymax - bbox_new$ymin # range of y values
-bbox_new <- bbox_new %>%  
-  st_as_sfc()
-
-#world map with Asia GDP per capita colored red using a sequential color palette
-inset <- tm_shape(world, bbox = bbox_new)+
-  tm_fill() + 
-  tm_borders(lwd = 0.1) + 
-tm_shape(world_asia) +
-  tm_fill(col = "gdpPercap", 
-          palette = "Reds", 
-          style = "order",
-          colorNA = "gray",
-          legend.show = FALSE) +
-  tm_borders(lwd = 0.5) + 
-  tmap_options(bg.color = "lightblue1")
-inset
-```
-
 # Histogram of gdpPercap to choose breaks style
 
 -   boxplot to visualize data spread
@@ -114,54 +81,21 @@ class(world_asia$gdpPercap) #numeric class = continuous numeric variable
 #create a histogram, which shows a long right tail and strong skew 
 graphics::hist(world_asia$gdpPercap, 
      breaks = 10)
-
-#create a boxplot to see that most of the data < $50,000 
-boxplot(world_asia$gdpPercap)
 ```
 
-# Calculate mean, min, max, standard deviation, and standard error
+# Plot finished Asia map
 
-```{r}
-#what is the max, mean, min, standard deviation, and standard error ?  
-world_asia2 <- world_asia %>% 
-  drop_na(gdpPercap) #remove NA values 
+```{r asia, fig.cap = "This map displays 2014 GDP per capita for 43 countries in Asia. 4 countries were omitted due to mising data: the Democratic People's Republic of Korea, Northern Cyprus, Syria, and Taiwan. The maximum per-capita GDP is $120,860 in Qatar, and the minimum per-capita GDP is $1,839 in Afghanistan. The mean per-capita GDP is $20,026, and the median per-capita GDP is $10,650 (SD = 24,361; SE = 3,715). Only 4 countries measured per-capita GDP above $50,000. Per-capita GDP is rounded to the nearest whole number. Original world country polygon data is plotted in WGS84 and sourced from [spData](<https://nowosad.github.io/spData/>)."}
 
-max(world_asia2$gdpPercap)
-mean(world_asia2$gdpPercap)
-min(world_asia2$gdpPercap)
-sd(world_asia2$gdpPercap)
-std_mean <- function(x) sd(x)/sqrt(length(x))
-std_mean(world_asia2$gdpPercap) #standard error 
-
-#what country has the highest GDP per capita ? Qatar
-high <- world_asia %>% 
-  filter(gdpPercap > 120000)
-high$name_long
-
-#what country has the lowest GDP per capita ? Afghanistan 
-low <- world_asia %>% 
-  filter(gdpPercap < 2000)
-low$name_long
-
-
-```
-
-# Create a new bounding box for the main Asia map
-
-```{r}
+#create new bounding box 
 bbox_new <- st_bbox(c(xmin = 26.04335, xmax = 145.5431,
                       ymin = -15, ymax = 55.38525 )) # current bounding box
 xrange <- bbox_new$xmax - bbox_new$xmin # range of x values
 yrange <- bbox_new$ymax - bbox_new$ymin # range of y values
 bbox_new <- bbox_new %>%  
   st_as_sfc()
-```
 
-# Final Asia map
-
-This map displays 2014 GDP per capita for 43 countries in Asia. 4 countries were omitted due to mising data: the Democratic People's Republic of Korea, Northern Cyprus, Syria, and Taiwan. The maximum per-capita GDP is \$120,860 in Qatar, and the minimum per-capita GDP is \$1,839 in Afghanistan. The mean per-capita GDP is \$20,026, and the median per-capita GDP is \$10,650 (SD = 24,361; SE = 3,715). Only 4 countries measured per-capita GDP above \$50,000. Per-capita GDP is rounded to the nearest whole number. Original world country polygon data is plotted in WGS84 and sourced from 'spData' (<https://nowosad.github.io/spData/>).
-
-```{r}
+#plot 
 asia_map <- tm_shape(world, bbox = bbox_new)+
   tm_fill(col = "white") + 
   tm_borders(lwd = 0.1) + 
