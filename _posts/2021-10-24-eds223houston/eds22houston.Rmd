@@ -1,7 +1,7 @@
 ---
 title: "Spatial analysis of 2020 Houston power outages due to extreme winter storms"
 description: |
-  A short description of the post.
+  EDS 223: Spatial Analysis - Assignment 2
 author:
   - name: Mia Forsline
     url: {}
@@ -14,14 +14,26 @@ output:
     code_folding: show
 base_url: miaforsline.github.io
 slug: forsline_houston
-preview: logo.png
+preview: houston.jpg
 ---
+
+# Learning objectives
+- Load vector data
+- Load raster data
+- Simple raster operations
+- Simple geoprocessing / vector operations
+- Spatial joins
+- Integrating SQL into an RMD
 
 # Introduction
 
-During February 2021, Texas experienced three extreme winter storms on February 10-11, 13-17, and 15-20. These storms caused power outages in Houston's residential areas. We are interested in quantifying the severity of those power outages by calculating the number of Houston homes that lost power due to the first two storms.
+During February 2021, Texas experienced three extreme winter storms on February 10-11, February 13-17, and Februrary 15-20 that caused power outages in Houston's residential areas. We are interested in quantifying the severity of those power outages by calculating the number of Houston homes that lost power due to the first two storms.
 
-To do so, we are using NASA's Worldview to examine night lights image data from February 7-16. We define an area as having experienced a blackout if we calculate a difference in night lights intensity greater than 200 nW cm^-2^ sr^-1^.
+To do so, we are used NASA's [VNP46A1](https://ladsweb.modaps.eosdis.nasa.gov/missions-and-measurements/products/VNP46A1/) data product from the [Visible Infrared Imaging Radiometer Suite (VIIRS)](https://ladsweb.modaps.eosdis.nasa.gov/missions-and-measurements/products/VNP46A1/) to examine night lights image data from February 7-16. We used four VIIRS data tiles to study the Houston area. 
+
+We also incorporated [OpenStreetMap](https://www.openstreetmap.org/#map=4/38.01/-95.84) roads and building data to account for light emitted from traffic and buildings. 
+
+We defined an area as having experienced a blackout if we calculate a difference in night lights intensity greater than 200 nW cm^-2^ sr^-1^.
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, 
@@ -43,7 +55,8 @@ library(lintr)
 library(rosm)
 ```
 
-# Function to load the DNB dataset from VNP46A1 granules
+# Load and explore data 
+## Define a function to load the DNB dataset from VNP46A1 granules
 
 ```{r}
 read_dnb <- function(file_name) {
@@ -75,7 +88,7 @@ read_dnb <- function(file_name) {
 }
 ```
 
-# Invoke the function to read in all 4 datasets
+## Invoke the function to read in all 4 datasets
 
 ```{r}
 file_name <- "data/VNP46A1.A2021038.h08v05.001.2021039064328.h5"
@@ -91,10 +104,10 @@ file_name <- "data/VNP46A1.A2021047.h08v06.001.2021048091105.h5"
 dnb_47_v06 <- read_dnb(file_name = file_name)
 ```
 
-# Combine the data into 2 datasets
+## Combine the data into 2 datasets
 
 -   `dnb_38` is data from before the storm
--   `dnb_47` is data from after the
+-   `dnb_47` is data from after the storm 
 
 ```{r}
 x1 <- dnb_38_v05
@@ -106,19 +119,24 @@ x4 <- dnb_47_v06
 dnb_47 <- st_mosaic(x3, x4)
 ```
 
-# Exploratory plots for night lights intensity before and after the storm
+## Create exploratory plots for night lights intensity before and after the storm
 
-```{r}
+Note: This is a crude data analysis of the "DNB_At_Sensor_Radiance_500m" dataset, which contains values as seen from space. There is no correction for stray light, moonshine, cloud presence, or any other confounding variables As a result, it is possible  we have surprising outliers and regions that systemically actually appear to be brighter from space after the storm. 
+
+```{r before, fig.cap = "Night lights intensity in Houston, TX before the storm."}
 plot(dnb_38,
      ylim = c(29, 30.5),
      xlim = c(-94.5, -96.5),
      breaks = seq(0, 2000, length.out = 1000))
+```
 
+```{r after, fig.cap = "Night lights intensity in Houston, TX after the storm."}
 plot(dnb_47,
      ylim = c(29, 30.5),
      xlim = c(-94.5, -96.5),
      breaks = seq(0, 2000, length.out = 1000))
 ```
+
 
 # Create a blackout mask
 
@@ -130,14 +148,14 @@ difference <- (dnb_38 - dnb_47) > 200
 difference[difference == FALSE] <- NA
 ```
 
-# Vectorize the mask and fix invalid geometries
+## Vectorize the mask and fix invalid geometries
 
 ```{r}
 diff_vector <- st_as_sf(difference)
 diff_vector <- st_make_valid(diff_vector)
 ```
 
-# Crop the vectorized map to our ROI
+## Crop the vectorized map to our ROI
 
 -   Create a bounding box for the Houston area
 -   Convert the bounding box to a `sf`
@@ -160,9 +178,9 @@ diff_cropped <- diff_cropped %>%
   st_transform(3083)
 ```
 
-# Roads Data
+# Read in roads Data
 
--   Use SQL query to read in the highways data
+-   Use SQL to read in the highways data
 -   Project `highways` to NAD 83
 -   Create and dissolve 200m buffers around the highways
 
@@ -176,9 +194,9 @@ hwy_buff_200m  <- st_buffer(highways, dist =  200)
 hwy_buff_200m <- st_union(hwy_buff_200m)
 ```
 
-# Buildings data
+# Read in buildings data
 
--   Use SQL query to read in the buildings data
+-   Use SQL to read in the buildings data
 -   Project `buildings` to NAD 83
 -   Note: `buildings` contains residential, apartments, house, static_caravan, and detached types
 
@@ -193,7 +211,7 @@ buildings <- buildings %>%
   st_transform(3083)
 ```
 
-# Census tract data
+# Read in census tract data
 
 -   Read in both geometries and income data
 -   Extract median income field and GEOID field from `acs_income`
@@ -244,17 +262,14 @@ q1_ans <- nrow(buildings_blackout)
 
 **There were `r q1_ans` residential buildings without power on 2021-02-16.**
 
-# Visualize buildings where the blackout occurred
+## Visualize buildings where the blackout occurred
 
 -   Created a map of residential buildings that experienced a blackout (`res`)
 -   Added `res` on top of a base map of the Houston area
 
-```{r}
+```{r blackout, fig.cap = "Approximately 157,411 residential buildings in Houston, TX were affected by the February 2021 storm."}
 res <- tm_shape(buildings_blackout) +
-  tm_borders() +
-  tm_layout(main.title = "Residential Buildings in Houston, TX Affected by February 2021 Storm",
-            main.title.size = 1, 
-            main.title.position = "center")
+  tm_borders()
 
 pt1 <- st_point(c(-96.5, 29))
 pt2 <- st_point(c(-96.5, 30.5))
@@ -270,11 +285,9 @@ houston_map <- osm.raster(houston_bbox)
 tm_shape(houston_map) +
 tm_rgb() + 
 res
-```
 
-## Merge the datasets continued 
+tmap_save(filename = "houston.jpg", width = 8, height = 5, units = "in", dpi = 300)
 
-```{r}
 bb_geoms_income <- st_join(buildings_blackout, geoms_income,
                            join = st_intersects,
                            left = TRUE)
@@ -283,3 +296,6 @@ bb_geoms_income <- st_join(buildings_blackout, geoms_income,
 # Conclusion
 
 In conclusion, we identified `r q1_ans` residential buildings in Houston without power due to the severe February 2021 storms. While night lights intensity may just be one way to measure the impact of these events, this method illustrates the vast potential of remotely sensed data from sources such as the Visible Infrared Imaging Radiometer Suite (VIIRS) aboard the Suomi satellite.
+
+# GitHub
+Full code for this assignment can be found [here](https://github.com/eds223-fall-2021-org/spatial-analysis-21). 
