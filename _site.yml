@@ -10,7 +10,7 @@ navbar:
     - text: "About"
       href: about.html
     - text: "CV"
-      href: CV.html
+      href: ForslineResume.pdf
     - text: "Blog"
       href: blog.html
 
