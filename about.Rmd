@@ -7,7 +7,7 @@ output:
 ---
 # Coming soon ! 
 
-As a Buddhist raised to respect and be curious about the natural world, I earned a B.A. of Biology at Occidental College in Los Angeles, CA and graduated in 2021. 
+As a Jōdo Shinshū Buddhist, I was raised to respect and be curious about the natural world. My passion for the environment led me to earn a B.A. of Biology (with an Environmental Science emphasis) at Occidental College in Los Angeles, CA, where I graduated in 2021.
 
 For three years at Occidental, I conducted undergraduate research to investigate how the urban heat island impacts local salamander populations. I also completed an honor’s thesis that explored how urban development decreased connectivity of salamander habitats. I used computational methods in R and Julia such as remote sensing, linear mixed-effects models, and circuit theory. Furthermore, I was a Biostatistics Teaching Assistant and taught first-time users R and basic file management, both in-person and remotely. In addition to my computational biology experience, I worked in the Campus Dining department and promoted food sustainability on campus by leading a bi-annual budget analysis and supporting educational events for students interested in local food systems. 
 
