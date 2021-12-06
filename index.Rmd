@@ -3,7 +3,7 @@ title: "Mia Forsline"
 image: "mia.jpg"
 links:
   - label: LinkedIn
-    url: "https://linkedin.com/in/mia-forsline-b53797159/"
+    url: "https://www.linkedin.com/in/mia-forsline/"
   - label: Twitter
     url: "https://twitter.com/MiaForsline"
   - label: GitHub
