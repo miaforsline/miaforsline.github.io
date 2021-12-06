@@ -3,15 +3,8 @@ title: "About Me"
 description: |
   Mia Forsline
 ---
-Picture
+# Coming soon ! 
 
-As a Buddhist raised to respect and be curious about the natural world, I earned a B.A. of Biology at Occidental College in Los Angeles, CA and graduated in 2021. 
-
-For three years at Occidental, I conducted undergraduate research to investigate how the urban heat island impacts local salamander populations. I also completed an honor’s thesis that explored how urban development decreased connectivity of salamander habitats. I used computational methods in R and Julia such as remote sensing, linear mixed-effects models, and circuit theory. Furthermore, I was a Biostatistics Teaching Assistant and taught first-time users R and basic file management, both in-person and remotely. In addition to my computational biology experience, I worked in the Campus Dining department and promoted food sustainability on campus by leading a bi-annual budget analysis and supporting educational events for students interested in local food systems. 
-
-To continue to pursue my environmental and computational interests, I am currently a candidate for the Master of Environmental Data Science at the Bren School of Environmental Science and Management at UC Santa Barbara. I hope to continue working in urban environmental spaces and utilizing data analysis tools to address issues such as food sustainability. 
-
-- Research: urban salamander microclimates 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 ```
