@@ -4,6 +4,7 @@ description: ""
 output:
   distill::distill_article:
     self_contained: no
+    toc: yes
 ---
 
 ![](about1.jpg){width="50%"}
