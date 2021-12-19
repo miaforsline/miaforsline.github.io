@@ -13,6 +13,9 @@ output:
 base_url: miaforsline.github.io
 slug: forsline_cartography
 preview: asiamap.jpg
+categories: 
+  - R
+  - Spatial Analysis
 ---
 # Learning Goals: 
 - Learn the basics of map design

@@ -15,6 +15,9 @@ output:
 base_url: miaforsline.github.io
 slug: forsline_houston
 preview: houston.jpg
+categories: 
+  - R
+  - Spatial Analysis
 ---
 
 # Learning objectives
