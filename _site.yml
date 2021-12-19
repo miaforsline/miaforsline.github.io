@@ -1,7 +1,7 @@
 name: "miaforsline.github.io"
 title: "Mia Forsline"
 description: |
-  My Website
+  My Personal Website
 output_dir: "docs"
 navbar:
   right:
@@ -15,6 +15,8 @@ navbar:
       href: ForslineResume.pdf
     - text: "Blog"
       href: blog.html
-
 output: distill::distill_article
 theme: theme.css
+collections:
+  posts:
+    categories: false
