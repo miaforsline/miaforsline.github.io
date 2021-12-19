@@ -7,37 +7,35 @@ output:
     toc: yes
 ---
 
-![](about1.jpg){width="50%"}
-
-# Education
+![](about1.jpg){width="70%"}
 
 As a Jōdo Shinshū Buddhist, I was raised to respect and be curious about the natural world. My passion for the environment led me to earn a B.A. of Biology (with an Environmental Science emphasis) at Occidental College in Los Angeles, CA, where I graduated in 2021.
 
-# Research
+# Urban Ecology Research
 
-For three years at Occidental, I conducted [computational biology research](https://compbio.oxycreates.org/) to investigate how the urban heat island impacts local salamander populations. This research culminated in senior [Biology Honors Thesis](https://drive.google.com/file/d/1bvZ7s-Kp3Kz1PhLf399Tqh9A_eG1TvEj/view?usp=sharing), in which I explored how urbanization:
+For three years at Occidental, I conducted [computational biology research](https://compbio.oxycreates.org/) to investigate how the urban heat island impacts local salamanders. This research culminated in a senior [Biology Honors Thesis](https://drive.google.com/file/d/1bvZ7s-Kp3Kz1PhLf399Tqh9A_eG1TvEj/view?usp=sharing), in which I explored how urbanization:
 
--   impacts temperatures in microhabitats of local salamanders ([*Batrachoseps nigriventris*](http://www.californiaherps.com/salamanders/pages/b.nigriventris.html), or the black-bellied slender salamander)
+-   impacts temperatures in microhabitats of salamanders ([*Batrachoseps nigriventris*](http://www.californiaherps.com/salamanders/pages/b.nigriventris.html), the black-bellied slender salamander)
 -   and influences connectivity of salamander (*B. nigriventris* and [*Batrachoseps major*](https://amphibiaweb.org/species/5340), the garden slender salamander) habitat patches.
 
-![](sala.jpg){width="50%"} ![](salb.webp){width="50%"} ![](salc.webp){width="50%"}
+![](sala.jpg){width="50%"} ![](salb.webp){width="50%"}
 
-I learned and executed computational methods in R and Julia such as: 
+I learned and executed computational methods in R and Julia such as:
 
-- downloading remotely sensed [National Land Cover Data](https://www.mrlc.gov/national-land-cover-database-nlcd-2016) from the [Multi-Resolution Land Characteristics Consortium](https://www.mrlc.gov/) to identify urban vs rural areas in Los Angeles County 
-- building linear mixed-effects models using the `lme4` package
-- utilizing AIC/AICc scores and AIC weights to identify the best model among multiple candidate models 
-- building isolation-by-resistance models, based on [circuit theory](https://link.springer.com/content/pdf/10.1007%2Fs10980-017-0548-1.pdf), to calculate resistance distance and quantify landscape connectivity for wildlife mobility 
+-   downloading remotely sensed [National Land Cover Data](https://www.mrlc.gov/national-land-cover-database-nlcd-2016) from the [Multi-Resolution Land Characteristics Consortium](https://www.mrlc.gov/) to identify urban and rural areas in Los Angeles County
+-   building linear mixed-effects models using the `lme4` package
+-   utilizing AIC/AICc scores and AIC weights to identify the best model among multiple candidate models
+-   building isolation-by-resistance models, based on [circuit theory](https://link.springer.com/content/pdf/10.1007%2Fs10980-017-0548-1.pdf), to calculate resistance distance and quantify landscape connectivity of habitat patches and help predict wildlife mobility
 
-In this study, we utilized community science and landscape resistance modeling in order to study landscape connectivity for the two salamander species. Our results demonstrate the successful incorporation of community science observation data into the connectivity models, a valuable step forward in streamlining landscape connectivity research.
+# Food Sustainability 
 
-# Professional Experience
-
-Furthermore, I was a Biostatistics Teaching Assistant and taught first-time users R and basic file management, both in-person and remotely. In addition to my computational biology experience, I worked in the Campus Dining department and promoted food sustainability on campus by leading a bi-annual budget analysis and supporting educational events for students interested in local food systems.
+In addition to my biology-focused interest in urban ecology, I am passionate about urban food systems, food sustainability, and food equity. For three years, I worked as a Sustainable Procurement Analysis Intern in [Occidental College's Campus Dining department](https://www.oxy.edu/student-life/campus-dining/sustainability/real-food-challenge). Occidental participated in the [Real Food Challenge](https://www.realfoodchallenge.org/), a national campaign to encourage college campuses to shift their purchasing towards local, organic, fair, and/or humane food sources. To reach our goal of spending 30% of Occidental College's food budget on sustainable food, I led a intern team of 3-5 students to complete 5 bi-annual budget analyses. We reached 29% sustainable food by 2019 and were on track to reach our 2020 goal of 30% before the COVID-19 pandemic. 
 
 # Future
 
-To continue to pursue my environmental and computational interests, I am currently a candidate for the Master of Environmental Data Science at the Bren School of Environmental Science and Management at UC Santa Barbara. I hope to continue working in urban environmental spaces and utilizing data analysis tools to address issues such as food sustainability.
+To continue to pursue my environmental and computational interests, I am currently [Master of Environmental Data Science (MEDS)](https://bren.ucsb.edu/masters-programs/master-environmental-data-science/academics-meds) graduate student at the Bren School of Environmental Science and Management at UC Santa Barbara. I hope to continue working in urban environmental spaces and utilizing data analysis tools to address issues such as food sustainability.
+
+![](brenlogo.png)
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)

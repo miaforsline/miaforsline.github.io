@@ -16,7 +16,7 @@ output:
   html_document:
     toc: yes
     df_print: paged
-description: "EDS 222: Statistics for Environmental Data Science"
+description: "EDS 222: Statistics for Environmental Data Science - Final Project"
 fontsize: 11pt
 geometry: margin=0.75in
 csl: apa.csl

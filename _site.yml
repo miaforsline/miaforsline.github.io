@@ -11,6 +11,8 @@ navbar:
       href: about.html
     - text: "Resume"
       href: ForslineResume.pdf
+    - text: "CV"
+      href: ForslineResume.pdf
     - text: "Blog"
       href: blog.html
 
