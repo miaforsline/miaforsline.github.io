@@ -57,10 +57,8 @@ population_data <- data.frame(X1, Y)
 model1 <- lm(formula = Y ~ X1, data = population_data)
 huxreg(model1, error_pos="right")
 
-# OLS estimation, with sample size increasing from n=1 to 10,000
 betahat_output <- matrix(ncol = 2, nrow = bigN)
 
-#loop through all sample sizes 
 for (n in 1:bigN) {
   sample <- population_data[1:n,]
   betahat_output[n,] <- lm(Y ~ X1, data = sample)$coefficients
@@ -71,42 +69,30 @@ beta1hat <- betahat_output[,c(2)]
 forgraph <- data.frame(n , betahat_output[,c(2)])
 ```
 
-## Graphing the results of all 10,000 B1 hats as they approach the true B1 hat value of 1.5 
+## Graph the results
 - as n increases, the OLS estimator $\hat{\beta_1}$ (blue line) approaches the true population paramater $\beta_1$ (red line) = 1.5 
+
 ```{r}
 ggplot(forgraph , aes(x=n, y=beta1hat)) + geom_line(size=0.5, color="blue") +
   geom_hline(yintercept=1.5, size=2, color="red") +
   labs(x="n", y = "Beta1hat") + 
   ggthemes::theme_pander(base_size = 14) 
-
-#as n increases, the blue line (B1 hat) approaches the red line (true B1 = 1.5)
 ```
 
-# Demonstrating omitted variables bias
+# Demonstrate the lack of OLS consistency due to omitted variables bias
 - generate $X_2$, which is correlated with $X_1$
-- omit $X_2$ from the model to cause omitted variable bias  
+- omit $X_2$ from the model to cause omitted variable bias
+- calculate $\hat{\beta_1}$ 
+
 ```{r}
+X2 = X1 +rnorm(bigN , mean=0 , sd=2.2) 
 
-
-X2 = X1 +rnorm(bigN , mean=0 , sd=2.2) #X2 = X1 + random number, so X2 and X1 are correlated 
-
-# Multiple population regression function
-##define Y 
 Y <- 5 + 1.5*X1 + 10*X2 + u
 population_data <- data.frame(X1, Y)
 
-# OLS estimation, full sample, but ignoring X2
 model1 <- lm(formula = Y ~ X1, data = population_data)
 huxreg(model1, error_pos="right")
 
-# Compute correlation between X1 and X2, and standard deviations
-# Compute "probability limit" of Beta1_hat
-cor(X1,X2)
-sd(X1)
-sd(X2)
-1.5 + 10*cor(X1,X2)*sd(X2)/sd(X1)
-
-# OLS estimation, with sample size increasing from n=1 to 10,000
 betahat_output <- matrix(ncol = 2, nrow = bigN)
 
 for (n in 1:bigN) {
@@ -119,8 +105,19 @@ beta1hat <- betahat_output[,c(2)]
 forgraph <- data.frame(n , betahat_output[,c(2)])
 ```
 
+- Compute correlation between X1 and X2, and standard deviations
+- Compute "probability limit" of Beta1_hat
+
+```{r}
+cor(X1,X2)
+sd(X1)
+sd(X2)
+1.5 + 10*cor(X1,X2)*sd(X2)/sd(X1)
+```
+
 ## Graph the results 
-- note how $\hat{\beta_1}$ hate never approaches the true $\beta_1$ value even when n becomes extremely large 
+- because of the omitted variables bias, $\hat{\beta_1}$ hate never approaches the true $\beta_1$ value even when n becomes extremely large 
+
 ```{r}
 ggplot(forgraph , aes(x=n, y=beta1hat)) + geom_line(size=0.5, color="blue") +
   geom_hline(yintercept=1.5, size=2, color="red") +

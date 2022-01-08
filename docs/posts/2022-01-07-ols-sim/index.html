@@ -118,7 +118,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["ols-sim_files/anchor-4.2.2/anchor.min.js","ols-sim_files/bowser-1.9.3/bowser.min.js","ols-sim_files/distill-2.2.21/template.v2.js","ols-sim_files/figure-html5/unnamed-chunk-3-1.png","ols-sim_files/figure-html5/unnamed-chunk-4-1.png","ols-sim_files/figure-html5/unnamed-chunk-5-1.png","ols-sim_files/header-attrs-2.11/header-attrs.js","ols-sim_files/jquery-3.6.0/jquery-3.6.0.js","ols-sim_files/jquery-3.6.0/jquery-3.6.0.min.js","ols-sim_files/jquery-3.6.0/jquery-3.6.0.min.map","ols-sim_files/popper-2.6.0/popper.min.js","ols-sim_files/tippy-6.2.7/tippy-bundle.umd.min.js","ols-sim_files/tippy-6.2.7/tippy-light-border.css","ols-sim_files/tippy-6.2.7/tippy.css","ols-sim_files/tippy-6.2.7/tippy.umd.min.js","ols-sim_files/webcomponents-2.0.0/webcomponents.js"]}
+  {"type":"character","attributes":{},"value":["ols-sim_files/anchor-4.2.2/anchor.min.js","ols-sim_files/bowser-1.9.3/bowser.min.js","ols-sim_files/distill-2.2.21/template.v2.js","ols-sim_files/figure-html5/unnamed-chunk-3-1.png","ols-sim_files/figure-html5/unnamed-chunk-4-1.png","ols-sim_files/figure-html5/unnamed-chunk-5-1.png","ols-sim_files/figure-html5/unnamed-chunk-6-1.png","ols-sim_files/header-attrs-2.11/header-attrs.js","ols-sim_files/jquery-3.6.0/jquery-3.6.0.js","ols-sim_files/jquery-3.6.0/jquery-3.6.0.min.js","ols-sim_files/jquery-3.6.0/jquery-3.6.0.min.map","ols-sim_files/popper-2.6.0/popper.min.js","ols-sim_files/tippy-6.2.7/tippy-bundle.umd.min.js","ols-sim_files/tippy-6.2.7/tippy-light-border.css","ols-sim_files/tippy-6.2.7/tippy.css","ols-sim_files/tippy-6.2.7/tippy.umd.min.js","ols-sim_files/webcomponents-2.0.0/webcomponents.js"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
 <meta name="distill:offset" content="../.."/>
@@ -2164,11 +2164,11 @@ d-appendix d-footnote-list a.footnote-backlink {
 <li><a href="#load-necessary-packages">Load necessary packages</a></li>
 <li><a href="#demonstrate-the-consistency-of-ols-when-the-assumptions-are-upheld">Demonstrate the consistency of OLS when the assumptions are upheld</a>
 <ul>
-<li><a href="#graphing-the-results-of-all-10000-b1-hats-as-they-approach-the-true-b1-hat-value-of-1.5">Graphing the results of all 10,000 B1 hats as they approach the true B1 hat value of 1.5</a></li>
-</ul></li>
-<li><a href="#demonstrating-omitted-variables-bias">Demonstrating omitted variables bias</a>
-<ul>
 <li><a href="#graph-the-results">Graph the results</a></li>
+</ul></li>
+<li><a href="#demonstrate-the-lack-of-ols-consistency-due-to-omitted-variables-bias">Demonstrate the lack of OLS consistency due to omitted variables bias</a>
+<ul>
+<li><a href="#graph-the-results-1">Graph the results</a></li>
 </ul></li>
 </ul>
 </nav>
@@ -2247,10 +2247,8 @@ Column names: names, model1, NA
 show
 </summary>
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># OLS estimation, with sample size increasing from n=1 to 10,000</span>
-<span class='va'>betahat_output</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span><span class='op'>(</span>ncol <span class='op'>=</span> <span class='fl'>2</span>, nrow <span class='op'>=</span> <span class='va'>bigN</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>betahat_output</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span><span class='op'>(</span>ncol <span class='op'>=</span> <span class='fl'>2</span>, nrow <span class='op'>=</span> <span class='va'>bigN</span><span class='op'>)</span>
 
-<span class='co'>#loop through all sample sizes </span>
 <span class='kw'>for</span> <span class='op'>(</span><span class='va'>n</span> <span class='kw'>in</span> <span class='fl'>1</span><span class='op'>:</span><span class='va'>bigN</span><span class='op'>)</span> <span class='op'>{</span>
   <span class='va'>sample</span> <span class='op'>&lt;-</span> <span class='va'>population_data</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>:</span><span class='va'>n</span>,<span class='op'>]</span>
   <span class='va'>betahat_output</span><span class='op'>[</span><span class='va'>n</span>,<span class='op'>]</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>Y</span> <span class='op'>~</span> <span class='va'>X1</span>, data <span class='op'>=</span> <span class='va'>sample</span><span class='op'>)</span><span class='op'>$</span><span class='va'>coefficients</span>
@@ -2263,9 +2261,10 @@ show
 </div>
 </details>
 </div>
-<h2 id="graphing-the-results-of-all-10000-b1-hats-as-they-approach-the-true-b1-hat-value-of-1.5">Graphing the results of all 10,000 B1 hats as they approach the true B1 hat value of 1.5</h2>
+<h2 id="graph-the-results">Graph the results</h2>
 <ul>
-<li>as n increases, the OLS estimator <span class="math inline">\(\hat{\beta_1}\)</span> (blue line) approaches the true population paramater <span class="math inline">\(\beta_1\)</span> (red line) = 1.5
+<li>as n increases, the OLS estimator <span class="math inline">\(\hat{\beta_1}\)</span> (blue line) approaches the true population paramater <span class="math inline">\(\beta_1\)</span> (red line) = 1.5</li>
+</ul>
 <div class="layout-chunk" data-layout="l-body">
 <details>
 <summary>
@@ -2273,60 +2272,79 @@ show
 </summary>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>forgraph</span> , <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x<span class='op'>=</span><span class='va'>n</span>, y<span class='op'>=</span><span class='va'>beta1hat</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_path.html'>geom_line</a></span><span class='op'>(</span>size<span class='op'>=</span><span class='fl'>0.5</span>, color<span class='op'>=</span><span class='st'>"blue"</span><span class='op'>)</span> <span class='op'>+</span>
-<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_abline.html'>geom_hline</a></span><span class='op'>(</span>yintercept<span class='op'>=</span><span class='fl'>1.5</span>, size<span class='op'>=</span><span class='fl'>2</span>, color<span class='op'>=</span><span class='st'>"red"</span><span class='op'>)</span> <span class='op'>+</span>
-<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span>x<span class='op'>=</span><span class='st'>"n"</span>, y <span class='op'>=</span> <span class='st'>"Beta1hat"</span><span class='op'>)</span> <span class='op'>+</span> 
-<span class='fu'>ggthemes</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/ggthemes/man/theme_pander.html'>theme_pander</a></span><span class='op'>(</span>base_size <span class='op'>=</span> <span class='fl'>14</span><span class='op'>)</span> 
-</code></pre>
-</div></li>
-</ul>
-</details>
-<img src="ols-sim_files/figure-html5/unnamed-chunk-3-1.png" width="624" />
-<details>
-<summary>
-show
-</summary>
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='co'>#as n increases, the blue line (B1 hat) approaches the red line (true B1 = 1.5)</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_abline.html'>geom_hline</a></span><span class='op'>(</span>yintercept<span class='op'>=</span><span class='fl'>1.5</span>, size<span class='op'>=</span><span class='fl'>2</span>, color<span class='op'>=</span><span class='st'>"red"</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span>x<span class='op'>=</span><span class='st'>"n"</span>, y <span class='op'>=</span> <span class='st'>"Beta1hat"</span><span class='op'>)</span> <span class='op'>+</span> 
+  <span class='fu'>ggthemes</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/ggthemes/man/theme_pander.html'>theme_pander</a></span><span class='op'>(</span>base_size <span class='op'>=</span> <span class='fl'>14</span><span class='op'>)</span> 
 </code></pre>
 </div>
 </details>
+<p><img src="ols-sim_files/figure-html5/unnamed-chunk-3-1.png" width="624" /></p>
 </div>
-<h1 id="demonstrating-omitted-variables-bias">Demonstrating omitted variables bias</h1>
+<h1 id="demonstrate-the-lack-of-ols-consistency-due-to-omitted-variables-bias">Demonstrate the lack of OLS consistency due to omitted variables bias</h1>
 <ul>
 <li>generate <span class="math inline">\(X_2\)</span>, which is correlated with <span class="math inline">\(X_1\)</span></li>
-<li>omit <span class="math inline">\(X_2\)</span> from the model to cause omitted variable bias<br />
-
+<li>omit <span class="math inline">\(X_2\)</span> from the model to cause omitted variable bias</li>
+<li>calculate <span class="math inline">\(\hat{\beta_1}\)</span></li>
+</ul>
 <div class="layout-chunk" data-layout="l-body">
 <details>
 <summary>
 show
 </summary>
 <div class="sourceCode">
-<pre class="sourceCode r">
-<code class="sourceCode r"><span class="va">X2</span> <span class="op">=</span> <span class="va">X1</span> <span class="op">+</span><span class="fu"><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span><span class="op">(</span><span class="va">bigN</span> , mean<span class="op">=</span><span class="fl">0</span> , sd<span class="op">=</span><span class="fl">2.2</span><span class="op">)</span> <span class="co">#X2 = X1 + random number, so X2 and X1 are correlated </span></li>
-</ul>
-<p><span class="co"># Multiple population regression function</span> <span class="co">##define Y </span> <span class="va">Y</span> <span class="op">&lt;-</span> <span class="fl">5</span> <span class="op">+</span> <span class="fl">1.5</span><span class="op"><em></span><span class="va">X1</span> <span class="op">+</span> <span class="fl">10</span><span class='op'></em></span><span class="va">X2</span> <span class="op">+</span> <span class="va">u</span> <span class="va">population_data</span> <span class="op">&lt;-</span> <span class="fu"><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span><span class="op">(</span><span class="va">X1</span>, <span class="va">Y</span><span class="op">)</span></p>
-<span class="co"># OLS estimation, full sample, but ignoring X2</span> <span class="va">model1</span> <span class="op">&lt;-</span> <span class="fu"><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class="op">(</span>formula <span class="op">=</span> <span class="va">Y</span> <span class="op">~</span> <span class="va">X1</span>, data <span class="op">=</span> <span class="va">population_data</span><span class="op">)</span> <span class="fu"><a href='https://hughjonesd.github.io/huxtable/reference/huxreg.html'>huxreg</a></span><span class="op">(</span><span class="va">model1</span>, error_pos<span class="op">=</span><span class="st">“right”</span><span class="op">)</span> </code>
-</pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>X2</span> <span class='op'>=</span> <span class='va'>X1</span> <span class='op'>+</span><span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span><span class='op'>(</span><span class='va'>bigN</span> , mean<span class='op'>=</span><span class='fl'>0</span> , sd<span class='op'>=</span><span class='fl'>2.2</span><span class='op'>)</span> 
+
+<span class='va'>Y</span> <span class='op'>&lt;-</span> <span class='fl'>5</span> <span class='op'>+</span> <span class='fl'>1.5</span><span class='op'>*</span><span class='va'>X1</span> <span class='op'>+</span> <span class='fl'>10</span><span class='op'>*</span><span class='va'>X2</span> <span class='op'>+</span> <span class='va'>u</span>
+<span class='va'>population_data</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span><span class='op'>(</span><span class='va'>X1</span>, <span class='va'>Y</span><span class='op'>)</span>
+
+<span class='va'>model1</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span>formula <span class='op'>=</span> <span class='va'>Y</span> <span class='op'>~</span> <span class='va'>X1</span>, data <span class='op'>=</span> <span class='va'>population_data</span><span class='op'>)</span>
+<span class='fu'><a href='https://hughjonesd.github.io/huxtable/reference/huxreg.html'>huxreg</a></span><span class='op'>(</span><span class='va'>model1</span>, error_pos<span class='op'>=</span><span class='st'>"right"</span><span class='op'>)</span>
+</code></pre>
 </div>
 </details>
-<p>──────────────────────────────────────────────────── (1)<br />
-─────────────────────────────────── (Intercept) 4.960 *** (0.448)<br />
-X1 11.596 *** (0.077)<br />
-─────────────────────────────────── N 10000              <br />
-R2 0.692          <br />
-logLik -45267.984          <br />
-AIC 90541.968          <br />
-──────────────────────────────────────────────────── *** p &lt; 0.001; ** p &lt; 0.01; * p &lt; 0.05.</p>
+<pre><code>     ────────────────────────────────────────────────────
+                                    (1)                  
+                      ───────────────────────────────────
+       (Intercept)           4.960 ***          (0.448)  
+       X1                   11.596 ***          (0.077)  
+                      ───────────────────────────────────
+       N                 10000                           
+       R2                    0.692                       
+       logLik           -45267.984                       
+       AIC               90541.968                       
+     ────────────────────────────────────────────────────
+       *** p &lt; 0.001; ** p &lt; 0.01; * p &lt; 0.05.           </code></pre>
 Column names: names, model1, NA
 <details>
 <summary>
 show
 </summary>
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># Compute correlation between X1 and X2, and standard deviations</span>
-<span class='co'># Compute "probability limit" of Beta1_hat</span>
-<span class='fu'><a href='https://rdrr.io/r/stats/cor.html'>cor</a></span><span class='op'>(</span><span class='va'>X1</span>,<span class='va'>X2</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>betahat_output</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span><span class='op'>(</span>ncol <span class='op'>=</span> <span class='fl'>2</span>, nrow <span class='op'>=</span> <span class='va'>bigN</span><span class='op'>)</span>
+
+<span class='kw'>for</span> <span class='op'>(</span><span class='va'>n</span> <span class='kw'>in</span> <span class='fl'>1</span><span class='op'>:</span><span class='va'>bigN</span><span class='op'>)</span> <span class='op'>{</span>
+  <span class='va'>sample</span> <span class='op'>&lt;-</span> <span class='va'>population_data</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>:</span><span class='va'>n</span>,<span class='op'>]</span>
+  <span class='va'>betahat_output</span><span class='op'>[</span><span class='va'>n</span>,<span class='op'>]</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>Y</span> <span class='op'>~</span> <span class='va'>X1</span>, data <span class='op'>=</span> <span class='va'>sample</span><span class='op'>)</span><span class='op'>$</span><span class='va'>coefficients</span>
+<span class='op'>}</span> 
+
+<span class='va'>n</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span><span class='op'>(</span><span class='fl'>1</span>,<span class='va'>bigN</span><span class='op'>)</span>
+<span class='va'>beta1hat</span> <span class='op'>&lt;-</span> <span class='va'>betahat_output</span><span class='op'>[</span>,<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>2</span><span class='op'>)</span><span class='op'>]</span>
+<span class='va'>forgraph</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span><span class='op'>(</span><span class='va'>n</span> , <span class='va'>betahat_output</span><span class='op'>[</span>,<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>2</span><span class='op'>)</span><span class='op'>]</span><span class='op'>)</span>
+</code></pre>
+</div>
+</details>
+</div>
+<ul>
+<li>Compute correlation between X1 and X2, and standard deviations</li>
+<li>Compute “probability limit” of Beta1_hat</li>
+</ul>
+<div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>
+show
+</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/stats/cor.html'>cor</a></span><span class='op'>(</span><span class='va'>X1</span>,<span class='va'>X2</span><span class='op'>)</span>
 </code></pre>
 </div>
 </details>
@@ -2361,29 +2379,11 @@ show
 </div>
 </details>
 <pre><code>[1] 11.60407</code></pre>
-<details>
-<summary>
-show
-</summary>
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># OLS estimation, with sample size increasing from n=1 to 10,000</span>
-<span class='va'>betahat_output</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span><span class='op'>(</span>ncol <span class='op'>=</span> <span class='fl'>2</span>, nrow <span class='op'>=</span> <span class='va'>bigN</span><span class='op'>)</span>
-
-<span class='kw'>for</span> <span class='op'>(</span><span class='va'>n</span> <span class='kw'>in</span> <span class='fl'>1</span><span class='op'>:</span><span class='va'>bigN</span><span class='op'>)</span> <span class='op'>{</span>
-  <span class='va'>sample</span> <span class='op'>&lt;-</span> <span class='va'>population_data</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>:</span><span class='va'>n</span>,<span class='op'>]</span>
-  <span class='va'>betahat_output</span><span class='op'>[</span><span class='va'>n</span>,<span class='op'>]</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>Y</span> <span class='op'>~</span> <span class='va'>X1</span>, data <span class='op'>=</span> <span class='va'>sample</span><span class='op'>)</span><span class='op'>$</span><span class='va'>coefficients</span>
-<span class='op'>}</span> 
-
-<span class='va'>n</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span><span class='op'>(</span><span class='fl'>1</span>,<span class='va'>bigN</span><span class='op'>)</span>
-<span class='va'>beta1hat</span> <span class='op'>&lt;-</span> <span class='va'>betahat_output</span><span class='op'>[</span>,<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>2</span><span class='op'>)</span><span class='op'>]</span>
-<span class='va'>forgraph</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span><span class='op'>(</span><span class='va'>n</span> , <span class='va'>betahat_output</span><span class='op'>[</span>,<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>2</span><span class='op'>)</span><span class='op'>]</span><span class='op'>)</span>
-</code></pre>
 </div>
-</details>
-</div>
-<h2 id="graph-the-results">Graph the results</h2>
+<h2 id="graph-the-results-1">Graph the results</h2>
 <ul>
-<li>note how <span class="math inline">\(\hat{\beta_1}\)</span> hate never approaches the true <span class="math inline">\(\beta_1\)</span> value even when n becomes extremely large
+<li>because of the omitted variables bias, <span class="math inline">\(\hat{\beta_1}\)</span> hate never approaches the true <span class="math inline">\(\beta_1\)</span> value even when n becomes extremely large</li>
+</ul>
 <div class="layout-chunk" data-layout="l-body">
 <details>
 <summary>
@@ -2391,16 +2391,15 @@ show
 </summary>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>forgraph</span> , <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x<span class='op'>=</span><span class='va'>n</span>, y<span class='op'>=</span><span class='va'>beta1hat</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_path.html'>geom_line</a></span><span class='op'>(</span>size<span class='op'>=</span><span class='fl'>0.5</span>, color<span class='op'>=</span><span class='st'>"blue"</span><span class='op'>)</span> <span class='op'>+</span>
-<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_abline.html'>geom_hline</a></span><span class='op'>(</span>yintercept<span class='op'>=</span><span class='fl'>1.5</span>, size<span class='op'>=</span><span class='fl'>2</span>, color<span class='op'>=</span><span class='st'>"red"</span><span class='op'>)</span> <span class='op'>+</span>
-<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span>x<span class='op'>=</span><span class='st'>"n"</span>, y <span class='op'>=</span> <span class='st'>"Beta1hat"</span><span class='op'>)</span> <span class='op'>+</span> 
-<span class='fu'>ggthemes</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/ggthemes/man/theme_pander.html'>theme_pander</a></span><span class='op'>(</span>base_size <span class='op'>=</span> <span class='fl'>14</span><span class='op'>)</span> 
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_abline.html'>geom_hline</a></span><span class='op'>(</span>yintercept<span class='op'>=</span><span class='fl'>1.5</span>, size<span class='op'>=</span><span class='fl'>2</span>, color<span class='op'>=</span><span class='st'>"red"</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span>x<span class='op'>=</span><span class='st'>"n"</span>, y <span class='op'>=</span> <span class='st'>"Beta1hat"</span><span class='op'>)</span> <span class='op'>+</span> 
+  <span class='fu'>ggthemes</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/ggthemes/man/theme_pander.html'>theme_pander</a></span><span class='op'>(</span>base_size <span class='op'>=</span> <span class='fl'>14</span><span class='op'>)</span> 
 </code></pre>
-</div></li>
-</ul>
-</details>
-<p><img src="ols-sim_files/figure-html5/unnamed-chunk-5-1.png" width="624" /></p>
 </div>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+</details>
+<p><img src="ols-sim_files/figure-html5/unnamed-chunk-6-1.png" width="624" /></p>
+</div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
