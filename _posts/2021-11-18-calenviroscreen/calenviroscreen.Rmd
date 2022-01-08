@@ -225,6 +225,7 @@ ggplot(data = joined, aes(x = Poverty, y = PM2.5)) +
                        ("Mean PM2.5 (µg/m"^3~")"))) +
   facet_wrap(.~Year, ncol = 2) + 
   theme(legend.position = "none")
+ggsave("forsline_vis.png", width = 8, height = 5, units = "in", dpi = 300)
 ```
 
 # Conclusion

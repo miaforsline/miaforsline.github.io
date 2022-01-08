@@ -1,0 +1,130 @@
+---
+title: "Assessing consistency of OLS amidst omitted variable bias"
+description: "EDS 241: Environmental Policy Evaluation - Lab 1"
+author:
+  - name: Mia Forsline
+    url: {}
+date: 2022-01-06
+output:
+  distill::distill_article:
+    self_contained: false
+    toc: yes
+    toc_float: yes
+    code_folding: show
+---
+
+# Learning Goals
+- Use a simulation to demonstrate the consistency of Ordinary Least Squares (OLS) under its 3 assumptions: 
+  - exogeneity: X and µ are uncorrelated
+  - X and Y are independent and identically distributed 
+  - large outliers in X and/or Y are rare (X and Y have finite fourth moments)
+- Use a simulation to demonstrate what happens when assumptions are not upheld 
+  - OLS becomes an unreliable estimator of the true population parameter $\beta_1$
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE,
+                      message = FALSE, 
+                      warning = FALSE, 
+                      include = TRUE,
+                      quiet = TRUE)
+```
+
+# Load necessary packages
+```{r}
+library(ggplot2)
+library(huxtable)
+library(ggthemes)
+```
+
+# Demonstrate the consistency of OLS when the assumptions are upheld 
+- establish a large sample size of n = 10,000 
+- generate $X_1$ and µ
+- define $Y$ and the population data using a bivariate population regression function
+- use a linear regression model to estimate $\beta_0$ and $\beta_1$ with an increasing sample size
+
+```{r}
+set.seed(420) 
+
+bigN <- 10000 
+
+X1 <- runif(bigN, min = 0, max = 10)
+u <- rnorm(bigN, mean = 0, sd = 4) 
+
+
+Y <- 5 + 1.5*X1 + u 
+population_data <- data.frame(X1, Y) 
+
+model1 <- lm(formula = Y ~ X1, data = population_data)
+huxreg(model1, error_pos="right")
+
+# OLS estimation, with sample size increasing from n=1 to 10,000
+betahat_output <- matrix(ncol = 2, nrow = bigN)
+
+#loop through all sample sizes 
+for (n in 1:bigN) {
+  sample <- population_data[1:n,]
+  betahat_output[n,] <- lm(Y ~ X1, data = sample)$coefficients
+} 
+
+n <- seq(1,bigN)
+beta1hat <- betahat_output[,c(2)]
+forgraph <- data.frame(n , betahat_output[,c(2)])
+```
+
+## Graphing the results of all 10,000 B1 hats as they approach the true B1 hat value of 1.5 
+- as n increases, the OLS estimator $\hat{\beta_1}$ (blue line) approaches the true population paramater $\beta_1$ (red line) = 1.5 
+```{r}
+ggplot(forgraph , aes(x=n, y=beta1hat)) + geom_line(size=0.5, color="blue") +
+  geom_hline(yintercept=1.5, size=2, color="red") +
+  labs(x="n", y = "Beta1hat") + 
+  ggthemes::theme_pander(base_size = 14) 
+
+#as n increases, the blue line (B1 hat) approaches the red line (true B1 = 1.5)
+```
+
+# Demonstrating omitted variables bias
+- generate $X_2$, which is correlated with $X_1$
+- omit $X_2$ from the model to cause omitted variable bias  
+```{r}
+
+
+X2 = X1 +rnorm(bigN , mean=0 , sd=2.2) #X2 = X1 + random number, so X2 and X1 are correlated 
+
+# Multiple population regression function
+##define Y 
+Y <- 5 + 1.5*X1 + 10*X2 + u
+population_data <- data.frame(X1, Y)
+
+# OLS estimation, full sample, but ignoring X2
+model1 <- lm(formula = Y ~ X1, data = population_data)
+huxreg(model1, error_pos="right")
+
+# Compute correlation between X1 and X2, and standard deviations
+# Compute "probability limit" of Beta1_hat
+cor(X1,X2)
+sd(X1)
+sd(X2)
+1.5 + 10*cor(X1,X2)*sd(X2)/sd(X1)
+
+# OLS estimation, with sample size increasing from n=1 to 10,000
+betahat_output <- matrix(ncol = 2, nrow = bigN)
+
+for (n in 1:bigN) {
+  sample <- population_data[1:n,]
+  betahat_output[n,] <- lm(Y ~ X1, data = sample)$coefficients
+} 
+
+n <- seq(1,bigN)
+beta1hat <- betahat_output[,c(2)]
+forgraph <- data.frame(n , betahat_output[,c(2)])
+```
+
+## Graph the results 
+- note how $\hat{\beta_1}$ hate never approaches the true $\beta_1$ value even when n becomes extremely large 
+```{r}
+ggplot(forgraph , aes(x=n, y=beta1hat)) + geom_line(size=0.5, color="blue") +
+  geom_hline(yintercept=1.5, size=2, color="red") +
+  labs(x="n", y = "Beta1hat") + 
+  ggthemes::theme_pander(base_size = 14) 
+```
+
