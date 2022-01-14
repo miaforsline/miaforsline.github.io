@@ -1,10 +1,10 @@
 name: "miaforsline.github.io"
 title: "Mia Forsline"
 description: |
-  My Personal Website
+  Mia Forsline's Personal Website
 output_dir: "docs"
 navbar:
-  search: false
+  logo: sala.jpg
   right:
     - text: "Home"
       href: index.html
