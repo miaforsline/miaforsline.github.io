@@ -23,7 +23,7 @@ For three years at Occidental, I conducted [computational biology research](http
 I learned and executed computational methods in R and Julia such as:
 
 -   downloading remotely sensed [National Land Cover Data](https://www.mrlc.gov/national-land-cover-database-nlcd-2016) from the [Multi-Resolution Land Characteristics Consortium](https://www.mrlc.gov/) to identify urban and rural areas in Los Angeles County
--   building linear mixed-effects models using the `lme4` package
+-   building linear mixed-effects models using the `lme4` R package
 -   utilizing AIC/AICc scores and AIC weights to identify the best model among multiple candidate models
 -   building isolation-by-resistance models, based on [circuit theory](https://link.springer.com/content/pdf/10.1007%2Fs10980-017-0548-1.pdf), to calculate resistance distance and quantify landscape connectivity of habitat patches and help predict wildlife mobility
 
@@ -33,7 +33,7 @@ In addition to my biology-focused interest in urban ecology, I am passionate abo
 
 # Future
 
-To continue to pursue my environmental and computational interests, I am currently [Master of Environmental Data Science (MEDS)](https://bren.ucsb.edu/masters-programs/master-environmental-data-science/academics-meds) graduate student at the Bren School of Environmental Science and Management at UC Santa Barbara. I hope to continue working in urban environmental spaces and utilizing data analysis tools to address issues such as food sustainability.
+To continue to pursue my environmental and computational interests, I am currently a [Master of Environmental Data Science (MEDS)](https://bren.ucsb.edu/masters-programs/master-environmental-data-science/academics-meds) graduate student at the Bren School of Environmental Science and Management at UC Santa Barbara. I hope to continue working in urban environmental spaces and utilizing data analysis tools to address issues such as food sustainability.
 
 ![](brenlogo.png)
 
