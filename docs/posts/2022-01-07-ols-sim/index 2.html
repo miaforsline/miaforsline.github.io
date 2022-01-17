@@ -87,49 +87,38 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 
   <!--radix_placeholder_meta_tags-->
-<title>Mia Forsline: Spatial analysis of 2020 Houston power outages due to extreme winter storms</title>
+<title>Mia Forsline: Assessing consistency of OLS amidst omitted variable bias</title>
 
-<meta property="description" itemprop="description" content="EDS 223: Spatial Analysis - Assignment 2"/>
+<meta property="description" itemprop="description" content="EDS 241: Environmental Policy Evaluation - Lab 1"/>
 
-<link rel="canonical" href="miaforsline.github.io/"/>
 
 <!--  https://schema.org/Article -->
-<meta property="article:published" itemprop="datePublished" content="2021-10-24"/>
-<meta property="article:created" itemprop="dateCreated" content="2021-10-24"/>
+<meta property="article:published" itemprop="datePublished" content="2022-01-06"/>
+<meta property="article:created" itemprop="dateCreated" content="2022-01-06"/>
 <meta name="article:author" content="Mia Forsline"/>
 
 <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-<meta property="og:title" content="Mia Forsline: Spatial analysis of 2020 Houston power outages due to extreme winter storms"/>
+<meta property="og:title" content="Mia Forsline: Assessing consistency of OLS amidst omitted variable bias"/>
 <meta property="og:type" content="article"/>
-<meta property="og:description" content="EDS 223: Spatial Analysis - Assignment 2"/>
-<meta property="og:url" content="miaforsline.github.io/"/>
-<meta property="og:image" content="miaforsline.github.io/houston.jpg"/>
+<meta property="og:description" content="EDS 241: Environmental Policy Evaluation - Lab 1"/>
 <meta property="og:locale" content="en_US"/>
 <meta property="og:site_name" content="Mia Forsline"/>
 
 <!--  https://dev.twitter.com/cards/types/summary -->
-<meta property="twitter:card" content="summary_large_image"/>
-<meta property="twitter:title" content="Mia Forsline: Spatial analysis of 2020 Houston power outages due to extreme winter storms"/>
-<meta property="twitter:description" content="EDS 223: Spatial Analysis - Assignment 2"/>
-<meta property="twitter:url" content="miaforsline.github.io/"/>
-<meta property="twitter:image" content="miaforsline.github.io/houston.jpg"/>
+<meta property="twitter:card" content="summary"/>
+<meta property="twitter:title" content="Mia Forsline: Assessing consistency of OLS amidst omitted variable bias"/>
+<meta property="twitter:description" content="EDS 241: Environmental Policy Evaluation - Lab 1"/>
 
-<!--  https://scholar.google.com/intl/en/scholar/inclusion.html#indexing -->
-<meta name="citation_title" content="Mia Forsline: Spatial analysis of 2020 Houston power outages due to extreme winter storms"/>
-<meta name="citation_fulltext_html_url" content="miaforsline.github.io/"/>
-<meta name="citation_online_date" content="2021/10/24"/>
-<meta name="citation_publication_date" content="2021/10/24"/>
-<meta name="citation_author" content="Mia Forsline"/>
 <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
 <script type="text/json" id="radix-rmarkdown-metadata">
-{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output","base_url","slug","preview","categories","citation_url","canonical_url"]}},"value":[{"type":"character","attributes":{},"value":["Spatial analysis of 2020 Houston power outages due to extreme winter storms"]},{"type":"character","attributes":{},"value":["EDS 223: Spatial Analysis - Assignment 2"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Mia Forsline"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":[]}},"value":[]}]}]},{"type":"character","attributes":{},"value":["2021-10-24"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained","toc","toc_float","code_folding"]}},"value":[{"type":"logical","attributes":{},"value":[false]},{"type":"logical","attributes":{},"value":[true]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["show"]}]}]},{"type":"character","attributes":{},"value":["miaforsline.github.io"]},{"type":"character","attributes":{},"value":["forsline_houston"]},{"type":"character","attributes":{},"value":["houston.jpg"]},{"type":"character","attributes":{},"value":["R","Spatial Analysis"]},{"type":"character","attributes":{},"value":["miaforsline.github.io/"]},{"type":"character","attributes":{},"value":["miaforsline.github.io/"]}]}
+{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output","categories"]}},"value":[{"type":"character","attributes":{},"value":["Assessing consistency of OLS amidst omitted variable bias"]},{"type":"character","attributes":{},"value":["EDS 241: Environmental Policy Evaluation - Lab 1"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Mia Forsline"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":[]}},"value":[]}]}]},{"type":"character","attributes":{},"value":["2022-01-06"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained","toc","toc_float","code_folding"]}},"value":[{"type":"logical","attributes":{},"value":[false]},{"type":"logical","attributes":{},"value":[true]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["show"]}]}]},{"type":"character","attributes":{},"value":["R","Statistics"]}]}
 </script>
 <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a00000001.gdbindexes","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a00000001.gdbtable","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a00000001.gdbtablx","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a00000001.TablesByName.atx","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a00000002.gdbtable","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a00000002.gdbtablx","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a00000003.gdbindexes","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a00000003.gdbtable","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a00000003.gdbtablx","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a00000004.CatItemsByPhysicalName.atx","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a00000004.CatItemsByType.atx","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a00000004.FDO_UUID.atx","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a00000004.freelist","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a00000004.gdbindexes","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a00000004.gdbtable","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a00000004.gdbtablx","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a00000004.spx","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a00000005.CatItemTypesByName.atx","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a00000005.CatItemTypesByParentTypeID.atx","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a00000005.CatItemTypesByUUID.atx","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a00000005.gdbindexes","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a00000005.gdbtable","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a00000005.gdbtablx","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a00000006.CatRelsByDestinationID.atx","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a00000006.CatRelsByOriginID.atx","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a00000006.CatRelsByType.atx","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a00000006.FDO_UUID.atx","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a00000006.gdbindexes","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a00000006.gdbtable","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a00000006.gdbtablx","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a00000007.CatRelTypesByBackwardLabel.atx","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a00000007.CatRelTypesByDestItemTypeID.atx","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a00000007.CatRelTypesByForwardLabel.atx","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a00000007.CatRelTypesByName.atx","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a00000007.CatRelTypesByOriginItemTypeID.atx","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a00000007.CatRelTypesByUUID.atx","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a00000007.gdbindexes","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a00000007.gdbtable","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a00000007.gdbtablx","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a00000009.gdbindexes","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a00000009.gdbtable","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a00000009.gdbtablx","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a0000000a.gdbindexes","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a0000000a.gdbtable","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a0000000a.gdbtablx","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a0000000b.gdbindexes","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a0000000b.gdbtable","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a0000000b.gdbtablx","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a0000000c.gdbindexes","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a0000000c.gdbtable","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a0000000c.gdbtablx","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a0000000d.gdbindexes","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a0000000d.gdbtable","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a0000000d.gdbtablx","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a0000000e.gdbindexes","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a0000000e.gdbtable","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a0000000e.gdbtablx","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a0000000f.gdbindexes","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a0000000f.gdbtable","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a0000000f.gdbtablx","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a00000010.gdbindexes","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a00000010.gdbtable","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a00000010.gdbtablx","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a00000011.gdbindexes","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a00000011.gdbtable","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a00000011.gdbtablx","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a00000012.gdbindexes","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a00000012.gdbtable","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a00000012.gdbtablx","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a00000013.gdbindexes","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a00000013.gdbtable","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a00000013.gdbtablx","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a00000014.gdbindexes","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a00000014.gdbtable","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a00000014.gdbtablx","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a00000015.gdbindexes","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a00000015.gdbtable","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a00000015.gdbtablx","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a00000016.gdbindexes","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a00000016.gdbtable","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a00000016.gdbtablx","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a00000017.gdbindexes","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a00000017.gdbtable","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a00000017.gdbtablx","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a00000018.gdbindexes","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a00000018.gdbtable","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a00000018.gdbtablx","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a00000019.gdbindexes","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a00000019.gdbtable","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a00000019.gdbtablx","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a0000001a.gdbindexes","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a0000001a.gdbtable","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a0000001a.gdbtablx","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a0000001b.gdbindexes","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a0000001b.gdbtable","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a0000001b.gdbtablx","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a0000001c.gdbindexes","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a0000001c.gdbtable","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a0000001c.gdbtablx","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a0000001d.gdbindexes","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a0000001d.gdbtable","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a0000001d.gdbtablx","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a0000001e.gdbindexes","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a0000001e.gdbtable","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a0000001e.gdbtablx","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a0000001f.gdbindexes","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a0000001f.gdbtable","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a0000001f.gdbtablx","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a00000020.gdbindexes","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a00000020.gdbtable","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a00000020.gdbtablx","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a00000021.gdbindexes","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a00000021.gdbtable","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a00000021.gdbtablx","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a00000022.gdbindexes","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a00000022.gdbtable","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a00000022.gdbtablx","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a00000023.gdbindexes","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a00000023.gdbtable","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a00000023.gdbtablx","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a00000024.gdbindexes","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a00000024.gdbtable","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a00000024.gdbtablx","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a00000025.gdbindexes","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a00000025.gdbtable","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a00000025.gdbtablx","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a00000026.gdbindexes","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a00000026.gdbtable","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a00000026.gdbtablx","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a00000027.gdbindexes","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a00000027.gdbtable","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a00000027.gdbtablx","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a00000028.freelist","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a00000028.gdbindexes","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a00000028.gdbtable","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a00000028.gdbtablx","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/a00000028.spx","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/gdb","data/ACS_2019_5YR_TRACT_48_TEXAS.gdb/timestamps","data/gis_osm_buildings_a_free_1.gpkg","data/gis_osm_roads_free_1.gpkg","data/VNP46A1.A2021038.h08v05.001.2021039064328.h5","data/VNP46A1.A2021038.h08v06.001.2021039064329.h5","data/VNP46A1.A2021047.h08v05.001.2021048091106.h5","data/VNP46A1.A2021047.h08v06.001.2021048091105.h5","eds22houston_files/anchor-4.2.2/anchor.min.js","eds22houston_files/bowser-1.9.3/bowser.min.js","eds22houston_files/distill-2.2.21/template.v2.js","eds22houston_files/figure-html5/after-1.png","eds22houston_files/figure-html5/before-1 2.png","eds22houston_files/figure-html5/before-1.png","eds22houston_files/figure-html5/blackout-1.png","eds22houston_files/figure-html5/unnamed-chunk-13-1.png","eds22houston_files/figure-html5/unnamed-chunk-4-1.png","eds22houston_files/figure-html5/unnamed-chunk-4-2.png","eds22houston_files/header-attrs-2.11/header-attrs.js","eds22houston_files/jquery-3.6.0/jquery-3.6.0.js","eds22houston_files/jquery-3.6.0/jquery-3.6.0.min.js","eds22houston_files/jquery-3.6.0/jquery-3.6.0.min.map","eds22houston_files/popper-2.6.0/popper.min.js","eds22houston_files/tippy-6.2.7/tippy-bundle.umd.min.js","eds22houston_files/tippy-6.2.7/tippy-light-border.css","eds22houston_files/tippy-6.2.7/tippy.css","eds22houston_files/tippy-6.2.7/tippy.umd.min.js","eds22houston_files/webcomponents-2.0.0/webcomponents.js","houston.jpg","rosm.cache/osm/9_118_210.png","rosm.cache/osm/9_118_211.png","rosm.cache/osm/9_118_212.png","rosm.cache/osm/9_119_210.png","rosm.cache/osm/9_119_211.png","rosm.cache/osm/9_119_212.png","rosm.cache/osm/9_120_210.png","rosm.cache/osm/9_120_211.png","rosm.cache/osm/9_120_212.png","rosm.cache/osm/9_121_210.png","rosm.cache/osm/9_121_211.png","rosm.cache/osm/9_121_212.png"]}
+  {"type":"character","attributes":{},"value":["ols-sim_files/anchor-4.2.2/anchor.min 2.js","ols-sim_files/anchor-4.2.2/anchor.min.js","ols-sim_files/bowser-1.9.3/bowser.min 2.js","ols-sim_files/bowser-1.9.3/bowser.min.js","ols-sim_files/distill-2.2.21/template.v2 2.js","ols-sim_files/distill-2.2.21/template.v2.js","ols-sim_files/figure-html5/unnamed-chunk-3-1.png","ols-sim_files/figure-html5/unnamed-chunk-4-1.png","ols-sim_files/figure-html5/unnamed-chunk-5-1.png","ols-sim_files/figure-html5/unnamed-chunk-6-1.png","ols-sim_files/header-attrs-2.11/header-attrs 2.js","ols-sim_files/header-attrs-2.11/header-attrs.js","ols-sim_files/jquery-3.6.0/jquery-3.6.0 2.js","ols-sim_files/jquery-3.6.0/jquery-3.6.0.js","ols-sim_files/jquery-3.6.0/jquery-3.6.0.min 2.js","ols-sim_files/jquery-3.6.0/jquery-3.6.0.min 2.map","ols-sim_files/jquery-3.6.0/jquery-3.6.0.min.js","ols-sim_files/jquery-3.6.0/jquery-3.6.0.min.map","ols-sim_files/popper-2.6.0/popper.min 2.js","ols-sim_files/popper-2.6.0/popper.min.js","ols-sim_files/tippy-6.2.7/tippy 2.css","ols-sim_files/tippy-6.2.7/tippy-bundle.umd.min 2.js","ols-sim_files/tippy-6.2.7/tippy-bundle.umd.min.js","ols-sim_files/tippy-6.2.7/tippy-light-border 2.css","ols-sim_files/tippy-6.2.7/tippy-light-border.css","ols-sim_files/tippy-6.2.7/tippy.css","ols-sim_files/tippy-6.2.7/tippy.umd.min 2.js","ols-sim_files/tippy-6.2.7/tippy.umd.min.js","ols-sim_files/webcomponents-2.0.0/webcomponents 2.js","ols-sim_files/webcomponents-2.0.0/webcomponents.js"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
 <meta name="distill:offset" content="../.."/>
@@ -2402,7 +2391,7 @@ d-appendix d-footnote-list a.footnote-backlink {
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Spatial analysis of 2020 Houston power outages due to extreme winter storms","description":"EDS 223: Spatial Analysis - Assignment 2","authors":[{"author":"Mia Forsline","authorURL":{},"affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2021-10-24T00:00:00.000-07:00","citationText":"Forsline, 2021"}
+{"title":"Assessing consistency of OLS amidst omitted variable bias","description":"EDS 241: Environmental Policy Evaluation - Lab 1","authors":[{"author":"Mia Forsline","authorURL":{},"affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2022-01-06T00:00:00.000-08:00","citationText":"Forsline, 2022"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2427,20 +2416,20 @@ d-appendix d-footnote-list a.footnote-backlink {
 <!--/radix_placeholder_site_before_body-->
 
 <div class="d-title">
-<h1>Spatial analysis of 2020 Houston power outages due to extreme winter storms</h1>
+<h1>Assessing consistency of OLS amidst omitted variable bias</h1>
 <!--radix_placeholder_categories-->
 <div class="dt-tags">
   <a href="../../blog.html#category:R" class="dt-tag">R</a>
-  <a href="../../blog.html#category:Spatial_Analysis" class="dt-tag">Spatial Analysis</a>
+  <a href="../../blog.html#category:Statistics" class="dt-tag">Statistics</a>
 </div>
 <!--/radix_placeholder_categories-->
-<p><p>EDS 223: Spatial Analysis - Assignment 2</p></p>
+<p>EDS 241: Environmental Policy Evaluation - Lab 1</p>
 </div>
 
 <div class="d-byline">
   Mia Forsline true 
   
-<br/>2021-10-24
+<br/>2022-01-06
 </div>
 
 <div class="d-article">
@@ -2448,48 +2437,32 @@ d-appendix d-footnote-list a.footnote-backlink {
 <nav class="l-text toc figcaption" id="TOC">
 <h3>Contents</h3>
 <ul>
-<li><a href="#learning-objectives">Learning objectives</a></li>
-<li><a href="#introduction">Introduction</a></li>
+<li><a href="#learning-goals">Learning Goals</a></li>
 <li><a href="#load-necessary-packages">Load necessary packages</a></li>
-<li><a href="#load-and-explore-data">Load and explore data</a>
+<li><a href="#demonstrate-the-consistency-of-ols-when-the-assumptions-are-upheld">Demonstrate the consistency of OLS when the assumptions are upheld</a>
 <ul>
-<li><a href="#define-a-function-to-load-the-dnb-dataset-from-vnp46a1-granules">Define a function to load the DNB dataset from VNP46A1 granules</a></li>
-<li><a href="#invoke-the-function-to-read-in-all-4-datasets">Invoke the function to read in all 4 datasets</a></li>
-<li><a href="#combine-the-data-into-2-datasets">Combine the data into 2 datasets</a></li>
-<li><a href="#create-exploratory-plots-for-night-lights-intensity-before-and-after-the-storm">Create exploratory plots for night lights intensity before and after the storm</a></li>
+<li><a href="#graph-the-results">Graph the results</a></li>
 </ul></li>
-<li><a href="#create-a-blackout-mask">Create a blackout mask</a>
+<li><a href="#demonstrate-the-lack-of-ols-consistency-due-to-omitted-variables-bias">Demonstrate the lack of OLS consistency due to omitted variables bias</a>
 <ul>
-<li><a href="#vectorize-the-mask-and-fix-invalid-geometries">Vectorize the mask and fix invalid geometries</a></li>
-<li><a href="#crop-the-vectorized-map-to-our-roi">Crop the vectorized map to our ROI</a></li>
+<li><a href="#graph-the-results-1">Graph the results</a></li>
 </ul></li>
-<li><a href="#read-in-roads-data">Read in roads Data</a></li>
-<li><a href="#read-in-buildings-data">Read in buildings data</a></li>
-<li><a href="#read-in-census-tract-data">Read in census tract data</a></li>
-<li><a href="#merge-the-datasets">Merge the datasets</a></li>
-<li><a href="#question-1-how-many-residential-buildings-were-without-power-on-2021-02-16">Question 1: How many residential buildings were without power on 2021-02-16?</a>
-<ul>
-<li><a href="#visualize-buildings-where-the-blackout-occurred">Visualize buildings where the blackout occurred</a></li>
-</ul></li>
-<li><a href="#conclusion">Conclusion</a></li>
-<li><a href="#github">GitHub</a></li>
 </ul>
 </nav>
 </div>
-<h1 id="learning-objectives">Learning objectives</h1>
+<h1 id="learning-goals">Learning Goals</h1>
 <ul>
-<li>Load vector data</li>
-<li>Load raster data</li>
-<li>Simple raster operations</li>
-<li>Simple geoprocessing / vector operations</li>
-<li>Spatial joins</li>
-<li>Integrating SQL into an RMD</li>
+<li>Use a simulation to demonstrate the consistency of Ordinary Least Squares (OLS) under its 3 assumptions:
+<ul>
+<li>exogeneity: X and µ are uncorrelated</li>
+<li>X and Y are independent and identically distributed</li>
+<li>large outliers in X and/or Y are rare (X and Y have finite fourth moments)</li>
+</ul></li>
+<li>Use a simulation to demonstrate what happens when assumptions are not upheld
+<ul>
+<li>OLS becomes an unreliable estimator of the true population parameter <span class="math inline">\(\beta_1\)</span></li>
+</ul></li>
 </ul>
-<h1 id="introduction">Introduction</h1>
-<p>During February 2021, Texas experienced three extreme winter storms on February 10-11, February 13-17, and Februrary 15-20 that caused power outages in Houston’s residential areas. We are interested in quantifying the severity of those power outages by calculating the number of Houston homes that lost power due to the first two storms.</p>
-<p>To do so, we are used NASA’s <a href="https://ladsweb.modaps.eosdis.nasa.gov/missions-and-measurements/products/VNP46A1/">VNP46A1</a> data product from the <a href="https://ladsweb.modaps.eosdis.nasa.gov/missions-and-measurements/products/VNP46A1/">Visible Infrared Imaging Radiometer Suite (VIIRS)</a> to examine night lights image data from February 7-16. We used four VIIRS data tiles to study the Houston area.</p>
-<p>We also incorporated <a href="https://www.openstreetmap.org/#map=4/38.01/-95.84">OpenStreetMap</a> roads and building data to account for light emitted from traffic and buildings.</p>
-<p>We defined an area as having experienced a blackout if we calculate a difference in night lights intensity greater than 200 nW cm<sup>-2</sup> sr<sup>-1</sup>.</p>
 <h1 id="load-necessary-packages">Load necessary packages</h1>
 <div class="layout-chunk" data-layout="l-body">
 <details>
@@ -2497,83 +2470,19 @@ d-appendix d-footnote-list a.footnote-backlink {
 show
 </summary>
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://r-spatial.github.io/sf/'>sf</a></span><span class='op'>)</span>
-<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='http://stringr.tidyverse.org'>stringr</a></span><span class='op'>)</span>
-<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://r-spatial.github.io/stars/'>stars</a></span><span class='op'>)</span>
-<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='http://rgdal.r-forge.r-project.org'>rgdal</a></span><span class='op'>)</span>
-<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://dplyr.tidyverse.org'>dplyr</a></span><span class='op'>)</span>
-<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/mtennekes/tmap'>tmap</a></span><span class='op'>)</span>
-<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/jimhester/lintr'>lintr</a></span><span class='op'>)</span>
-<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/paleolimbot/rosm'>rosm</a></span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://ggplot2.tidyverse.org'>ggplot2</a></span><span class='op'>)</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://hughjonesd.github.io/huxtable/'>huxtable</a></span><span class='op'>)</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/jrnold/ggthemes'>ggthemes</a></span><span class='op'>)</span>
 </code></pre>
 </div>
 </details>
 </div>
-<h1 id="load-and-explore-data">Load and explore data</h1>
-<h2 id="define-a-function-to-load-the-dnb-dataset-from-vnp46a1-granules">Define a function to load the DNB dataset from VNP46A1 granules</h2>
-<div class="layout-chunk" data-layout="l-body">
-<details>
-<summary>
-show
-</summary>
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>read_dnb</span> <span class='op'>&lt;-</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>file_name</span><span class='op'>)</span> <span class='op'>{</span>
-
-  <span class='va'>dataset_name</span> <span class='op'>&lt;-</span> <span class='st'>"//HDFEOS/GRIDS/VNP_Grid_DNB/Data_Fields/DNB_At_Sensor_Radiance_500m"</span>
-
-  <span class='va'>h_string</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://r-spatial.github.io/sf/reference/gdal.html'>gdal_metadata</a></span><span class='op'>(</span><span class='va'>file_name</span><span class='op'>)</span><span class='op'>[</span><span class='fl'>199</span><span class='op'>]</span>
-  <span class='va'>v_string</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://r-spatial.github.io/sf/reference/gdal.html'>gdal_metadata</a></span><span class='op'>(</span><span class='va'>file_name</span><span class='op'>)</span><span class='op'>[</span><span class='fl'>219</span><span class='op'>]</span>
-
-  <span class='va'>tile_h</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/integer.html'>as.integer</a></span><span class='op'>(</span><span class='fu'><a href='https://stringr.tidyverse.org/reference/str_split.html'>str_split</a></span><span class='op'>(</span><span class='va'>h_string</span>, <span class='st'>"="</span>, simplify <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span><span class='op'>[[</span><span class='fl'>2</span><span class='op'>]</span><span class='op'>]</span><span class='op'>)</span>
-  <span class='va'>tile_v</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/integer.html'>as.integer</a></span><span class='op'>(</span><span class='fu'><a href='https://stringr.tidyverse.org/reference/str_split.html'>str_split</a></span><span class='op'>(</span><span class='va'>v_string</span>, <span class='st'>"="</span>, simplify <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span><span class='op'>[[</span><span class='fl'>2</span><span class='op'>]</span><span class='op'>]</span><span class='op'>)</span>
-
-  <span class='va'>west</span> <span class='op'>&lt;-</span> <span class='op'>(</span><span class='fl'>10</span> <span class='op'>*</span> <span class='va'>tile_h</span><span class='op'>)</span> <span class='op'>-</span> <span class='fl'>180</span>
-  <span class='va'>north</span> <span class='op'>&lt;-</span> <span class='fl'>90</span> <span class='op'>-</span> <span class='op'>(</span><span class='fl'>10</span> <span class='op'>*</span> <span class='va'>tile_v</span><span class='op'>)</span>
-  <span class='va'>east</span> <span class='op'>&lt;-</span> <span class='va'>west</span> <span class='op'>+</span> <span class='fl'>10</span>
-  <span class='va'>south</span> <span class='op'>&lt;-</span> <span class='va'>north</span> <span class='op'>-</span> <span class='fl'>10</span>
-
-  <span class='va'>delta</span> <span class='op'>&lt;-</span> <span class='fl'>10</span> <span class='op'>/</span> <span class='fl'>2400</span>
-
-  <span class='va'>dnb</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://r-spatial.github.io/stars/reference/read_stars.html'>read_stars</a></span><span class='op'>(</span><span class='va'>file_name</span>, sub <span class='op'>=</span> <span class='va'>dataset_name</span>, quiet <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
-
-  <span class='fu'><a href='https://r-spatial.github.io/sf/reference/st_crs.html'>st_crs</a></span><span class='op'>(</span><span class='va'>dnb</span><span class='op'>)</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://r-spatial.github.io/sf/reference/st_crs.html'>st_crs</a></span><span class='op'>(</span><span class='fl'>4326</span><span class='op'>)</span>
-  <span class='fu'><a href='https://r-spatial.github.io/stars/reference/st_dimensions.html'>st_dimensions</a></span><span class='op'>(</span><span class='va'>dnb</span><span class='op'>)</span><span class='op'>$</span><span class='va'>x</span><span class='op'>$</span><span class='va'>delta</span> <span class='op'>&lt;-</span> <span class='va'>delta</span>
-  <span class='fu'><a href='https://r-spatial.github.io/stars/reference/st_dimensions.html'>st_dimensions</a></span><span class='op'>(</span><span class='va'>dnb</span><span class='op'>)</span><span class='op'>$</span><span class='va'>x</span><span class='op'>$</span><span class='va'>offset</span> <span class='op'>&lt;-</span> <span class='va'>west</span>
-  <span class='fu'><a href='https://r-spatial.github.io/stars/reference/st_dimensions.html'>st_dimensions</a></span><span class='op'>(</span><span class='va'>dnb</span><span class='op'>)</span><span class='op'>$</span><span class='va'>y</span><span class='op'>$</span><span class='va'>delta</span> <span class='op'>&lt;-</span> <span class='op'>-</span><span class='va'>delta</span>
-  <span class='fu'><a href='https://r-spatial.github.io/stars/reference/st_dimensions.html'>st_dimensions</a></span><span class='op'>(</span><span class='va'>dnb</span><span class='op'>)</span><span class='op'>$</span><span class='va'>y</span><span class='op'>$</span><span class='va'>offset</span> <span class='op'>&lt;-</span> <span class='va'>north</span>
-
-  <span class='kw'><a href='https://rdrr.io/r/base/function.html'>return</a></span><span class='op'>(</span><span class='va'>dnb</span><span class='op'>)</span>
-<span class='op'>}</span>
-</code></pre>
-</div>
-</details>
-</div>
-<h2 id="invoke-the-function-to-read-in-all-4-datasets">Invoke the function to read in all 4 datasets</h2>
-<div class="layout-chunk" data-layout="l-body">
-<details>
-<summary>
-show
-</summary>
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>file_name</span> <span class='op'>&lt;-</span> <span class='st'>"data/VNP46A1.A2021038.h08v05.001.2021039064328.h5"</span>
-<span class='va'>dnb_38_v05</span> <span class='op'>&lt;-</span> <span class='fu'>read_dnb</span><span class='op'>(</span>file_name <span class='op'>=</span> <span class='va'>file_name</span><span class='op'>)</span>
-
-<span class='va'>file_name</span> <span class='op'>&lt;-</span> <span class='st'>"data/VNP46A1.A2021038.h08v06.001.2021039064329.h5"</span>
-<span class='va'>dnb_38_v06</span> <span class='op'>&lt;-</span> <span class='fu'>read_dnb</span><span class='op'>(</span>file_name <span class='op'>=</span> <span class='va'>file_name</span><span class='op'>)</span>
-
-<span class='va'>file_name</span> <span class='op'>&lt;-</span> <span class='st'>"data/VNP46A1.A2021047.h08v05.001.2021048091106.h5"</span>
-<span class='va'>dnb_47_v05</span> <span class='op'>&lt;-</span> <span class='fu'>read_dnb</span><span class='op'>(</span>file_name <span class='op'>=</span> <span class='va'>file_name</span><span class='op'>)</span>
-
-<span class='va'>file_name</span> <span class='op'>&lt;-</span> <span class='st'>"data/VNP46A1.A2021047.h08v06.001.2021048091105.h5"</span>
-<span class='va'>dnb_47_v06</span> <span class='op'>&lt;-</span> <span class='fu'>read_dnb</span><span class='op'>(</span>file_name <span class='op'>=</span> <span class='va'>file_name</span><span class='op'>)</span>
-</code></pre>
-</div>
-</details>
-</div>
-<h2 id="combine-the-data-into-2-datasets">Combine the data into 2 datasets</h2>
+<h1 id="demonstrate-the-consistency-of-ols-when-the-assumptions-are-upheld">Demonstrate the consistency of OLS when the assumptions are upheld</h1>
 <ul>
-<li><code>dnb_38</code> is data from before the storm</li>
-<li><code>dnb_47</code> is data from after the storm</li>
+<li>establish a large sample size of n = 10,000</li>
+<li>generate <span class="math inline">\(X_1\)</span> and µ</li>
+<li>define <span class="math inline">\(Y\)</span> and the population data using a bivariate population regression function</li>
+<li>use a linear regression model to estimate <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span> with an increasing sample size</li>
 </ul>
 <div class="layout-chunk" data-layout="l-body">
 <details>
@@ -2581,65 +2490,57 @@ show
 show
 </summary>
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>x1</span> <span class='op'>&lt;-</span> <span class='va'>dnb_38_v05</span>
-<span class='va'>x2</span> <span class='op'>&lt;-</span> <span class='va'>dnb_38_v06</span>
-<span class='va'>dnb_38</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://r-spatial.github.io/stars/reference/st_mosaic.html'>st_mosaic</a></span><span class='op'>(</span><span class='va'>x1</span>, <span class='va'>x2</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span><span class='op'>(</span><span class='fl'>420</span><span class='op'>)</span> 
 
-<span class='va'>x3</span> <span class='op'>&lt;-</span> <span class='va'>dnb_47_v05</span>
-<span class='va'>x4</span> <span class='op'>&lt;-</span> <span class='va'>dnb_47_v06</span>
-<span class='va'>dnb_47</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://r-spatial.github.io/stars/reference/st_mosaic.html'>st_mosaic</a></span><span class='op'>(</span><span class='va'>x3</span>, <span class='va'>x4</span><span class='op'>)</span>
+<span class='va'>bigN</span> <span class='op'>&lt;-</span> <span class='fl'>10000</span> 
+
+<span class='va'>X1</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/Uniform.html'>runif</a></span><span class='op'>(</span><span class='va'>bigN</span>, min <span class='op'>=</span> <span class='fl'>0</span>, max <span class='op'>=</span> <span class='fl'>10</span><span class='op'>)</span>
+<span class='va'>u</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span><span class='op'>(</span><span class='va'>bigN</span>, mean <span class='op'>=</span> <span class='fl'>0</span>, sd <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span> 
+
+
+<span class='va'>Y</span> <span class='op'>&lt;-</span> <span class='fl'>5</span> <span class='op'>+</span> <span class='fl'>1.5</span><span class='op'>*</span><span class='va'>X1</span> <span class='op'>+</span> <span class='va'>u</span> 
+<span class='va'>population_data</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span><span class='op'>(</span><span class='va'>X1</span>, <span class='va'>Y</span><span class='op'>)</span> 
+
+<span class='va'>model1</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span>formula <span class='op'>=</span> <span class='va'>Y</span> <span class='op'>~</span> <span class='va'>X1</span>, data <span class='op'>=</span> <span class='va'>population_data</span><span class='op'>)</span>
+<span class='fu'><a href='https://hughjonesd.github.io/huxtable/reference/huxreg.html'>huxreg</a></span><span class='op'>(</span><span class='va'>model1</span>, error_pos<span class='op'>=</span><span class='st'>"right"</span><span class='op'>)</span>
 </code></pre>
 </div>
 </details>
-</div>
-<h2 id="create-exploratory-plots-for-night-lights-intensity-before-and-after-the-storm">Create exploratory plots for night lights intensity before and after the storm</h2>
-<p>Note: This is a crude data analysis of the “DNB_At_Sensor_Radiance_500m” dataset, which contains values as seen from space. There is no correction for stray light, moonshine, cloud presence, or any other confounding variables As a result, it is possible we have surprising outliers and regions that systemically actually appear to be brighter from space after the storm.</p>
-<div class="layout-chunk" data-layout="l-body">
+<pre><code>     ────────────────────────────────────────────────────
+                                    (1)                  
+                      ───────────────────────────────────
+       (Intercept)           5.065 ***          (0.079)  
+       X1                    1.492 ***          (0.014)  
+                      ───────────────────────────────────
+       N                 10000                           
+       R2                    0.547                       
+       logLik           -27873.395                       
+       AIC               55752.791                       
+     ────────────────────────────────────────────────────
+       *** p &lt; 0.001; ** p &lt; 0.01; * p &lt; 0.05.           </code></pre>
+Column names: names, model1, NA
 <details>
 <summary>
 show
 </summary>
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://r-spatial.github.io/sf/reference/plot.html'>plot</a></span><span class='op'>(</span><span class='va'>dnb_38</span>,
-     ylim <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>29</span>, <span class='fl'>30.5</span><span class='op'>)</span>,
-     xlim <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='op'>-</span><span class='fl'>94.5</span>, <span class='op'>-</span><span class='fl'>96.5</span><span class='op'>)</span>,
-     breaks <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='fl'>2000</span>, length.out <span class='op'>=</span> <span class='fl'>1000</span><span class='op'>)</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>betahat_output</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span><span class='op'>(</span>ncol <span class='op'>=</span> <span class='fl'>2</span>, nrow <span class='op'>=</span> <span class='va'>bigN</span><span class='op'>)</span>
+
+<span class='kw'>for</span> <span class='op'>(</span><span class='va'>n</span> <span class='kw'>in</span> <span class='fl'>1</span><span class='op'>:</span><span class='va'>bigN</span><span class='op'>)</span> <span class='op'>{</span>
+  <span class='va'>sample</span> <span class='op'>&lt;-</span> <span class='va'>population_data</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>:</span><span class='va'>n</span>,<span class='op'>]</span>
+  <span class='va'>betahat_output</span><span class='op'>[</span><span class='va'>n</span>,<span class='op'>]</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>Y</span> <span class='op'>~</span> <span class='va'>X1</span>, data <span class='op'>=</span> <span class='va'>sample</span><span class='op'>)</span><span class='op'>$</span><span class='va'>coefficients</span>
+<span class='op'>}</span> 
+
+<span class='va'>n</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span><span class='op'>(</span><span class='fl'>1</span>,<span class='va'>bigN</span><span class='op'>)</span>
+<span class='va'>beta1hat</span> <span class='op'>&lt;-</span> <span class='va'>betahat_output</span><span class='op'>[</span>,<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>2</span><span class='op'>)</span><span class='op'>]</span>
+<span class='va'>forgraph</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span><span class='op'>(</span><span class='va'>n</span> , <span class='va'>betahat_output</span><span class='op'>[</span>,<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>2</span><span class='op'>)</span><span class='op'>]</span><span class='op'>)</span>
 </code></pre>
 </div>
 </details>
-<pre><code>downsample set to c(9,9)</code></pre>
-<div class="figure"><span style="display:block;" id="fig:before"></span>
-<img src="eds22houston_files/figure-html5/before-1.png" alt="Night lights intensity in Houston, TX before the storm." width="624" />
-<p class="caption">
-Figure 1: Night lights intensity in Houston, TX before the storm.
-</p>
 </div>
-</div>
-<div class="layout-chunk" data-layout="l-body">
-<details>
-<summary>
-show
-</summary>
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://r-spatial.github.io/sf/reference/plot.html'>plot</a></span><span class='op'>(</span><span class='va'>dnb_47</span>,
-     ylim <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>29</span>, <span class='fl'>30.5</span><span class='op'>)</span>,
-     xlim <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='op'>-</span><span class='fl'>94.5</span>, <span class='op'>-</span><span class='fl'>96.5</span><span class='op'>)</span>,
-     breaks <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='fl'>2000</span>, length.out <span class='op'>=</span> <span class='fl'>1000</span><span class='op'>)</span><span class='op'>)</span>
-</code></pre>
-</div>
-</details>
-<pre><code>downsample set to c(9,9)</code></pre>
-<div class="figure"><span style="display:block;" id="fig:after"></span>
-<img src="eds22houston_files/figure-html5/after-1.png" alt="Night lights intensity in Houston, TX after the storm." width="624" />
-<p class="caption">
-Figure 2: Night lights intensity in Houston, TX after the storm.
-</p>
-</div>
-</div>
-<h1 id="create-a-blackout-mask">Create a blackout mask</h1>
+<h2 id="graph-the-results">Graph the results</h2>
 <ul>
-<li>To find the difference, we subtract night lights intensity after the storm (which is less bright) from night lights intensity before the storm (which is brighter)</li>
-<li>Next, we mark all observations that did not experience a blackout as NA</li>
+<li>as n increases, the OLS estimator <span class="math inline">\(\hat{\beta_1}\)</span> (blue line) approaches the true population paramater <span class="math inline">\(\beta_1\)</span> (red line) = 1.5</li>
 </ul>
 <div class="layout-chunk" data-layout="l-body">
 <details>
@@ -2647,32 +2548,20 @@ Figure 2: Night lights intensity in Houston, TX after the storm.
 show
 </summary>
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>difference</span> <span class='op'>&lt;-</span> <span class='op'>(</span><span class='va'>dnb_38</span> <span class='op'>-</span> <span class='va'>dnb_47</span><span class='op'>)</span> <span class='op'>&gt;</span> <span class='fl'>200</span>
-<span class='va'>difference</span><span class='op'>[</span><span class='va'>difference</span> <span class='op'>==</span> <span class='cn'>FALSE</span><span class='op'>]</span> <span class='op'>&lt;-</span> <span class='cn'>NA</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>forgraph</span> , <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x<span class='op'>=</span><span class='va'>n</span>, y<span class='op'>=</span><span class='va'>beta1hat</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_path.html'>geom_line</a></span><span class='op'>(</span>size<span class='op'>=</span><span class='fl'>0.5</span>, color<span class='op'>=</span><span class='st'>"blue"</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_abline.html'>geom_hline</a></span><span class='op'>(</span>yintercept<span class='op'>=</span><span class='fl'>1.5</span>, size<span class='op'>=</span><span class='fl'>2</span>, color<span class='op'>=</span><span class='st'>"red"</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span>x<span class='op'>=</span><span class='st'>"n"</span>, y <span class='op'>=</span> <span class='st'>"Beta1hat"</span><span class='op'>)</span> <span class='op'>+</span> 
+  <span class='fu'>ggthemes</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/ggthemes/man/theme_pander.html'>theme_pander</a></span><span class='op'>(</span>base_size <span class='op'>=</span> <span class='fl'>14</span><span class='op'>)</span> 
 </code></pre>
 </div>
 </details>
+<p><img src="ols-sim_files/figure-html5/unnamed-chunk-3-1.png" width="624" /></p>
 </div>
-<h2 id="vectorize-the-mask-and-fix-invalid-geometries">Vectorize the mask and fix invalid geometries</h2>
-<div class="layout-chunk" data-layout="l-body">
-<details>
-<summary>
-show
-</summary>
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>diff_vector</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://r-spatial.github.io/sf/reference/st_as_sf.html'>st_as_sf</a></span><span class='op'>(</span><span class='va'>difference</span><span class='op'>)</span>
-<span class='va'>diff_vector</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://r-spatial.github.io/sf/reference/valid.html'>st_make_valid</a></span><span class='op'>(</span><span class='va'>diff_vector</span><span class='op'>)</span>
-</code></pre>
-</div>
-</details>
-</div>
-<h2 id="crop-the-vectorized-map-to-our-roi">Crop the vectorized map to our ROI</h2>
+<h1 id="demonstrate-the-lack-of-ols-consistency-due-to-omitted-variables-bias">Demonstrate the lack of OLS consistency due to omitted variables bias</h1>
 <ul>
-<li>Create a bounding box for the Houston area</li>
-<li>Convert the bounding box to a <code>sf</code></li>
-<li>Project the bounding box to WGS 84</li>
-<li>Crop the vectorized map to the Houston bounding box</li>
-<li>Project the cropped, vectorized map to NAD 83</li>
+<li>generate <span class="math inline">\(X_2\)</span>, which is correlated with <span class="math inline">\(X_1\)</span></li>
+<li>omit <span class="math inline">\(X_2\)</span> from the model to cause omitted variable bias</li>
+<li>calculate <span class="math inline">\(\hat{\beta_1}\)</span></li>
 </ul>
 <div class="layout-chunk" data-layout="l-body">
 <details>
@@ -2680,27 +2569,51 @@ show
 show
 </summary>
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>houston</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://r-spatial.github.io/sf/reference/st.html'>st_polygon</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>rbind</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='op'>-</span><span class='fl'>96.5</span>, <span class='fl'>29</span><span class='op'>)</span>,
-                                 <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='op'>-</span><span class='fl'>96.5</span>, <span class='fl'>30.5</span><span class='op'>)</span>,
-                                 <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='op'>-</span><span class='fl'>94.5</span>, <span class='fl'>30.5</span><span class='op'>)</span>,
-                                 <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='op'>-</span><span class='fl'>94.5</span>, <span class='fl'>29</span><span class='op'>)</span>,
-                                 <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='op'>-</span><span class='fl'>96.5</span>, <span class='fl'>29</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>
-<span class='va'>houston</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://r-spatial.github.io/sf/reference/sfc.html'>st_sfc</a></span><span class='op'>(</span><span class='va'>houston</span><span class='op'>)</span>
-<span class='va'>houston</span> <span class='op'>&lt;-</span> <span class='va'>houston</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span>
-  <span class='fu'><a href='https://r-spatial.github.io/sf/reference/st_crs.html'>st_set_crs</a></span><span class='op'>(</span><span class='fl'>4326</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>X2</span> <span class='op'>=</span> <span class='va'>X1</span> <span class='op'>+</span><span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span><span class='op'>(</span><span class='va'>bigN</span> , mean<span class='op'>=</span><span class='fl'>0</span> , sd<span class='op'>=</span><span class='fl'>2.2</span><span class='op'>)</span> 
 
-<span class='va'>diff_cropped</span> <span class='op'>&lt;-</span> <span class='va'>diff_vector</span><span class='op'>[</span><span class='va'>houston</span>, op <span class='op'>=</span> <span class='va'>st_intersects</span><span class='op'>]</span>
-<span class='va'>diff_cropped</span> <span class='op'>&lt;-</span> <span class='va'>diff_cropped</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span>
-  <span class='fu'><a href='https://r-spatial.github.io/sf/reference/st_transform.html'>st_transform</a></span><span class='op'>(</span><span class='fl'>3083</span><span class='op'>)</span>
+<span class='va'>Y</span> <span class='op'>&lt;-</span> <span class='fl'>5</span> <span class='op'>+</span> <span class='fl'>1.5</span><span class='op'>*</span><span class='va'>X1</span> <span class='op'>+</span> <span class='fl'>10</span><span class='op'>*</span><span class='va'>X2</span> <span class='op'>+</span> <span class='va'>u</span>
+<span class='va'>population_data</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span><span class='op'>(</span><span class='va'>X1</span>, <span class='va'>Y</span><span class='op'>)</span>
+
+<span class='va'>model1</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span>formula <span class='op'>=</span> <span class='va'>Y</span> <span class='op'>~</span> <span class='va'>X1</span>, data <span class='op'>=</span> <span class='va'>population_data</span><span class='op'>)</span>
+<span class='fu'><a href='https://hughjonesd.github.io/huxtable/reference/huxreg.html'>huxreg</a></span><span class='op'>(</span><span class='va'>model1</span>, error_pos<span class='op'>=</span><span class='st'>"right"</span><span class='op'>)</span>
+</code></pre>
+</div>
+</details>
+<pre><code>     ────────────────────────────────────────────────────
+                                    (1)                  
+                      ───────────────────────────────────
+       (Intercept)           4.960 ***          (0.448)  
+       X1                   11.596 ***          (0.077)  
+                      ───────────────────────────────────
+       N                 10000                           
+       R2                    0.692                       
+       logLik           -45267.984                       
+       AIC               90541.968                       
+     ────────────────────────────────────────────────────
+       *** p &lt; 0.001; ** p &lt; 0.01; * p &lt; 0.05.           </code></pre>
+Column names: names, model1, NA
+<details>
+<summary>
+show
+</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>betahat_output</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span><span class='op'>(</span>ncol <span class='op'>=</span> <span class='fl'>2</span>, nrow <span class='op'>=</span> <span class='va'>bigN</span><span class='op'>)</span>
+
+<span class='kw'>for</span> <span class='op'>(</span><span class='va'>n</span> <span class='kw'>in</span> <span class='fl'>1</span><span class='op'>:</span><span class='va'>bigN</span><span class='op'>)</span> <span class='op'>{</span>
+  <span class='va'>sample</span> <span class='op'>&lt;-</span> <span class='va'>population_data</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>:</span><span class='va'>n</span>,<span class='op'>]</span>
+  <span class='va'>betahat_output</span><span class='op'>[</span><span class='va'>n</span>,<span class='op'>]</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>Y</span> <span class='op'>~</span> <span class='va'>X1</span>, data <span class='op'>=</span> <span class='va'>sample</span><span class='op'>)</span><span class='op'>$</span><span class='va'>coefficients</span>
+<span class='op'>}</span> 
+
+<span class='va'>n</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span><span class='op'>(</span><span class='fl'>1</span>,<span class='va'>bigN</span><span class='op'>)</span>
+<span class='va'>beta1hat</span> <span class='op'>&lt;-</span> <span class='va'>betahat_output</span><span class='op'>[</span>,<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>2</span><span class='op'>)</span><span class='op'>]</span>
+<span class='va'>forgraph</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span><span class='op'>(</span><span class='va'>n</span> , <span class='va'>betahat_output</span><span class='op'>[</span>,<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>2</span><span class='op'>)</span><span class='op'>]</span><span class='op'>)</span>
 </code></pre>
 </div>
 </details>
 </div>
-<h1 id="read-in-roads-data">Read in roads Data</h1>
 <ul>
-<li>Use SQL to read in the highways data</li>
-<li>Project <code>highways</code> to NAD 83</li>
-<li>Create and dissolve 200m buffers around the highways</li>
+<li>Compute correlation between X1 and X2, and standard deviations</li>
+<li>Compute “probability limit” of Beta1_hat</li>
 </ul>
 <div class="layout-chunk" data-layout="l-body">
 <details>
@@ -2708,22 +2621,45 @@ show
 show
 </summary>
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>query</span> <span class='op'>&lt;-</span> <span class='st'>"SELECT * FROM gis_osm_roads_free_1 WHERE fclass='motorway'"</span>
-<span class='va'>highways</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://r-spatial.github.io/sf/reference/st_read.html'>st_read</a></span><span class='op'>(</span><span class='st'>"data/gis_osm_roads_free_1.gpkg"</span>, query <span class='op'>=</span> <span class='va'>query</span>, quiet <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
-<span class='va'>highways</span> <span class='op'>&lt;-</span> <span class='va'>highways</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span>
-  <span class='fu'><a href='https://r-spatial.github.io/sf/reference/st_transform.html'>st_transform</a></span><span class='op'>(</span><span class='fl'>3083</span><span class='op'>)</span>
-
-<span class='va'>hwy_buff_200m</span>  <span class='op'>&lt;-</span> <span class='fu'><a href='https://r-spatial.github.io/sf/reference/geos_unary.html'>st_buffer</a></span><span class='op'>(</span><span class='va'>highways</span>, dist <span class='op'>=</span>  <span class='fl'>200</span><span class='op'>)</span>
-<span class='va'>hwy_buff_200m</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://r-spatial.github.io/sf/reference/geos_combine.html'>st_union</a></span><span class='op'>(</span><span class='va'>hwy_buff_200m</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/stats/cor.html'>cor</a></span><span class='op'>(</span><span class='va'>X1</span>,<span class='va'>X2</span><span class='op'>)</span>
 </code></pre>
 </div>
 </details>
+<pre><code>[1] 0.7973109</code></pre>
+<details>
+<summary>
+show
+</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/stats/sd.html'>sd</a></span><span class='op'>(</span><span class='va'>X1</span><span class='op'>)</span>
+</code></pre>
 </div>
-<h1 id="read-in-buildings-data">Read in buildings data</h1>
+</details>
+<pre><code>[1] 2.890737</code></pre>
+<details>
+<summary>
+show
+</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/stats/sd.html'>sd</a></span><span class='op'>(</span><span class='va'>X2</span><span class='op'>)</span>
+</code></pre>
+</div>
+</details>
+<pre><code>[1] 3.663339</code></pre>
+<details>
+<summary>
+show
+</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fl'>1.5</span> <span class='op'>+</span> <span class='fl'>10</span><span class='op'>*</span><span class='fu'><a href='https://rdrr.io/r/stats/cor.html'>cor</a></span><span class='op'>(</span><span class='va'>X1</span>,<span class='va'>X2</span><span class='op'>)</span><span class='op'>*</span><span class='fu'><a href='https://rdrr.io/r/stats/sd.html'>sd</a></span><span class='op'>(</span><span class='va'>X2</span><span class='op'>)</span><span class='op'>/</span><span class='fu'><a href='https://rdrr.io/r/stats/sd.html'>sd</a></span><span class='op'>(</span><span class='va'>X1</span><span class='op'>)</span>
+</code></pre>
+</div>
+</details>
+<pre><code>[1] 11.60407</code></pre>
+</div>
+<h2 id="graph-the-results-1">Graph the results</h2>
 <ul>
-<li>Use SQL to read in the buildings data</li>
-<li>Project <code>buildings</code> to NAD 83</li>
-<li>Note: <code>buildings</code> contains residential, apartments, house, static_caravan, and detached types</li>
+<li>because of the omitted variables bias, <span class="math inline">\(\hat{\beta_1}\)</span> hate never approaches the true <span class="math inline">\(\beta_1\)</span> value even when n becomes extremely large</li>
 </ul>
 <div class="layout-chunk" data-layout="l-body">
 <details>
@@ -2731,145 +2667,16 @@ show
 show
 </summary>
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>query</span> <span class='op'>&lt;-</span> <span class='st'>"SELECT *
-FROM gis_osm_buildings_a_free_1
-WHERE (type IS NULL AND name IS NULL)
-OR type in ('residential', 'apartments', 'house', 'static_caravan', 'detached')"</span>
-
-<span class='va'>buildings</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://r-spatial.github.io/sf/reference/st_read.html'>st_read</a></span><span class='op'>(</span><span class='st'>"data/gis_osm_buildings_a_free_1.gpkg"</span>, query <span class='op'>=</span> <span class='va'>query</span>, quiet <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
-<span class='va'>buildings</span> <span class='op'>&lt;-</span> <span class='va'>buildings</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span>
-  <span class='fu'><a href='https://r-spatial.github.io/sf/reference/st_transform.html'>st_transform</a></span><span class='op'>(</span><span class='fl'>3083</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>forgraph</span> , <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x<span class='op'>=</span><span class='va'>n</span>, y<span class='op'>=</span><span class='va'>beta1hat</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_path.html'>geom_line</a></span><span class='op'>(</span>size<span class='op'>=</span><span class='fl'>0.5</span>, color<span class='op'>=</span><span class='st'>"blue"</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_abline.html'>geom_hline</a></span><span class='op'>(</span>yintercept<span class='op'>=</span><span class='fl'>1.5</span>, size<span class='op'>=</span><span class='fl'>2</span>, color<span class='op'>=</span><span class='st'>"red"</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span>x<span class='op'>=</span><span class='st'>"n"</span>, y <span class='op'>=</span> <span class='st'>"Beta1hat"</span><span class='op'>)</span> <span class='op'>+</span> 
+  <span class='fu'>ggthemes</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/ggthemes/man/theme_pander.html'>theme_pander</a></span><span class='op'>(</span>base_size <span class='op'>=</span> <span class='fl'>14</span><span class='op'>)</span> 
 </code></pre>
 </div>
 </details>
+<p><img src="ols-sim_files/figure-html5/unnamed-chunk-6-1.png" width="624" /></p>
 </div>
-<h1 id="read-in-census-tract-data">Read in census tract data</h1>
-<ul>
-<li>Read in both geometries and income data</li>
-<li>Extract median income field and GEOID field from <code>acs_income</code></li>
-<li>Join the datasets</li>
-<li>Project the joined dataset to NAD 83</li>
-<li>Project Houston bounding box to NAD 83</li>
-<li>Crop the joined data to the Houston bounding box</li>
-</ul>
-<div class="layout-chunk" data-layout="l-body">
-<details>
-<summary>
-show
-</summary>
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>acs_geoms</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://r-spatial.github.io/sf/reference/st_read.html'>st_read</a></span><span class='op'>(</span><span class='st'>"data/ACS_2019_5YR_TRACT_48_TEXAS.gdb"</span>,
-                     layer <span class='op'>=</span> <span class='st'>"ACS_2019_5YR_TRACT_48_TEXAS"</span>,
-                     quiet <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
-<span class='va'>acs_income</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://r-spatial.github.io/sf/reference/st_read.html'>st_read</a></span><span class='op'>(</span><span class='st'>"data/ACS_2019_5YR_TRACT_48_TEXAS.gdb"</span>,
-                      layer <span class='op'>=</span> <span class='st'>"X19_INCOME"</span>, 
-                      quiet <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
-
-<span class='va'>median_income</span> <span class='op'>&lt;-</span> <span class='va'>acs_income</span><span class='op'>[</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"GEOID"</span>, <span class='st'>"B19013e1"</span><span class='op'>)</span><span class='op'>]</span>
-<span class='va'>geo_id</span> <span class='op'>&lt;-</span> <span class='va'>acs_income</span><span class='op'>[</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"GEOID"</span><span class='op'>)</span><span class='op'>]</span>
-
-<span class='va'>geoms_income</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate-joins.html'>left_join</a></span><span class='op'>(</span><span class='va'>acs_geoms</span>, <span class='va'>acs_income</span>, by <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"GEOID_Data"</span> <span class='op'>=</span> <span class='st'>"GEOID"</span><span class='op'>)</span><span class='op'>)</span>
-<span class='va'>geoms_income</span> <span class='op'>&lt;-</span> <span class='va'>geoms_income</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span>
-  <span class='fu'><a href='https://r-spatial.github.io/sf/reference/st_transform.html'>st_transform</a></span><span class='op'>(</span><span class='fl'>3083</span><span class='op'>)</span>
-
-<span class='va'>houston</span> <span class='op'>&lt;-</span> <span class='va'>houston</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span>
-  <span class='fu'><a href='https://r-spatial.github.io/sf/reference/st_transform.html'>st_transform</a></span><span class='op'>(</span><span class='fl'>3083</span><span class='op'>)</span>
-
-<span class='va'>geoms_income_cropped</span> <span class='op'>&lt;-</span> <span class='va'>geoms_income</span><span class='op'>[</span><span class='va'>houston</span>, op <span class='op'>=</span> <span class='va'>st_intersects</span><span class='op'>]</span>
-</code></pre>
-</div>
-</details>
-</div>
-<h1 id="merge-the-datasets">Merge the datasets</h1>
-<ul>
-<li>Remove highway 200m buffer from the vectorized blackout mask of Houston so our area of interest ignores highways</li>
-</ul>
-<div class="layout-chunk" data-layout="l-body">
-<details>
-<summary>
-show
-</summary>
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>no_hwy</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://r-spatial.github.io/sf/reference/geos_binary_ops.html'>st_difference</a></span><span class='op'>(</span><span class='va'>diff_cropped</span>, <span class='va'>hwy_buff_200m</span><span class='op'>)</span>
-</code></pre>
-</div>
-</details>
-</div>
-<h1 id="question-1-how-many-residential-buildings-were-without-power-on-2021-02-16">Question 1: How many residential buildings were without power on 2021-02-16?</h1>
-<ul>
-<li>Use spatial subsetting to find all residential buildings in the blackout areas</li>
-<li>Crop all residential buildings based on <code>no_hwy</code> (which is our area of interest)</li>
-<li>Extract the number of rows (aka the number of buildings that experienced a blackout )</li>
-</ul>
-<div class="layout-chunk" data-layout="l-body">
-<details>
-<summary>
-show
-</summary>
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>buildings_blackout</span> <span class='op'>&lt;-</span> <span class='va'>buildings</span><span class='op'>[</span><span class='va'>no_hwy</span>, op <span class='op'>=</span> <span class='va'>st_intersects</span><span class='op'>]</span>
-<span class='va'>q1_ans</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/nrow.html'>nrow</a></span><span class='op'>(</span><span class='va'>buildings_blackout</span><span class='op'>)</span>
-</code></pre>
-</div>
-</details>
-</div>
-<p><strong>There were 157411 residential buildings without power on 2021-02-16.</strong></p>
-<h2 id="visualize-buildings-where-the-blackout-occurred">Visualize buildings where the blackout occurred</h2>
-<ul>
-<li>Created a map of residential buildings that experienced a blackout (<code>res</code>)</li>
-<li>Added <code>res</code> on top of a base map of the Houston area</li>
-</ul>
-<div class="layout-chunk" data-layout="l-body">
-<details>
-<summary>
-show
-</summary>
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>res</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/tmap/man/tm_shape.html'>tm_shape</a></span><span class='op'>(</span><span class='va'>buildings_blackout</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'><a href='https://rdrr.io/pkg/tmap/man/tm_polygons.html'>tm_borders</a></span><span class='op'>(</span><span class='op'>)</span>
-
-<span class='va'>pt1</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://r-spatial.github.io/sf/reference/st.html'>st_point</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='op'>-</span><span class='fl'>96.5</span>, <span class='fl'>29</span><span class='op'>)</span><span class='op'>)</span>
-<span class='va'>pt2</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://r-spatial.github.io/sf/reference/st.html'>st_point</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='op'>-</span><span class='fl'>96.5</span>, <span class='fl'>30.5</span><span class='op'>)</span><span class='op'>)</span>
-<span class='va'>pt3</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://r-spatial.github.io/sf/reference/st.html'>st_point</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='op'>-</span><span class='fl'>94.5</span>, <span class='fl'>30.5</span><span class='op'>)</span><span class='op'>)</span>
-<span class='va'>pt4</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://r-spatial.github.io/sf/reference/st.html'>st_point</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='op'>-</span><span class='fl'>94.5</span>, <span class='fl'>29</span><span class='op'>)</span><span class='op'>)</span>
-<span class='va'>coords</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>rbind</a></span><span class='op'>(</span><span class='va'>pt1</span>, <span class='va'>pt2</span>, <span class='va'>pt3</span>, <span class='va'>pt4</span>, <span class='va'>pt1</span><span class='op'>)</span><span class='op'>)</span>
-<span class='va'>polygon</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://r-spatial.github.io/sf/reference/st.html'>st_polygon</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>coords</span><span class='op'>)</span>
-<span class='va'>houston</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://r-spatial.github.io/sf/reference/sfc.html'>st_sfc</a></span><span class='op'>(</span><span class='va'>polygon</span>, crs <span class='op'>=</span> <span class='st'>"EPSG:4326"</span><span class='op'>)</span>
-
-<span class='va'>houston_bbox</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://r-spatial.github.io/sf/reference/st_bbox.html'>st_bbox</a></span><span class='op'>(</span><span class='va'>houston</span><span class='op'>)</span>
-<span class='va'>houston_map</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/rosm/man/osm.image.html'>osm.raster</a></span><span class='op'>(</span><span class='va'>houston_bbox</span><span class='op'>)</span>
-
-<span class='fu'><a href='https://rdrr.io/pkg/tmap/man/tm_shape.html'>tm_shape</a></span><span class='op'>(</span><span class='va'>houston_map</span><span class='op'>)</span> <span class='op'>+</span>
-<span class='fu'><a href='https://rdrr.io/pkg/tmap/man/tm_raster.html'>tm_rgb</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span> 
-<span class='va'>res</span>
-</code></pre>
-</div>
-</details>
-<div class="figure"><span style="display:block;" id="fig:blackout"></span>
-<img src="eds22houston_files/figure-html5/blackout-1.png" alt="Approximately 157,411 residential buildings in Houston, TX were affected by the February 2021 storm." width="624" />
-<p class="caption">
-Figure 3: Approximately 157,411 residential buildings in Houston, TX were affected by the February 2021 storm.
-</p>
-</div>
-<details>
-<summary>
-show
-</summary>
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/pkg/tmap/man/tmap_save.html'>tmap_save</a></span><span class='op'>(</span>filename <span class='op'>=</span> <span class='st'>"houston.jpg"</span>, width <span class='op'>=</span> <span class='fl'>8</span>, height <span class='op'>=</span> <span class='fl'>5</span>, units <span class='op'>=</span> <span class='st'>"in"</span>, dpi <span class='op'>=</span> <span class='fl'>300</span><span class='op'>)</span>
-
-<span class='va'>bb_geoms_income</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://r-spatial.github.io/sf/reference/st_join.html'>st_join</a></span><span class='op'>(</span><span class='va'>buildings_blackout</span>, <span class='va'>geoms_income</span>,
-                           join <span class='op'>=</span> <span class='va'>st_intersects</span>,
-                           left <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
-</code></pre>
-</div>
-</details>
-</div>
-<h1 id="conclusion">Conclusion</h1>
-<p>In conclusion, we identified 157411 residential buildings in Houston without power due to the severe February 2021 storms. While night lights intensity may just be one way to measure the impact of these events, this method illustrates the vast potential of remotely sensed data from sources such as the Visible Infrared Imaging Radiometer Suite (VIIRS) aboard the Suomi satellite.</p>
-<h1 id="github">GitHub</h1>
-<p>Full code for this assignment can be found <a href="https://github.com/eds223-fall-2021-org/spatial-analysis-21">here</a>.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
@@ -2877,34 +2684,23 @@ show
 <div class="d-appendix">
 </div>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 
 <!--radix_placeholder_site_after_body-->
 <!--/radix_placeholder_site_after_body-->
 <!--radix_placeholder_appendices-->
-<div class="appendix-bottom">
-  <h3 id="citation">Citation</h3>
-  <p>For attribution, please cite this work as</p>
-  <pre class="citation-appendix short">Forsline (2021, Oct. 24). Mia Forsline: Spatial analysis of 2020 Houston power outages due to extreme winter storms. Retrieved from miaforsline.github.io/</pre>
-  <p>BibTeX citation</p>
-  <pre class="citation-appendix long">@misc{forsline_houston,
-  author = {Forsline, Mia},
-  title = {Mia Forsline: Spatial analysis of 2020 Houston power outages due to extreme winter storms},
-  url = {miaforsline.github.io/},
-  year = {2021}
-}</pre>
-</div>
+<div class="appendix-bottom"></div>
 <!--/radix_placeholder_appendices-->
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
-<!--radix_placeholder_navigation_after_body--><html><body>
-<div class="distill-site-nav distill-site-footer">
-<p>Â© 2021 Mia Forsline<br><svg aria-hidden="true" role="img" viewbox="0 0 512 512" style="height:14px;width:14px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#ededeb;overflow:visible;position:relative;"><path d="M507.73 109.1c-2.24-9.03-13.54-12.09-20.12-5.51l-74.36 74.36-67.88-11.31-11.31-67.88 74.36-74.36c6.62-6.62 3.43-17.9-5.66-20.16-47.38-11.74-99.55.91-136.58 37.93-39.64 39.64-50.55 97.1-34.05 147.2L18.74 402.76c-24.99 24.99-24.99 65.51 0 90.5 24.99 24.99 65.51 24.99 90.5 0l213.21-213.21c50.12 16.71 107.47 5.68 147.37-34.22 37.07-37.07 49.7-89.32 37.91-136.73zM64 472c-13.25 0-24-10.75-24-24 0-13.26 10.75-24 24-24s24 10.74 24 24c0 13.25-10.75 24-24 24z"></path></svg> Made with <a href="https://github.com/miaforsline"><svg aria-hidden="true" role="img" viewbox="0 0 384 512" style="height:14px;width:10.5px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#ededeb;overflow:visible;position:relative;"><path d="M384 144c0-44.2-35.8-80-80-80s-80 35.8-80 80c0 36.4 24.3 67.1 57.5 76.8-.6 16.1-4.2 28.5-11 36.9-15.4 19.2-49.3 22.4-85.2 25.7-28.2 2.6-57.4 5.4-81.3 16.9v-144c32.5-10.2 56-40.5 56-76.3 0-44.2-35.8-80-80-80S0 35.8 0 80c0 35.8 23.5 66.1 56 76.3v199.3C23.5 365.9 0 396.2 0 432c0 44.2 35.8 80 80 80s80-35.8 80-80c0-34-21.2-63.1-51.2-74.6 3.1-5.2 7.8-9.8 14.9-13.4 16.2-8.2 40.4-10.4 66.1-12.8 42.2-3.9 90-8.4 118.2-43.4 14-17.4 21.1-39.8 21.6-67.9 31.6-10.8 54.4-40.7 54.4-75.9zM80 64c8.8 0 16 7.2 16 16s-7.2 16-16 16-16-7.2-16-16 7.2-16 16-16zm0 384c-8.8 0-16-7.2-16-16s7.2-16 16-16 16 7.2 16 16-7.2 16-16 16zm224-320c8.8 0 16 7.2 16 16s-7.2 16-16 16-16-7.2-16-16 7.2-16 16-16z"></path></svg></a> and the <a href="https://cran.r-project.org/"><svg aria-hidden="true" role="img" viewbox="0 0 581 512" style="height:14px;width:15.89px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#ededeb;overflow:visible;position:relative;"><path d="M581 226.6C581 119.1 450.9 32 290.5 32S0 119.1 0 226.6C0 322.4 103.3 402 239.4 418.1V480h99.1v-61.5c24.3-2.7 47.6-7.4 69.4-13.9L448 480h112l-67.4-113.7c54.5-35.4 88.4-84.9 88.4-139.7zm-466.8 14.5c0-73.5 98.9-133 220.8-133s211.9 40.7 211.9 133c0 50.1-26.5 85-70.3 106.4-2.4-1.6-4.7-2.9-6.4-3.7-10.2-5.2-27.8-10.5-27.8-10.5s86.6-6.4 86.6-92.7-90.6-87.9-90.6-87.9h-199V361c-74.1-21.5-125.2-67.1-125.2-119.9zm225.1 38.3v-55.6c57.8 0 87.8-6.8 87.8 27.3 0 36.5-38.2 28.3-87.8 28.3zm-.9 72.5H365c10.8 0 18.9 11.7 24 19.2-16.1 1.9-33 2.8-50.6 2.9v-22.1z"></path></svg></a> <a href="https://github.com/rstudio/distill">distill</a> package <br><span style="font-size:0.8rem;">Last updated on January 14, 2022</span></p>
-<!-- Add function to open links to external links in new tab, from: -->
-<!-- https://yihui.name/en/2018/09/target-blank/ -->
-<script src="js/external-link.js"></script>
-</div>
+<!--radix_placeholder_navigation_after_body-->
 <!--/radix_placeholder_navigation_after_body-->
-</body></html>
-
 
 </body>
 

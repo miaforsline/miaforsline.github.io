@@ -11,6 +11,9 @@ output:
     toc: yes
     toc_float: yes
     code_folding: show
+categories: 
+  - R
+  - Statistics
 ---
 
 # Learning Goals
