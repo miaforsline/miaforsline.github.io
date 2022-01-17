@@ -301,4 +301,4 @@ bb_geoms_income <- st_join(buildings_blackout, geoms_income,
 In conclusion, we identified `r q1_ans` residential buildings in Houston without power due to the severe February 2021 storms. While night lights intensity may just be one way to measure the impact of these events, this method illustrates the vast potential of remotely sensed data from sources such as the Visible Infrared Imaging Radiometer Suite (VIIRS) aboard the Suomi satellite.
 
 # GitHub
-Full code for this assignment can be found [here](https://github.com/eds223-fall-2021-org/spatial-analysis-21). 
+Full code for this assignment can be found [here](https://github.com/miaforsline/houston). 

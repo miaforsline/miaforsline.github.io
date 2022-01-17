@@ -4,7 +4,7 @@ description: |
   Mia Forsline's Personal Website
 output_dir: "docs"
 navbar:
-  logo: sala.jpg
+  logo: 
   right:
     - text: "Home"
       href: index.html
