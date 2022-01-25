@@ -1,0 +1,97 @@
+---
+title: "Robust Linear Models"
+description: |
+  Exploring the use of `lm_robust()` to calculate heteroskedasticity-robust standard error values 
+author:
+  - name: Mia Forsline
+    url: {}
+date: 1/20/2022
+output:
+  distill::distill_article:
+    self_contained: no
+    toc: yes
+    toc_float: yes
+    code_folding: show
+base_url: miaforsline.github.io
+slug: forsline_lm
+preview: 
+categories: 
+  - R
+  - Statistics
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, 
+                      message = FALSE,
+                      warning = FALSE,
+                      include = TRUE)
+
+options(scipen=10)
+```
+
+# Learning Goals
+
+Use `estimatr` to explore how `lm_robust()` can be used as a heteroskedasticity-robust estimator 
+
+# Set up
+
+-   load packages
+-   import housing price data
+-   visualize some of the data in a table
+
+```{r}
+library(estimatr)
+library(kableExtra)
+library(tidyverse)
+library(modelsummary)
+
+HPRICE2 <- read.csv("HPRICE2.csv")
+
+kbl(head(HPRICE2)) %>%
+  kable_classic(full_width = F, html_font = "Cambria")
+```
+
+# Use `lm_robust()` to run a bivariate regression with heteroskedasticity-robust standard errors
+
+```{r}
+model1 <- lm_robust(formula = price ~ nox , data = HPRICE2)
+summary(model1)
+```
+
+## Predict the housing price when `nox` = 7
+
+-   derive the standard error and 95% confidence interval
+
+```{r}
+predicted_price <- data.frame(nox=c(7)) 
+output <- predict(model1, newdata=predicted_price, se.fit=TRUE, interval='confidence')
+
+avg_price <- round(output$fit[1], digits = 2)
+ci_upper <- round(output$fit[3], digits = 2)
+ci_lower <- round(output$fit[2], digits = 2)
+se <- round(output$se.fit[1], digits = 2)
+```
+
+If NO~x~ = 7, we predict the average housing price to be approximately \$`r avg_price` with a 95% confidence interval of `r ci_lower` to `r ci_upper` and a standard error of `r se`.
+
+# Use `lm_robust()` to run a multiple regression with heteroskedasticity-robust standard errors
+
+```{r}
+model2 <- lm_robust(formula = price ~ nox + rooms, data = HPRICE2)
+summary(model2)
+```
+
+## Predict the housing price when `nox` = 5 and `rooms` = 6
+- derive the standard error and 95% confidence interval
+
+```{r}
+predicted_price=data.frame(nox=c(5), rooms=c(6))
+output <- predict(model2, newdata=predicted_price, se.fit=TRUE, interval='confidence')
+
+avg_price <- round(output$fit[1], digits = 2)
+ci_upper <- round(output$fit[3], digits = 2)
+ci_lower <- round(output$fit[2], digits = 2)
+se <- round(output$se.fit[1], digits = 2)
+```
+
+If NO~x~ = 5 and the house has 6 rooms, we predict the average housing price to be approximately \$`r avg_price` with a 95% confidence interval of `r ci_lower` to `r ci_upper` and a standard error of `r se`.
