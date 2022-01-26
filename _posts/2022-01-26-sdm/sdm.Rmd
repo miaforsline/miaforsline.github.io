@@ -14,7 +14,7 @@ output:
     code_folding: show
 base_url: miaforsline.github.io
 slug: forsline_sdm
-preview: houston.jpg
+preview: 
 categories: 
   - R
   - Machine Learning 
@@ -71,77 +71,60 @@ if (!require(librarian)){
 }
 
 librarian::shelf(
-  dismo, dplyr, DT, ggplot2, here, htmltools, leaflet, mapview, purrr, raster, readr, rgbif, rgdal, rJava, sdmpredictors, sf, spocc, tidyr)
-select <- dplyr::select # overwrite raster::select
-
-librarian::shelf(
-  DT, dplyr, dismo, GGally, here, readr, tidyr)
-
-librarian::shelf(mgcv)
-
-librarian::shelf(
-  maptools, sf)
-
-if (!require(librarian)){
-  install.packages("librarian")
-  library(librarian)
-}
-
-librarian::shelf(
-  caret,       # m: modeling framework
-  dplyr, ggplot2 ,here, readr, 
+  caret, # m: modeling framework
+  dismo, # species distribution modeling: maxent(), predict(), evaluate(),
+  dplyr, 
+  DT, 
+  GGally,
+  ggplot2, 
+  here, 
+  htmltools, 
+  leaflet,
+  maptools,
+  mapview,
+  mgcv,
   pdp,         # X: partial dependence plots
+  purrr,
+  ranger,
+  raster, 
+  readr, 
+  rgbif, 
+  rgdal, 
+  rJava, 
   rpart,       # m: recursive partition modeling
   rpart.plot,  # m: recursive partition plotting
   rsample,     # d: split train/test data
+  sdmpredictors, 
+  sf, 
   skimr,       # d: skim summarize data table
+  spocc, 
+  tidyr, 
+  usdm,  # uncertainty analysis for species distribution models: vifcor()
   vip)         # X: variable importance
+  
+select = dplyr::select
+
+select <- dplyr::select # overwrite raster::select
 
 options(
   scipen = 999,
   readr.show_col_types = F)
-set.seed(42)
-
-ggplot2::theme_set(ggplot2::theme_light())
-
-dir_data    <- here("data")
-pts_env_csv <- file.path(dir_data, "pts_env.csv")
-
-options(readr.show_col_types = F)
-
-dir_data    <- here("data")
-#pts_env_csv <- file.path(dir_data, "pts_env.csv")
-
-#pts_env <- read_csv(pts_env_csv)
-#nrow(pts_env)
 
 # set random seed for reproducibility
 set.seed(42)
+
+#set ggplot theme 
+ggplot2::theme_set(ggplot2::theme_light())
 
 # directory to store data
 dir_data <- here("data")
 dir.create(dir_data, showWarnings = F)
 
-library(ranger)
-
-librarian::shelf(
-  dismo, # species distribution modeling: maxent(), predict(), evaluate(), 
-  dplyr, ggplot2, GGally, here, maptools, readr, 
-  raster, readr, rsample, sf,
-  usdm)  # uncertainty analysis for species distribution models: vifcor()
-select = dplyr::select
-
-set.seed(42)
-options(
-  scipen = 999,
-  readr.show_col_types = F)
-ggplot2::theme_set(ggplot2::theme_light())
-
-dir_data      <- here("data")
-pts_geo       <- file.path(dir_data, "pts.geojson")
-env_stack_grd <- file.path(dir_data, "env_stack.grd")
-mdl_maxv_rds  <- file.path(dir_data, "mdl_maxent_vif.rds")
-
+#pts_env_csv <- file.path(dir_data, "pts_env.csv")
+#pts_env <- read_csv(pts_env_csv)
+#pts_geo       <- file.path(dir_data, "pts.geojson")
+#env_stack_grd <- file.path(dir_data, "env_stack.grd")
+#mdl_maxv_rds  <- file.path(dir_data, "mdl_maxent_vif.rds")
 #pts <- read_sf(pts_geo)
 #env_stack <- raster::stack(env_stack_grd)
 ```
