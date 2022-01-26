@@ -14,8 +14,7 @@ output:
 categories: 
   - R
   - Statistics
-preview: 
-draft: TRUE 
+preview: logo.png
 ---
 
 # Learning Goals
@@ -82,6 +81,8 @@ ggplot(forgraph , aes(x=n, y=beta1hat)) + geom_line(size=0.5, color="blue") +
   geom_hline(yintercept=1.5, size=2, color="red") +
   labs(x="n", y = "Beta1hat") + 
   ggthemes::theme_pander(base_size = 14) 
+
+ggsave(filename = "logo.png", width = 5, height = 4, units = "in", dpi = 300)
 ```
 
 # Demonstrate the lack of OLS consistency due to omitted variables bias

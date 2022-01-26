@@ -112,12 +112,12 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output","categories","preview","draft"]}},"value":[{"type":"character","attributes":{},"value":["Assessing consistency of OLS amidst omitted variable bias"]},{"type":"character","attributes":{},"value":["EDS 241: Environmental Policy Evaluation - Lab 1"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Mia Forsline"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":[]}},"value":[]}]}]},{"type":"character","attributes":{},"value":["2022-01-06"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained","toc","toc_float","code_folding"]}},"value":[{"type":"logical","attributes":{},"value":[false]},{"type":"logical","attributes":{},"value":[true]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["show"]}]}]},{"type":"character","attributes":{},"value":["R","Statistics"]},{"type":"NULL"},{"type":"logical","attributes":{},"value":[true]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output","categories","preview"]}},"value":[{"type":"character","attributes":{},"value":["Assessing consistency of OLS amidst omitted variable bias"]},{"type":"character","attributes":{},"value":["EDS 241: Environmental Policy Evaluation - Lab 1"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Mia Forsline"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":[]}},"value":[]}]}]},{"type":"character","attributes":{},"value":["2022-01-06"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained","toc","toc_float","code_folding"]}},"value":[{"type":"logical","attributes":{},"value":[false]},{"type":"logical","attributes":{},"value":[true]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["show"]}]}]},{"type":"character","attributes":{},"value":["R","Statistics"]},{"type":"character","attributes":{},"value":["logo.png"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["ols-sim_files/anchor-4.2.2/anchor.min.js","ols-sim_files/bowser-1.9.3/bowser.min.js","ols-sim_files/distill-2.2.21/template.v2.js","ols-sim_files/figure-html5/unnamed-chunk-3-1.png","ols-sim_files/figure-html5/unnamed-chunk-4-1.png","ols-sim_files/figure-html5/unnamed-chunk-5-1.png","ols-sim_files/figure-html5/unnamed-chunk-6-1.png","ols-sim_files/header-attrs-2.11/header-attrs.js","ols-sim_files/jquery-3.6.0/jquery-3.6.0.js","ols-sim_files/jquery-3.6.0/jquery-3.6.0.min.js","ols-sim_files/jquery-3.6.0/jquery-3.6.0.min.map","ols-sim_files/popper-2.6.0/popper.min.js","ols-sim_files/tippy-6.2.7/tippy-bundle.umd.min.js","ols-sim_files/tippy-6.2.7/tippy-light-border.css","ols-sim_files/tippy-6.2.7/tippy.css","ols-sim_files/tippy-6.2.7/tippy.umd.min.js","ols-sim_files/webcomponents-2.0.0/webcomponents.js"]}
+  {"type":"character","attributes":{},"value":["logo.png","ols-sim_files/anchor-4.2.2/anchor.min.js","ols-sim_files/bowser-1.9.3/bowser.min.js","ols-sim_files/distill-2.2.21/template.v2.js","ols-sim_files/figure-html5/logo.png","ols-sim_files/figure-html5/unnamed-chunk-3-1.png","ols-sim_files/figure-html5/unnamed-chunk-4-1.png","ols-sim_files/figure-html5/unnamed-chunk-5-1.png","ols-sim_files/figure-html5/unnamed-chunk-6-1.png","ols-sim_files/header-attrs-2.11/header-attrs.js","ols-sim_files/jquery-3.6.0/jquery-3.6.0.js","ols-sim_files/jquery-3.6.0/jquery-3.6.0.min.js","ols-sim_files/jquery-3.6.0/jquery-3.6.0.min.map","ols-sim_files/popper-2.6.0/popper.min.js","ols-sim_files/tippy-6.2.7/tippy-bundle.umd.min.js","ols-sim_files/tippy-6.2.7/tippy-light-border.css","ols-sim_files/tippy-6.2.7/tippy.css","ols-sim_files/tippy-6.2.7/tippy.umd.min.js","ols-sim_files/webcomponents-2.0.0/webcomponents.js"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
   <!--/radix_placeholder_navigation_in_header-->
@@ -1608,7 +1608,16 @@ show
 </code></pre>
 </div>
 </details>
-<p><img src="ols-sim_files/figure-html5/unnamed-chunk-3-1.png" width="624" /></p>
+<img src="ols-sim_files/figure-html5/unnamed-chunk-3-1.png" width="624" />
+<details>
+<summary>
+show
+</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggsave.html'>ggsave</a></span><span class='op'>(</span>filename <span class='op'>=</span> <span class='st'>"logo.png"</span>, width <span class='op'>=</span> <span class='fl'>5</span>, height <span class='op'>=</span> <span class='fl'>4</span>, units <span class='op'>=</span> <span class='st'>"in"</span>, dpi <span class='op'>=</span> <span class='fl'>300</span><span class='op'>)</span>
+</code></pre>
+</div>
+</details>
 </div>
 <h1 id="demonstrate-the-lack-of-ols-consistency-due-to-omitted-variables-bias">Demonstrate the lack of OLS consistency due to omitted variables bias</h1>
 <ul>
