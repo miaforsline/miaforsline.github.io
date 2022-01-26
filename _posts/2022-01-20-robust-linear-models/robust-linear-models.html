@@ -89,7 +89,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--radix_placeholder_meta_tags-->
   <title>Robust Linear Models</title>
 
-  <meta property="description" itemprop="description" content="Exploring the use of `lm_robust()` to calculate heteroskedasticity-robust standard error values"/>
+  <meta property="description" itemprop="description" content="Use `lm_robust()` to calculate heteroskedasticity-robust standard error values of housing prices"/>
 
 
   <!--  https://schema.org/Article -->
@@ -100,24 +100,30 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
   <meta property="og:title" content="Robust Linear Models"/>
   <meta property="og:type" content="article"/>
-  <meta property="og:description" content="Exploring the use of `lm_robust()` to calculate heteroskedasticity-robust standard error values"/>
+  <meta property="og:description" content="Use `lm_robust()` to calculate heteroskedasticity-robust standard error values of housing prices"/>
+  <meta property="og:image" content="miaforsline.github.io/logo.png"/>
+  <meta property="og:image:width" content="512"/>
+  <meta property="og:image:height" content="512"/>
   <meta property="og:locale" content="en_US"/>
 
   <!--  https://dev.twitter.com/cards/types/summary -->
-  <meta property="twitter:card" content="summary"/>
+  <meta property="twitter:card" content="summary_large_image"/>
   <meta property="twitter:title" content="Robust Linear Models"/>
-  <meta property="twitter:description" content="Exploring the use of `lm_robust()` to calculate heteroskedasticity-robust standard error values"/>
+  <meta property="twitter:description" content="Use `lm_robust()` to calculate heteroskedasticity-robust standard error values of housing prices"/>
+  <meta property="twitter:image" content="miaforsline.github.io/logo.png"/>
+  <meta property="twitter:image:width" content="512"/>
+  <meta property="twitter:image:height" content="512"/>
 
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output","base_url","slug","preview","categories"]}},"value":[{"type":"character","attributes":{},"value":["Robust Linear Models"]},{"type":"character","attributes":{},"value":["Exploring the use of `lm_robust()` to calculate heteroskedasticity-robust standard error values \n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Mia Forsline"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":[]}},"value":[]}]}]},{"type":"character","attributes":{},"value":["1/20/2022"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained","toc","toc_float","code_folding"]}},"value":[{"type":"logical","attributes":{},"value":[false]},{"type":"logical","attributes":{},"value":[true]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["show"]}]}]},{"type":"character","attributes":{},"value":["miaforsline.github.io"]},{"type":"character","attributes":{},"value":["forsline_lm"]},{"type":"NULL"},{"type":"character","attributes":{},"value":["R","Statistics"]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output","base_url","slug","preview","categories"]}},"value":[{"type":"character","attributes":{},"value":["Robust Linear Models"]},{"type":"character","attributes":{},"value":["Use `lm_robust()` to calculate heteroskedasticity-robust standard error values of housing prices \n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Mia Forsline"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":[]}},"value":[]}]}]},{"type":"character","attributes":{},"value":["1/20/2022"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained","toc","toc_float","code_folding"]}},"value":[{"type":"logical","attributes":{},"value":[false]},{"type":"logical","attributes":{},"value":[true]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["show"]}]}]},{"type":"character","attributes":{},"value":["miaforsline.github.io"]},{"type":"character","attributes":{},"value":["forsline_lm"]},{"type":"character","attributes":{},"value":["logo.png"]},{"type":"character","attributes":{},"value":["R","Statistics"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["HPRICE2.csv","robust-linear-models_files/anchor-4.2.2/anchor.min.js","robust-linear-models_files/bowser-1.9.3/bowser.min.js","robust-linear-models_files/distill-2.2.21/template.v2.js","robust-linear-models_files/header-attrs-2.11/header-attrs.js","robust-linear-models_files/jquery-3.6.0/jquery-3.6.0.js","robust-linear-models_files/jquery-3.6.0/jquery-3.6.0.min.js","robust-linear-models_files/jquery-3.6.0/jquery-3.6.0.min.map","robust-linear-models_files/kePrint-0.0.1/kePrint.js","robust-linear-models_files/lightable-0.0.1/lightable.css","robust-linear-models_files/popper-2.6.0/popper.min.js","robust-linear-models_files/tippy-6.2.7/tippy-bundle.umd.min.js","robust-linear-models_files/tippy-6.2.7/tippy-light-border.css","robust-linear-models_files/tippy-6.2.7/tippy.css","robust-linear-models_files/tippy-6.2.7/tippy.umd.min.js","robust-linear-models_files/webcomponents-2.0.0/webcomponents.js"]}
+  {"type":"character","attributes":{},"value":["HPRICE2.csv","logo.png","robust-linear-models_files/anchor-4.2.2/anchor.min.js","robust-linear-models_files/bowser-1.9.3/bowser.min.js","robust-linear-models_files/distill-2.2.21/template.v2.js","robust-linear-models_files/header-attrs-2.11/header-attrs.js","robust-linear-models_files/jquery-3.6.0/jquery-3.6.0.js","robust-linear-models_files/jquery-3.6.0/jquery-3.6.0.min.js","robust-linear-models_files/jquery-3.6.0/jquery-3.6.0.min.map","robust-linear-models_files/kePrint-0.0.1/kePrint.js","robust-linear-models_files/lightable-0.0.1/lightable.css","robust-linear-models_files/popper-2.6.0/popper.min.js","robust-linear-models_files/tippy-6.2.7/tippy-bundle.umd.min.js","robust-linear-models_files/tippy-6.2.7/tippy-light-border.css","robust-linear-models_files/tippy-6.2.7/tippy.css","robust-linear-models_files/tippy-6.2.7/tippy.umd.min.js","robust-linear-models_files/webcomponents-2.0.0/webcomponents.js"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
   <!--/radix_placeholder_navigation_in_header-->
@@ -1461,7 +1467,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Robust Linear Models","description":"Exploring the use of `lm_robust()` to calculate heteroskedasticity-robust standard error values","authors":[{"author":"Mia Forsline","authorURL":{},"affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2022-01-20T00:00:00.000-08:00","citationText":"Forsline, 2022"}
+{"title":"Robust Linear Models","description":"Use `lm_robust()` to calculate heteroskedasticity-robust standard error values of housing prices","authors":[{"author":"Mia Forsline","authorURL":{},"affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2022-01-20T00:00:00.000+00:00","citationText":"Forsline, 2022"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -1478,7 +1484,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <div class="dt=tag">Statistics</div>
 </div>
 <!--/radix_placeholder_categories-->
-<p><p>Exploring the use of <code>lm_robust()</code> to calculate heteroskedasticity-robust standard error values</p></p>
+<p><p>Use <code>lm_robust()</code> to calculate heteroskedasticity-robust standard error values of housing prices</p></p>
 </div>
 
 <div class="d-byline">

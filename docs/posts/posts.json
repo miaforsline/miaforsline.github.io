@@ -2,7 +2,7 @@
   {
     "path": "posts/2022-01-20-robust-linear-models/",
     "title": "Robust Linear Models",
-    "description": "Exploring the use of `lm_robust()` to calculate heteroskedasticity-robust standard error values",
+    "description": "Use `lm_robust()` to calculate heteroskedasticity-robust standard error values of housing prices",
     "author": [
       {
         "name": "Mia Forsline",
@@ -15,9 +15,11 @@
       "Statistics"
     ],
     "contents": "\n\nContents\nLearning Goals\nSet up\nUse lm_robust() to run a bivariate regression with heteroskedasticity-robust standard errors\nPredict the housing price when nox = 7\n\nUse lm_robust() to run a multiple regression with heteroskedasticity-robust standard errors\nPredict the housing price when nox = 5 and rooms = 6\n\n\nLearning Goals\nUse estimatr to explore how lm_robust() can be used as a heteroskedasticity-robust estimator\nSet up\nload packages\nimport housing price data\nvisualize some of the data in a table\n\n\nshow\n\nlibrary(estimatr)\nlibrary(kableExtra)\nlibrary(tidyverse)\nlibrary(modelsummary)\n\nHPRICE2 <- read.csv(\"HPRICE2.csv\")\n\nkbl(head(HPRICE2)) %>%\n  kable_classic(full_width = F, html_font = \"Cambria\")\n\n\n\nprice\n\n\nnox\n\n\nrooms\n\n\nstratio\n\n\n24000\n\n\n5\n\n\n7\n\n\n15\n\n\n21599\n\n\n5\n\n\n6\n\n\n18\n\n\n34700\n\n\n5\n\n\n7\n\n\n18\n\n\n33400\n\n\n5\n\n\n7\n\n\n19\n\n\n36199\n\n\n5\n\n\n7\n\n\n19\n\n\n28701\n\n\n5\n\n\n6\n\n\n19\n\n\nUse lm_robust() to run a bivariate regression with heteroskedasticity-robust standard errors\n\n\nshow\n\nmodel1 <- lm_robust(formula = price ~ nox , data = HPRICE2)\nsummary(model1)\n\n\n\nCall:\nlm_robust(formula = price ~ nox, data = HPRICE2)\n\nStandard error type:  HC2 \n\nCoefficients:\n            Estimate Std. Error t value   Pr(>|t|) CI Lower CI Upper\n(Intercept)    39232     1451.2   27.03 3.858e-100    36381    42083\nnox            -3060      260.5  -11.75  2.536e-28    -3572    -2548\n             DF\n(Intercept) 504\nnox         504\n\nMultiple R-squared:  0.1731 ,   Adjusted R-squared:  0.1715 \nF-statistic: 137.9 on 1 and 504 DF,  p-value: < 2.2e-16\n\nPredict the housing price when nox = 7\nderive the standard error and 95% confidence interval\n\n\nshow\n\npredicted_price <- data.frame(nox=c(7)) \noutput <- predict(model1, newdata=predicted_price, se.fit=TRUE, interval='confidence')\n\navg_price <- round(output$fit[1], digits = 2)\nci_upper <- round(output$fit[3], digits = 2)\nci_lower <- round(output$fit[2], digits = 2)\nse <- round(output$se.fit[1], digits = 2)\n\n\n\nIf NOx = 7, we predict the average housing price to be approximately $17812.74 with a 95% confidence interval of 16709.01 to 18916.48 and a standard error of 561.79.\nUse lm_robust() to run a multiple regression with heteroskedasticity-robust standard errors\n\n\nshow\n\nmodel2 <- lm_robust(formula = price ~ nox + rooms, data = HPRICE2)\nsummary(model2)\n\n\n\nCall:\nlm_robust(formula = price ~ nox + rooms, data = HPRICE2)\n\nStandard error type:  HC2 \n\nCoefficients:\n            Estimate Std. Error t value  Pr(>|t|) CI Lower CI Upper\n(Intercept)   -16343     4809.5  -3.398 7.327e-04   -25792    -6893\nnox            -1646      265.1  -6.207 1.133e-09    -2166    -1125\nrooms           7635      650.4  11.738 2.749e-28     6357     8913\n             DF\n(Intercept) 503\nnox         503\nrooms       503\n\nMultiple R-squared:  0.5023 ,   Adjusted R-squared:  0.5003 \nF-statistic: 150.4 on 2 and 503 DF,  p-value: < 2.2e-16\n\nPredict the housing price when nox = 5 and rooms = 6\nderive the standard error and 95% confidence interval\n\n\nshow\n\npredicted_price=data.frame(nox=c(5), rooms=c(6))\noutput <- predict(model2, newdata=predicted_price, se.fit=TRUE, interval='confidence')\n\navg_price <- round(output$fit[1], digits = 2)\nci_upper <- round(output$fit[3], digits = 2)\nci_lower <- round(output$fit[2], digits = 2)\nse <- round(output$se.fit[1], digits = 2)\n\n\n\nIf NOx = 5 and the house has 6 rooms, we predict the average housing price to be approximately $21238.77 with a 95% confidence interval of 20648.73 to 21828.81 and a standard error of 300.32.\n\n\n\n",
-    "preview": {},
-    "last_modified": "2022-01-26T17:10:12+00:00",
-    "input_file": {}
+    "preview": "posts/2022-01-20-robust-linear-models/logo.png",
+    "last_modified": "2022-01-26T19:34:32+00:00",
+    "input_file": {},
+    "preview_width": 512,
+    "preview_height": 512
   },
   {
     "path": "posts/2022-01-07-ols-sim/",

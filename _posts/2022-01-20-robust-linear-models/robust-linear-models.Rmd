@@ -1,7 +1,7 @@
 ---
 title: "Robust Linear Models"
 description: |
-  Exploring the use of `lm_robust()` to calculate heteroskedasticity-robust standard error values 
+  Use `lm_robust()` to calculate heteroskedasticity-robust standard error values of housing prices 
 author:
   - name: Mia Forsline
     url: {}
@@ -14,7 +14,7 @@ output:
     code_folding: show
 base_url: miaforsline.github.io
 slug: forsline_lm
-preview: 
+preview: logo.png
 categories: 
   - R
   - Statistics
