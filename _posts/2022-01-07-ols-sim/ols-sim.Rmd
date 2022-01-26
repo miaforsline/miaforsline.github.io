@@ -15,7 +15,7 @@ categories:
   - R
   - Statistics
 preview: 
-draft: true 
+draft: TRUE 
 ---
 
 # Learning Goals
