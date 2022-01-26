@@ -1,0 +1,2346 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/>
+  <meta name="generator" content="distill" />
+
+  <style type="text/css">
+  /* Hide doc at startup (prevent jankiness while JS renders/transforms) */
+  body {
+    visibility: hidden;
+  }
+  </style>
+
+ <!--radix_placeholder_import_source-->
+ <!--/radix_placeholder_import_source-->
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ad0000; } /* Alert */
+code span.an { color: #5e5e5e; } /* Annotation */
+code span.at { } /* Attribute */
+code span.bn { color: #ad0000; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007ba5; } /* ControlFlow */
+code span.ch { color: #20794d; } /* Char */
+code span.cn { color: #8f5902; } /* Constant */
+code span.co { color: #5e5e5e; } /* Comment */
+code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+code span.dt { color: #ad0000; } /* DataType */
+code span.dv { color: #ad0000; } /* DecVal */
+code span.er { color: #ad0000; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #ad0000; } /* Float */
+code span.fu { color: #4758ab; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #5e5e5e; } /* Information */
+code span.kw { color: #007ba5; } /* Keyword */
+code span.op { color: #5e5e5e; } /* Operator */
+code span.ot { color: #007ba5; } /* Other */
+code span.pp { color: #ad0000; } /* Preprocessor */
+code span.sc { color: #5e5e5e; } /* SpecialChar */
+code span.ss { color: #20794d; } /* SpecialString */
+code span.st { color: #20794d; } /* String */
+code span.va { color: #111111; } /* Variable */
+code span.vs { color: #20794d; } /* VerbatimString */
+code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+</style>
+
+
+  <!--radix_placeholder_meta_tags-->
+  <title>Species Distribution Model: The mudpuppy salamander</title>
+
+  <meta property="description" itemprop="description" content="Using salamander observation data from GBIF and environmental climate data from WorldClim and ENVIREM to build a Maxent species distribution model."/>
+
+
+  <!--  https://schema.org/Article -->
+  <meta property="article:published" itemprop="datePublished" content="2022-01-26"/>
+  <meta property="article:created" itemprop="dateCreated" content="2022-01-26"/>
+  <meta name="article:author" content="Mia Forsline"/>
+
+  <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
+  <meta property="og:title" content="Species Distribution Model: The mudpuppy salamander"/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:description" content="Using salamander observation data from GBIF and environmental climate data from WorldClim and ENVIREM to build a Maxent species distribution model."/>
+  <meta property="og:locale" content="en_US"/>
+
+  <!--  https://dev.twitter.com/cards/types/summary -->
+  <meta property="twitter:card" content="summary"/>
+  <meta property="twitter:title" content="Species Distribution Model: The mudpuppy salamander"/>
+  <meta property="twitter:description" content="Using salamander observation data from GBIF and environmental climate data from WorldClim and ENVIREM to build a Maxent species distribution model."/>
+
+  <!--/radix_placeholder_meta_tags-->
+  <!--radix_placeholder_rmarkdown_metadata-->
+
+  <script type="text/json" id="radix-rmarkdown-metadata">
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output","base_url","slug","preview","categories","draft"]}},"value":[{"type":"character","attributes":{},"value":["Species Distribution Model: The mudpuppy salamander"]},{"type":"character","attributes":{},"value":["Using salamander observation data from GBIF and environmental climate data from WorldClim and ENVIREM to build a Maxent species distribution model. \n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Mia Forsline"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":[]}},"value":[]}]}]},{"type":"character","attributes":{},"value":["2022-01-26"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained","toc","toc_float","code_folding"]}},"value":[{"type":"logical","attributes":{},"value":[false]},{"type":"logical","attributes":{},"value":[true]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["show"]}]}]},{"type":"character","attributes":{},"value":["miaforsline.github.io"]},{"type":"character","attributes":{},"value":["forsline_sdm"]},{"type":"NULL"},{"type":"character","attributes":{},"value":["R","Machine Learning"]},{"type":"logical","attributes":{},"value":[true]}]}
+  </script>
+  <!--/radix_placeholder_rmarkdown_metadata-->
+  
+  <script type="text/json" id="radix-resource-manifest">
+  {"type":"character","attributes":{},"value":["ambystoma.jpeg","mudpup.jpeg","mudpup2.jpeg","sdm_files/anchor-4.2.2/anchor.min.js","sdm_files/bowser-1.9.3/bowser.min.js","sdm_files/crosstalk-1.1.1/css/crosstalk.css","sdm_files/crosstalk-1.1.1/js/crosstalk.js","sdm_files/crosstalk-1.1.1/js/crosstalk.js.map","sdm_files/crosstalk-1.1.1/js/crosstalk.min.js","sdm_files/crosstalk-1.1.1/js/crosstalk.min.js.map","sdm_files/datatables-binding-0.20/datatables.js","sdm_files/datatables-css-0.0.0/datatables-crosstalk.css","sdm_files/distill-2.2.21/template.v2.js","sdm_files/dt-core-1.11.3/css/jquery.dataTables.extra.css","sdm_files/dt-core-1.11.3/css/jquery.dataTables.min.css","sdm_files/dt-core-1.11.3/js/jquery.dataTables.min.js","sdm_files/figure-html5/unnamed-chunk-11-1.png","sdm_files/figure-html5/unnamed-chunk-12-1.png","sdm_files/figure-html5/unnamed-chunk-18-1.png","sdm_files/figure-html5/unnamed-chunk-18-10.png","sdm_files/figure-html5/unnamed-chunk-18-11.png","sdm_files/figure-html5/unnamed-chunk-18-12.png","sdm_files/figure-html5/unnamed-chunk-18-2.png","sdm_files/figure-html5/unnamed-chunk-18-3.png","sdm_files/figure-html5/unnamed-chunk-18-4.png","sdm_files/figure-html5/unnamed-chunk-18-5.png","sdm_files/figure-html5/unnamed-chunk-18-6.png","sdm_files/figure-html5/unnamed-chunk-18-7.png","sdm_files/figure-html5/unnamed-chunk-18-8.png","sdm_files/figure-html5/unnamed-chunk-18-9.png","sdm_files/figure-html5/unnamed-chunk-20-1.png","sdm_files/figure-html5/unnamed-chunk-20-10.png","sdm_files/figure-html5/unnamed-chunk-20-11.png","sdm_files/figure-html5/unnamed-chunk-20-12.png","sdm_files/figure-html5/unnamed-chunk-20-2.png","sdm_files/figure-html5/unnamed-chunk-20-3.png","sdm_files/figure-html5/unnamed-chunk-20-4.png","sdm_files/figure-html5/unnamed-chunk-20-5.png","sdm_files/figure-html5/unnamed-chunk-20-6.png","sdm_files/figure-html5/unnamed-chunk-20-7.png","sdm_files/figure-html5/unnamed-chunk-20-8.png","sdm_files/figure-html5/unnamed-chunk-20-9.png","sdm_files/figure-html5/unnamed-chunk-21-1.png","sdm_files/figure-html5/unnamed-chunk-23-1.png","sdm_files/figure-html5/unnamed-chunk-24-1.png","sdm_files/figure-html5/unnamed-chunk-25-1.png","sdm_files/figure-html5/unnamed-chunk-28-1.png","sdm_files/figure-html5/unnamed-chunk-29-1.png","sdm_files/figure-html5/unnamed-chunk-30-1.png","sdm_files/figure-html5/unnamed-chunk-31-1.png","sdm_files/figure-html5/unnamed-chunk-32-1.png","sdm_files/figure-html5/unnamed-chunk-8-1.png","sdm_files/header-attrs-2.11/header-attrs.js","sdm_files/htmlwidgets-1.5.4/htmlwidgets.js","sdm_files/jquery-3.6.0/jquery-3.6.0.js","sdm_files/jquery-3.6.0/jquery-3.6.0.min.js","sdm_files/jquery-3.6.0/jquery-3.6.0.min.map","sdm_files/popper-2.6.0/popper.min.js","sdm_files/tippy-6.2.7/tippy-bundle.umd.min.js","sdm_files/tippy-6.2.7/tippy-light-border.css","sdm_files/tippy-6.2.7/tippy.css","sdm_files/tippy-6.2.7/tippy.umd.min.js","sdm_files/webcomponents-2.0.0/webcomponents.js"]}
+  </script>
+  <!--radix_placeholder_navigation_in_header-->
+  <!--/radix_placeholder_navigation_in_header-->
+  <!--radix_placeholder_distill-->
+
+  <style type="text/css">
+
+  body {
+    background-color: white;
+  }
+
+  .pandoc-table {
+    width: 100%;
+  }
+
+  .pandoc-table>caption {
+    margin-bottom: 10px;
+  }
+
+  .pandoc-table th:not([align]) {
+    text-align: left;
+  }
+
+  .pagedtable-footer {
+    font-size: 15px;
+  }
+
+  d-byline .byline {
+    grid-template-columns: 2fr 2fr;
+  }
+
+  d-byline .byline h3 {
+    margin-block-start: 1.5em;
+  }
+
+  d-byline .byline .authors-affiliations h3 {
+    margin-block-start: 0.5em;
+  }
+
+  .authors-affiliations .orcid-id {
+    width: 16px;
+    height:16px;
+    margin-left: 4px;
+    margin-right: 4px;
+    vertical-align: middle;
+    padding-bottom: 2px;
+  }
+
+  d-title .dt-tags {
+    margin-top: 1em;
+    grid-column: text;
+  }
+
+  .dt-tags .dt-tag {
+    text-decoration: none;
+    display: inline-block;
+    color: rgba(0,0,0,0.6);
+    padding: 0em 0.4em;
+    margin-right: 0.5em;
+    margin-bottom: 0.4em;
+    font-size: 70%;
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: 3px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  d-article table.gt_table td,
+  d-article table.gt_table th {
+    border-bottom: none;
+  }
+
+  .html-widget {
+    margin-bottom: 2.0em;
+  }
+
+  .l-screen-inset {
+    padding-right: 16px;
+  }
+
+  .l-screen .caption {
+    margin-left: 10px;
+  }
+
+  .shaded {
+    background: rgb(247, 247, 247);
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .shaded .html-widget {
+    margin-bottom: 0;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .shaded .shaded-content {
+    background: white;
+  }
+
+  .text-output {
+    margin-top: 0;
+    line-height: 1.5em;
+  }
+
+  .hidden {
+    display: none !important;
+  }
+
+  d-article {
+    padding-top: 2.5rem;
+    padding-bottom: 30px;
+  }
+
+  d-appendix {
+    padding-top: 30px;
+  }
+
+  d-article>p>img {
+    width: 100%;
+  }
+
+  d-article h2 {
+    margin: 1rem 0 1.5rem 0;
+  }
+
+  d-article h3 {
+    margin-top: 1.5rem;
+  }
+
+  d-article iframe {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    margin-bottom: 2.0em;
+    width: 100%;
+  }
+
+  /* Tweak code blocks */
+
+  d-article div.sourceCode code,
+  d-article pre code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  d-article pre,
+  d-article div.sourceCode,
+  d-article div.sourceCode pre {
+    overflow: auto;
+  }
+
+  d-article div.sourceCode {
+    background-color: white;
+  }
+
+  d-article div.sourceCode pre {
+    padding-left: 10px;
+    font-size: 12px;
+    border-left: 2px solid rgba(0,0,0,0.1);
+  }
+
+  d-article pre {
+    font-size: 12px;
+    color: black;
+    background: none;
+    margin-top: 0;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+  }
+
+  d-article pre a {
+    border-bottom: none;
+  }
+
+  d-article pre a:hover {
+    border-bottom: none;
+    text-decoration: underline;
+  }
+
+  d-article details {
+    grid-column: text;
+    margin-bottom: 0.8em;
+  }
+
+  @media(min-width: 768px) {
+
+  d-article pre,
+  d-article div.sourceCode,
+  d-article div.sourceCode pre {
+    overflow: visible !important;
+  }
+
+  d-article div.sourceCode pre {
+    padding-left: 18px;
+    font-size: 14px;
+  }
+
+  d-article pre {
+    font-size: 14px;
+  }
+
+  }
+
+  figure img.external {
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+    padding: 18px;
+    box-sizing: border-box;
+  }
+
+  /* CSS for d-contents */
+
+  .d-contents {
+    grid-column: text;
+    color: rgba(0,0,0,0.8);
+    font-size: 0.9em;
+    padding-bottom: 1em;
+    margin-bottom: 1em;
+    padding-bottom: 0.5em;
+    margin-bottom: 1em;
+    padding-left: 0.25em;
+    justify-self: start;
+  }
+
+  @media(min-width: 1000px) {
+    .d-contents.d-contents-float {
+      height: 0;
+      grid-column-start: 1;
+      grid-column-end: 4;
+      justify-self: center;
+      padding-right: 3em;
+      padding-left: 2em;
+    }
+  }
+
+  .d-contents nav h3 {
+    font-size: 18px;
+    margin-top: 0;
+    margin-bottom: 1em;
+  }
+
+  .d-contents li {
+    list-style-type: none
+  }
+
+  .d-contents nav > ul {
+    padding-left: 0;
+  }
+
+  .d-contents ul {
+    padding-left: 1em
+  }
+
+  .d-contents nav ul li {
+    margin-top: 0.6em;
+    margin-bottom: 0.2em;
+  }
+
+  .d-contents nav a {
+    font-size: 13px;
+    border-bottom: none;
+    text-decoration: none
+    color: rgba(0, 0, 0, 0.8);
+  }
+
+  .d-contents nav a:hover {
+    text-decoration: underline solid rgba(0, 0, 0, 0.6)
+  }
+
+  .d-contents nav > ul > li > a {
+    font-weight: 600;
+  }
+
+  .d-contents nav > ul > li > ul {
+    font-weight: inherit;
+  }
+
+  .d-contents nav > ul > li > ul > li {
+    margin-top: 0.2em;
+  }
+
+
+  .d-contents nav ul {
+    margin-top: 0;
+    margin-bottom: 0.25em;
+  }
+
+  .d-article-with-toc h2:nth-child(2) {
+    margin-top: 0;
+  }
+
+
+  /* Figure */
+
+  .figure {
+    position: relative;
+    margin-bottom: 2.5em;
+    margin-top: 1.5em;
+  }
+
+  .figure img {
+    width: 100%;
+  }
+
+  .figure .caption {
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 12px;
+    line-height: 1.5em;
+  }
+
+  .figure img.external {
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+    padding: 18px;
+    box-sizing: border-box;
+  }
+
+  .figure .caption a {
+    color: rgba(0, 0, 0, 0.6);
+  }
+
+  .figure .caption b,
+  .figure .caption strong, {
+    font-weight: 600;
+    color: rgba(0, 0, 0, 1.0);
+  }
+
+  /* Citations */
+
+  d-article .citation {
+    color: inherit;
+    cursor: inherit;
+  }
+
+  div.hanging-indent{
+    margin-left: 1em; text-indent: -1em;
+  }
+
+  /* Citation hover box */
+
+  .tippy-box[data-theme~=light-border] {
+    background-color: rgba(250, 250, 250, 0.95);
+  }
+
+  .tippy-content > p {
+    margin-bottom: 0;
+    padding: 2px;
+  }
+
+
+  /* Tweak 1000px media break to show more text */
+
+  @media(min-width: 1000px) {
+    .base-grid,
+    distill-header,
+    d-title,
+    d-abstract,
+    d-article,
+    d-appendix,
+    distill-appendix,
+    d-byline,
+    d-footnote-list,
+    d-citation-list,
+    distill-footer {
+      grid-template-columns: [screen-start] 1fr [page-start kicker-start] 80px [middle-start] 50px [text-start kicker-end] 65px 65px 65px 65px 65px 65px 65px 65px [text-end gutter-start] 65px [middle-end] 65px [page-end gutter-end] 1fr [screen-end];
+      grid-column-gap: 16px;
+    }
+
+    .grid {
+      grid-column-gap: 16px;
+    }
+
+    d-article {
+      font-size: 1.06rem;
+      line-height: 1.7em;
+    }
+    figure .caption, .figure .caption, figure figcaption {
+      font-size: 13px;
+    }
+  }
+
+  @media(min-width: 1180px) {
+    .base-grid,
+    distill-header,
+    d-title,
+    d-abstract,
+    d-article,
+    d-appendix,
+    distill-appendix,
+    d-byline,
+    d-footnote-list,
+    d-citation-list,
+    distill-footer {
+      grid-template-columns: [screen-start] 1fr [page-start kicker-start] 60px [middle-start] 60px [text-start kicker-end] 60px 60px 60px 60px 60px 60px 60px 60px [text-end gutter-start] 60px [middle-end] 60px [page-end gutter-end] 1fr [screen-end];
+      grid-column-gap: 32px;
+    }
+
+    .grid {
+      grid-column-gap: 32px;
+    }
+  }
+
+
+  /* Get the citation styles for the appendix (not auto-injected on render since
+     we do our own rendering of the citation appendix) */
+
+  d-appendix .citation-appendix,
+  .d-appendix .citation-appendix {
+    font-size: 11px;
+    line-height: 15px;
+    border-left: 1px solid rgba(0, 0, 0, 0.1);
+    padding-left: 18px;
+    border: 1px solid rgba(0,0,0,0.1);
+    background: rgba(0, 0, 0, 0.02);
+    padding: 10px 18px;
+    border-radius: 3px;
+    color: rgba(150, 150, 150, 1);
+    overflow: hidden;
+    margin-top: -12px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+
+  /* Include appendix styles here so they can be overridden */
+
+  d-appendix {
+    contain: layout style;
+    font-size: 0.8em;
+    line-height: 1.7em;
+    margin-top: 60px;
+    margin-bottom: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    color: rgba(0,0,0,0.5);
+    padding-top: 60px;
+    padding-bottom: 48px;
+  }
+
+  d-appendix h3 {
+    grid-column: page-start / text-start;
+    font-size: 15px;
+    font-weight: 500;
+    margin-top: 1em;
+    margin-bottom: 0;
+    color: rgba(0,0,0,0.65);
+  }
+
+  d-appendix h3 + * {
+    margin-top: 1em;
+  }
+
+  d-appendix ol {
+    padding: 0 0 0 15px;
+  }
+
+  @media (min-width: 768px) {
+    d-appendix ol {
+      padding: 0 0 0 30px;
+      margin-left: -30px;
+    }
+  }
+
+  d-appendix li {
+    margin-bottom: 1em;
+  }
+
+  d-appendix a {
+    color: rgba(0, 0, 0, 0.6);
+  }
+
+  d-appendix > * {
+    grid-column: text;
+  }
+
+  d-appendix > d-footnote-list,
+  d-appendix > d-citation-list,
+  d-appendix > distill-appendix {
+    grid-column: screen;
+  }
+
+  /* Include footnote styles here so they can be overridden */
+
+  d-footnote-list {
+    contain: layout style;
+  }
+
+  d-footnote-list > * {
+    grid-column: text;
+  }
+
+  d-footnote-list a.footnote-backlink {
+    color: rgba(0,0,0,0.3);
+    padding-left: 0.5em;
+  }
+
+
+
+  /* Anchor.js */
+
+  .anchorjs-link {
+    /*transition: all .25s linear; */
+    text-decoration: none;
+    border-bottom: none;
+  }
+  *:hover > .anchorjs-link {
+    margin-left: -1.125em !important;
+    text-decoration: none;
+    border-bottom: none;
+  }
+
+  /* Social footer */
+
+  .social_footer {
+    margin-top: 30px;
+    margin-bottom: 0;
+    color: rgba(0,0,0,0.67);
+  }
+
+  .disqus-comments {
+    margin-right: 30px;
+  }
+
+  .disqus-comment-count {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+  }
+
+  #disqus_thread {
+    margin-top: 30px;
+  }
+
+  .article-sharing a {
+    border-bottom: none;
+    margin-right: 8px;
+  }
+
+  .article-sharing a:hover {
+    border-bottom: none;
+  }
+
+  .sidebar-section.subscribe {
+    font-size: 12px;
+    line-height: 1.6em;
+  }
+
+  .subscribe p {
+    margin-bottom: 0.5em;
+  }
+
+
+  .article-footer .subscribe {
+    font-size: 15px;
+    margin-top: 45px;
+  }
+
+
+  .sidebar-section.custom {
+    font-size: 12px;
+    line-height: 1.6em;
+  }
+
+  .custom p {
+    margin-bottom: 0.5em;
+  }
+
+  /* Styles for listing layout (hide title) */
+  .layout-listing d-title, .layout-listing .d-title {
+    display: none;
+  }
+
+  /* Styles for posts lists (not auto-injected) */
+
+
+  .posts-with-sidebar {
+    padding-left: 45px;
+    padding-right: 45px;
+  }
+
+  .posts-list .description h2,
+  .posts-list .description p {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+  }
+
+  .posts-list .description h2 {
+    font-weight: 700;
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .posts-list h2.post-tag {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    padding-bottom: 12px;
+  }
+  .posts-list {
+    margin-top: 60px;
+    margin-bottom: 24px;
+  }
+
+  .posts-list .post-preview {
+    text-decoration: none;
+    overflow: hidden;
+    display: block;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 24px 0;
+  }
+
+  .post-preview-last {
+    border-bottom: none !important;
+  }
+
+  .posts-list .posts-list-caption {
+    grid-column: screen;
+    font-weight: 400;
+  }
+
+  .posts-list .post-preview h2 {
+    margin: 0 0 6px 0;
+    line-height: 1.2em;
+    font-style: normal;
+    font-size: 24px;
+  }
+
+  .posts-list .post-preview p {
+    margin: 0 0 12px 0;
+    line-height: 1.4em;
+    font-size: 16px;
+  }
+
+  .posts-list .post-preview .thumbnail {
+    box-sizing: border-box;
+    margin-bottom: 24px;
+    position: relative;
+    max-width: 500px;
+  }
+  .posts-list .post-preview img {
+    width: 100%;
+    display: block;
+  }
+
+  .posts-list .metadata {
+    font-size: 12px;
+    line-height: 1.4em;
+    margin-bottom: 18px;
+  }
+
+  .posts-list .metadata > * {
+    display: inline-block;
+  }
+
+  .posts-list .metadata .publishedDate {
+    margin-right: 2em;
+  }
+
+  .posts-list .metadata .dt-authors {
+    display: block;
+    margin-top: 0.3em;
+    margin-right: 2em;
+  }
+
+  .posts-list .dt-tags {
+    display: block;
+    line-height: 1em;
+  }
+
+  .posts-list .dt-tags .dt-tag {
+    display: inline-block;
+    color: rgba(0,0,0,0.6);
+    padding: 0.3em 0.4em;
+    margin-right: 0.2em;
+    margin-bottom: 0.4em;
+    font-size: 60%;
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: 3px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  .posts-list img {
+    opacity: 1;
+  }
+
+  .posts-list img[data-src] {
+    opacity: 0;
+  }
+
+  .posts-more {
+    clear: both;
+  }
+
+
+  .posts-sidebar {
+    font-size: 16px;
+  }
+
+  .posts-sidebar h3 {
+    font-size: 16px;
+    margin-top: 0;
+    margin-bottom: 0.5em;
+    font-weight: 400;
+    text-transform: uppercase;
+  }
+
+  .sidebar-section {
+    margin-bottom: 30px;
+  }
+
+  .categories ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .categories li {
+    color: rgba(0, 0, 0, 0.8);
+    margin-bottom: 0;
+  }
+
+  .categories li>a {
+    border-bottom: none;
+  }
+
+  .categories li>a:hover {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+  }
+
+  .categories .active {
+    font-weight: 600;
+  }
+
+  .categories .category-count {
+    color: rgba(0, 0, 0, 0.4);
+  }
+
+
+  @media(min-width: 768px) {
+    .posts-list .post-preview h2 {
+      font-size: 26px;
+    }
+    .posts-list .post-preview .thumbnail {
+      float: right;
+      width: 30%;
+      margin-bottom: 0;
+    }
+    .posts-list .post-preview .description {
+      float: left;
+      width: 45%;
+    }
+    .posts-list .post-preview .metadata {
+      float: left;
+      width: 20%;
+      margin-top: 8px;
+    }
+    .posts-list .post-preview p {
+      margin: 0 0 12px 0;
+      line-height: 1.5em;
+      font-size: 16px;
+    }
+    .posts-with-sidebar .posts-list {
+      float: left;
+      width: 75%;
+    }
+    .posts-with-sidebar .posts-sidebar {
+      float: right;
+      width: 20%;
+      margin-top: 60px;
+      padding-top: 24px;
+      padding-bottom: 24px;
+    }
+  }
+
+
+  /* Improve display for browsers without grid (IE/Edge <= 15) */
+
+  .downlevel {
+    line-height: 1.6em;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+    margin: 0;
+  }
+
+  .downlevel .d-title {
+    padding-top: 6rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .downlevel .d-title h1 {
+    font-size: 50px;
+    font-weight: 700;
+    line-height: 1.1em;
+    margin: 0 0 0.5rem;
+  }
+
+  .downlevel .d-title p {
+    font-weight: 300;
+    font-size: 1.2rem;
+    line-height: 1.55em;
+    margin-top: 0;
+  }
+
+  .downlevel .d-byline {
+    padding-top: 0.8em;
+    padding-bottom: 0.8em;
+    font-size: 0.8rem;
+    line-height: 1.8em;
+  }
+
+  .downlevel .section-separator {
+    border: none;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .downlevel .d-article {
+    font-size: 1.06rem;
+    line-height: 1.7em;
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+  }
+
+
+  .downlevel .d-appendix {
+    padding-left: 0;
+    padding-right: 0;
+    max-width: none;
+    font-size: 0.8em;
+    line-height: 1.7em;
+    margin-bottom: 0;
+    color: rgba(0,0,0,0.5);
+    padding-top: 40px;
+    padding-bottom: 48px;
+  }
+
+  .downlevel .footnotes ol {
+    padding-left: 13px;
+  }
+
+  .downlevel .base-grid,
+  .downlevel .distill-header,
+  .downlevel .d-title,
+  .downlevel .d-abstract,
+  .downlevel .d-article,
+  .downlevel .d-appendix,
+  .downlevel .distill-appendix,
+  .downlevel .d-byline,
+  .downlevel .d-footnote-list,
+  .downlevel .d-citation-list,
+  .downlevel .distill-footer,
+  .downlevel .appendix-bottom,
+  .downlevel .posts-container {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  @media(min-width: 768px) {
+    .downlevel .base-grid,
+    .downlevel .distill-header,
+    .downlevel .d-title,
+    .downlevel .d-abstract,
+    .downlevel .d-article,
+    .downlevel .d-appendix,
+    .downlevel .distill-appendix,
+    .downlevel .d-byline,
+    .downlevel .d-footnote-list,
+    .downlevel .d-citation-list,
+    .downlevel .distill-footer,
+    .downlevel .appendix-bottom,
+    .downlevel .posts-container {
+    padding-left: 150px;
+    padding-right: 150px;
+    max-width: 900px;
+  }
+  }
+
+  .downlevel pre code {
+    display: block;
+    border-left: 2px solid rgba(0, 0, 0, .1);
+    padding: 0 0 0 20px;
+    font-size: 14px;
+  }
+
+  .downlevel code, .downlevel pre {
+    color: black;
+    background: none;
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+  }
+
+  .downlevel .posts-list .post-preview {
+    color: inherit;
+  }
+
+
+
+  </style>
+
+  <script type="application/javascript">
+
+  function is_downlevel_browser() {
+    if (bowser.isUnsupportedBrowser({ msie: "12", msedge: "16"},
+                                   window.navigator.userAgent)) {
+      return true;
+    } else {
+      return window.load_distill_framework === undefined;
+    }
+  }
+
+  // show body when load is complete
+  function on_load_complete() {
+
+    // add anchors
+    if (window.anchors) {
+      window.anchors.options.placement = 'left';
+      window.anchors.add('d-article > h2, d-article > h3, d-article > h4, d-article > h5');
+    }
+
+
+    // set body to visible
+    document.body.style.visibility = 'visible';
+
+    // force redraw for leaflet widgets
+    if (window.HTMLWidgets) {
+      var maps = window.HTMLWidgets.findAll(".leaflet");
+      $.each(maps, function(i, el) {
+        var map = this.getMap();
+        map.invalidateSize();
+        map.eachLayer(function(layer) {
+          if (layer instanceof L.TileLayer)
+            layer.redraw();
+        });
+      });
+    }
+
+    // trigger 'shown' so htmlwidgets resize
+    $('d-article').trigger('shown');
+  }
+
+  function init_distill() {
+
+    init_common();
+
+    // create front matter
+    var front_matter = $('<d-front-matter></d-front-matter>');
+    $('#distill-front-matter').wrap(front_matter);
+
+    // create d-title
+    $('.d-title').changeElementType('d-title');
+
+    // create d-byline
+    var byline = $('<d-byline></d-byline>');
+    $('.d-byline').replaceWith(byline);
+
+    // create d-article
+    var article = $('<d-article></d-article>');
+    $('.d-article').wrap(article).children().unwrap();
+
+    // move posts container into article
+    $('.posts-container').appendTo($('d-article'));
+
+    // create d-appendix
+    $('.d-appendix').changeElementType('d-appendix');
+
+    // flag indicating that we have appendix items
+    var appendix = $('.appendix-bottom').children('h3').length > 0;
+
+    // replace footnotes with <d-footnote>
+    $('.footnote-ref').each(function(i, val) {
+      appendix = true;
+      var href = $(this).attr('href');
+      var id = href.replace('#', '');
+      var fn = $('#' + id);
+      var fn_p = $('#' + id + '>p');
+      fn_p.find('.footnote-back').remove();
+      var text = fn_p.html();
+      var dtfn = $('<d-footnote></d-footnote>');
+      dtfn.html(text);
+      $(this).replaceWith(dtfn);
+    });
+    // remove footnotes
+    $('.footnotes').remove();
+
+    // move refs into #references-listing
+    $('#references-listing').replaceWith($('#refs'));
+
+    $('h1.appendix, h2.appendix').each(function(i, val) {
+      $(this).changeElementType('h3');
+    });
+    $('h3.appendix').each(function(i, val) {
+      var id = $(this).attr('id');
+      $('.d-contents a[href="#' + id + '"]').parent().remove();
+      appendix = true;
+      $(this).nextUntil($('h1, h2, h3')).addBack().appendTo($('d-appendix'));
+    });
+
+    // show d-appendix if we have appendix content
+    $("d-appendix").css('display', appendix ? 'grid' : 'none');
+
+    // localize layout chunks to just output
+    $('.layout-chunk').each(function(i, val) {
+
+      // capture layout
+      var layout = $(this).attr('data-layout');
+
+      // apply layout to markdown level block elements
+      var elements = $(this).children().not('details, div.sourceCode, pre, script');
+      elements.each(function(i, el) {
+        var layout_div = $('<div class="' + layout + '"></div>');
+        if (layout_div.hasClass('shaded')) {
+          var shaded_content = $('<div class="shaded-content"></div>');
+          $(this).wrap(shaded_content);
+          $(this).parent().wrap(layout_div);
+        } else {
+          $(this).wrap(layout_div);
+        }
+      });
+
+
+      // unwrap the layout-chunk div
+      $(this).children().unwrap();
+    });
+
+    // remove code block used to force  highlighting css
+    $('.distill-force-highlighting-css').parent().remove();
+
+    // remove empty line numbers inserted by pandoc when using a
+    // custom syntax highlighting theme
+    $('code.sourceCode a:empty').remove();
+
+    // load distill framework
+    load_distill_framework();
+
+    // wait for window.distillRunlevel == 4 to do post processing
+    function distill_post_process() {
+
+      if (!window.distillRunlevel || window.distillRunlevel < 4)
+        return;
+
+      // hide author/affiliations entirely if we have no authors
+      var front_matter = JSON.parse($("#distill-front-matter").html());
+      var have_authors = front_matter.authors && front_matter.authors.length > 0;
+      if (!have_authors)
+        $('d-byline').addClass('hidden');
+
+      // article with toc class
+      $('.d-contents').parent().addClass('d-article-with-toc');
+
+      // strip links that point to #
+      $('.authors-affiliations').find('a[href="#"]').removeAttr('href');
+
+      // add orcid ids
+      $('.authors-affiliations').find('.author').each(function(i, el) {
+        var orcid_id = front_matter.authors[i].orcidID;
+        if (orcid_id) {
+          var a = $('<a></a>');
+          a.attr('href', 'https://orcid.org/' + orcid_id);
+          var img = $('<img></img>');
+          img.addClass('orcid-id');
+          img.attr('alt', 'ORCID ID');
+          img.attr('src','data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg==');
+          a.append(img);
+          $(this).append(a);
+        }
+      });
+
+      // hide elements of author/affiliations grid that have no value
+      function hide_byline_column(caption) {
+        $('d-byline').find('h3:contains("' + caption + '")').parent().css('visibility', 'hidden');
+      }
+
+      // affiliations
+      var have_affiliations = false;
+      for (var i = 0; i<front_matter.authors.length; ++i) {
+        var author = front_matter.authors[i];
+        if (author.affiliation !== "&nbsp;") {
+          have_affiliations = true;
+          break;
+        }
+      }
+      if (!have_affiliations)
+        $('d-byline').find('h3:contains("Affiliations")').css('visibility', 'hidden');
+
+      // published date
+      if (!front_matter.publishedDate)
+        hide_byline_column("Published");
+
+      // document object identifier
+      var doi = $('d-byline').find('h3:contains("DOI")');
+      var doi_p = doi.next().empty();
+      if (!front_matter.doi) {
+        // if we have a citation and valid citationText then link to that
+        if ($('#citation').length > 0 && front_matter.citationText) {
+          doi.html('Citation');
+          $('<a href="#citation"></a>')
+            .text(front_matter.citationText)
+            .appendTo(doi_p);
+        } else {
+          hide_byline_column("DOI");
+        }
+      } else {
+        $('<a></a>')
+           .attr('href', "https://doi.org/" + front_matter.doi)
+           .html(front_matter.doi)
+           .appendTo(doi_p);
+      }
+
+       // change plural form of authors/affiliations
+      if (front_matter.authors.length === 1) {
+        var grid = $('.authors-affiliations');
+        grid.children('h3:contains("Authors")').text('Author');
+        grid.children('h3:contains("Affiliations")').text('Affiliation');
+      }
+
+      // remove d-appendix and d-footnote-list local styles
+      $('d-appendix > style:first-child').remove();
+      $('d-footnote-list > style:first-child').remove();
+
+      // move appendix-bottom entries to the bottom
+      $('.appendix-bottom').appendTo('d-appendix').children().unwrap();
+      $('.appendix-bottom').remove();
+
+      // hoverable references
+      $('span.citation[data-cites]').each(function() {
+        var refs = $(this).attr('data-cites').split(" ");
+        var refHtml = refs.map(function(ref) {
+          return "<p>" + $('#ref-' + ref).html() + "</p>";
+        }).join("\n");
+        window.tippy(this, {
+          allowHTML: true,
+          content: refHtml,
+          maxWidth: 500,
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'light-border',
+          placement: 'bottom-start'
+        });
+      });
+
+      // clear polling timer
+      clearInterval(tid);
+
+      // show body now that everything is ready
+      on_load_complete();
+    }
+
+    var tid = setInterval(distill_post_process, 50);
+    distill_post_process();
+
+  }
+
+  function init_downlevel() {
+
+    init_common();
+
+     // insert hr after d-title
+    $('.d-title').after($('<hr class="section-separator"/>'));
+
+    // check if we have authors
+    var front_matter = JSON.parse($("#distill-front-matter").html());
+    var have_authors = front_matter.authors && front_matter.authors.length > 0;
+
+    // manage byline/border
+    if (!have_authors)
+      $('.d-byline').remove();
+    $('.d-byline').after($('<hr class="section-separator"/>'));
+    $('.d-byline a').remove();
+
+    // remove toc
+    $('.d-contents').remove();
+
+    // move appendix elements
+    $('h1.appendix, h2.appendix').each(function(i, val) {
+      $(this).changeElementType('h3');
+    });
+    $('h3.appendix').each(function(i, val) {
+      $(this).nextUntil($('h1, h2, h3')).addBack().appendTo($('.d-appendix'));
+    });
+
+
+    // inject headers into references and footnotes
+    var refs_header = $('<h3></h3>');
+    refs_header.text('References');
+    $('#refs').prepend(refs_header);
+
+    var footnotes_header = $('<h3></h3');
+    footnotes_header.text('Footnotes');
+    $('.footnotes').children('hr').first().replaceWith(footnotes_header);
+
+    // move appendix-bottom entries to the bottom
+    $('.appendix-bottom').appendTo('.d-appendix').children().unwrap();
+    $('.appendix-bottom').remove();
+
+    // remove appendix if it's empty
+    if ($('.d-appendix').children().length === 0)
+      $('.d-appendix').remove();
+
+    // prepend separator above appendix
+    $('.d-appendix').before($('<hr class="section-separator" style="clear: both"/>'));
+
+    // trim code
+    $('pre>code').each(function(i, val) {
+      $(this).html($.trim($(this).html()));
+    });
+
+    // move posts-container right before article
+    $('.posts-container').insertBefore($('.d-article'));
+
+    $('body').addClass('downlevel');
+
+    on_load_complete();
+  }
+
+
+  function init_common() {
+
+    // jquery plugin to change element types
+    (function($) {
+      $.fn.changeElementType = function(newType) {
+        var attrs = {};
+
+        $.each(this[0].attributes, function(idx, attr) {
+          attrs[attr.nodeName] = attr.nodeValue;
+        });
+
+        this.replaceWith(function() {
+          return $("<" + newType + "/>", attrs).append($(this).contents());
+        });
+      };
+    })(jQuery);
+
+    // prevent underline for linked images
+    $('a > img').parent().css({'border-bottom' : 'none'});
+
+    // mark non-body figures created by knitr chunks as 100% width
+    $('.layout-chunk').each(function(i, val) {
+      var figures = $(this).find('img, .html-widget');
+      if ($(this).attr('data-layout') !== "l-body") {
+        figures.css('width', '100%');
+      } else {
+        figures.css('max-width', '100%');
+        figures.filter("[width]").each(function(i, val) {
+          var fig = $(this);
+          fig.css('width', fig.attr('width') + 'px');
+        });
+
+      }
+    });
+
+    // auto-append index.html to post-preview links in file: protocol
+    // and in rstudio ide preview
+    $('.post-preview').each(function(i, val) {
+      if (window.location.protocol === "file:")
+        $(this).attr('href', $(this).attr('href') + "index.html");
+    });
+
+    // get rid of index.html references in header
+    if (window.location.protocol !== "file:") {
+      $('.distill-site-header a[href]').each(function(i,val) {
+        $(this).attr('href', $(this).attr('href').replace("index.html", "./"));
+      });
+    }
+
+    // add class to pandoc style tables
+    $('tr.header').parent('thead').parent('table').addClass('pandoc-table');
+    $('.kable-table').children('table').addClass('pandoc-table');
+
+    // add figcaption style to table captions
+    $('caption').parent('table').addClass("figcaption");
+
+    // initialize posts list
+    if (window.init_posts_list)
+      window.init_posts_list();
+
+    // implmement disqus comment link
+    $('.disqus-comment-count').click(function() {
+      window.headroom_prevent_pin = true;
+      $('#disqus_thread').toggleClass('hidden');
+      if (!$('#disqus_thread').hasClass('hidden')) {
+        var offset = $(this).offset();
+        $(window).resize();
+        $('html, body').animate({
+          scrollTop: offset.top - 35
+        });
+      }
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    if (is_downlevel_browser())
+      init_downlevel();
+    else
+      window.addEventListener('WebComponentsReady', init_distill);
+  });
+
+  </script>
+
+  <!--/radix_placeholder_distill-->
+  <script src="sdm_files/header-attrs-2.11/header-attrs.js"></script>
+  <script src="sdm_files/htmlwidgets-1.5.4/htmlwidgets.js"></script>
+  <link href="sdm_files/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+  <script src="sdm_files/datatables-binding-0.20/datatables.js"></script>
+  <script src="sdm_files/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+  <link href="sdm_files/dt-core-1.11.3/css/jquery.dataTables.min.css" rel="stylesheet" />
+  <link href="sdm_files/dt-core-1.11.3/css/jquery.dataTables.extra.css" rel="stylesheet" />
+  <script src="sdm_files/dt-core-1.11.3/js/jquery.dataTables.min.js"></script>
+  <link href="sdm_files/crosstalk-1.1.1/css/crosstalk.css" rel="stylesheet" />
+  <script src="sdm_files/crosstalk-1.1.1/js/crosstalk.min.js"></script>
+  <script src="sdm_files/popper-2.6.0/popper.min.js"></script>
+  <link href="sdm_files/tippy-6.2.7/tippy.css" rel="stylesheet" />
+  <link href="sdm_files/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
+  <script src="sdm_files/tippy-6.2.7/tippy.umd.min.js"></script>
+  <script src="sdm_files/anchor-4.2.2/anchor.min.js"></script>
+  <script src="sdm_files/bowser-1.9.3/bowser.min.js"></script>
+  <script src="sdm_files/webcomponents-2.0.0/webcomponents.js"></script>
+  <script src="sdm_files/distill-2.2.21/template.v2.js"></script>
+  <!--radix_placeholder_site_in_header-->
+  <!--/radix_placeholder_site_in_header-->
+
+
+</head>
+
+<body>
+
+<!--radix_placeholder_front_matter-->
+
+<script id="distill-front-matter" type="text/json">
+{"title":"Species Distribution Model: The mudpuppy salamander","description":"Using salamander observation data from GBIF and environmental climate data from WorldClim and ENVIREM to build a Maxent species distribution model.","authors":[{"author":"Mia Forsline","authorURL":{},"affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2022-01-26T00:00:00.000+00:00","citationText":"Forsline, 2022"}
+</script>
+
+<!--/radix_placeholder_front_matter-->
+<!--radix_placeholder_navigation_before_body-->
+<!--/radix_placeholder_navigation_before_body-->
+<!--radix_placeholder_site_before_body-->
+<!--/radix_placeholder_site_before_body-->
+
+<div class="d-title">
+<h1>Species Distribution Model: The mudpuppy salamander</h1>
+<!--radix_placeholder_categories-->
+<div class="dt-tags">
+<div class="dt=tag">R</div>
+<div class="dt=tag">Machine Learning</div>
+</div>
+<!--/radix_placeholder_categories-->
+<p><p>Using salamander observation data from GBIF and environmental climate data from WorldClim and ENVIREM to build a Maxent species distribution model.</p></p>
+</div>
+
+<div class="d-byline">
+  Mia Forsline true 
+  
+<br/>2022-01-26
+</div>
+
+<div class="d-article">
+<div class="d-contents d-contents-float">
+<nav class="l-text toc figcaption" id="TOC">
+<h3>Contents</h3>
+<ul>
+<li><a href="#learning-objectives">Learning Objectives:</a></li>
+<li><a href="#set-up">Set up</a></li>
+<li><a href="#lab-1---explore">Lab 1 - Explore</a>
+<ul>
+<li><a href="#get-species-observation-data-for-necturus-maculosus-the-common-mudpuppy-salamander-from-gbif">1. Get species observation data for <em>Necturus maculosus</em>, the common mudpuppy salamander from GBIF</a></li>
+<li><a href="#image-of-n.-maculosus">2. Image of <em>N. maculosus</em></a></li>
+<li><a href="#retrieve-species-occurrence-data-from-gbif">Retrieve species occurrence data from GBIF</a></li>
+<li><a href="#map-the-distribution-of-points">3. Map the distribution of points</a></li>
+<li><a href="#question-1.-how-many-observations-total-are-in-gbif-for-your-species">4. <strong>Question 1.</strong> How many observations total are in GBIF for your species?</a></li>
+<li><a href="#question-2.-do-you-see-any-odd-observations-like-marine-species-on-land-or-vice-versa-if-so-please-see-the-data-cleaning-and-explain-what-you-did-to-fix-or-remove-these-points.">5. <strong>Question 2.</strong> Do you see any odd observations, like marine species on land or vice versa? If so, please see the Data Cleaning and explain what you did to fix or remove these points.</a></li>
+<li><a href="#get-environment-data-using-sdmpredictors">Get Environment Data using <code>sdmpredictors</code></a>
+<ul>
+<li><a href="#presence">Presence</a></li>
+<li><a href="#view-layers-from-the-worldclim-and-envirem-datasets">View layers from the WorldClim and ENVIREM datasets</a></li>
+</ul></li>
+<li><a href="#select-appropriate-layers">6. Select appropriate layers</a></li>
+<li><a href="#create-a-convex-hull-to-crop-the-environmental-layers-to-the-area-of-interest">Create a convex hull to crop the environmental layers to the area of interest</a></li>
+<li><a href="#map-the-environmental-raster-clipped-to-the-species-range">7. Map the environmental raster clipped to the species range</a></li>
+<li><a href="#map-pseudo-absence-points">8. Map pseudo-absence points</a></li>
+<li><a href="#combine-presence-and-absence-into-single-set-of-labeled-points">Combine presence and absence into single set of labeled points</a></li>
+<li><a href="#environmental-variable-term-plots">9. Environmental variable term plots</a></li>
+</ul></li>
+<li><a href="#lab-2---logistic-regression">Lab 2 - Logistic Regression</a>
+<ul>
+<li><a href="#use-ggally-to-look-at-pair-plots-and-examine-correlations-between-environmental-variables">10. Use <code>GGally</code> to look at pair plots and examine correlations between environmental variables</a></li>
+<li><a href="#logistic-regression">Logistic Regression</a>
+<ul>
+<li><a href="#setup-data">Setup Data</a></li>
+</ul></li>
+<li><a href="#linear-model">11. Linear Model</a></li>
+<li><a href="#generalized-linear-model">12. Generalized Linear Model</a>
+<ul>
+<li><a href="#glm-term-plots">13. GLM Term Plots</a></li>
+</ul></li>
+<li><a href="#generalized-additive-model-gam">14. Generalized Additive Model (GAM)</a>
+<ul>
+<li><a href="#gam-term-plots">15. GAM Term Plots</a></li>
+<li><a href="#question-which-gam-environmental-variables-and-even-range-of-values-seem-to-contribute-most-towards-presence-above-0-response-versus-absence-below-0-response">16. <strong>Question:</strong> Which GAM environmental variables, and even range of values, seem to contribute most towards presence (above 0 response) versus absence (below 0 response)?</a></li>
+</ul></li>
+<li><a href="#maxent-max-entropy">17. Maxent (Max Entropy)</a>
+<ul>
+<li><a href="#maxent-variable-contribution-plot">18. Maxent variable contribution plot</a></li>
+<li><a href="#maxent-term-plots">19. Maxent Term Plots</a></li>
+<li><a href="#question-which-maxent-environmental-variables-and-even-range-of-values-seem-to-contribute-most-towards-presence-closer-to-1-response-and-how-might-this-differ-from-the-gam-results">20. <strong>Question:</strong> Which Maxent environmental variables, and even range of values, seem to contribute most towards presence (closer to 1 response) and how might this differ from the GAM results?</a></li>
+<li><a href="#predict">Predict</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+</div>
+<h1 id="learning-objectives">Learning Objectives:</h1>
+<p><strong>Lab 1a - Explore</strong></p>
+<ul>
+<li>Fetch species observations from the Global Biodiversity Information Facility (GBIF.org) using an R package that wraps a function around their API.</li>
+<li>Fetch environmental data for defining environmental relationship in the species distribution model (SDM).</li>
+<li>Generate pseudo-absences, or background, points with which to differentiate from the species presence points in the SDM.</li>
+<li>Extract underlying environmental data from points.</li>
+<li>Plot term plots of each environmental predictor with the species response.</li>
+</ul>
+<p><strong>Lab 1b - Logistic Regression</strong></p>
+<ul>
+<li>Pairs plot to show correlation between variables and avoid multicollinearity (see 8.2 Many predictors in a model) Logistic Regression seen as an evolution of techniques</li>
+<li>Linear Model to show simplest multivariate regression, but predictions can be outside the binary values.</li>
+<li>Generalized Linear Model uses a logit transformation to constrain the outputs to being within two values.</li>
+<li>Generalized Additive Model allows for “wiggle” in predictor terms.</li>
+<li>Maxent (Maximum Entropy) is a presence-only modeling technique that allows for a more complex set of shapes between predictor and response.</li>
+</ul>
+<p><strong>Lab 1c - Decision Trees</strong></p>
+<ul>
+<li><p>explore Supervised Classification for categorical values</p>
+<ul>
+<li>this is considered a Classification, while Supervised Classification for continuous values is called a Regression</li>
+</ul></li>
+<li><p>use Decision Trees as a Classification technique to classify categorical species presence and absence data</p>
+<ul>
+<li>specifically, use Recursive Partitioning and Random Forest techniques</li>
+</ul></li>
+</ul>
+<p><strong>Lab 1d - Evaluate the model</strong></p>
+<ul>
+<li>Evaluate model performance</li>
+<li>Calibrate model parameters</li>
+</ul>
+<h1 id="set-up">Set up</h1>
+<div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>
+show
+</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># load packages, installing if missing</span>
+<span class='kw'>if</span> <span class='op'>(</span><span class='op'>!</span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>require</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/DesiQuintans/librarian'>librarian</a></span><span class='op'>)</span><span class='op'>)</span><span class='op'>{</span>
+  <span class='fu'><a href='https://rdrr.io/r/utils/install.packages.html'>install.packages</a></span><span class='op'>(</span><span class='st'>"librarian"</span><span class='op'>)</span>
+  <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/DesiQuintans/librarian'>librarian</a></span><span class='op'>)</span>
+<span class='op'>}</span>
+
+<span class='fu'>librarian</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/librarian/man/shelf.html'>shelf</a></span><span class='op'>(</span>
+  <span class='va'>caret</span>, <span class='co'># m: modeling framework</span>
+  <span class='va'>dismo</span>, <span class='co'># species distribution modeling: maxent(), predict(), evaluate(),</span>
+  <span class='va'>dplyr</span>, 
+  <span class='va'>DT</span>, 
+  <span class='va'>GGally</span>,
+  <span class='va'>ggplot2</span>, 
+  <span class='va'>here</span>, 
+  <span class='va'>htmltools</span>, 
+  <span class='va'>leaflet</span>,
+  <span class='va'>maptools</span>,
+  <span class='va'>mapview</span>,
+  <span class='va'>mgcv</span>,
+  <span class='va'>pdp</span>,         <span class='co'># X: partial dependence plots</span>
+  <span class='va'>purrr</span>,
+  <span class='va'>ranger</span>,
+  <span class='va'>raster</span>, 
+  <span class='va'>readr</span>, 
+  <span class='va'>rgbif</span>, 
+  <span class='va'>rgdal</span>, 
+  <span class='va'>rJava</span>, 
+  <span class='va'>rpart</span>,       <span class='co'># m: recursive partition modeling</span>
+  <span class='va'>rpart.plot</span>,  <span class='co'># m: recursive partition plotting</span>
+  <span class='va'>rsample</span>,     <span class='co'># d: split train/test data</span>
+  <span class='va'>sdmpredictors</span>, 
+  <span class='va'>sf</span>, 
+  <span class='va'>skimr</span>,       <span class='co'># d: skim summarize data table</span>
+  <span class='va'>spocc</span>, 
+  <span class='va'>tidyr</span>, 
+  <span class='va'>usdm</span>,  <span class='co'># uncertainty analysis for species distribution models: vifcor()</span>
+  <span class='va'>vip</span><span class='op'>)</span>         <span class='co'># X: variable importance</span>
+  
+<span class='va'>select</span> <span class='op'>=</span> <span class='fu'>dplyr</span><span class='fu'>::</span><span class='va'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span>
+
+<span class='va'>select</span> <span class='op'>&lt;-</span> <span class='fu'>dplyr</span><span class='fu'>::</span><span class='va'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span> <span class='co'># overwrite raster::select</span>
+
+<span class='fu'><a href='https://rdrr.io/r/base/options.html'>options</a></span><span class='op'>(</span>
+  scipen <span class='op'>=</span> <span class='fl'>999</span>,
+  readr.show_col_types <span class='op'>=</span> <span class='cn'>F</span><span class='op'>)</span>
+
+<span class='co'># set random seed for reproducibility</span>
+<span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span><span class='op'>(</span><span class='fl'>42</span><span class='op'>)</span>
+
+<span class='co'>#set ggplot theme </span>
+<span class='fu'>ggplot2</span><span class='fu'>::</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme_get.html'>theme_set</a></span><span class='op'>(</span><span class='fu'>ggplot2</span><span class='fu'>::</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggtheme.html'>theme_light</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span>
+
+<span class='co'># directory to store data</span>
+<span class='va'>dir_data</span> <span class='op'>&lt;-</span> <span class='fu'>here</span><span class='op'>(</span><span class='st'>"data"</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/files2.html'>dir.create</a></span><span class='op'>(</span><span class='va'>dir_data</span>, showWarnings <span class='op'>=</span> <span class='cn'>F</span><span class='op'>)</span>
+
+<span class='va'>pts_env_csv</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/file.path.html'>file.path</a></span><span class='op'>(</span><span class='va'>dir_data</span>, <span class='st'>"pts_env.csv"</span><span class='op'>)</span>
+<span class='va'>pts_env</span> <span class='op'>&lt;-</span> <span class='fu'>read_csv</span><span class='op'>(</span><span class='va'>pts_env_csv</span><span class='op'>)</span>
+<span class='va'>pts_geo</span>       <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/file.path.html'>file.path</a></span><span class='op'>(</span><span class='va'>dir_data</span>, <span class='st'>"pts.geojson"</span><span class='op'>)</span>
+<span class='va'>env_stack_grd</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/file.path.html'>file.path</a></span><span class='op'>(</span><span class='va'>dir_data</span>, <span class='st'>"env_stack.grd"</span><span class='op'>)</span>
+<span class='va'>mdl_maxv_rds</span>  <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/file.path.html'>file.path</a></span><span class='op'>(</span><span class='va'>dir_data</span>, <span class='st'>"mdl_maxent_vif.rds"</span><span class='op'>)</span>
+<span class='va'>pts</span> <span class='op'>&lt;-</span> <span class='fu'>read_sf</span><span class='op'>(</span><span class='va'>pts_geo</span><span class='op'>)</span>
+<span class='va'>env_stack</span> <span class='op'>&lt;-</span> <span class='fu'>raster</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/raster/man/stack.html'>stack</a></span><span class='op'>(</span><span class='va'>env_stack_grd</span><span class='op'>)</span>
+</code></pre>
+</div>
+</details>
+</div>
+<h1 id="lab-1---explore">Lab 1 - Explore</h1>
+<h2 id="get-species-observation-data-for-necturus-maculosus-the-common-mudpuppy-salamander-from-gbif">1. Get species observation data for <em>Necturus maculosus</em>, the common mudpuppy salamander from GBIF</h2>
+<h2 id="image-of-n.-maculosus">2. Image of <em>N. maculosus</em></h2>
+<figure>
+<img src="mudpup.jpeg" alt="Source: http://www.biokids.umich.edu/critters/Necturus_maculosus/pictures/resources/contributors/Grzimek_herps/Proteidae/Necturus_maculosus/" /><figcaption aria-hidden="true">Source: <a href="http://www.biokids.umich.edu/critters/Necturus_maculosus/pictures/resources/contributors/Grzimek_herps/Proteidae/Necturus_maculosus/" class="uri">http://www.biokids.umich.edu/critters/Necturus_maculosus/pictures/resources/contributors/Grzimek_herps/Proteidae/Necturus_maculosus/</a></figcaption>
+</figure>
+<figure>
+<img src="mudpup2.jpeg" alt="Source: https://www.brainerddispatch.com/sports/2795363-DNR-Report-all-endangered-mudpuppy-salamanders-die-offs" /><figcaption aria-hidden="true">Source: <a href="https://www.brainerddispatch.com/sports/2795363-DNR-Report-all-endangered-mudpuppy-salamanders-die-offs" class="uri">https://www.brainerddispatch.com/sports/2795363-DNR-Report-all-endangered-mudpuppy-salamanders-die-offs</a></figcaption>
+</figure>
+<h2 id="retrieve-species-occurrence-data-from-gbif">Retrieve species occurrence data from GBIF</h2>
+<ul>
+<li><p>retrieve only observations with latitude and longitude coordinates</p></li>
+<li><p>there are 1,205 <em>N. maculosus</em> observations in total</p></li>
+<li><p>Extract and clean data from the GBIF retrieval results</p>
+<ul>
+<li>keep only <em>N. maculosus</em> observation points</li>
+<li>keep only relevant column information</li>
+<li>remove duplicate observations</li>
+<li>after cleaning, there are 776 <em>N. maculosus</em> observation points</li>
+</ul></li>
+<li><p>Use longitude and latitude to create points of observation and put them in a data frame</p>
+<ul>
+<li>add CRS 4326</li>
+</ul></li>
+</ul>
+<div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>
+show
+</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r">    <span class='va'>obs_csv</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/file.path.html'>file.path</a></span><span class='op'>(</span><span class='va'>dir_data</span>, <span class='st'>"obs.csv"</span><span class='op'>)</span>
+    <span class='va'>obs_geo</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/file.path.html'>file.path</a></span><span class='op'>(</span><span class='va'>dir_data</span>, <span class='st'>"obs.geojson"</span><span class='op'>)</span>
+    <span class='va'>redo</span>    <span class='op'>&lt;-</span> <span class='cn'>TRUE</span> 
+
+    <span class='kw'>if</span> <span class='op'>(</span><span class='op'>!</span><span class='fu'><a href='https://rdrr.io/r/base/files.html'>file.exists</a></span><span class='op'>(</span><span class='va'>obs_geo</span><span class='op'>)</span> <span class='op'>|</span> <span class='va'>redo</span><span class='op'>)</span><span class='op'>{</span>
+      <span class='op'>(</span><span class='va'>res</span> <span class='op'>&lt;-</span> <span class='fu'>spocc</span><span class='fu'>::</span><span class='fu'><a href='https://docs.ropensci.org/spocc/reference/occ.html'>occ</a></span><span class='op'>(</span>
+        query <span class='op'>=</span> <span class='st'>'Necturus maculosus'</span>,
+        from <span class='op'>=</span> <span class='st'>'gbif'</span>,
+        limit <span class='op'>=</span> <span class='fl'>10000</span>,
+        has_coords <span class='op'>=</span> <span class='cn'>T</span><span class='op'>)</span><span class='op'>)</span>
+
+      <span class='co'># extract data frame from result</span>
+      <span class='va'>df</span> <span class='op'>&lt;-</span> <span class='va'>res</span><span class='op'>$</span><span class='va'>gbif</span><span class='op'>$</span><span class='va'>data</span><span class='op'>[[</span><span class='fl'>1</span><span class='op'>]</span><span class='op'>]</span>
+      
+      <span class='co'>#clean the data </span>
+      <span class='va'>df_clean</span> <span class='op'>&lt;-</span> <span class='va'>df</span> <span class='op'>%&gt;%</span> 
+      <span class='fu'><a href='https://rdrr.io/r/stats/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>name</span> <span class='op'><a href='https://rdrr.io/r/base/match.html'>%in%</a></span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Necturus maculosus (Rafinesque, 1818)"</span>, <span class='st'>"Necturus maculosus maculosus"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span> <span class='co'>#remove weirdly named points</span>
+      <span class='fu'><a href='https://rdrr.io/r/stats/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>longitude</span> <span class='op'>&lt;</span> <span class='fl'>0</span><span class='op'>)</span> <span class='op'>%&gt;%</span> <span class='co'>#remove one observation in Europe </span>
+      <span class='fu'>select</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"name"</span>, <span class='st'>"longitude"</span>, <span class='st'>"latitude"</span>, <span class='st'>"key"</span>, <span class='st'>"lifeStage"</span>, <span class='st'>"stateProvince"</span>, <span class='st'>"year"</span><span class='op'>)</span><span class='op'>)</span>
+      
+      <span class='co'>#remove duplicates </span>
+      <span class='va'>dups2</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/duplicated.html'>duplicated</a></span><span class='op'>(</span><span class='va'>df_clean</span><span class='op'>[</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>'longitude'</span>, <span class='st'>'latitude'</span><span class='op'>)</span><span class='op'>]</span><span class='op'>)</span>
+      <span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='va'>dups2</span><span class='op'>)</span>
+      <span class='va'>df_clean</span> <span class='op'>&lt;-</span> <span class='va'>df_clean</span><span class='op'>[</span><span class='op'>!</span><span class='va'>dups2</span>, <span class='op'>]</span>
+      
+      <span class='fu'>readr</span><span class='fu'>::</span><span class='fu'><a href='https://readr.tidyverse.org/reference/write_delim.html'>write_csv</a></span><span class='op'>(</span><span class='va'>df_clean</span>, <span class='va'>obs_csv</span><span class='op'>)</span>
+
+      <span class='co'># convert to points of observation from lon/lat columns in data frame</span>
+      <span class='va'>obs</span> <span class='op'>&lt;-</span> <span class='va'>df_clean</span> <span class='op'>%&gt;%</span>
+        <span class='fu'>sf</span><span class='fu'>::</span><span class='fu'><a href='https://r-spatial.github.io/sf/reference/st_as_sf.html'>st_as_sf</a></span><span class='op'>(</span>
+          coords <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"longitude"</span>, <span class='st'>"latitude"</span><span class='op'>)</span>,
+          crs <span class='op'>=</span> <span class='fu'>st_crs</span><span class='op'>(</span><span class='fl'>4326</span><span class='op'>)</span><span class='op'>)</span>
+      
+      <span class='fu'>sf</span><span class='fu'>::</span><span class='fu'><a href='https://r-spatial.github.io/sf/reference/st_write.html'>write_sf</a></span><span class='op'>(</span><span class='va'>obs</span>, <span class='va'>obs_geo</span>, delete_dsn<span class='op'>=</span><span class='cn'>T</span><span class='op'>)</span>
+    <span class='op'>}</span>
+
+    <span class='va'>obs</span> <span class='op'>&lt;-</span> <span class='fu'>sf</span><span class='fu'>::</span><span class='fu'><a href='https://r-spatial.github.io/sf/reference/st_read.html'>read_sf</a></span><span class='op'>(</span><span class='va'>obs_geo</span><span class='op'>)</span>
+    <span class='fu'><a href='https://rdrr.io/r/base/nrow.html'>nrow</a></span><span class='op'>(</span><span class='va'>obs</span><span class='op'>)</span> <span class='co'># number of rows</span>
+</code></pre>
+</div>
+</details>
+<pre><code>[1] 811</code></pre>
+</div>
+<h2 id="map-the-distribution-of-points">3. Map the distribution of points</h2>
+<div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>
+show
+</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'>#mapview::mapview(obs, map.types = "Stamen.Watercolor")</span>
+</code></pre>
+</div>
+</details>
+</div>
+<h2 id="question-1.-how-many-observations-total-are-in-gbif-for-your-species">4. <strong>Question 1.</strong> How many observations total are in GBIF for your species?</h2>
+<p>In total, GBIF contains 1,205 observations of <em>N. maculosus</em>.</p>
+<h2 id="question-2.-do-you-see-any-odd-observations-like-marine-species-on-land-or-vice-versa-if-so-please-see-the-data-cleaning-and-explain-what-you-did-to-fix-or-remove-these-points.">5. <strong>Question 2.</strong> Do you see any odd observations, like marine species on land or vice versa? If so, please see the Data Cleaning and explain what you did to fix or remove these points.</h2>
+<p>Yes, I removed observations with the incorrect species name as well as one outlier observation point located in Europe. I also removed 421 duplicate observations.</p>
+<h2 id="get-environment-data-using-sdmpredictors">Get Environment Data using <code>sdmpredictors</code></h2>
+<h3 id="presence">Presence</h3>
+<ul>
+<li>retrieve terrestrial environmental data for predicting the niche of the <em>N. maculosus</em> observations</li>
+</ul>
+<div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>
+show
+</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>dir_env</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/file.path.html'>file.path</a></span><span class='op'>(</span><span class='va'>dir_data</span>, <span class='st'>"env"</span><span class='op'>)</span>
+
+<span class='co'># set a default data directory</span>
+<span class='fu'><a href='https://rdrr.io/r/base/options.html'>options</a></span><span class='op'>(</span>sdmpredictors_datadir <span class='op'>=</span> <span class='va'>dir_env</span><span class='op'>)</span>
+
+<span class='co'># choosing terrestrial data only </span>
+<span class='va'>env_datasets</span> <span class='op'>&lt;-</span> <span class='fu'>sdmpredictors</span><span class='fu'>::</span><span class='fu'><a href='http://lifewatch.github.io/sdmpredictors/reference/list_datasets.html'>list_datasets</a></span><span class='op'>(</span>terrestrial <span class='op'>=</span> <span class='cn'>TRUE</span>, marine <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>
+</code></pre>
+</div>
+</details>
+</div>
+<h3 id="view-layers-from-the-worldclim-and-envirem-datasets">View layers from the WorldClim and ENVIREM datasets</h3>
+<div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>
+show
+</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># choose datasets for a vector</span>
+<span class='va'>env_datasets_vec</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"WorldClim"</span>, <span class='st'>"ENVIREM"</span><span class='op'>)</span>
+
+<span class='co'># get layers</span>
+<span class='va'>env_layers</span> <span class='op'>&lt;-</span> <span class='fu'>sdmpredictors</span><span class='fu'>::</span><span class='fu'><a href='http://lifewatch.github.io/sdmpredictors/reference/list_layers.html'>list_layers</a></span><span class='op'>(</span><span class='va'>env_datasets_vec</span><span class='op'>)</span>
+</code></pre>
+</div>
+</details>
+</div>
+<h2 id="select-appropriate-layers">6. Select appropriate layers</h2>
+<p>Prior work suggests that <em>N. maculosus</em> species distribution is most influenced by environmental variables not related to climate such as urban development, agriculture, tree canopy cover, and road density (<a href="https://scholarworks.iupui.edu/handle/1805/22884">Fischer 2020</a>). However, other aquatic salamander species such as <em>Ambystoma ordinarium</em>, a mole salamander from Mexico, have been shown to be best predicted by WorldClim variables (<a href="https://doi.org/10.1655/Herpetologica-D-16-00078.1">Escalera-Vásquez et al. 2018</a>). Furthermore, as ectotherms, salamanders are known to be sensitive to both temperature and moisture shifts (<a href="https://www.frontiersin.org/articles/10.3389/fevo.2019.00022/full">McEntire and Maerz 2019</a>).</p>
+<figure>
+<img src="ambystoma.jpeg" alt="Ambystoma ordinarium, also known as the Michoacan stream salamander or the Puerto Hondo stream salaamnder, is native to the Mexican state of Michoacan. Photo source: https://calphotos.berkeley.edu/cgi/img_query?enlarge=0000+0000+0918+1919." /><figcaption aria-hidden="true">Ambystoma ordinarium, also known as the Michoacan stream salamander or the Puerto Hondo stream salaamnder, is native to the Mexican state of Michoacan. Photo source: <a href="https://calphotos.berkeley.edu/cgi/img_query?enlarge=0000+0000+0918+1919" class="uri">https://calphotos.berkeley.edu/cgi/img_query?enlarge=0000+0000+0918+1919</a>.</figcaption>
+</figure>
+<ul>
+<li><p>WorldClim:</p>
+<ul>
+<li>altitude</li>
+<li>annual mean temperature</li>
+<li>mean diurnal temperature range</li>
+<li>temperature seasonality</li>
+<li>minimum temperature of the coldest month</li>
+<li>annual precipitation</li>
+<li>precipitation of the driest month</li>
+</ul></li>
+<li><p>ENVIREM</p>
+<ul>
+<li>climatic moisture index</li>
+<li>terrain roughness index</li>
+<li>topographic wetness</li>
+</ul></li>
+<li><p>map the environmental layers on a global scale</p></li>
+</ul>
+<div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>
+show
+</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># choose layers after some inspection and perhaps consulting literature</span>
+<span class='va'>env_layers_vec</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"WC_alt"</span>, <span class='co'>#altitude </span>
+                    <span class='st'>"WC_bio1"</span>, <span class='co'>#annual mean temp </span>
+                    <span class='st'>"WC_bio2"</span>, <span class='co'>#mean diurnal temp range </span>
+                    <span class='st'>"WC_bio4"</span>, <span class='co'>#temperature seasonality </span>
+                    <span class='st'>"WC_bio6"</span>, <span class='co'>#minimum temperature of the coldest month </span>
+                    <span class='st'>"WC_bio12"</span>, <span class='co'>#annual precipitation </span>
+                    <span class='st'>"WC_bio14"</span>, <span class='co'>#precipitation of the driest month </span>
+                    <span class='st'>"ER_climaticMoistureIndex"</span>, <span class='co'>#climatic moisture index </span>
+                    <span class='st'>"ER_tri"</span>, <span class='co'>#terrain roughness index </span>
+                    <span class='st'>"ER_topoWet"</span><span class='op'>)</span> <span class='co'>#topographic wetness</span>
+
+<span class='co'># get layers</span>
+<span class='va'>env_stack</span> <span class='op'>&lt;-</span> <span class='fu'>load_layers</span><span class='op'>(</span><span class='va'>env_layers_vec</span><span class='op'>)</span>
+
+<span class='co'># interactive plot layers, hiding all but first (select others)</span>
+<span class='co'>#mapview(env_stack, hide = T)</span>
+</code></pre>
+</div>
+</details>
+</div>
+<h2 id="create-a-convex-hull-to-crop-the-environmental-layers-to-the-area-of-interest">Create a convex hull to crop the environmental layers to the area of interest</h2>
+<ul>
+<li>map the convex hull</li>
+</ul>
+<div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>
+show
+</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>obs_hull_geo</span>  <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/file.path.html'>file.path</a></span><span class='op'>(</span><span class='va'>dir_data</span>, <span class='st'>"obs_hull.geojson"</span><span class='op'>)</span>
+<span class='va'>env_stack_grd</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/file.path.html'>file.path</a></span><span class='op'>(</span><span class='va'>dir_data</span>, <span class='st'>"env_stack.grd"</span><span class='op'>)</span>
+
+<span class='kw'>if</span> <span class='op'>(</span><span class='op'>!</span><span class='fu'><a href='https://rdrr.io/r/base/files.html'>file.exists</a></span><span class='op'>(</span><span class='va'>obs_hull_geo</span><span class='op'>)</span> <span class='op'>|</span> <span class='va'>redo</span><span class='op'>)</span><span class='op'>{</span>
+  <span class='co'># make convex hull around points of observation</span>
+  <span class='va'>obs_hull</span> <span class='op'>&lt;-</span> <span class='fu'>sf</span><span class='fu'>::</span><span class='fu'><a href='https://r-spatial.github.io/sf/reference/geos_unary.html'>st_convex_hull</a></span><span class='op'>(</span><span class='fu'>st_union</span><span class='op'>(</span><span class='va'>obs</span><span class='op'>)</span><span class='op'>)</span>
+  
+  <span class='co'># save obs hull</span>
+  <span class='fu'>write_sf</span><span class='op'>(</span><span class='va'>obs_hull</span>, <span class='va'>obs_hull_geo</span><span class='op'>)</span>
+<span class='op'>}</span>
+<span class='va'>obs_hull</span> <span class='op'>&lt;-</span> <span class='fu'>read_sf</span><span class='op'>(</span><span class='va'>obs_hull_geo</span><span class='op'>)</span>
+
+<span class='co'>#mapview(list(obs, obs_hull))</span>
+</code></pre>
+</div>
+</details>
+</div>
+<h2 id="map-the-environmental-raster-clipped-to-the-species-range">7. Map the environmental raster clipped to the species range</h2>
+<div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>
+show
+</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='kw'>if</span> <span class='op'>(</span><span class='op'>!</span><span class='fu'><a href='https://rdrr.io/r/base/files.html'>file.exists</a></span><span class='op'>(</span><span class='va'>env_stack_grd</span><span class='op'>)</span> <span class='op'>|</span> <span class='va'>redo</span><span class='op'>)</span><span class='op'>{</span>
+  <span class='va'>obs_hull_sp</span> <span class='op'>&lt;-</span> <span class='fu'>sf</span><span class='fu'>::</span><span class='fu'><a href='https://r-spatial.github.io/sf/reference/coerce-methods.html'>as_Spatial</a></span><span class='op'>(</span><span class='va'>obs_hull</span><span class='op'>)</span>
+  <span class='va'>env_stack</span> <span class='op'>&lt;-</span> <span class='fu'>raster</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/raster/man/mask.html'>mask</a></span><span class='op'>(</span><span class='va'>env_stack</span>, <span class='va'>obs_hull_sp</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+    <span class='fu'>raster</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/raster/man/crop.html'>crop</a></span><span class='op'>(</span><span class='fu'>extent</span><span class='op'>(</span><span class='va'>obs_hull_sp</span><span class='op'>)</span><span class='op'>)</span>
+  <span class='fu'>writeRaster</span><span class='op'>(</span><span class='va'>env_stack</span>, <span class='va'>env_stack_grd</span>, overwrite<span class='op'>=</span><span class='cn'>T</span><span class='op'>)</span>  
+<span class='op'>}</span>
+<span class='va'>env_stack</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/utils/stack.html'>stack</a></span><span class='op'>(</span><span class='va'>env_stack_grd</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>env_stack</span>, nc<span class='op'>=</span><span class='fl'>2</span><span class='op'>)</span>
+</code></pre>
+</div>
+</details>
+<img src="sdm_files/figure-html5/unnamed-chunk-8-1.png" width="624" />
+<details>
+<summary>
+show
+</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># show map</span>
+<span class='co'># mapview(obs) + </span>
+<span class='co'>#   mapview(env_stack, hide = T) # makes html too big for Github</span>
+</code></pre>
+</div>
+</details>
+</div>
+<h2 id="map-pseudo-absence-points">8. Map pseudo-absence points</h2>
+<ul>
+<li>count observations in the raster</li>
+<li>create a mask</li>
+<li>generate random pseudo-absence points inside the mask</li>
+<li>map the presence and pseudo-absence points</li>
+</ul>
+<div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>
+show
+</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>absence_geo</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/file.path.html'>file.path</a></span><span class='op'>(</span><span class='va'>dir_data</span>, <span class='st'>"absence.geojson"</span><span class='op'>)</span>
+<span class='va'>pts_geo</span>     <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/file.path.html'>file.path</a></span><span class='op'>(</span><span class='va'>dir_data</span>, <span class='st'>"pts.geojson"</span><span class='op'>)</span>
+<span class='va'>pts_env_csv</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/file.path.html'>file.path</a></span><span class='op'>(</span><span class='va'>dir_data</span>, <span class='st'>"pts_env.csv"</span><span class='op'>)</span>
+
+<span class='kw'>if</span> <span class='op'>(</span><span class='op'>!</span><span class='fu'><a href='https://rdrr.io/r/base/files.html'>file.exists</a></span><span class='op'>(</span><span class='va'>absence_geo</span><span class='op'>)</span> <span class='op'>|</span> <span class='va'>redo</span><span class='op'>)</span><span class='op'>{</span>
+  <span class='co'># get raster count of observations</span>
+  <span class='va'>r_obs</span> <span class='op'>&lt;-</span> <span class='fu'>rasterize</span><span class='op'>(</span>
+    <span class='fu'>sf</span><span class='fu'>::</span><span class='fu'><a href='https://r-spatial.github.io/sf/reference/coerce-methods.html'>as_Spatial</a></span><span class='op'>(</span><span class='va'>obs</span><span class='op'>)</span>, <span class='va'>env_stack</span><span class='op'>[[</span><span class='fl'>1</span><span class='op'>]</span><span class='op'>]</span>, field<span class='op'>=</span><span class='fl'>1</span>, fun<span class='op'>=</span><span class='st'>'count'</span><span class='op'>)</span>
+  
+  <span class='co'># show map</span>
+  <span class='co'># mapview(obs) + </span>
+  <span class='co'>#   mapview(r_obs)</span>
+  
+  <span class='co'># create mask for </span>
+  <span class='va'>r_mask</span> <span class='op'>&lt;-</span> <span class='fu'>mask</span><span class='op'>(</span><span class='va'>env_stack</span><span class='op'>[[</span><span class='fl'>1</span><span class='op'>]</span><span class='op'>]</span> <span class='op'>&gt;</span> <span class='op'>-</span><span class='cn'>Inf</span>, <span class='va'>r_obs</span>, inverse<span class='op'>=</span><span class='cn'>T</span><span class='op'>)</span>
+  
+  <span class='co'># generate random points inside mask</span>
+  <span class='va'>absence</span> <span class='op'>&lt;-</span> <span class='fu'>dismo</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/dismo/man/randomPoints.html'>randomPoints</a></span><span class='op'>(</span><span class='va'>r_mask</span>, <span class='fu'><a href='https://rdrr.io/r/base/nrow.html'>nrow</a></span><span class='op'>(</span><span class='va'>obs</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+    <span class='fu'>as_tibble</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+    <span class='fu'>st_as_sf</span><span class='op'>(</span>coords <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"x"</span>, <span class='st'>"y"</span><span class='op'>)</span>, crs <span class='op'>=</span> <span class='fl'>4326</span><span class='op'>)</span>
+  
+  <span class='fu'>write_sf</span><span class='op'>(</span><span class='va'>absence</span>, <span class='va'>absence_geo</span>, delete_dsn<span class='op'>=</span><span class='cn'>T</span><span class='op'>)</span>
+<span class='op'>}</span>
+<span class='va'>absence</span> <span class='op'>&lt;-</span> <span class='fu'>read_sf</span><span class='op'>(</span><span class='va'>absence_geo</span><span class='op'>)</span>
+
+<span class='co'># show map of presence, ie obs, and absence</span>
+<span class='co'># mapview(obs, col.regions = "green") + </span>
+<span class='co'>#   mapview(absence, col.regions = "gray")</span>
+</code></pre>
+</div>
+</details>
+</div>
+<h2 id="combine-presence-and-absence-into-single-set-of-labeled-points">Combine presence and absence into single set of labeled points</h2>
+<ul>
+<li><p>display a table of all labeled data points that will feed into the species distribution model</p>
+<ul>
+<li>Y is the present column where 1 = present and 0 = absent</li>
+<li>X is all other columns (the environmental layers)</li>
+</ul></li>
+</ul>
+<div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>
+show
+</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r">    <span class='kw'>if</span> <span class='op'>(</span><span class='op'>!</span><span class='fu'><a href='https://rdrr.io/r/base/files.html'>file.exists</a></span><span class='op'>(</span><span class='va'>pts_env_csv</span><span class='op'>)</span> <span class='op'>|</span> <span class='va'>redo</span><span class='op'>)</span><span class='op'>{</span>
+
+      <span class='co'># combine presence and absence into single set of labeled points </span>
+      <span class='va'>pts</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>rbind</a></span><span class='op'>(</span>
+        <span class='va'>obs</span> <span class='op'>%&gt;%</span> 
+          <span class='fu'>mutate</span><span class='op'>(</span>
+            present <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+          <span class='fu'>select</span><span class='op'>(</span><span class='va'>present</span>, <span class='va'>key</span><span class='op'>)</span>,
+        <span class='va'>absence</span> <span class='op'>%&gt;%</span> 
+          <span class='fu'>mutate</span><span class='op'>(</span>
+            present <span class='op'>=</span> <span class='fl'>0</span>,
+            key     <span class='op'>=</span> <span class='cn'>NA</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+        <span class='fu'>mutate</span><span class='op'>(</span>
+          ID <span class='op'>=</span> <span class='fl'>1</span><span class='op'>:</span><span class='fu'>n</span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+        <span class='fu'>relocate</span><span class='op'>(</span><span class='va'>ID</span><span class='op'>)</span>
+      <span class='fu'>write_sf</span><span class='op'>(</span><span class='va'>pts</span>, <span class='va'>pts_geo</span>, delete_dsn<span class='op'>=</span><span class='cn'>T</span><span class='op'>)</span>
+
+      <span class='co'># extract raster values for points</span>
+      <span class='va'>pts_env</span> <span class='op'>&lt;-</span> <span class='fu'>raster</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/raster/man/extract.html'>extract</a></span><span class='op'>(</span><span class='va'>env_stack</span>, <span class='fu'>as_Spatial</span><span class='op'>(</span><span class='va'>pts</span><span class='op'>)</span>, df<span class='op'>=</span><span class='cn'>TRUE</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+        <span class='fu'>tibble</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+        <span class='co'># join present and geometry columns to raster value results for points</span>
+        <span class='fu'>left_join</span><span class='op'>(</span>
+          <span class='va'>pts</span> <span class='op'>%&gt;%</span> 
+            <span class='fu'>select</span><span class='op'>(</span><span class='va'>ID</span>, <span class='va'>present</span><span class='op'>)</span>,
+          by <span class='op'>=</span> <span class='st'>"ID"</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+        <span class='fu'>relocate</span><span class='op'>(</span><span class='va'>present</span>, .after <span class='op'>=</span> <span class='va'>ID</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+        <span class='co'># extract lon, lat as single columns</span>
+        <span class='fu'>mutate</span><span class='op'>(</span>
+          <span class='co'>#present = factor(present),</span>
+          lon <span class='op'>=</span> <span class='fu'>st_coordinates</span><span class='op'>(</span><span class='va'>geometry</span><span class='op'>)</span><span class='op'>[</span>,<span class='fl'>1</span><span class='op'>]</span>,
+          lat <span class='op'>=</span> <span class='fu'>st_coordinates</span><span class='op'>(</span><span class='va'>geometry</span><span class='op'>)</span><span class='op'>[</span>,<span class='fl'>2</span><span class='op'>]</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+        <span class='fu'>select</span><span class='op'>(</span><span class='op'>-</span><span class='va'>geometry</span><span class='op'>)</span>
+      <span class='fu'>write_csv</span><span class='op'>(</span><span class='va'>pts_env</span>, <span class='va'>pts_env_csv</span><span class='op'>)</span>
+    <span class='op'>}</span>
+    <span class='va'>pts_env</span> <span class='op'>&lt;-</span> <span class='fu'>read_csv</span><span class='op'>(</span><span class='va'>pts_env_csv</span><span class='op'>)</span>
+
+    <span class='va'>pts_env</span> <span class='op'>%&gt;%</span> 
+      <span class='co'># show first 10 presence, last 10 absence</span>
+      <span class='fu'>slice</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>10</span>, <span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/nrow.html'>nrow</a></span><span class='op'>(</span><span class='va'>pts_env</span><span class='op'>)</span><span class='op'>-</span><span class='fl'>9</span><span class='op'>)</span><span class='op'>:</span><span class='fu'><a href='https://rdrr.io/r/base/nrow.html'>nrow</a></span><span class='op'>(</span><span class='va'>pts_env</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+      <span class='fu'>DT</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/DT/man/datatable.html'>datatable</a></span><span class='op'>(</span>
+        rownames <span class='op'>=</span> <span class='cn'>F</span>,
+        options <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>
+          dom <span class='op'>=</span> <span class='st'>"t"</span>,
+          pageLength <span class='op'>=</span> <span class='fl'>20</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+</details>
+<div id="htmlwidget-5708c50b506922457bc1" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-5708c50b506922457bc1">{"x":{"filter":"none","vertical":false,"data":[[1,2,3,4,5,6,7,8,9,10,1613,1614,1615,1616,1617,1618,1619,1620,1621,1622],[1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0],[101,193,327,336,101,101,179,101,97,235,274,431,593,614,1008,377,446,242,385,998],[6.19999980926514,4.69999980926514,8.39999961853027,8.39999961853027,6.19999980926514,6.19999980926514,8.39999961853027,6.19999980926514,8.80000019073486,4,3.29999995231628,1.39999997615814,11.1000003814697,1,3,2.29999995231628,-2.5,16.2999992370605,4,1.60000002384186],[9.89999961853027,10.3999996185303,11.1999998092651,11.1999998092651,9.89999961853027,9.89999961853027,9.30000019073486,9.89999961853027,9.39999961853027,10.8999996185303,11.6000003814697,12.3999996185303,13,12.1999998092651,14.6000003814697,9.60000038146973,11.1000003814697,13.1000003814697,13,14.8000001907349],[106.419998168945,107.349998474121,95.2200012207031,95.0100021362305,106.419998168945,106.419998168945,91.9300003051758,106.419998168945,92.879997253418,102.900001525879,112.01000213623,123.26000213623,78.6800003051758,115.550003051758,108.269996643066,128.570007324219,137.520004272461,79.879997253418,116.230003356934,97.9199981689453],[-14.6000003814697,-16.7999992370605,-9.89999961853027,-9.89999961853027,-14.6000003814697,-14.6000003814697,-8.5,-14.6000003814697,-8.19999980926514,-16.5,-20.2000007629395,-24.7999992370605,-6.40000009536743,-22.5,-20.2999992370605,-22.7000007629395,-29.2000007629395,-2.09999990463257,-20.6000003814697,-21.2000007629395],[867,924,858,870,867,867,914,867,840,909,925,701,959,467,329,647,522,1215,726,525],[56,57,42,43,56,56,62,56,55,50,57,26,67,15,14,21,20,58,15,17],[0.0700000002980232,0.170000001788139,-0.100000001490116,-0.0900000035762787,0.0700000002980232,0.0700000002980232,0.0700000002980232,0.0700000002980232,-0.0299999993294477,0.159999996423721,0.170000001788139,-0.0399999991059303,-0.140000000596046,-0.319999992847443,-0.610000014305115,-0.0399999991059303,-0.0900000035762787,-0.0900000035762787,-0.150000005960464,-0.28999999165535],[2.48000001907349,1.04999995231628,5.92000007629395,5.42000007629395,2.48000001907349,2.48000001907349,3.0699999332428,2.48000001907349,6.55999994277954,27.3500003814697,17.8999996185303,9.64000034332275,64.5299987792969,8.01000022888184,5.90999984741211,9.07999992370606,8.25,31.6000003814697,2.51999998092651,9.80000019073486],[13.0299997329712,12.8000001907349,13.0500001907349,13.1099996566772,13.0299997329712,13.0299997329712,14.2200002670288,13.0299997329712,13.2600002288818,10.6899995803833,11.2399997711182,11.8100004196167,9.68000030517578,11.6700000762939,12.3199996948242,12.5699996948242,11.5500001907349,10.3699998855591,13.0699996948242,11.6000003814697],[-75.67823,-79.544567,-84.520703,-84.439332,-75.678344,-75.678538,-79.145697,-75.678461,-79.004109,-83.789999,-76.2083333333334,-91.4583333333335,-80.875,-111.458333333334,-109.875,-94.0416666666668,-103.625,-95.5416666666668,-93.1250000000002,-114.625],[44.964847,46.167576,42.117619,42.081252,44.964808,44.964782,43.061927,44.964792,43.19227,46.44503,46.4583333333333,48.9583333333333,37.5416666666667,54.625,49.375,49.625,56.2916666666667,34.4583333333333,46.625,52.875]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>ID<\/th>\n      <th>present<\/th>\n      <th>WC_alt<\/th>\n      <th>WC_bio1<\/th>\n      <th>WC_bio2<\/th>\n      <th>WC_bio4<\/th>\n      <th>WC_bio6<\/th>\n      <th>WC_bio12<\/th>\n      <th>WC_bio14<\/th>\n      <th>ER_climaticMoistureIndex<\/th>\n      <th>ER_tri<\/th>\n      <th>ER_topoWet<\/th>\n      <th>lon<\/th>\n      <th>lat<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"t","pageLength":20,"columnDefs":[{"className":"dt-right","targets":[0,1,2,3,4,5,6,7,8,9,10,11,12,13]}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[10,20,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+</div>
+<h2 id="environmental-variable-term-plots">9. Environmental variable term plots</h2>
+<ul>
+<li>density histogram where density is on the y axis</li>
+</ul>
+<div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>
+show
+</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>pts_env</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>select</span><span class='op'>(</span><span class='op'>-</span><span class='va'>ID</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>mutate</span><span class='op'>(</span>
+    present <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span><span class='op'>(</span><span class='va'>present</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>pivot_longer</span><span class='op'>(</span><span class='op'>-</span><span class='va'>present</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>ggplot</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_density</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>value</span>, fill <span class='op'>=</span> <span class='va'>present</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> 
+  <span class='fu'>scale_fill_manual</span><span class='op'>(</span>values <span class='op'>=</span> <span class='fu'>alpha</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"gray"</span>, <span class='st'>"green"</span><span class='op'>)</span>, <span class='fl'>0.5</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>scale_x_continuous</span><span class='op'>(</span>expand<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0</span>,<span class='fl'>0</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>scale_y_continuous</span><span class='op'>(</span>expand<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0</span>,<span class='fl'>0</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>theme_bw</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span> 
+  <span class='fu'>facet_wrap</span><span class='op'>(</span><span class='op'>~</span><span class='va'>name</span>, scales <span class='op'>=</span> <span class='st'>"free"</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>theme</span><span class='op'>(</span>
+    legend.position <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='fl'>0</span><span class='op'>)</span>,
+    legend.justification <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='fl'>0</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+</details>
+<p><img src="sdm_files/figure-html5/unnamed-chunk-11-1.png" width="624" /></p>
+</div>
+<h1 id="lab-2---logistic-regression">Lab 2 - Logistic Regression</h1>
+<h2 id="use-ggally-to-look-at-pair-plots-and-examine-correlations-between-environmental-variables">10. Use <code>GGally</code> to look at pair plots and examine correlations between environmental variables</h2>
+<div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>
+show
+</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># GGally::ggpairs(</span>
+<span class='co'>#   select(pts_env, -ID),</span>
+<span class='co'>#   aes(color = factor(present)))</span>
+</code></pre>
+</div>
+</details>
+</div>
+<h2 id="logistic-regression">Logistic Regression</h2>
+<h3 id="setup-data">Setup Data</h3>
+<ul>
+<li>drop rows of data with any NA values (later, we’ll learn how to impute values)</li>
+<li>remove terms we don’t want to model
+<div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>
+show
+</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>d</span> <span class='op'>&lt;-</span> <span class='va'>pts_env</span> <span class='op'>%&gt;%</span> 
+<span class='fu'>select</span><span class='op'>(</span><span class='op'>-</span><span class='va'>ID</span><span class='op'>)</span> <span class='op'>%&gt;%</span>  <span class='co'># remove terms we don't want to model</span>
+<span class='fu'>tidyr</span><span class='fu'>::</span><span class='fu'><a href='https://tidyr.tidyverse.org/reference/drop_na.html'>drop_na</a></span><span class='op'>(</span><span class='op'>)</span> <span class='co'># drop the rows with NA values</span>
+</code></pre>
+</div></li>
+</ul>
+</details>
+</div>
+<h2 id="linear-model">11. Linear Model</h2>
+<ul>
+<li>dependent variable Y: presence/absence, aka 1/0</li>
+<li>independent variables X: everything else in the dataframe, aka the environmental layers
+<div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>
+show
+</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>mod</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>present</span> <span class='op'>~</span> <span class='va'>.</span>, data <span class='op'>=</span> <span class='va'>d</span><span class='op'>)</span>
+</code></pre>
+</div></li>
+</ul>
+</details>
+</div>
+Note: a linear model is ineffective because it predicts values outside the 0 - 1 range
+<div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>
+show
+</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>y_predict</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/predict.html'>predict</a></span><span class='op'>(</span><span class='va'>mod</span>, <span class='va'>d</span>, type<span class='op'>=</span><span class='st'>"response"</span><span class='op'>)</span>
+<span class='va'>y_true</span>    <span class='op'>&lt;-</span> <span class='va'>d</span><span class='op'>$</span><span class='va'>present</span>
+
+<span class='fu'><a href='https://rdrr.io/r/base/range.html'>range</a></span><span class='op'>(</span><span class='va'>y_predict</span><span class='op'>)</span>
+</code></pre>
+</div>
+</details>
+<pre><code>[1] -0.3090498  1.1594598</code></pre>
+<details>
+<summary>
+show
+</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/range.html'>range</a></span><span class='op'>(</span><span class='va'>y_true</span><span class='op'>)</span>
+</code></pre>
+</div>
+</details>
+<pre><code>[1] 0 1</code></pre>
+</div>
+<h2 id="generalized-linear-model">12. Generalized Linear Model</h2>
+To solve this problem, we will apply a Logit Transformation
+<div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>
+show
+</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># fit a generalized linear model with a binomial logit link function</span>
+<span class='va'>mod</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/glm.html'>glm</a></span><span class='op'>(</span><span class='va'>present</span> <span class='op'>~</span> <span class='va'>.</span>, family <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/stats/family.html'>binomial</a></span><span class='op'>(</span>link<span class='op'>=</span><span class='st'>"logit"</span><span class='op'>)</span>, data <span class='op'>=</span> <span class='va'>d</span><span class='op'>)</span>
+</code></pre>
+</div>
+</details>
+</div>
+Note: we are not within the 0 - 1 range we want to be in
+<div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>
+show
+</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>y_predict</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/predict.html'>predict</a></span><span class='op'>(</span><span class='va'>mod</span>, <span class='va'>d</span>, type<span class='op'>=</span><span class='st'>"response"</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/range.html'>range</a></span><span class='op'>(</span><span class='va'>y_predict</span><span class='op'>)</span>
+</code></pre>
+</div>
+</details>
+<pre><code>[1] 0.001090652 0.978626670</code></pre>
+</div>
+<h3 id="glm-term-plots">13. GLM Term Plots</h3>
+<div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>
+show
+</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/stats/termplot.html'>termplot</a></span><span class='op'>(</span><span class='va'>mod</span>, partial.resid <span class='op'>=</span> <span class='cn'>TRUE</span>, se <span class='op'>=</span> <span class='cn'>TRUE</span>, main <span class='op'>=</span> <span class='cn'>F</span><span class='op'>)</span>
+</code></pre>
+</div>
+</details>
+<p><img src="sdm_files/figure-html5/unnamed-chunk-18-1.png" width="624" /><img src="sdm_files/figure-html5/unnamed-chunk-18-2.png" width="624" /><img src="sdm_files/figure-html5/unnamed-chunk-18-3.png" width="624" /><img src="sdm_files/figure-html5/unnamed-chunk-18-4.png" width="624" /><img src="sdm_files/figure-html5/unnamed-chunk-18-5.png" width="624" /><img src="sdm_files/figure-html5/unnamed-chunk-18-6.png" width="624" /><img src="sdm_files/figure-html5/unnamed-chunk-18-7.png" width="624" /><img src="sdm_files/figure-html5/unnamed-chunk-18-8.png" width="624" /><img src="sdm_files/figure-html5/unnamed-chunk-18-9.png" width="624" /><img src="sdm_files/figure-html5/unnamed-chunk-18-10.png" width="624" /><img src="sdm_files/figure-html5/unnamed-chunk-18-11.png" width="624" /><img src="sdm_files/figure-html5/unnamed-chunk-18-12.png" width="624" /></p>
+</div>
+<h2 id="generalized-additive-model-gam">14. Generalized Additive Model (GAM)</h2>
+We can further improve the GLM by adding “wiggle” to the relationship between the predictor and response variables
+<div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>
+show
+</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># fit a generalized additive model with smooth predictors</span>
+<span class='va'>mod</span> <span class='op'>&lt;-</span> <span class='fu'>mgcv</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/mgcv/man/gam.html'>gam</a></span><span class='op'>(</span>
+  formula <span class='op'>=</span> <span class='va'>present</span> <span class='op'>~</span> <span class='fu'>s</span><span class='op'>(</span><span class='va'>WC_alt</span><span class='op'>)</span> <span class='op'>+</span> 
+                      <span class='fu'>s</span><span class='op'>(</span><span class='va'>WC_bio1</span><span class='op'>)</span> <span class='op'>+</span> 
+                      <span class='fu'>s</span><span class='op'>(</span><span class='va'>WC_bio2</span><span class='op'>)</span> <span class='op'>+</span>
+                      <span class='fu'>s</span><span class='op'>(</span><span class='va'>WC_bio4</span><span class='op'>)</span> <span class='op'>+</span>
+                      <span class='fu'>s</span><span class='op'>(</span><span class='va'>WC_bio6</span><span class='op'>)</span> <span class='op'>+</span> 
+                      <span class='fu'>s</span><span class='op'>(</span><span class='va'>WC_bio12</span><span class='op'>)</span> <span class='op'>+</span>
+                      <span class='fu'>s</span><span class='op'>(</span><span class='va'>WC_bio14</span><span class='op'>)</span> <span class='op'>+</span> 
+                      <span class='fu'>s</span><span class='op'>(</span><span class='va'>ER_climaticMoistureIndex</span><span class='op'>)</span> <span class='op'>+</span> 
+                      <span class='fu'>s</span><span class='op'>(</span><span class='va'>ER_tri</span><span class='op'>)</span> <span class='op'>+</span> 
+                      <span class='fu'>s</span><span class='op'>(</span><span class='va'>ER_topoWet</span><span class='op'>)</span> <span class='op'>+</span> 
+                      <span class='fu'>s</span><span class='op'>(</span><span class='va'>lon</span><span class='op'>)</span> <span class='op'>+</span> 
+                      <span class='fu'>s</span><span class='op'>(</span><span class='va'>lat</span><span class='op'>)</span>, 
+  family <span class='op'>=</span> <span class='va'>binomial</span>, data <span class='op'>=</span> <span class='va'>d</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>mod</span><span class='op'>)</span>
+</code></pre>
+</div>
+</details>
+<pre><code>
+Family: binomial 
+Link function: logit 
+
+Formula:
+present ~ s(WC_alt) + s(WC_bio1) + s(WC_bio2) + s(WC_bio4) + 
+    s(WC_bio6) + s(WC_bio12) + s(WC_bio14) + s(ER_climaticMoistureIndex) + 
+    s(ER_tri) + s(ER_topoWet) + s(lon) + s(lat)
+
+Parametric coefficients:
+            Estimate Std. Error z value Pr(&gt;|z|)  
+(Intercept)  -12.407      6.788  -1.828   0.0676 .
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+
+Approximate significance of smooth terms:
+                              edf Ref.df Chi.sq              p-value
+s(WC_alt)                   3.920  4.687  5.396             0.318277
+s(WC_bio1)                  4.876  6.217  8.535             0.181948
+s(WC_bio2)                  4.952  5.825 10.227             0.100291
+s(WC_bio4)                  3.454  4.615  6.972             0.187423
+s(WC_bio6)                  7.611  8.347 13.266             0.108785
+s(WC_bio12)                 8.984  8.999 52.704 &lt; 0.0000000000000002
+s(WC_bio14)                 5.844  6.834 13.689             0.042906
+s(ER_climaticMoistureIndex) 5.699  6.768 16.897             0.017936
+s(ER_tri)                   7.933  8.013 23.415             0.002864
+s(ER_topoWet)               5.576  6.694 13.403             0.054165
+s(lon)                      8.819  8.963 44.233 &lt; 0.0000000000000002
+s(lat)                      8.997  8.999 27.985             0.000958
+                               
+s(WC_alt)                      
+s(WC_bio1)                     
+s(WC_bio2)                     
+s(WC_bio4)                     
+s(WC_bio6)                     
+s(WC_bio12)                 ***
+s(WC_bio14)                 *  
+s(ER_climaticMoistureIndex) *  
+s(ER_tri)                   ** 
+s(ER_topoWet)               .  
+s(lon)                      ***
+s(lat)                      ***
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+
+R-sq.(adj) =  0.625   Deviance explained = 57.4%
+UBRE = -0.31384  Scale est. = 1         n = 1618</code></pre>
+</div>
+<h3 id="gam-term-plots">15. GAM Term Plots</h3>
+<div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>
+show
+</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>mod</span>, scale<span class='op'>=</span><span class='fl'>0</span><span class='op'>)</span>
+</code></pre>
+</div>
+</details>
+<p><img src="sdm_files/figure-html5/unnamed-chunk-20-1.png" width="624" /><img src="sdm_files/figure-html5/unnamed-chunk-20-2.png" width="624" /><img src="sdm_files/figure-html5/unnamed-chunk-20-3.png" width="624" /><img src="sdm_files/figure-html5/unnamed-chunk-20-4.png" width="624" /><img src="sdm_files/figure-html5/unnamed-chunk-20-5.png" width="624" /><img src="sdm_files/figure-html5/unnamed-chunk-20-6.png" width="624" /><img src="sdm_files/figure-html5/unnamed-chunk-20-7.png" width="624" /><img src="sdm_files/figure-html5/unnamed-chunk-20-8.png" width="624" /><img src="sdm_files/figure-html5/unnamed-chunk-20-9.png" width="624" /><img src="sdm_files/figure-html5/unnamed-chunk-20-10.png" width="624" /><img src="sdm_files/figure-html5/unnamed-chunk-20-11.png" width="624" /><img src="sdm_files/figure-html5/unnamed-chunk-20-12.png" width="624" /></p>
+</div>
+<h3 id="question-which-gam-environmental-variables-and-even-range-of-values-seem-to-contribute-most-towards-presence-above-0-response-versus-absence-below-0-response">16. <strong>Question:</strong> Which GAM environmental variables, and even range of values, seem to contribute most towards presence (above 0 response) versus absence (below 0 response)?</h3>
+<p>Annual Precipitation (<code>WC_bio12</code>) and Longitude (<code>lon</code>) were the most statistically significant in the GAM model (p-value &lt;&lt;&lt; 0). The Climatic Moisture Index (<code>ER_climaticMoistureIndex</code>), Terrain Roughness Index (<code>ER_tri</code>), and latitude (<code>lat</code>) were the next most statistically significant variables in the GAM model (p-value &lt; 0.001).</p>
+<h2 id="maxent-max-entropy">17. Maxent (Max Entropy)</h2>
+This is the most commonly used species distribution model because it requires few input data points, all of which can be presence observation points, and is easy to use with a Java GUI. - plot environmental rasters
+<div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>
+show
+</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># show version of maxent</span>
+<span class='co'>#maxent()</span>
+
+<span class='va'>env_stack_grd</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/file.path.html'>file.path</a></span><span class='op'>(</span><span class='va'>dir_data</span>, <span class='st'>"env_stack.grd"</span><span class='op'>)</span>
+<span class='va'>env_stack</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/utils/stack.html'>stack</a></span><span class='op'>(</span><span class='va'>env_stack_grd</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>env_stack</span>, nc<span class='op'>=</span><span class='fl'>2</span><span class='op'>)</span>
+</code></pre>
+</div>
+</details>
+<p><img src="sdm_files/figure-html5/unnamed-chunk-21-1.png" width="624" /></p>
+</div>
+Get present-only observation points and fit maximum entropy model
+<div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>
+show
+</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>obs_geo</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/file.path.html'>file.path</a></span><span class='op'>(</span><span class='va'>dir_data</span>, <span class='st'>"obs.geojson"</span><span class='op'>)</span>
+<span class='va'>obs_sp</span> <span class='op'>&lt;-</span> <span class='fu'>read_sf</span><span class='op'>(</span><span class='va'>obs_geo</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>sf</span><span class='fu'>::</span><span class='fu'><a href='https://r-spatial.github.io/sf/reference/coerce-methods.html'>as_Spatial</a></span><span class='op'>(</span><span class='op'>)</span> <span class='co'># maxent prefers sp::SpatialPoints over newer sf::sf class</span>
+
+<span class='co'>#note: always breaks when you try to run it all at once. have to restart the R session, re-run the Set Up chunk, then this runs. </span>
+<span class='va'>mod</span> <span class='op'>&lt;-</span> <span class='fu'>maxent</span><span class='op'>(</span><span class='va'>env_stack</span>, <span class='va'>obs_sp</span><span class='op'>)</span>
+</code></pre>
+</div>
+</details>
+<pre><code>This is MaxEnt version 3.4.3 </code></pre>
+</div>
+<h3 id="maxent-variable-contribution-plot">18. Maxent variable contribution plot</h3>
+<ul>
+<li>plot variable contributions per predictor
+<div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>
+show
+</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>mod</span><span class='op'>)</span>
+</code></pre>
+</div></li>
+</ul>
+</details>
+<p><img src="sdm_files/figure-html5/unnamed-chunk-23-1.png" width="624" /></p>
+</div>
+<h3 id="maxent-term-plots">19. Maxent Term Plots</h3>
+<div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>
+show
+</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>response</span><span class='op'>(</span><span class='va'>mod</span><span class='op'>)</span>
+</code></pre>
+</div>
+</details>
+<p><img src="sdm_files/figure-html5/unnamed-chunk-24-1.png" width="624" /></p>
+</div>
+<h3 id="question-which-maxent-environmental-variables-and-even-range-of-values-seem-to-contribute-most-towards-presence-closer-to-1-response-and-how-might-this-differ-from-the-gam-results">20. <strong>Question:</strong> Which Maxent environmental variables, and even range of values, seem to contribute most towards presence (closer to 1 response) and how might this differ from the GAM results?</h3>
+<p>Annual precipitation (<code>WC_bio12</code>) &lt; 600 and annual precipitation &gt; 1100, Terrain Roughness Index (<code>ER_tri</code>) &gt; 100, and minimum temperature (<code>WC_bio6</code>) &lt; -35 and WC_bio6 &gt; 5 all seem to demonstrate fairly high predicted values. This is fewer variables than the GAM model, but there is overlap with annual precipitation and the Terrain Roughness Index. However, minimum temperature was not suggested by the GAM model.</p>
+<h3 id="predict">Predict</h3>
+<div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>
+show
+</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># predict</span>
+<span class='va'>y_predict</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/predict.html'>predict</a></span><span class='op'>(</span><span class='va'>env_stack</span>, <span class='va'>mod</span><span class='op'>)</span> <span class='co'>#, ext=ext, progress='')</span>
+
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>y_predict</span>, main<span class='op'>=</span><span class='st'>'Maxent, raw prediction'</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='va'>wrld_simpl</span>, package<span class='op'>=</span><span class='st'>"maptools"</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>wrld_simpl</span>, add<span class='op'>=</span><span class='cn'>TRUE</span>, border<span class='op'>=</span><span class='st'>'dark grey'</span><span class='op'>)</span>
+</code></pre>
+</div>
+</details>
+<p><img src="sdm_files/figure-html5/unnamed-chunk-25-1.png" width="624" /></p>
+</div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<!--radix_placeholder_article_footer-->
+<!--/radix_placeholder_article_footer-->
+</div>
+
+<div class="d-appendix">
+</div>
+
+
+<!--radix_placeholder_site_after_body-->
+<!--/radix_placeholder_site_after_body-->
+<!--radix_placeholder_appendices-->
+<div class="appendix-bottom"></div>
+<!--/radix_placeholder_appendices-->
+<!--radix_placeholder_navigation_after_body-->
+<!--/radix_placeholder_navigation_after_body-->
+
+</body>
+
+</html>

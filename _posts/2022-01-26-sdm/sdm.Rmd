@@ -120,13 +120,13 @@ ggplot2::theme_set(ggplot2::theme_light())
 dir_data <- here("data")
 dir.create(dir_data, showWarnings = F)
 
-#pts_env_csv <- file.path(dir_data, "pts_env.csv")
-#pts_env <- read_csv(pts_env_csv)
-#pts_geo       <- file.path(dir_data, "pts.geojson")
-#env_stack_grd <- file.path(dir_data, "env_stack.grd")
-#mdl_maxv_rds  <- file.path(dir_data, "mdl_maxent_vif.rds")
-#pts <- read_sf(pts_geo)
-#env_stack <- raster::stack(env_stack_grd)
+pts_env_csv <- file.path(dir_data, "pts_env.csv")
+pts_env <- read_csv(pts_env_csv)
+pts_geo       <- file.path(dir_data, "pts.geojson")
+env_stack_grd <- file.path(dir_data, "env_stack.grd")
+mdl_maxv_rds  <- file.path(dir_data, "mdl_maxent_vif.rds")
+pts <- read_sf(pts_geo)
+env_stack <- raster::stack(env_stack_grd)
 ```
 
 # Lab 1 - Explore 
@@ -200,7 +200,7 @@ dir.create(dir_data, showWarnings = F)
 ## 3. Map the distribution of points
 
 ```{r}
-mapview::mapview(obs, map.types = "Stamen.Watercolor")
+#mapview::mapview(obs, map.types = "Stamen.Watercolor")
 ```
 
 ## 4. **Question 1.** How many observations total are in GBIF for your species?
@@ -223,7 +223,7 @@ dir_env <- file.path(dir_data, "env")
 # set a default data directory
 options(sdmpredictors_datadir = dir_env)
 
-# choosing terrestrial
+# choosing terrestrial data only 
 env_datasets <- sdmpredictors::list_datasets(terrestrial = TRUE, marine = FALSE)
 ```
 
@@ -278,7 +278,7 @@ env_layers_vec <- c("WC_alt", #altitude
 env_stack <- load_layers(env_layers_vec)
 
 # interactive plot layers, hiding all but first (select others)
-mapview(env_stack, hide = T)
+#mapview(env_stack, hide = T)
 ```
 
 ## Create a convex hull to crop the environmental layers to the area of interest
@@ -298,7 +298,7 @@ if (!file.exists(obs_hull_geo) | redo){
 }
 obs_hull <- read_sf(obs_hull_geo)
 
-mapview(list(obs, obs_hull))
+#mapview(list(obs, obs_hull))
 ```
 
 ## 7. Map the environmental raster clipped to the species range 
@@ -352,8 +352,8 @@ if (!file.exists(absence_geo) | redo){
 absence <- read_sf(absence_geo)
 
 # show map of presence, ie obs, and absence
-mapview(obs, col.regions = "green") + 
-  mapview(absence, col.regions = "gray")
+# mapview(obs, col.regions = "green") + 
+#   mapview(absence, col.regions = "gray")
 ```
 
 ## Combine presence and absence into single set of labeled points
@@ -436,9 +436,9 @@ pts_env %>%
 
 ## 10. Use `GGally` to look at pair plots and examine correlations between environmental variables 
 ```{r}
-GGally::ggpairs(
-  select(pts_env, -ID),
-  aes(color = factor(present)))
+# GGally::ggpairs(
+#   select(pts_env, -ID),
+#   aes(color = factor(present)))
 ```
 
 ## Logistic Regression 
@@ -452,12 +452,14 @@ d <- pts_env %>%
   tidyr::drop_na() # drop the rows with NA values
 ```
 
+
 ## 11. Linear Model 
 - dependent variable Y: presence/absence, aka 1/0
 - independent variables X: everything else in the dataframe, aka the environmental layers 
 ```{r}
 mod <- lm(present ~ ., data = d)
 ```
+
 
 Note: a linear model is ineffective because it predicts values outside the 0 - 1 range
 ```{r}
@@ -505,7 +507,7 @@ mod <- mgcv::gam(
                       s(lon) + 
                       s(lat), 
   family = binomial, data = d)
-summary(mod)
+#summary(mod)
 ```
 
 ### 15. GAM Term Plots 
