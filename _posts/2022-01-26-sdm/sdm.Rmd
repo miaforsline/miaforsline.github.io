@@ -73,12 +73,12 @@ if (!require(librarian)){
 librarian::shelf(
   caret, # m: modeling framework
   dismo, # species distribution modeling: maxent(), predict(), evaluate(),
-  dplyr, 
-  DT, 
+  dplyr,
+  DT,
   GGally,
-  ggplot2, 
-  here, 
-  htmltools, 
+  ggplot2,
+  here,
+  htmltools,
   leaflet,
   maptools,
   mapview,
@@ -86,22 +86,22 @@ librarian::shelf(
   pdp,         # X: partial dependence plots
   purrr,
   ranger,
-  raster, 
-  readr, 
-  rgbif, 
-  rgdal, 
-  rJava, 
+  raster,
+  readr,
+  rgbif,
+  rgdal,
+  rJava,
   rpart,       # m: recursive partition modeling
   rpart.plot,  # m: recursive partition plotting
   rsample,     # d: split train/test data
-  sdmpredictors, 
-  sf, 
+  sdmpredictors,
+  sf,
   skimr,       # d: skim summarize data table
-  spocc, 
-  tidyr, 
+  spocc,
+  tidyr,
   usdm,  # uncertainty analysis for species distribution models: vifcor()
   vip)         # X: variable importance
-  
+
 select = dplyr::select
 
 select <- dplyr::select # overwrite raster::select
@@ -113,20 +113,8 @@ options(
 # set random seed for reproducibility
 set.seed(42)
 
-#set ggplot theme 
+#set ggplot theme
 ggplot2::theme_set(ggplot2::theme_light())
-
-# directory to store data
-dir_data <- here("data")
-dir.create(dir_data, showWarnings = F)
-
-pts_env_csv <- file.path(dir_data, "pts_env.csv")
-pts_env <- read_csv(pts_env_csv)
-pts_geo       <- file.path(dir_data, "pts.geojson")
-env_stack_grd <- file.path(dir_data, "env_stack.grd")
-mdl_maxv_rds  <- file.path(dir_data, "mdl_maxent_vif.rds")
-pts <- read_sf(pts_geo)
-env_stack <- raster::stack(env_stack_grd)
 ```
 
 # Lab 1 - Explore 
@@ -157,9 +145,13 @@ env_stack <- raster::stack(env_stack_grd)
     -   add CRS 4326
 
 ```{r}
-    obs_csv <- file.path(dir_data, "obs.csv")
-    obs_geo <- file.path(dir_data, "obs.geojson")
-    redo    <- TRUE 
+# directory to store data
+dir_data <- here("data/sdm")
+dir.create(dir_data, showWarnings = F, recursive = T)
+
+obs_csv <- file.path(dir_data, "obs.csv")
+obs_geo <- file.path(dir_data, "obs.geojson")
+redo    <- FALSE 
 
     if (!file.exists(obs_geo) | redo){
       (res <- spocc::occ(
@@ -193,8 +185,8 @@ env_stack <- raster::stack(env_stack_grd)
       sf::write_sf(obs, obs_geo, delete_dsn=T)
     }
 
-    obs <- sf::read_sf(obs_geo)
-    nrow(obs) # number of rows
+obs <- sf::read_sf(obs_geo)
+nrow(obs) # number of rows
 ```
 
 ## 3. Map the distribution of points
@@ -436,6 +428,12 @@ pts_env %>%
 
 ## 10. Use `GGally` to look at pair plots and examine correlations between environmental variables 
 ```{r}
+dir_data    <- here("data/sdm")
+pts_env_csv <- file.path(dir_data, "pts_env.csv")
+
+pts_env <- read_csv(pts_env_csv)
+#nrow(pts_env)
+
 # GGally::ggpairs(
 #   select(pts_env, -ID),
 #   aes(color = factor(present)))
@@ -557,7 +555,6 @@ Annual precipitation (`WC_bio12`) < 600 and annual precipitation > 1100, Terrain
 
 ### Predict 
 ```{r}
-# predict
 y_predict <- predict(env_stack, mod) #, ext=ext, progress='')
 
 plot(y_predict, main='Maxent, raw prediction')
@@ -568,6 +565,7 @@ plot(wrld_simpl, add=TRUE, border='dark grey')
 # Lab 3 - Decision Trees 
 
 ## Decision Trees 
+- set up file paths 
 - read in *Necturus maculosus* data 
 - clean the data
   - remove unnecessary columns 
@@ -576,6 +574,9 @@ plot(wrld_simpl, add=TRUE, border='dark grey')
 - summarize the data using `skim()`
 
 ```{r}
+dir_data    <- here("data/sdm")
+pts_env_csv <- file.path(dir_data, "pts_env.csv")
+
 pts_env <- read_csv(pts_env_csv)
 
 d <- pts_env %>% 
@@ -648,7 +649,7 @@ mdl_caret <- train(
   trControl  = trainControl(method = "cv", number = 10),
   tuneLength = 20)
 
-ggplot(mdl_caret)
+ggplot(mdl_caret) + theme_classic()
 ```
 
 
@@ -657,6 +658,7 @@ ggplot(mdl_caret)
 ```{r}
 vip(mdl_caret, num_features = 40, bar = FALSE)
 ```
+
 ## 27. **Question:** what are the top 3 most important variables of your model?
 In my model, the top 3 most important variables are: 
 - latitude
@@ -688,7 +690,7 @@ mdl_rf <- ranger(present ~ ., data = d_train)
 (default_rmse <- sqrt(mdl_rf$prediction.error))
 ```
 
-### 28. Random Forest variable importance 
+## 28. Random Forest variable importance 
 ```{r}
 # re-run model with impurity-based variable importance
 mdl_impurity <- ranger(
@@ -704,6 +706,7 @@ p2 <- vip::vip(mdl_permutation, bar = FALSE)
 
 gridExtra::grid.arrange(p1, p2, nrow = 1)
 ```
+
 ## 29. **Question:** How might variable importance differ between rpart and RandomForest in your model outputs?
 
 In my `rpart()` model, latitude, longitude, and annual mean temperature (`WC_bio1`) were the top three most important variables. In my random forest model, longitude, annual precipitation (`WC_bio12`), and latitude are the top three most important variables. Thus, there is overlap between latitude and longitude, but the different models weighed the WorldClim variables differently. 
@@ -752,7 +755,6 @@ env_stack_v <- usdm::exclude(env_stack, v)
 
 pairs(env_stack_v)
 ```
-
 ## 34. Fit a maximum entropy model using `maxent()`
 - plot variable contributions per predictor
 ```{r}

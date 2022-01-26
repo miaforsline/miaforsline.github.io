@@ -1545,6 +1545,18 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <li><a href="#predict">Predict</a></li>
 </ul></li>
 </ul></li>
+<li><a href="#lab-3---decision-trees">Lab 3 - Decision Trees</a>
+<ul>
+<li><a href="#decision-trees">Decision Trees</a></li>
+<li><a href="#split-data-into-training-and-test-data-sets">Split data into training and test data sets</a></li>
+<li><a href="#partition-depth-1">22. Partition, depth = 1</a></li>
+<li><a href="#partition-depth-default">23. Partition, depth = default</a></li>
+<li><a href="#rpart-complexity-parameter">24. <code>Rpart</code> complexity parameter</a></li>
+<li><a href="#question-based-on-the-complexity-plot-threshold-what-size-of-tree-is-recommended">25. <strong>Question:</strong> Based on the complexity plot threshold, what size of tree is recommended?</a></li>
+<li><a href="#feature-interpretation">Feature interpretation</a></li>
+<li><a href="#examine-the-importance-of-each-predictor">28. Examine the importance of each predictor</a></li>
+<li><a href="#question-what-are-the-top-3-most-important-variables-of-your-model">27. <strong>Question:</strong> what are the top 3 most important variables of your model?</a></li>
+</ul></li>
 </ul>
 </nav>
 </div>
@@ -1597,12 +1609,12 @@ show
 <span class='fu'>librarian</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/librarian/man/shelf.html'>shelf</a></span><span class='op'>(</span>
   <span class='va'>caret</span>, <span class='co'># m: modeling framework</span>
   <span class='va'>dismo</span>, <span class='co'># species distribution modeling: maxent(), predict(), evaluate(),</span>
-  <span class='va'>dplyr</span>, 
-  <span class='va'>DT</span>, 
+  <span class='va'>dplyr</span>,
+  <span class='va'>DT</span>,
   <span class='va'>GGally</span>,
-  <span class='va'>ggplot2</span>, 
-  <span class='va'>here</span>, 
-  <span class='va'>htmltools</span>, 
+  <span class='va'>ggplot2</span>,
+  <span class='va'>here</span>,
+  <span class='va'>htmltools</span>,
   <span class='va'>leaflet</span>,
   <span class='va'>maptools</span>,
   <span class='va'>mapview</span>,
@@ -1610,22 +1622,22 @@ show
   <span class='va'>pdp</span>,         <span class='co'># X: partial dependence plots</span>
   <span class='va'>purrr</span>,
   <span class='va'>ranger</span>,
-  <span class='va'>raster</span>, 
-  <span class='va'>readr</span>, 
-  <span class='va'>rgbif</span>, 
-  <span class='va'>rgdal</span>, 
-  <span class='va'>rJava</span>, 
+  <span class='va'>raster</span>,
+  <span class='va'>readr</span>,
+  <span class='va'>rgbif</span>,
+  <span class='va'>rgdal</span>,
+  <span class='va'>rJava</span>,
   <span class='va'>rpart</span>,       <span class='co'># m: recursive partition modeling</span>
   <span class='va'>rpart.plot</span>,  <span class='co'># m: recursive partition plotting</span>
   <span class='va'>rsample</span>,     <span class='co'># d: split train/test data</span>
-  <span class='va'>sdmpredictors</span>, 
-  <span class='va'>sf</span>, 
+  <span class='va'>sdmpredictors</span>,
+  <span class='va'>sf</span>,
   <span class='va'>skimr</span>,       <span class='co'># d: skim summarize data table</span>
-  <span class='va'>spocc</span>, 
-  <span class='va'>tidyr</span>, 
+  <span class='va'>spocc</span>,
+  <span class='va'>tidyr</span>,
   <span class='va'>usdm</span>,  <span class='co'># uncertainty analysis for species distribution models: vifcor()</span>
   <span class='va'>vip</span><span class='op'>)</span>         <span class='co'># X: variable importance</span>
-  
+
 <span class='va'>select</span> <span class='op'>=</span> <span class='fu'>dplyr</span><span class='fu'>::</span><span class='va'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span>
 
 <span class='va'>select</span> <span class='op'>&lt;-</span> <span class='fu'>dplyr</span><span class='fu'>::</span><span class='va'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span> <span class='co'># overwrite raster::select</span>
@@ -1637,20 +1649,8 @@ show
 <span class='co'># set random seed for reproducibility</span>
 <span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span><span class='op'>(</span><span class='fl'>42</span><span class='op'>)</span>
 
-<span class='co'>#set ggplot theme </span>
+<span class='co'>#set ggplot theme</span>
 <span class='fu'>ggplot2</span><span class='fu'>::</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme_get.html'>theme_set</a></span><span class='op'>(</span><span class='fu'>ggplot2</span><span class='fu'>::</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggtheme.html'>theme_light</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span>
-
-<span class='co'># directory to store data</span>
-<span class='va'>dir_data</span> <span class='op'>&lt;-</span> <span class='fu'>here</span><span class='op'>(</span><span class='st'>"data"</span><span class='op'>)</span>
-<span class='fu'><a href='https://rdrr.io/r/base/files2.html'>dir.create</a></span><span class='op'>(</span><span class='va'>dir_data</span>, showWarnings <span class='op'>=</span> <span class='cn'>F</span><span class='op'>)</span>
-
-<span class='va'>pts_env_csv</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/file.path.html'>file.path</a></span><span class='op'>(</span><span class='va'>dir_data</span>, <span class='st'>"pts_env.csv"</span><span class='op'>)</span>
-<span class='va'>pts_env</span> <span class='op'>&lt;-</span> <span class='fu'>read_csv</span><span class='op'>(</span><span class='va'>pts_env_csv</span><span class='op'>)</span>
-<span class='va'>pts_geo</span>       <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/file.path.html'>file.path</a></span><span class='op'>(</span><span class='va'>dir_data</span>, <span class='st'>"pts.geojson"</span><span class='op'>)</span>
-<span class='va'>env_stack_grd</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/file.path.html'>file.path</a></span><span class='op'>(</span><span class='va'>dir_data</span>, <span class='st'>"env_stack.grd"</span><span class='op'>)</span>
-<span class='va'>mdl_maxv_rds</span>  <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/file.path.html'>file.path</a></span><span class='op'>(</span><span class='va'>dir_data</span>, <span class='st'>"mdl_maxent_vif.rds"</span><span class='op'>)</span>
-<span class='va'>pts</span> <span class='op'>&lt;-</span> <span class='fu'>read_sf</span><span class='op'>(</span><span class='va'>pts_geo</span><span class='op'>)</span>
-<span class='va'>env_stack</span> <span class='op'>&lt;-</span> <span class='fu'>raster</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/raster/man/stack.html'>stack</a></span><span class='op'>(</span><span class='va'>env_stack_grd</span><span class='op'>)</span>
 </code></pre>
 </div>
 </details>
@@ -1686,9 +1686,13 @@ show
 show
 </summary>
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r">    <span class='va'>obs_csv</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/file.path.html'>file.path</a></span><span class='op'>(</span><span class='va'>dir_data</span>, <span class='st'>"obs.csv"</span><span class='op'>)</span>
-    <span class='va'>obs_geo</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/file.path.html'>file.path</a></span><span class='op'>(</span><span class='va'>dir_data</span>, <span class='st'>"obs.geojson"</span><span class='op'>)</span>
-    <span class='va'>redo</span>    <span class='op'>&lt;-</span> <span class='cn'>TRUE</span> 
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># directory to store data</span>
+<span class='va'>dir_data</span> <span class='op'>&lt;-</span> <span class='fu'>here</span><span class='op'>(</span><span class='st'>"data/sdm"</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/files2.html'>dir.create</a></span><span class='op'>(</span><span class='va'>dir_data</span>, showWarnings <span class='op'>=</span> <span class='cn'>F</span>, recursive <span class='op'>=</span> <span class='cn'>T</span><span class='op'>)</span>
+
+<span class='va'>obs_csv</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/file.path.html'>file.path</a></span><span class='op'>(</span><span class='va'>dir_data</span>, <span class='st'>"obs.csv"</span><span class='op'>)</span>
+<span class='va'>obs_geo</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/file.path.html'>file.path</a></span><span class='op'>(</span><span class='va'>dir_data</span>, <span class='st'>"obs.geojson"</span><span class='op'>)</span>
+<span class='va'>redo</span>    <span class='op'>&lt;-</span> <span class='cn'>FALSE</span> 
 
     <span class='kw'>if</span> <span class='op'>(</span><span class='op'>!</span><span class='fu'><a href='https://rdrr.io/r/base/files.html'>file.exists</a></span><span class='op'>(</span><span class='va'>obs_geo</span><span class='op'>)</span> <span class='op'>|</span> <span class='va'>redo</span><span class='op'>)</span><span class='op'>{</span>
       <span class='op'>(</span><span class='va'>res</span> <span class='op'>&lt;-</span> <span class='fu'>spocc</span><span class='fu'>::</span><span class='fu'><a href='https://docs.ropensci.org/spocc/reference/occ.html'>occ</a></span><span class='op'>(</span>
@@ -1722,8 +1726,8 @@ show
       <span class='fu'>sf</span><span class='fu'>::</span><span class='fu'><a href='https://r-spatial.github.io/sf/reference/st_write.html'>write_sf</a></span><span class='op'>(</span><span class='va'>obs</span>, <span class='va'>obs_geo</span>, delete_dsn<span class='op'>=</span><span class='cn'>T</span><span class='op'>)</span>
     <span class='op'>}</span>
 
-    <span class='va'>obs</span> <span class='op'>&lt;-</span> <span class='fu'>sf</span><span class='fu'>::</span><span class='fu'><a href='https://r-spatial.github.io/sf/reference/st_read.html'>read_sf</a></span><span class='op'>(</span><span class='va'>obs_geo</span><span class='op'>)</span>
-    <span class='fu'><a href='https://rdrr.io/r/base/nrow.html'>nrow</a></span><span class='op'>(</span><span class='va'>obs</span><span class='op'>)</span> <span class='co'># number of rows</span>
+<span class='va'>obs</span> <span class='op'>&lt;-</span> <span class='fu'>sf</span><span class='fu'>::</span><span class='fu'><a href='https://r-spatial.github.io/sf/reference/st_read.html'>read_sf</a></span><span class='op'>(</span><span class='va'>obs_geo</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/nrow.html'>nrow</a></span><span class='op'>(</span><span class='va'>obs</span><span class='op'>)</span> <span class='co'># number of rows</span>
 </code></pre>
 </div>
 </details>
@@ -1998,8 +2002,8 @@ show
 </code></pre>
 </div>
 </details>
-<div id="htmlwidget-5708c50b506922457bc1" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-5708c50b506922457bc1">{"x":{"filter":"none","vertical":false,"data":[[1,2,3,4,5,6,7,8,9,10,1613,1614,1615,1616,1617,1618,1619,1620,1621,1622],[1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0],[101,193,327,336,101,101,179,101,97,235,274,431,593,614,1008,377,446,242,385,998],[6.19999980926514,4.69999980926514,8.39999961853027,8.39999961853027,6.19999980926514,6.19999980926514,8.39999961853027,6.19999980926514,8.80000019073486,4,3.29999995231628,1.39999997615814,11.1000003814697,1,3,2.29999995231628,-2.5,16.2999992370605,4,1.60000002384186],[9.89999961853027,10.3999996185303,11.1999998092651,11.1999998092651,9.89999961853027,9.89999961853027,9.30000019073486,9.89999961853027,9.39999961853027,10.8999996185303,11.6000003814697,12.3999996185303,13,12.1999998092651,14.6000003814697,9.60000038146973,11.1000003814697,13.1000003814697,13,14.8000001907349],[106.419998168945,107.349998474121,95.2200012207031,95.0100021362305,106.419998168945,106.419998168945,91.9300003051758,106.419998168945,92.879997253418,102.900001525879,112.01000213623,123.26000213623,78.6800003051758,115.550003051758,108.269996643066,128.570007324219,137.520004272461,79.879997253418,116.230003356934,97.9199981689453],[-14.6000003814697,-16.7999992370605,-9.89999961853027,-9.89999961853027,-14.6000003814697,-14.6000003814697,-8.5,-14.6000003814697,-8.19999980926514,-16.5,-20.2000007629395,-24.7999992370605,-6.40000009536743,-22.5,-20.2999992370605,-22.7000007629395,-29.2000007629395,-2.09999990463257,-20.6000003814697,-21.2000007629395],[867,924,858,870,867,867,914,867,840,909,925,701,959,467,329,647,522,1215,726,525],[56,57,42,43,56,56,62,56,55,50,57,26,67,15,14,21,20,58,15,17],[0.0700000002980232,0.170000001788139,-0.100000001490116,-0.0900000035762787,0.0700000002980232,0.0700000002980232,0.0700000002980232,0.0700000002980232,-0.0299999993294477,0.159999996423721,0.170000001788139,-0.0399999991059303,-0.140000000596046,-0.319999992847443,-0.610000014305115,-0.0399999991059303,-0.0900000035762787,-0.0900000035762787,-0.150000005960464,-0.28999999165535],[2.48000001907349,1.04999995231628,5.92000007629395,5.42000007629395,2.48000001907349,2.48000001907349,3.0699999332428,2.48000001907349,6.55999994277954,27.3500003814697,17.8999996185303,9.64000034332275,64.5299987792969,8.01000022888184,5.90999984741211,9.07999992370606,8.25,31.6000003814697,2.51999998092651,9.80000019073486],[13.0299997329712,12.8000001907349,13.0500001907349,13.1099996566772,13.0299997329712,13.0299997329712,14.2200002670288,13.0299997329712,13.2600002288818,10.6899995803833,11.2399997711182,11.8100004196167,9.68000030517578,11.6700000762939,12.3199996948242,12.5699996948242,11.5500001907349,10.3699998855591,13.0699996948242,11.6000003814697],[-75.67823,-79.544567,-84.520703,-84.439332,-75.678344,-75.678538,-79.145697,-75.678461,-79.004109,-83.789999,-76.2083333333334,-91.4583333333335,-80.875,-111.458333333334,-109.875,-94.0416666666668,-103.625,-95.5416666666668,-93.1250000000002,-114.625],[44.964847,46.167576,42.117619,42.081252,44.964808,44.964782,43.061927,44.964792,43.19227,46.44503,46.4583333333333,48.9583333333333,37.5416666666667,54.625,49.375,49.625,56.2916666666667,34.4583333333333,46.625,52.875]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>ID<\/th>\n      <th>present<\/th>\n      <th>WC_alt<\/th>\n      <th>WC_bio1<\/th>\n      <th>WC_bio2<\/th>\n      <th>WC_bio4<\/th>\n      <th>WC_bio6<\/th>\n      <th>WC_bio12<\/th>\n      <th>WC_bio14<\/th>\n      <th>ER_climaticMoistureIndex<\/th>\n      <th>ER_tri<\/th>\n      <th>ER_topoWet<\/th>\n      <th>lon<\/th>\n      <th>lat<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"t","pageLength":20,"columnDefs":[{"className":"dt-right","targets":[0,1,2,3,4,5,6,7,8,9,10,11,12,13]}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[10,20,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-30e4409849e39179307f" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-30e4409849e39179307f">{"x":{"filter":"none","vertical":false,"data":[[1,2,3,4,5,6,7,8,9,10,1613,1614,1615,1616,1617,1618,1619,1620,1621,1622],[1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0],[101,193,327,336,101,101,179,101,97,235,274,431,593,614,1008,377,446,242,385,998],[6.19999980926514,4.69999980926514,8.39999961853027,8.39999961853027,6.19999980926514,6.19999980926514,8.39999961853027,6.19999980926514,8.80000019073486,4,3.29999995231628,1.39999997615814,11.1000003814697,1,3,2.29999995231628,-2.5,16.2999992370605,4,1.60000002384186],[9.89999961853027,10.3999996185303,11.1999998092651,11.1999998092651,9.89999961853027,9.89999961853027,9.30000019073486,9.89999961853027,9.39999961853027,10.8999996185303,11.6000003814697,12.3999996185303,13,12.1999998092651,14.6000003814697,9.60000038146973,11.1000003814697,13.1000003814697,13,14.8000001907349],[106.419998168945,107.349998474121,95.2200012207031,95.0100021362305,106.419998168945,106.419998168945,91.9300003051758,106.419998168945,92.879997253418,102.900001525879,112.01000213623,123.26000213623,78.6800003051758,115.550003051758,108.269996643066,128.570007324219,137.520004272461,79.879997253418,116.230003356934,97.9199981689453],[-14.6000003814697,-16.7999992370605,-9.89999961853027,-9.89999961853027,-14.6000003814697,-14.6000003814697,-8.5,-14.6000003814697,-8.19999980926514,-16.5,-20.2000007629395,-24.7999992370605,-6.40000009536743,-22.5,-20.2999992370605,-22.7000007629395,-29.2000007629395,-2.09999990463257,-20.6000003814697,-21.2000007629395],[867,924,858,870,867,867,914,867,840,909,925,701,959,467,329,647,522,1215,726,525],[56,57,42,43,56,56,62,56,55,50,57,26,67,15,14,21,20,58,15,17],[0.0700000002980232,0.170000001788139,-0.100000001490116,-0.0900000035762787,0.0700000002980232,0.0700000002980232,0.0700000002980232,0.0700000002980232,-0.0299999993294477,0.159999996423721,0.170000001788139,-0.0399999991059303,-0.140000000596046,-0.319999992847443,-0.610000014305115,-0.0399999991059303,-0.0900000035762787,-0.0900000035762787,-0.150000005960464,-0.28999999165535],[2.48000001907349,1.04999995231628,5.92000007629395,5.42000007629395,2.48000001907349,2.48000001907349,3.0699999332428,2.48000001907349,6.55999994277954,27.3500003814697,17.8999996185303,9.64000034332275,64.5299987792969,8.01000022888184,5.90999984741211,9.07999992370606,8.25,31.6000003814697,2.51999998092651,9.80000019073486],[13.0299997329712,12.8000001907349,13.0500001907349,13.1099996566772,13.0299997329712,13.0299997329712,14.2200002670288,13.0299997329712,13.2600002288818,10.6899995803833,11.2399997711182,11.8100004196167,9.68000030517578,11.6700000762939,12.3199996948242,12.5699996948242,11.5500001907349,10.3699998855591,13.0699996948242,11.6000003814697],[-75.67823,-79.544567,-84.520703,-84.439332,-75.678344,-75.678538,-79.145697,-75.678461,-79.004109,-83.789999,-76.2083333333334,-91.4583333333335,-80.875,-111.458333333334,-109.875,-94.0416666666668,-103.625,-95.5416666666668,-93.1250000000002,-114.625],[44.964847,46.167576,42.117619,42.081252,44.964808,44.964782,43.061927,44.964792,43.19227,46.44503,46.4583333333333,48.9583333333333,37.5416666666667,54.625,49.375,49.625,56.2916666666667,34.4583333333333,46.625,52.875]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>ID<\/th>\n      <th>present<\/th>\n      <th>WC_alt<\/th>\n      <th>WC_bio1<\/th>\n      <th>WC_bio2<\/th>\n      <th>WC_bio4<\/th>\n      <th>WC_bio6<\/th>\n      <th>WC_bio12<\/th>\n      <th>WC_bio14<\/th>\n      <th>ER_climaticMoistureIndex<\/th>\n      <th>ER_tri<\/th>\n      <th>ER_topoWet<\/th>\n      <th>lon<\/th>\n      <th>lat<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"t","pageLength":20,"columnDefs":[{"className":"dt-right","targets":[0,1,2,3,4,5,6,7,8,9,10,11,12,13]}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[10,20,25,50,100]}},"evals":[],"jsHooks":[]}</script>
 </div>
 <h2 id="environmental-variable-term-plots">9. Environmental variable term plots</h2>
 <ul>
@@ -2039,7 +2043,13 @@ show
 show
 </summary>
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># GGally::ggpairs(</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>dir_data</span>    <span class='op'>&lt;-</span> <span class='fu'>here</span><span class='op'>(</span><span class='st'>"data/sdm"</span><span class='op'>)</span>
+<span class='va'>pts_env_csv</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/file.path.html'>file.path</a></span><span class='op'>(</span><span class='va'>dir_data</span>, <span class='st'>"pts_env.csv"</span><span class='op'>)</span>
+
+<span class='va'>pts_env</span> <span class='op'>&lt;-</span> <span class='fu'>read_csv</span><span class='op'>(</span><span class='va'>pts_env_csv</span><span class='op'>)</span>
+<span class='co'>#nrow(pts_env)</span>
+
+<span class='co'># GGally::ggpairs(</span>
 <span class='co'>#   select(pts_env, -ID),</span>
 <span class='co'>#   aes(color = factor(present)))</span>
 </code></pre>
@@ -2171,57 +2181,10 @@ show
                       <span class='fu'>s</span><span class='op'>(</span><span class='va'>lon</span><span class='op'>)</span> <span class='op'>+</span> 
                       <span class='fu'>s</span><span class='op'>(</span><span class='va'>lat</span><span class='op'>)</span>, 
   family <span class='op'>=</span> <span class='va'>binomial</span>, data <span class='op'>=</span> <span class='va'>d</span><span class='op'>)</span>
-<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>mod</span><span class='op'>)</span>
+<span class='co'>#summary(mod)</span>
 </code></pre>
 </div>
 </details>
-<pre><code>
-Family: binomial 
-Link function: logit 
-
-Formula:
-present ~ s(WC_alt) + s(WC_bio1) + s(WC_bio2) + s(WC_bio4) + 
-    s(WC_bio6) + s(WC_bio12) + s(WC_bio14) + s(ER_climaticMoistureIndex) + 
-    s(ER_tri) + s(ER_topoWet) + s(lon) + s(lat)
-
-Parametric coefficients:
-            Estimate Std. Error z value Pr(&gt;|z|)  
-(Intercept)  -12.407      6.788  -1.828   0.0676 .
----
-Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
-
-Approximate significance of smooth terms:
-                              edf Ref.df Chi.sq              p-value
-s(WC_alt)                   3.920  4.687  5.396             0.318277
-s(WC_bio1)                  4.876  6.217  8.535             0.181948
-s(WC_bio2)                  4.952  5.825 10.227             0.100291
-s(WC_bio4)                  3.454  4.615  6.972             0.187423
-s(WC_bio6)                  7.611  8.347 13.266             0.108785
-s(WC_bio12)                 8.984  8.999 52.704 &lt; 0.0000000000000002
-s(WC_bio14)                 5.844  6.834 13.689             0.042906
-s(ER_climaticMoistureIndex) 5.699  6.768 16.897             0.017936
-s(ER_tri)                   7.933  8.013 23.415             0.002864
-s(ER_topoWet)               5.576  6.694 13.403             0.054165
-s(lon)                      8.819  8.963 44.233 &lt; 0.0000000000000002
-s(lat)                      8.997  8.999 27.985             0.000958
-                               
-s(WC_alt)                      
-s(WC_bio1)                     
-s(WC_bio2)                     
-s(WC_bio4)                     
-s(WC_bio6)                     
-s(WC_bio12)                 ***
-s(WC_bio14)                 *  
-s(ER_climaticMoistureIndex) *  
-s(ER_tri)                   ** 
-s(ER_topoWet)               .  
-s(lon)                      ***
-s(lat)                      ***
----
-Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
-
-R-sq.(adj) =  0.625   Deviance explained = 57.4%
-UBRE = -0.31384  Scale est. = 1         n = 1618</code></pre>
 </div>
 <h3 id="gam-term-plots">15. GAM Term Plots</h3>
 <div class="layout-chunk" data-layout="l-body">
@@ -2313,8 +2276,7 @@ show
 show
 </summary>
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># predict</span>
-<span class='va'>y_predict</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/predict.html'>predict</a></span><span class='op'>(</span><span class='va'>env_stack</span>, <span class='va'>mod</span><span class='op'>)</span> <span class='co'>#, ext=ext, progress='')</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>y_predict</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/predict.html'>predict</a></span><span class='op'>(</span><span class='va'>env_stack</span>, <span class='va'>mod</span><span class='op'>)</span> <span class='co'>#, ext=ext, progress='')</span>
 
 <span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>y_predict</span>, main<span class='op'>=</span><span class='st'>'Maxent, raw prediction'</span><span class='op'>)</span>
 <span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='va'>wrld_simpl</span>, package<span class='op'>=</span><span class='st'>"maptools"</span><span class='op'>)</span>
@@ -2324,7 +2286,486 @@ show
 </details>
 <p><img src="sdm_files/figure-html5/unnamed-chunk-25-1.png" width="624" /></p>
 </div>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<h1 id="lab-3---decision-trees">Lab 3 - Decision Trees</h1>
+<h2 id="decision-trees">Decision Trees</h2>
+<ul>
+<li>set up file paths</li>
+<li>read in <em>Necturus maculosus</em> data</li>
+<li>clean the data
+<ul>
+<li>remove unnecessary columns</li>
+<li>change the presence/absence data to a factor</li>
+<li>drop rows with NA values</li>
+</ul></li>
+<li>summarize the data using <code>skim()</code></li>
+</ul>
+<div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>
+show
+</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>dir_data</span>    <span class='op'>&lt;-</span> <span class='fu'>here</span><span class='op'>(</span><span class='st'>"data/sdm"</span><span class='op'>)</span>
+<span class='va'>pts_env_csv</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/file.path.html'>file.path</a></span><span class='op'>(</span><span class='va'>dir_data</span>, <span class='st'>"pts_env.csv"</span><span class='op'>)</span>
+
+<span class='va'>pts_env</span> <span class='op'>&lt;-</span> <span class='fu'>read_csv</span><span class='op'>(</span><span class='va'>pts_env_csv</span><span class='op'>)</span>
+
+<span class='va'>d</span> <span class='op'>&lt;-</span> <span class='va'>pts_env</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>select</span><span class='op'>(</span><span class='op'>-</span><span class='va'>ID</span><span class='op'>)</span> <span class='op'>%&gt;%</span>                   <span class='co'># not used as a predictor x</span>
+  <span class='fu'>mutate</span><span class='op'>(</span>present <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span><span class='op'>(</span><span class='va'>present</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span>  <span class='co'># categorical response</span>
+  <span class='fu'><a href='https://rdrr.io/r/stats/na.fail.html'>na.omit</a></span><span class='op'>(</span><span class='op'>)</span>                         <span class='co'># drop rows with NA</span>
+
+<span class='fu'>skim</span><span class='op'>(</span><span class='va'>d</span><span class='op'>)</span>
+</code></pre>
+</div>
+</details>
+<table>
+<caption><span id="tab:unnamed-chunk-26">Table 1: </span>Data summary</caption>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Name</td>
+<td style="text-align: left;">d</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Number of rows</td>
+<td style="text-align: left;">1618</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Number of columns</td>
+<td style="text-align: left;">13</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">_______________________</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Column type frequency:</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">factor</td>
+<td style="text-align: left;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">numeric</td>
+<td style="text-align: left;">12</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">________________________</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Group variables</td>
+<td style="text-align: left;">None</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: factor</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">skim_variable</th>
+<th style="text-align: right;">n_missing</th>
+<th style="text-align: right;">complete_rate</th>
+<th style="text-align: left;">ordered</th>
+<th style="text-align: right;">n_unique</th>
+<th style="text-align: left;">top_counts</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">present</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">0: 811, 1: 807</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: numeric</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">skim_variable</th>
+<th style="text-align: right;">n_missing</th>
+<th style="text-align: right;">complete_rate</th>
+<th style="text-align: right;">mean</th>
+<th style="text-align: right;">sd</th>
+<th style="text-align: right;">p0</th>
+<th style="text-align: right;">p25</th>
+<th style="text-align: right;">p50</th>
+<th style="text-align: right;">p75</th>
+<th style="text-align: right;">p100</th>
+<th style="text-align: left;">hist</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">WC_alt</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">302.39</td>
+<td style="text-align: right;">254.66</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">170.00</td>
+<td style="text-align: right;">241.00</td>
+<td style="text-align: right;">365.75</td>
+<td style="text-align: right;">3002.00</td>
+<td style="text-align: left;">▇▁▁▁▁</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">WC_bio1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">6.95</td>
+<td style="text-align: right;">5.06</td>
+<td style="text-align: right;">-8.80</td>
+<td style="text-align: right;">4.30</td>
+<td style="text-align: right;">6.90</td>
+<td style="text-align: right;">9.90</td>
+<td style="text-align: right;">19.40</td>
+<td style="text-align: left;">▁▃▇▆▂</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">WC_bio2</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">11.57</td>
+<td style="text-align: right;">1.46</td>
+<td style="text-align: right;">8.40</td>
+<td style="text-align: right;">10.40</td>
+<td style="text-align: right;">11.60</td>
+<td style="text-align: right;">12.60</td>
+<td style="text-align: right;">16.80</td>
+<td style="text-align: left;">▅▇▇▂▁</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">WC_bio4</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">102.44</td>
+<td style="text-align: right;">17.22</td>
+<td style="text-align: right;">61.04</td>
+<td style="text-align: right;">91.03</td>
+<td style="text-align: right;">98.81</td>
+<td style="text-align: right;">110.77</td>
+<td style="text-align: right;">149.29</td>
+<td style="text-align: left;">▂▇▇▃▂</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">WC_bio6</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">-13.78</td>
+<td style="text-align: right;">7.72</td>
+<td style="text-align: right;">-34.40</td>
+<td style="text-align: right;">-17.90</td>
+<td style="text-align: right;">-13.10</td>
+<td style="text-align: right;">-8.40</td>
+<td style="text-align: right;">3.70</td>
+<td style="text-align: left;">▂▃▇▇▂</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">WC_bio12</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">859.50</td>
+<td style="text-align: right;">260.41</td>
+<td style="text-align: right;">294.00</td>
+<td style="text-align: right;">713.75</td>
+<td style="text-align: right;">868.00</td>
+<td style="text-align: right;">996.75</td>
+<td style="text-align: right;">1915.00</td>
+<td style="text-align: left;">▃▇▅▁▁</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">WC_bio14</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">44.47</td>
+<td style="text-align: right;">22.43</td>
+<td style="text-align: right;">6.00</td>
+<td style="text-align: right;">21.00</td>
+<td style="text-align: right;">48.50</td>
+<td style="text-align: right;">60.00</td>
+<td style="text-align: right;">133.00</td>
+<td style="text-align: left;">▇▇▆▁▁</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ER_climaticMoistureIndex</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">-0.06</td>
+<td style="text-align: right;">0.21</td>
+<td style="text-align: right;">-0.70</td>
+<td style="text-align: right;">-0.14</td>
+<td style="text-align: right;">-0.03</td>
+<td style="text-align: right;">0.08</td>
+<td style="text-align: right;">0.45</td>
+<td style="text-align: left;">▂▂▇▇▁</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">ER_tri</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">10.69</td>
+<td style="text-align: right;">13.84</td>
+<td style="text-align: right;">0.09</td>
+<td style="text-align: right;">3.12</td>
+<td style="text-align: right;">6.21</td>
+<td style="text-align: right;">12.35</td>
+<td style="text-align: right;">185.60</td>
+<td style="text-align: left;">▇▁▁▁▁</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ER_topoWet</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">12.42</td>
+<td style="text-align: right;">1.23</td>
+<td style="text-align: right;">7.27</td>
+<td style="text-align: right;">11.65</td>
+<td style="text-align: right;">12.57</td>
+<td style="text-align: right;">13.23</td>
+<td style="text-align: right;">15.18</td>
+<td style="text-align: left;">▁▁▅▇▂</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">lon</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">-86.88</td>
+<td style="text-align: right;">10.28</td>
+<td style="text-align: right;">-120.96</td>
+<td style="text-align: right;">-94.21</td>
+<td style="text-align: right;">-84.46</td>
+<td style="text-align: right;">-78.88</td>
+<td style="text-align: right;">-69.76</td>
+<td style="text-align: left;">▁▂▅▇▇</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">lat</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">44.17</td>
+<td style="text-align: right;">5.62</td>
+<td style="text-align: right;">30.71</td>
+<td style="text-align: right;">41.12</td>
+<td style="text-align: right;">43.96</td>
+<td style="text-align: right;">46.59</td>
+<td style="text-align: right;">60.00</td>
+<td style="text-align: left;">▂▅▇▂▁</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="split-data-into-training-and-test-data-sets">Split data into training and test data sets</h2>
+<ul>
+<li>use 80% of the data to create a training data set</li>
+<li>use 20% of the data to create a testing data set</li>
+<li>view how many presence and absence data points are in each set
+<ul>
+<li>present: 1</li>
+<li>absent: 0
+<div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>
+show
+</summary>
+<div class="sourceCode">
+<pre class="sourceCode r">
+<code class="sourceCode r"><span class="va">d_split</span> <span class="op">&lt;-</span> <span class="fu">rsample</span><span class="fu">::</span><span class="fu"><a href='https://rsample.tidymodels.org/reference/initial_split.html'>initial_split</a></span><span class="op">(</span><span class="va">d</span>, prop <span class="op">=</span> <span class="fl">0.8</span>, strata <span class="op">=</span> <span class="st">“present”</span><span class="op">)</span> <span class="va">d_train</span> <span class="op">&lt;-</span> <span class="fu">rsample</span><span class="fu">::</span><span class="fu"><a href='https://rsample.tidymodels.org/reference/initial_split.html'>training</a></span><span class="op">(</span><span class="va">d_split</span><span class="op">)</span></li>
+</ul></li>
+</ul>
+<span class="fu"><a href='https://rdrr.io/r/base/table.html'>table</a></span><span class="op">(</span><span class="va">d</span><span class="op">$</span><span class="va">present</span><span class="op">)</span> </code>
+</pre>
+</div>
+</details>
+<pre><code>
+  0   1 
+811 807 </code></pre>
+<details>
+<summary>
+show
+</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span><span class='op'>(</span><span class='va'>d_train</span><span class='op'>$</span><span class='va'>present</span><span class='op'>)</span>
+</code></pre>
+</div>
+</details>
+<pre><code>
+  0   1 
+648 645 </code></pre>
+</div>
+<h2 id="partition-depth-1">22. Partition, depth = 1</h2>
+<ul>
+<li>run decision stump model with one split and two nodes</li>
+<li>plot the decision tree
+<div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>
+show
+</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>mod</span> <span class='op'>&lt;-</span> <span class='fu'>rpart</span><span class='op'>(</span><span class='va'>present</span> <span class='op'>~</span> <span class='va'>.</span>, data <span class='op'>=</span> <span class='va'>d_train</span>, 
+           control <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>cp <span class='op'>=</span> <span class='fl'>0</span>, minbucket <span class='op'>=</span> <span class='fl'>5</span>, maxdepth <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span><span class='op'>)</span>
+<span class='va'>mod</span>
+</code></pre>
+</div></li>
+</ul>
+</details>
+<pre><code>n= 1293 
+
+node), split, n, loss, yval, (yprob)
+      * denotes terminal node
+
+1) root 1293 645 0 (0.50116009 0.49883991)  
+  2) WC_bio12&lt; 744.5 346  25 0 (0.92774566 0.07225434) *
+  3) WC_bio12&gt;=744.5 947 327 1 (0.34530095 0.65469905) *</code></pre>
+<details>
+<summary>
+show
+</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span><span class='op'>(</span>mar <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='fl'>1</span>, <span class='fl'>1</span>, <span class='fl'>1</span><span class='op'>)</span><span class='op'>)</span>
+<span class='fu'>rpart.plot</span><span class='op'>(</span><span class='va'>mod</span><span class='op'>)</span>
+</code></pre>
+</div>
+</details>
+<p><img src="sdm_files/figure-html5/unnamed-chunk-28-1.png" width="624" /></p>
+</div>
+<h2 id="partition-depth-default">23. Partition, depth = default</h2>
+<ul>
+<li>run decision tree model with default settings</li>
+<li>plot the decision tree</li>
+<li>plot the complexity parameter using <code>plotcp()</code></li>
+<li>display the cross validation results
+<div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>
+show
+</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>mod</span> <span class='op'>&lt;-</span> <span class='fu'>rpart</span><span class='op'>(</span><span class='va'>present</span> <span class='op'>~</span> <span class='va'>.</span>, data <span class='op'>=</span> <span class='va'>d_train</span><span class='op'>)</span>
+<span class='va'>mod</span>
+</code></pre>
+</div></li>
+</ul>
+</details>
+<pre><code>n= 1293 
+
+node), split, n, loss, yval, (yprob)
+      * denotes terminal node
+
+  1) root 1293 645 0 (0.50116009 0.49883991)  
+    2) WC_bio12&lt; 744.5 346  25 0 (0.92774566 0.07225434) *
+    3) WC_bio12&gt;=744.5 947 327 1 (0.34530095 0.65469905)  
+      6) WC_bio2&gt;=11.25 494 227 0 (0.54048583 0.45951417)  
+       12) WC_bio1&gt;=15.7 52   2 0 (0.96153846 0.03846154) *
+       13) WC_bio1&lt; 15.7 442 217 1 (0.49095023 0.50904977)  
+         26) lat&gt;=46.33312 40   2 0 (0.95000000 0.05000000) *
+         27) lat&lt; 46.33312 402 179 1 (0.44527363 0.55472637)  
+           54) WC_bio1&gt;=9.35 249 112 0 (0.55020080 0.44979920)  
+            108) lon&gt;=-80.7238 32   2 0 (0.93750000 0.06250000) *
+            109) lon&lt; -80.7238 217 107 1 (0.49308756 0.50691244)  
+              218) lon&lt; -88.0639 96  34 0 (0.64583333 0.35416667)  
+                436) lon&gt;=-94.63392 53   6 0 (0.88679245 0.11320755) *
+                437) lon&lt; -94.63392 43  15 1 (0.34883721 0.65116279)  
+                  874) lat&gt;=39.00652 8   0 0 (1.00000000 0.00000000) *
+                  875) lat&lt; 39.00652 35   7 1 (0.20000000 0.80000000) *
+              219) lon&gt;=-88.0639 121  45 1 (0.37190083 0.62809917)  
+                438) ER_climaticMoistureIndex&gt;=0.115 14   2 0 (0.85714286 0.14285714) *
+                439) ER_climaticMoistureIndex&lt; 0.115 107  33 1 (0.30841121 0.69158879) *
+           55) WC_bio1&lt; 9.35 153  42 1 (0.27450980 0.72549020)  
+            110) lon&lt; -89.85605 29  11 0 (0.62068966 0.37931034) *
+            111) lon&gt;=-89.85605 124  24 1 (0.19354839 0.80645161) *
+      7) WC_bio2&lt; 11.25 453  60 1 (0.13245033 0.86754967)  
+       14) WC_bio6&lt; -17.5 14   2 0 (0.85714286 0.14285714) *
+       15) WC_bio6&gt;=-17.5 439  48 1 (0.10933941 0.89066059) *</code></pre>
+<details>
+<summary>
+show
+</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>rpart.plot</span><span class='op'>(</span><span class='va'>mod</span><span class='op'>)</span>
+</code></pre>
+</div>
+</details>
+<p><img src="sdm_files/figure-html5/unnamed-chunk-29-1.png" width="624" /></p>
+</div>
+<h2 id="rpart-complexity-parameter">24. <code>Rpart</code> complexity parameter</h2>
+<div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>
+show
+</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>plotcp</span><span class='op'>(</span><span class='va'>mod</span><span class='op'>)</span>
+</code></pre>
+</div>
+</details>
+<img src="sdm_files/figure-html5/unnamed-chunk-30-1.png" width="624" />
+<details>
+<summary>
+show
+</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>mod</span><span class='op'>$</span><span class='va'>cptable</span>
+</code></pre>
+</div>
+</details>
+<pre><code>          CP nsplit rel error    xerror       xstd
+1 0.45426357      0 1.0000000 1.0775194 0.02779611
+2 0.06201550      1 0.5457364 0.5596899 0.02500936
+3 0.03410853      2 0.4837209 0.5069767 0.02423279
+4 0.02403101      5 0.3767442 0.4325581 0.02293307
+5 0.02015504      7 0.3286822 0.4077519 0.02244076
+6 0.01550388      8 0.3085271 0.3565891 0.02131923
+7 0.01240310     10 0.2775194 0.3426357 0.02098624
+8 0.01085271     11 0.2651163 0.3441860 0.02102385
+9 0.01000000     12 0.2542636 0.3457364 0.02106131</code></pre>
+</div>
+<h2 id="question-based-on-the-complexity-plot-threshold-what-size-of-tree-is-recommended">25. <strong>Question:</strong> Based on the complexity plot threshold, what size of tree is recommended?</h2>
+<p>Approximately 10 branches are recommended to decrease the relative error without making the model too complicated.</p>
+<h2 id="feature-interpretation">Feature interpretation</h2>
+<ul>
+<li>plot caret cross validation results
+<ul>
+<li>as model complexity increases, its accuracy decreases</li>
+<li>in other words, it’s detrimental for a model to become too complicated
+<div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>
+show
+</summary>
+<div class="sourceCode">
+<pre class="sourceCode r">
+<code class="sourceCode r"><span class="va">mdl_caret</span> <span class="op">&lt;-</span> <span class="fu">train</span><span class="op">(</span> <span class="va">present</span> <span class="op">~</span> <span class="va">.</span>, data <span class="op">=</span> <span class="va">d_train</span>, method <span class="op">=</span> <span class="st">“rpart”</span>, trControl <span class="op">=</span> <span class="fu">trainControl</span><span class="op">(</span>method <span class="op">=</span> <span class="st">“cv”</span>, number <span class="op">=</span> <span class="fl">10</span><span class="op">)</span>, tuneLength <span class="op">=</span> <span class="fl">20</span><span class="op">)</span></li>
+</ul></li>
+</ul>
+<span class="fu">ggplot</span><span class="op">(</span><span class="va">mdl_caret</span><span class="op">)</span> <span class="op">+</span> <span class="fu">theme_classic</span><span class="op">(</span><span class="op">)</span> </code>
+</pre>
+</div>
+</details>
+<p><img src="sdm_files/figure-html5/unnamed-chunk-31-1.png" width="624" /></p>
+</div>
+<h2 id="examine-the-importance-of-each-predictor">28. Examine the importance of each predictor</h2>
+<div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>
+show
+</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>vip</span><span class='op'>(</span><span class='va'>mdl_caret</span>, num_features <span class='op'>=</span> <span class='fl'>40</span>, bar <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>
+</code></pre>
+</div>
+</details>
+<p><img src="sdm_files/figure-html5/unnamed-chunk-32-1.png" width="624" /></p>
+</div>
+<h2 id="question-what-are-the-top-3-most-important-variables-of-your-model">27. <strong>Question:</strong> what are the top 3 most important variables of your model?</h2>
+<p>In my model, the top 3 most important variables are: - latitude - longitude - and annual mean temperatire (<code>WC_bio1</code>).</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
