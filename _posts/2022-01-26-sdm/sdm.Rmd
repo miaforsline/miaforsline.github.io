@@ -450,16 +450,16 @@ d <- pts_env %>%
   tidyr::drop_na() # drop the rows with NA values
 ```
 
-
 ## 11. Linear Model 
 - dependent variable Y: presence/absence, aka 1/0
 - independent variables X: everything else in the dataframe, aka the environmental layers 
+
 ```{r}
 mod <- lm(present ~ ., data = d)
 ```
 
-
 Note: a linear model is ineffective because it predicts values outside the 0 - 1 range
+
 ```{r}
 y_predict <- predict(mod, d, type="response")
 y_true    <- d$present
@@ -755,6 +755,7 @@ env_stack_v <- usdm::exclude(env_stack, v)
 
 pairs(env_stack_v)
 ```
+
 ## 34. Fit a maximum entropy model using `maxent()`
 - plot variable contributions per predictor
 ```{r}
@@ -812,6 +813,7 @@ e <- dismo::evaluate(
   x     = env_stack)
 e
 ```
+
 ## Plot the ROC Curve and the Area Under the Curve (AUC) 
 ```{r}
 plot(e, 'ROC')
