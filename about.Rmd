@@ -11,7 +11,17 @@ output:
 
 As a Jōdo Shinshū Buddhist, I was raised to respect and be curious about the natural world. My passion for the environment led me to earn a B.A. of Biology (with an Environmental Science emphasis) at Occidental College in Los Angeles, CA, where I graduated in 2021.
 
-# Urban Ecology Research
+# Water Conservation in Southern California 
+
+As part of the [Santa Margarita Water District's](https://smwd.com/314/Save-Water) Water Use Efficiency (WUE) team, I lead data analysis and data organization for the District's various water conservation programs. Using tools such as R, RStudio, and ArcGIS Insights:
+
+- I identify residential customers using more water than they are allotted, based on the District's budget-based tiered rate structure. After identifying over-budget customers, I support the WUE field team with virtual and in-person outreach efforts such as emails, phone calls, and community events.
+- I lead and support many of the District's state-mandated environmental regulatory compliance reports such as the electronic Annual Report and SAFER Clearinghouse. 
+- I assist with special internal projects such as budget estimates and database updates
+- I offer data support for external consulting projects such as aerial imagery analysis and Cost of Service Rate Studies 
+- I present at conferences such as CalWEP's Peer to Peer 
+
+# Urban Ecology Research: Salamanders and the Urban Heat Island in Los Angeles
 
 For three years at Occidental, I conducted [computational biology research](https://compbio.oxycreates.org/) to investigate how the urban heat island impacts local salamanders. This research culminated in a senior [Biology Honors Thesis](https://drive.google.com/file/d/1bvZ7s-Kp3Kz1PhLf399Tqh9A_eG1TvEj/view?usp=sharing), in which I explored how urbanization:
 
@@ -27,15 +37,10 @@ I learned and executed computational methods in R and Julia such as:
 -   utilizing AIC/AICc scores and AIC weights to identify the best model among multiple candidate models
 -   building isolation-by-resistance models, based on [circuit theory](https://link.springer.com/content/pdf/10.1007%2Fs10980-017-0548-1.pdf), to calculate resistance distance and quantify landscape connectivity of habitat patches and help predict wildlife mobility
 
-# Food Sustainability 
+# Food Sustainability at Occidental College
 
 In addition to my biology-focused interest in urban ecology, I am passionate about urban food systems, food sustainability, and food equity. For three years, I worked as a Sustainable Procurement Analysis Intern in [Occidental College's Campus Dining department](https://www.oxy.edu/student-life/campus-dining/sustainability/real-food-challenge). Occidental participated in the [Real Food Challenge](https://www.realfoodchallenge.org/), a national campaign to encourage college campuses to shift their purchasing towards local, organic, fair, and/or humane food sources. To reach our goal of spending 30% of Occidental College's food budget on sustainable food, I led a intern team of 3-5 students to complete 5 bi-annual budget analyses. We reached 29% sustainable food by 2019 and were on track to reach our 2020 goal of 30% before the COVID-19 pandemic. 
 
-# Future
-
-To continue to pursue my environmental and computational interests, I am currently a [Master of Environmental Data Science (MEDS)](https://bren.ucsb.edu/masters-programs/master-environmental-data-science/academics-meds) graduate student at the Bren School of Environmental Science and Management at UC Santa Barbara. I hope to continue working in urban environmental spaces and utilizing data analysis tools to address issues such as food sustainability.
-
-![](brenlogo.png)
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
